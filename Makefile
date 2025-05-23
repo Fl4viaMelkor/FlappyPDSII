@@ -9,7 +9,8 @@ INC_PATH	= include/
 OBJ_DIRS	= obj/
 
 CC			= g++
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -std=c++11 -Wall -g
+LIBS		+= $(shell pkg-config --libs --cflags allegro-5 allegro_main-5 allegro_audio-5 allegro_image-5 allegro_font-5 allegro_primitives-5 allegro_acodec-5 allegro_ttf-5)
 CFLAGS		+= -I $(INC_PATH)
 
 RM			= rm -rf
@@ -31,7 +32,7 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.cpp
 
 $(NAME): $(OBJ_DIRS) $(OBJ)
 	@printf "$(COLOR_G)Making $(NAME)\n$(COLOR_W)"
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBS)
 	@printf "$(COLOR_G)Done\n$(COLOR_W)"
 
 clean :
