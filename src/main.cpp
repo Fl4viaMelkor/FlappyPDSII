@@ -1,6 +1,17 @@
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_font.h>
 
+/*
+Comentários Guilherme Asafe: (pra quem está mexendo no main)
+  Criei um método para o objeto cano. Ele apenas mostar um retângulo na tela.
+  Pra testar se está funcionando coloque: 
+
+  Cano mySquare(600.0, 635 , -1 ,200, al_map_rgb(255, 0, 0), 1.0f); // cor vermelha
+  mySquare.draw(); 
+
+*/
+
+
 int main (){
 
   al_init();
