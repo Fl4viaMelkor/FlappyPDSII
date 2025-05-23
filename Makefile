@@ -1,6 +1,6 @@
 NAME		= flappy_bird
 
-FILES		= main.cpp player.cpp objeto_cano.cpp 
+FILES		= main.cpp player.cpp objeto_cano.cpp tela_jogo.cpp
 
 SRC_PATH	= src/
 OBJ_PATH	= obj/

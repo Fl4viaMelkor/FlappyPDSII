@@ -4,6 +4,9 @@
 #include <allegro5/allegro5.h>
 
 class Player {
+private:
+    bool dead;
+    
 public:
     float x, y;
     float speed;
@@ -13,6 +16,10 @@ public:
 
     void update(const ALLEGRO_KEYBOARD_STATE& key_state);
     void draw() const;
+
+    void setDead(bool d);
+    bool isDead() const;
+
 };
 
 #endif

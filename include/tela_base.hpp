@@ -8,7 +8,7 @@
 
 class TelaBase {
 public:
-    virtual ~TelaBase() {} //
+    virtual ~TelaBase() {} //Destrutor.
 
     // update (posição, lógica, etc)
     virtual void update() = 0;

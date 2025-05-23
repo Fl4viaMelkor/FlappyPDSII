@@ -1,18 +1,18 @@
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/keyboard.h>
-#include "player.hpp"
-#include "objeto_cano.hpp"
+
+#include "tela_jogo.hpp"
 
 /*
 Comentários Guilherme Asafe: (pra quem está mexendo no main)
   Criei um método para o objeto cano. Ele apenas mostar um retângulo na tela.
   Pra testar se está funcionando coloque: 
 
-  Cano mySquare(600.0, 635 , -1 ,200, al_map_rgb(255, 0, 0), 1.0f); // cor vermelha
-  mySquare.draw(); 
+  
 
-  Flávia: Eu coloquei no pass, depois checa pra ver se é isso mesmo.
+  Flávia: Eu coloquei no pass, dentro da classe tela jogo, depois checa pra ver se é isso mesmo.
+  Caso queira alterar algo no cano, não esqueça de mexer no tela_jogo ou coloque um aviso lá pra eu ou alguém mexer
 */
 
 
@@ -31,8 +31,9 @@ int main() {
     al_register_event_source(queue, al_get_display_event_source(display));
     al_register_event_source(queue, al_get_timer_event_source(timer));
 
-    Player player(400, 300, 4.0f, 32, 32);
-    Cano mySquare(600.0, 635 , -1 ,200, al_map_rgb(255, 0, 0), 1.0f); // cor vermelha
+    //Player player(400, 300, 4.0f, 32, 32);
+    //Cano mySquare(600.0, 635 , -1 ,200, al_map_rgb(255, 0, 0), 1.0f); // cor vermelha
+    TelaBase* telaAtual = new TelaJogo();
 
     bool running = true;
     ALLEGRO_EVENT event;
@@ -45,23 +46,27 @@ int main() {
         if (event.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
             running = false;
         } else if (event.type == ALLEGRO_EVENT_TIMER) {
-            al_get_keyboard_state(&key_state);
-            player.update(key_state);
+          telaAtual->update();
 
+          al_clear_to_color(al_map_rgb(0, 0, 0));
 
-            //Tudo que for ser desenhado vem aqui antes
-            al_clear_to_color(al_map_rgb(0, 0, 0));
-            player.draw();
-            mySquare.draw();
+          //Desenho de telas
+          telaAtual->draw();
+          al_flip_display();
+
+          // Verifica se o jogo acabou, tentar outro método depois*
+          TelaJogo* jogo = dynamic_cast<TelaJogo*>(telaAtual);
+          if (jogo && jogo->acabouJogo()) {
+          //
+          running = false; // só para exemplo 
+          }
+        }else{
+            telaAtual->step(event);
             
-            //
-            al_flip_display();
-
-            
-            
-
-        }
+          }
     }
+
+delete telaAtual;
 
     al_destroy_display(display);
     al_destroy_event_queue(queue);
