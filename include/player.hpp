@@ -1,20 +1,18 @@
-// player.hpp
-#ifndef PLAYER_H
-#define PLAYER_H
+#ifndef PLAYER_HPP
+#define PLAYER_HPP
 
-#include <allegro5/allegro.h>
+#include <allegro5/allegro5.h>
 
 class Player {
-private:
+public:
     float x, y;
     float speed;
-    ALLEGRO_COLOR color;
+    int width, height;
 
-public:
-    Player(float startX, float startY);
+    Player(float x, float y, float speed, int width, int height);
 
-    void move(float dx, float dy);
-    void draw();
+    void update(const ALLEGRO_KEYBOARD_STATE& key_state);
+    void draw() const;
 };
 
 #endif
