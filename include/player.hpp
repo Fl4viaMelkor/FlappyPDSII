@@ -6,6 +6,10 @@
 class Player {
 private:
     bool dead;
+    float velY;    // Velocidade vertical
+    float gravidade; // 
+    bool noChao;   // 
+
     
 public:
     float x, y;

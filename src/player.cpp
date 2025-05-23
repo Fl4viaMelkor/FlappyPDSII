@@ -5,13 +5,24 @@
 #include <allegro5/keyboard.h>
 
 Player::Player(float x, float y, float speed, int width, int height)
-    : x(x), y(y), speed(speed), width(width), height(height),dead(false) {}
+    : x(x), y(y), speed(speed), width(width), height(height),dead(false),velY(0), gravidade(0.5f) {}
 
 void Player::update(const ALLEGRO_KEYBOARD_STATE& key_state) {
     if (al_key_down(&key_state, ALLEGRO_KEY_UP))    y -= speed;
     if (al_key_down(&key_state, ALLEGRO_KEY_DOWN))  y += speed;
-    if (al_key_down(&key_state, ALLEGRO_KEY_LEFT))  x -= speed;
-    if (al_key_down(&key_state, ALLEGRO_KEY_RIGHT)) x += speed;
+    
+    
+    // Pulo
+    if (al_key_down(&key_state, ALLEGRO_KEY_SPACE)) {
+        velY = -5.0f;  // força do pulo
+    
+    }
+
+    // Gravidade
+    velY += gravidade;
+    y += velY;
+
+    //Pensar no cooldown do pulo **
 }
 
 void Player::draw() const {

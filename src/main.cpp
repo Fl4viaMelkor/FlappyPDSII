@@ -31,8 +31,6 @@ int main() {
     al_register_event_source(queue, al_get_display_event_source(display));
     al_register_event_source(queue, al_get_timer_event_source(timer));
 
-    //Player player(400, 300, 4.0f, 32, 32);
-    //Cano mySquare(600.0, 635 , -1 ,200, al_map_rgb(255, 0, 0), 1.0f); // cor vermelha
     TelaBase* telaAtual = new TelaJogo();
 
     bool running = true;
