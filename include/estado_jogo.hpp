@@ -10,11 +10,11 @@
 
 class Estado_jogo{
     private:
-        regras r;
-        Pontuador *p;
+        regras regras_gerais; // Regras gerais, oferecem um caso padrão para aspectos como velocidade e aceleração
+        Pontuador *p; // Responsável por oferecer e calcular a pontuação
         jogador *j;
     public:
-          Estado_jogo(regras r, Pontuador p);
+          Estado_jogo(regras regras_gerais, Pontuador p);
           Estado_jogo(float g, float velY, float velX, Pontuador *p);
 };
 

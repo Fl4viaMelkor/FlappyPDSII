@@ -8,7 +8,7 @@
 // Regras gerais do jogo devem ser implementadas nesse arquivo.
 // O jogo possuirá suas regras padrões e cada personagem terá a sua. Desta forma, é possível implementar elementos com funcionamentos diferentes
 struct regras{
-    float gravidade;
+    float gravidade; // Gravidade do jogador
     float velY_delta;
     float velX_delta;
 };
