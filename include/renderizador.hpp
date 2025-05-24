@@ -10,7 +10,7 @@
 
 class Renderizador {
     public:
-        void renderizar(posicao p) = 0;
+        virtual void renderizar(posicao p) = 0;
 };
 
 
