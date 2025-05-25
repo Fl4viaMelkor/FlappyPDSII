@@ -5,13 +5,12 @@
 #ifndef INFO_COLISAO_HPP
 #define INFO_COLISAO_HPP
 
-#include "hitbox.hpp"
 
 // Estrutura contendo informações detalhadas da colisão
 class CollisionInfo {
     public:
         // Construtor básico
-        CollisionInfo(Colidivel a);
+        CollisionInfo();
 };
 
 #endif //INFO_COLISAO_HPP
