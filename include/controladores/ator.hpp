@@ -14,8 +14,10 @@ class Elemento {
         Controlador *controller;
         Desenho grafico;
     public:
-        Elemento(const Controlador *control);
-        void update(acao a);
+        Elemento(const Controlador *control, Desenho grafico);
+        void atualizar(acao a);
+        void renderizar();
+        void atualizar_e_renderizar(acao a);
         ~Elemento();
 };
 

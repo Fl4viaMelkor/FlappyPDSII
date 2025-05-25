@@ -6,16 +6,15 @@
 #include "jogador.hpp"
 
 
-#ifndef GAME_STATE_HPP
-#define GAME_STATE_HPP
+#ifndef estado_jogo_HPP
+#define estado_jogo_HPP
 
-class Estado_jogo{
-    private:
-
-        jogador *j;
-    public:
-          Estado_jogo(regras regras_gerais, Pontuador p);
-          Estado_jogo(float g, float velY, float velX, Pontuador *p);
+struct estado{
+    Ator jogador;
+    vector<Ator> atores;
 };
 
-#endif //GAME_STATE_HPP
+estado atualizar_estado(estado e, acao a);
+
+
+#endif //estado_jogo_HPP

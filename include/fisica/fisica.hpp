@@ -24,7 +24,7 @@ class Detector_Colisao{
   	private:
         set<Colidivel> *elementos;
 	public:
-        Detector_Colisao(fisica f);
+        Detector_Colisao();
         bool registrar(Colidivel *e); // Registra um elemento novo e retorna verdadeiro se ele foi inserido com sucesso e falso caso ele já exista
         bool remover(Colidivel *e);
         pair<CollisionInfo, CollisionInfo> detectar();
