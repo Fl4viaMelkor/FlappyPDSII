@@ -4,8 +4,8 @@
 #include "../util.hpp"
 #include <vector>
 
-#ifndef FIGURAS_HPP
-#define FIGURAS_HPP
+#ifndef FIGURAS_BASICAS_HPP
+#define FIGURAS_BASICAS_HPP
 
 struct reta {
     coordenadas ponto_inicial, ponto_final;
@@ -50,4 +50,4 @@ class Figura{
           ~Figura();
 };
 
-#endif //FIGURAS_HPP
+#endif //FIGURAS_BASICAS_HPP

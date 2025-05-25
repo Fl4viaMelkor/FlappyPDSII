@@ -4,24 +4,24 @@
 #include "controlador.hpp"
 #include "renderizador.hpp"
 #include "fisica/hitbox.hpp"
+#include "interface/graficos.hpp"
 
 #ifndef ATOR_HPP
 #define ATOR_HPP
 
-
-
 class Elemento {
     protected:
         Controlador *controller;
-
+        Desenho grafico;
     public:
-        Elemento(const Controlador *control, const Renderizador *render);
+        Elemento(const Controlador *control);
         void update(acao a);
         ~Elemento();
 };
 
 class Ator: public Elemento, public Colidivel {
-
+    protected:
+      Hitbox *hitbox;
 };
 
 

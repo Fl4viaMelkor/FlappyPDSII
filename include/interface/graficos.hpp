@@ -4,22 +4,23 @@
 #include "figuras_basicas.hpp"
 #include "renderizador.hpp"
 
-#ifndef FIGURAS_HPP
-#define FIGURAS_HPP
+#ifndef GRAFICOS_HPP
+#define GRAFICOS_HPP
 
 class Desenho {
   protected:
     Renderizador *renderizador;
   public:
     Desenho(Renderizador *renderizador);
-    void desenhar();
-}
+    void virtual desenhar() = 0;
+};
 
 class Desenho2D: public Desenho{
   protected:
     Figura figura2d;
   public:
-    Desenho2D(Renderizador *renderizador);
+    Desenho2D(Renderizador *renderizador, Figura figura2d);
+    void desenhar();
 };
 
 
@@ -27,22 +28,7 @@ class Sprite: public Desenho{
   protected:
     string url;
    public:
-
+     Sprite(Renderizador *renderizador, string url);
+     void desenhar();
 };
-
-class DesenhoAllegro{
-	public:
-          virtual void desenhar() = 0;
-};
-
-class Sprite{
-  protected:
-    string url;
-  public:
-    Sprite(string url);
-    string getUrl(string url);
-    void setUrl(string url);
-};
-
-
-#endif //FIGURAS_HPP
+#endif //GRAFICOS_HPP
