@@ -5,18 +5,13 @@
 #ifndef INFO_COLISAO_HPP
 #define INFO_COLISAO_HPP
 
-
-#pragma once
-#include <glm/glm.hpp> // Para matemática vetorial
-#include <memory>
-#include <vector>
+#include "hitbox.hpp"
 
 // Estrutura contendo informações detalhadas da colisão
 class CollisionInfo {
     public:
         // Construtor básico
-        CollisionInfo(Collidable A, Collidable B);
-
+        CollisionInfo(Colidivel a);
 };
 
 #endif //INFO_COLISAO_HPP

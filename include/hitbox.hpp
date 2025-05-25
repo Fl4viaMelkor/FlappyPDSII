@@ -1,13 +1,14 @@
 //
 // Created by leand on 25/05/2025.
 //
-#include "fisica.h"
+#include "fisica.hpp"
+#include "util.hpp"
+#include "info_colisao.hpp"
 
 #ifndef HITBOX_HPP
 #define HITBOX_HPP
 
 
-#include "util.h"
 
 struct RectHitbox {
     coordenadas extremidade;       // Posição (relativa ao objeto)
@@ -42,13 +43,14 @@ public:
     vector<RectHitbox> getRects(vector<RectHitbox> &r);
     vector<CircleHitbox> getCircles(vector<CircleHitbox> &c);
     vector<PointHitbox> getPoints(vector<PointHitbox> &p);
-}
+};
 
 class Colidivel {
-public:
-    virtual Hitbox getHitbox() const = 0;
-    virtual void naColisao(CollisionInfo info) = 0;
-    virtual ~Colidivel() = default;
+    public:
+        virtual Hitbox getHitbox() const = 0;
+        virtual CollisionInfo getInfo(Colidivel alvo) = 0;
+        virtual void onCollision(CollisionInfo info) = 0;
+        virtual ~Colidivel() = default;
 };
 
 
