@@ -11,7 +11,7 @@
 
 
 class Ator {
-    private:
+    protected:
         Controlador *controller;
         Renderizador *renderer;
 

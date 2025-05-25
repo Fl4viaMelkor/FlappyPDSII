@@ -28,7 +28,7 @@ class Cano {
         // Construtor recebe posição x, largura do cano, espaço entre os blocos, altura da tela, cor e espessura da linha
         Cano(float x, float largura, float abertura, float altura_tela, ALLEGRO_COLOR cor, float espessura);
     
-    
+
         
         void draw() const;                  // Desenha os canos (superior e inferior)
         void move(float dx);                // Move os canos na horizontal (dx pode ser negativo para mover para esquerda)
