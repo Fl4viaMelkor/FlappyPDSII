@@ -1,21 +1,22 @@
 //
 // Created by leand on 24/05/2025.
 //
-#include "posicao.h"
+#include "posicao.hpp"
+#include "graficos.hpp"
 
 #ifndef RENDERIZADOR_HPP
 #define RENDERIZADOR_HPP
 
-
-
 class Renderizador {
     public:
-        virtual void renderizar(posicao p) = 0;
+        virtual void renderizar(Sprite s) = 0;
+        virtual void renderizar(Grafico g) = 0;
 };
 
-class Modulo_Renderizador : public Renderizador {
+class RenderizadorAllegro: public Renderizador {
   public:
-    void renderizar
+    virtual void renderizar(Sprite s);
+    virtual void renderizar(Grafico g);
 }
 
 #endif //RENDERIZADOR_HPP

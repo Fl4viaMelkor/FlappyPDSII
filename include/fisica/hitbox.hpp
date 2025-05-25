@@ -34,12 +34,11 @@ public:
     bool noPerimetro(coordenadas p);
 };
 
-class Differently_Typed_Hitbox: public Hitbox{
+class FiguraHitbox: public Hitbox{
     protected:
-        vector<PoligonoHitbox> poligonos;
-        vector<CurvaHitbox> circulos;
+        Figura figura;
     public:
-        Differently_Typed_Hitbox();
+      	FiguraHitbox(Figura f):figura(f){}
         virtual bool noInterior(coordenadas p);
         virtual bool noPerimetro(coordenadas p);
 };

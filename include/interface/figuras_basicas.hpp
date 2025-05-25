@@ -31,9 +31,17 @@ class Curva{
     float radius;
 
   public:
-    Curva();
+    Curva(coordenadas centro, float radius);
     void set_curva(coordenadas centro, float radius);
     pair<coordenadas, float> get_curva();
+};
+
+class Figura{
+  	protected:
+        vector<Poligono> poligonos;
+        vector<Curva> circulos;
+	public:
+          Figura(vector<Poligono> poligonos, vector<Curva> circulos);
 };
 
 #endif //FIGURAS_HPP
