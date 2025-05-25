@@ -5,13 +5,13 @@
 #include "pontuador.hpp"
 #include "jogador.hpp"
 
+
 #ifndef GAME_STATE_HPP
 #define GAME_STATE_HPP
 
 class Estado_jogo{
     private:
 
-        Pontuador *p; // Responsável por oferecer e calcular a pontuação
         jogador *j;
     public:
           Estado_jogo(regras regras_gerais, Pontuador p);

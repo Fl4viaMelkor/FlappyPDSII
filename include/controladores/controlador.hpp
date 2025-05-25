@@ -20,8 +20,7 @@ class Controlador {
 
     public:
       Controlador();
-
-      bool executar(acao a); // Tenta executar a ação e retorna verdadeiro se ela for possível e falso caso contrário
+      void executar(acao a);
      ~Controlador();
 };
 
