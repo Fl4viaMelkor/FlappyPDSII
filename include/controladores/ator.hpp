@@ -2,7 +2,6 @@
 // Created by leand on 24/05/2025.
 //
 #include "controlador.hpp"
-#include "renderizador.hpp"
 #include "fisica/hitbox.hpp"
 #include "interface/graficos.hpp"
 

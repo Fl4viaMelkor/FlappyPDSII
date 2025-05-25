@@ -1,8 +1,8 @@
 //
 // Created by leand on 24/05/2025.
 //
-#include "fisica.hpp"
-#include "util.hpp"
+#include "../fisica/fisica.hpp"
+#include "../util.hpp"
 #include <set>
 
 using namespace std;

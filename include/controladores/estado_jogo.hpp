@@ -1,9 +1,9 @@
 //
 // Created by leand on 24/05/2025.
 //
-#include "fisica.hpp"
 #include "pontuador.hpp"
-#include "jogador.hpp"
+#include "ator.hpp"
+#include "../util.hpp"
 
 
 #ifndef estado_jogo_HPP
@@ -14,6 +14,7 @@ struct estado{
     vector<Ator> atores;
 };
 
+estado atualizar_estado(estado e, acao a);
 estado atualizar_estado(estado e, acao a);
 
 
