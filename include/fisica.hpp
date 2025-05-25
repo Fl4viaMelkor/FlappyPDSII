@@ -9,18 +9,24 @@
 
 // Regras gerais do jogo devem ser implementadas nesse arquivo.
 // O jogo possuirá suas regras padrões e cada personagem terá a sua. Desta forma, é possível implementar elementos com funcionamentos diferentes
-struct fisica{
-    float acc_Y, acc_X; // Gravidade do jogador
-    float vel_Y, vel_X;
-};
+
 
 class Modulo_Fisico{
   	protected:
           fisica fis;
     public:
       Modulo_Fisico(fisica f);
-      void update(acao a, posicao &pos);
+      void update(acao a, momento_linear &pos);
 };
+
+class Detector_Colisao : public Modulo_Fisico{
+  	private:
+
+	public:
+
+};
+
+
 
 
 #endif //REGRAS_JOGO_HPP

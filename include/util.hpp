@@ -3,15 +3,30 @@
 //
 #include<string>
 
+// Arquivo para structs e variáveis utilizadas por múltiplas classes
+
 using namespace std;
-#ifndef ACAO_HPP
-#define ACAO_HPP
+#ifndef UTIL_HPP
+#define UTIL_HPP
 
 // Estrutura básica que representa as ações possíveis. Cada ação possui um código e um nome.
 struct acao{
     int id;
     string name;
 };
+
+struct fisica{
+    float acc_Y, acc_X;
+};
+
+struct coordenadas{
+	int x, y;
+};
+
+struct momento_linear{
+  coordenadas posicao, velocidade;
+};
+
 
 // Classe sem construtor que armazena as ações.
 class Acoes{
@@ -20,4 +35,4 @@ class Acoes{
     const static acao inexistente;
 };
 
-#endif //ACAO_HPP
+#endif //UTIL_HPP

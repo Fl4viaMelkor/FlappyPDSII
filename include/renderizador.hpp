@@ -13,6 +13,9 @@ class Renderizador {
         virtual void renderizar(posicao p) = 0;
 };
 
-
+class Modulo_Renderizador : public Renderizador {
+  public:
+    void renderizar
+}
 
 #endif //RENDERIZADOR_HPP
