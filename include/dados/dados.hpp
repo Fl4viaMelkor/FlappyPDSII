@@ -17,6 +17,10 @@ struct objeto{
 
 // Implementação concreta do objeto de forma que possa ser lido e usado pelo sistema
 class Dado{
+    protected:
+      string nome, apelido;
+      int vitorias, derrotas;
+      vector<int> pontuacoes;
     public:
       void deserialize(objeto obj);
       objeto serialize();
