@@ -7,9 +7,32 @@
 #ifndef FIGURAS_HPP
 #define FIGURAS_HPP
 
+class Desenho {
+  protected:
+    Renderizador *renderizador;
+  public:
+    Desenho(Renderizador *renderizador);
+    void desenhar();
+}
 
-class Desenho{
+class Desenho2D: public Desenho{
+  protected:
+    Figura figura2d;
+  public:
+    Desenho2D(Renderizador *renderizador);
+};
 
+
+class Sprite: public Desenho{
+  protected:
+    string url;
+   public:
+
+};
+
+class DesenhoAllegro{
+	public:
+          virtual void desenhar() = 0;
 };
 
 class Sprite{

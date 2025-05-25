@@ -42,6 +42,12 @@ class Figura{
         vector<Curva> circulos;
 	public:
           Figura(vector<Poligono> poligonos, vector<Curva> circulos);
+          Figura(Poligono p);
+          Figura(Curva c);
+          Figura(vector<Poligono> poligonos);
+          Figura(vector<Curva> circulos);
+
+          ~Figura();
 };
 
 #endif //FIGURAS_HPP

@@ -39,8 +39,8 @@ class FiguraHitbox: public Hitbox{
         Figura figura;
     public:
       	FiguraHitbox(Figura f):figura(f){}
-        virtual bool noInterior(coordenadas p);
-        virtual bool noPerimetro(coordenadas p);
+        virtual bool noInterior(coordenadas p) = 0;
+        virtual bool noPerimetro(coordenadas p) = 0;
 };
 
 

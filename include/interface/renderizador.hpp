@@ -9,14 +9,16 @@
 
 class Renderizador {
     public:
+        virtual void renderizar(Desenho2D d2d) = 0;
+        virtual void renderizar(Desenho3D d3d) = 0;
         virtual void renderizar(Sprite s) = 0;
-        virtual void renderizar(Grafico g) = 0;
 };
 
 class RenderizadorAllegro: public Renderizador {
   public:
+    virtual void renderizar(Desenho2D d2d);
+    virtual void renderizar(Desenho3D d3d);
     virtual void renderizar(Sprite s);
-    virtual void renderizar(Grafico g);
 }
 
 #endif //RENDERIZADOR_HPP

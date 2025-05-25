@@ -22,7 +22,7 @@ class Elemento {
 
 class Ator: public Elemento, public Colidivel {
 
-}
+};
 
 
 
