@@ -5,6 +5,7 @@
 #ifndef REGRAS_JOGO_HPP
 #define REGRAS_JOGO_HPP
 #include "ator.hpp"
+#include "hitbox.h"
 #include <vector>
 
 // Regras gerais do jogo devem ser implementadas nesse arquivo.
@@ -16,14 +17,17 @@ class Modulo_Fisico{
           fisica fis;
     public:
       Modulo_Fisico(fisica f);
-      void update(acao a, momento_linear &pos);
+      void executar(acao a, momento_linear &pos);
 };
 
-class Detector_Colisao : public Modulo_Fisico{
+class Detector_Colisao{
   	private:
-
+        set<Colidivel> *elementos;
 	public:
-
+        Detector_Colisao(fisica f);
+        bool registrar(Colidivel *e); // Registra um elemento novo e retorna verdadeiro se ele foi inserido com sucesso e falso caso ele já exista
+        bool remover(Colidivel *e);
+        void detectar();
 };
 
 

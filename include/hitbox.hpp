@@ -7,21 +7,22 @@
 #define HITBOX_HPP
 
 
-
+#include "util.h"
 
 struct RectHitbox {
-    posicao p;       // Posição (relativa ao objeto)
+    coordenadas extremidade;       // Posição (relativa ao objeto)
     float width, height;
 };
 
 struct CircleHitbox {
-    posicao p;       // Posição (relativa ao objeto)
+    coordenadas centro;       // Posição (relativa ao objeto)
     float radius;
 };
 
 struct PointHitbox {
-    posicao p;
+    coordenadas ponto;
 };
+
 
 class Hitbox{
 protected:
@@ -33,20 +34,21 @@ public:
     void setRects(vector<RectHitbox> r);
     void setCircles(vector<CircleHitbox> c);
     void setPoints(vector<PointHitbox> p);
-    void addRect(posicao p, float width, float height);
-    void addCircle(posicao p, float radius);
-    void addPoint(posicao p);
 
-    void getRects(vector<RectHitbox> &r);
-    void getCircles(vector<CircleHitbox> &c);
-    void getPoints(vector<PointHitbox> &p);
+    void addRect(coordenadas p, float width, float height);
+    void addCircle(coordenadas p, float radius);
+    void addPoint(coordenadas p);
+
+    vector<RectHitbox> getRects(vector<RectHitbox> &r);
+    vector<CircleHitbox> getCircles(vector<CircleHitbox> &c);
+    vector<PointHitbox> getPoints(vector<PointHitbox> &p);
 }
 
-class Collidable {
+class Colidivel {
 public:
     virtual Hitbox getHitbox() const = 0;
-    virtual void onCollision(CollisionInfo info) = 0;
-    virtual ~Collidable() = default;
+    virtual void naColisao(CollisionInfo info) = 0;
+    virtual ~Colidivel() = default;
 };
 
 
