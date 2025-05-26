@@ -17,6 +17,8 @@ class Modulo_Fisico{
     	static momento_linear pular(gravidade g, momento_linear pos);
   	public:
     	static momento_linear atualizar_fisica(gravidade g, acao a, momento_linear pos);
+		static momento_linear atualizar_fisica(gravidade g, momento_linear pos);
+
 };
 
 class Detector_Colisao{

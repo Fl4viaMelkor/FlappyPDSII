@@ -33,6 +33,7 @@ class Acoes{
     Acoes() = delete;
     const static acao pular;
     const static acao inexistente;
+    const static acao mover_esquerda_devagar;
 };
 
 #endif //UTIL_HPP

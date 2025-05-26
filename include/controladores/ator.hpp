@@ -10,10 +10,10 @@
 
 class Elemento {
     protected:
-        Controlador *controller;
+        Controlador controller;
         Desenho grafico;
     public:
-        Elemento(const Controlador *control, Desenho grafico);
+        Elemento(Controlador control);
         void atualizar(acao a);
         void renderizar();
         void atualizar_e_renderizar(acao a);

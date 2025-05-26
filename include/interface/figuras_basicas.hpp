@@ -7,9 +7,6 @@
 #ifndef FIGURAS_BASICAS_HPP
 #define FIGURAS_BASICAS_HPP
 
-struct reta {
-    coordenadas ponto_inicial, ponto_final;
-};
 
 struct curva {
     coordenadas centro;       // Posição (relativa ao objeto)
@@ -18,28 +15,34 @@ struct curva {
 
 class Poligono{
     protected:
-        vector<reta> perimetro;
+        vector<coordenadas> perimetro;
     public:
-        Poligono(vector<reta> perimetro);
-        void set_perimetro(vector<reta> perimetro);
-        vector<reta> get_poligono();
+        Poligono(vector<coordenadas> perimetro);
+        void set_perimetro(vector<coordenadas> perimetro);
+        vector<coordenadas> get_poligono();
+};
+
+class Retangulo: public Poligono{
+    public:
+      Retangulo(coordenadas p1, coordenadas p2, coordenadas p3, coordenadas p4);
 };
 
 class Curva{
   protected:
     coordenadas centro;
     float radius;
+    void set_curva(coordenadas centro, float radius);
 
   public:
     Curva(coordenadas centro, float radius);
-    void set_curva(coordenadas centro, float radius);
-    pair<coordenadas, float> get_curva();
 };
 
 class Figura{
   	protected:
         vector<Poligono> poligonos;
         vector<Curva> circulos;
+        coordenadas centro_massa;
+        void setFigura(coordenadas centro_massa);
 	public:
           Figura(coordenadas centro_massa);
           ~Figura();

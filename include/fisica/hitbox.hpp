@@ -11,9 +11,6 @@
 
 
 class Hitbox{
-    protected:
-        virtual bool noInterior(coordenadas p) = 0; // retorna verdadeiro se o ponto p está no interior (mas não na extremidade) da figura
-        virtual bool noPerimetro(coordenadas p) = 0;// retorna verdadeiro se o ponto p está no perimetro (mas não na extremidade) da figura
     public:
         virtual bool colisao(coordenadas p) = 0;
 };

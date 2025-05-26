@@ -1,7 +1,6 @@
 //
 // Created by leand on 24/05/2025.
 //
-#include "../fisica/fisica.hpp"
 #include "../util.hpp"
 #include <set>
 
@@ -15,12 +14,11 @@ using namespace std;
 class Controlador {
     protected:
         momento_linear momentoLinear; // Momento linear com posição (referente ao centro de massa) e velocidade
-		set<acao> disponiveis; // Lista de ações disponiveis para esse personagem
+        gravidade g;
+        set<acao> disponiveis; // Lista de ações disponiveis para esse personagem
 
     public:
-      Controlador();
-      void executar(acao a);
-     ~Controlador();
+        void executar(acao a);
 };
 
 #endif //CONTROLADOR_HPP
