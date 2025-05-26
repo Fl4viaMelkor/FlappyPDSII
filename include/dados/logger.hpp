@@ -18,6 +18,9 @@ class Logger{
       bool derrota(string nome);
 };
 
-
+class Keybinder{
+    protected:
+        Database *db;
+};
 
 #endif //LOGGER_HPP
