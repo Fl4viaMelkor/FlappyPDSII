@@ -53,16 +53,6 @@ class FiguraCano:public Figura{
           ~Figura();
 };
 
-class HitboxCano:public Hitbox{
-    protected:
-        FiguraCano *cano;
-        virtual bool noInterior(coordenadas p) = 0; // retorna verdadeiro se o ponto p está no interior (mas não na extremidade) da figura
-        virtual bool noPerimetro(coordenadas p) = 0;// retorna verdadeiro se o ponto p está no perimetro (mas não na extremidade) da figura
-    public:
-        HitboxCano(FiguraCano
-        virtual bool colisao(coordenadas p) = 0;
-};
-
 class Cano2D: public Desenho{
   protected:
     Figura figura2d;

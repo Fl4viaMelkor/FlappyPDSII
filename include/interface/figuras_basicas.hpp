@@ -43,8 +43,6 @@ class Circulo: Forma_Geometrica_Fechada{
         bool noPerimetro(coordenadas p);
 };
 
-
-
 class Figura: Forma_Geometrica_Fechada{
   	protected:
         vector<Forma_Geometrica_Fechada> elementos;

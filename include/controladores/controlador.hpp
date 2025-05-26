@@ -18,7 +18,7 @@ class Controlador {
         set<acao> disponiveis; // Lista de ações disponiveis para esse personagem
 
     public:
-        void executar(acao a);
+        coordenadas executar(acao a);
 };
 
 #endif //CONTROLADOR_HPP

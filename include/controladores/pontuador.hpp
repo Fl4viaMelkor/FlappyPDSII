@@ -5,11 +5,20 @@
 #ifndef PONTUADOR_HPP
 #define PONTUADOR_HPP
 
-// Classe responsável por calcular os pontos do jogo. Pode ser usada durante ou ao final.
-// Implementada como classe abstrata e por isso permite diferentes formas de calcular
-class Pontuador {
+class PontuadorStrategy{
     public:
-        virtual int calcular_pontos(Estado_jogo e) const = 0;
+      int virtual getPontos(estado anterior, estado atual) = 0;
+};
+
+
+
+class Pontuador {
+    private:
+      PontuadorStrategy *estrategia;
+      estado atual;
+    public:
+        Pontuador(PontuadorStrategy *estrategia);
+        virtual int calcular_pontos(estado novo);
 };
 
 #endif //PONTUADOR_HPP
