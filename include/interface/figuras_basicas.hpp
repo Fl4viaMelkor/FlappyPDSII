@@ -7,45 +7,54 @@
 #ifndef FIGURAS_BASICAS_HPP
 #define FIGURAS_BASICAS_HPP
 
-
-struct curva {
-    coordenadas centro;       // Posição (relativa ao objeto)
-    float radius;
+class Forma_Geometrica_Fechada{
+    public:
+      virtual bool noInterior(coordenadas p) = 0; // retorna verdadeiro se o ponto p está no interior (mas não na extremidade) da figura
+      virtual bool noPerimetro(coordenadas p) = 0;// retorna verdadeiro se o ponto p está no perimetro (mas não na extremidade) da figura
 };
 
-class Poligono{
+class Poligono: Forma_Geometrica_Fechada{
     protected:
         vector<coordenadas> perimetro;
     public:
-        Poligono(vector<coordenadas> perimetro);
-        void set_perimetro(vector<coordenadas> perimetro);
-        vector<coordenadas> get_poligono();
+       Poligono(vector<coordenadas> p);
+       void setPerimetro(vector<coordenadas> p);
+       bool noInterior(coordenadas p);
+       bool noPerimetro(coordenadas p);
+       vector<coordenadas> get_poligono();
 };
 
 class Retangulo: public Poligono{
     public:
       Retangulo(coordenadas p1, coordenadas p2, coordenadas p3, coordenadas p4);
+      bool noInterior(coordenadas p);
+      bool noPerimetro(coordenadas p);
 };
 
-class Curva{
-  protected:
-    coordenadas centro;
-    float radius;
-    void set_curva(coordenadas centro, float radius);
+class Circulo: Forma_Geometrica_Fechada{
+    protected:
+        coordenadas centro;
+        float radius;
 
-  public:
-    Curva(coordenadas centro, float radius);
+    public:
+        Circulo(coordenadas centro, float radius);
+        void set_circulo(coordenadas centro, float radius);
+        bool noInterior(coordenadas p);
+        bool noPerimetro(coordenadas p);
 };
 
-class Figura{
+
+
+class Figura: Forma_Geometrica_Fechada{
   	protected:
-        vector<Poligono> poligonos;
-        vector<Curva> circulos;
-        coordenadas centro_massa;
-        void setFigura(coordenadas centro_massa);
+        vector<Forma_Geometrica_Fechada> elementos;
+        coordenadas ponto_referencia;
 	public:
-          Figura(coordenadas centro_massa);
-          ~Figura();
+        Figura(coordenadas ponto_referencia);
+        void setFigura(coordenadas ponto_referencia);
+
+        bool noInterior(coordenadas p);
+        bool noPerimetro(coordenadas p);
 };
 
 #endif //FIGURAS_BASICAS_HPP
