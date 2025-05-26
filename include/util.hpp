@@ -15,7 +15,7 @@ struct acao{
     string name;
 };
 
-struct fisica{
+struct gravidade{
     float acc_Y, acc_X;
 };
 

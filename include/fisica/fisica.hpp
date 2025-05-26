@@ -13,11 +13,10 @@
 
 
 class Modulo_Fisico{
-  	protected:
-          fisica fis;
-    public:
-      Modulo_Fisico(fisica f);
-      void executar(acao a, momento_linear &pos);
+  	private:
+    	static momento_linear pular(gravidade g, momento_linear pos);
+  	public:
+    	static momento_linear atualizar_fisica(gravidade g, acao a, momento_linear pos);
 };
 
 class Detector_Colisao{
