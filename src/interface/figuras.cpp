@@ -2,4 +2,4 @@
 // Created by leand on 25/05/2025.
 //
 
-#include "figuras.hpp"
+#include "../../include/interface/figuras_basicas.hpp"

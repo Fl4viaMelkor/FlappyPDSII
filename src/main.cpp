@@ -2,14 +2,15 @@
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/keyboard.h>
 
-#include "tela_jogo.hpp"
+#include "../include/interface/tela_jogo.hpp"
+#include "../include/interface/tela_base.hpp"
 
 /*
 Comentários Guilherme Asafe: (pra quem está mexendo no main)
   Criei um método para o objeto cano. Ele apenas mostar um retângulo na tela.
-  Pra testar se está funcionando coloque: 
+  Pra testar se está funcionando coloque:
 
-  
+
 
   Flávia: Eu coloquei no pass, dentro da classe tela jogo, depois checa pra ver se é isso mesmo.
   Caso queira alterar algo no cano, não esqueça de mexer no tela_jogo ou coloque um aviso lá pra eu ou alguém mexer
@@ -56,11 +57,11 @@ int main() {
           TelaJogo* jogo = dynamic_cast<TelaJogo*>(telaAtual);
           if (jogo && jogo->acabouJogo()) {
           //
-          running = false; // só para exemplo 
+          running = false; // só para exemplo
           }
         }else{
             telaAtual->step(event);
-            
+
           }
     }
 
@@ -83,7 +84,7 @@ int main() {
     srand(time(nullptr));
 
     if (!al_init()) {
-     
+
         std::cerr << "Falha ao inicializar o Allegro.\n";
 
         return -1;
@@ -108,7 +109,7 @@ int main() {
 
     }
 
-    ALLEGRO_TIMER* timer = al_create_timer(1.0 / 60); // timer para 60 frames por segundo 
+    ALLEGRO_TIMER* timer = al_create_timer(1.0 / 60); // timer para 60 frames por segundo
 
 
     ALLEGRO_EVENT_QUEUE* fila = al_create_event_queue();
@@ -150,7 +151,7 @@ int main() {
 
     al_start_timer(timer);
 
-    
+
 
     // Loop principal do jogo
     while (rodando) {
@@ -185,7 +186,7 @@ int main() {
             for (auto& cano : canos) {
                 cano.reset_if_out_of_screen(0, pos_ultimo, espacamento_horizontal, ALTURA);
             }
-        
+
 
 
             desenhar = true;
@@ -198,7 +199,7 @@ int main() {
 
             al_clear_to_color(al_map_rgb(0, 0, 0));  // limpa a tela com preto
 
-            
+
             for (const auto& cano : canos) {
 
 
