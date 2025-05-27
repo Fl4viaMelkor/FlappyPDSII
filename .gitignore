@@ -1,0 +1,8 @@
+#Diretórios e arquivos de Build
+/flappy_bird
+/obj/
+/*.
+
+Configurações de IDE
+
+.vscode/
