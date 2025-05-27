@@ -4,7 +4,7 @@
 #include "fisica.hpp"
 #include "util.hpp"
 #include "info_colisao.hpp"
-#include "../interface/figuras.hpp"
+#include "../interface/figuras_basicas.hpp"
 
 #ifndef HITBOX_HPP
 #define HITBOX_HPP

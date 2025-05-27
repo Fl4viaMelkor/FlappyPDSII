@@ -1,9 +1,10 @@
 #ifndef TELAJOGO_HPP
 #define TELAJOGO_HPP
 
-#include "objeto_cano.hpp"
+#include "../objeto_cano.hpp"
 #include "tela_base.hpp"
-#include "player.hpp"
+#include "../player.hpp"
+#include "../util.hpp"
 #include <allegro5/allegro5.h>
 //Caso algum item ou coisa seja adicionado na tela de JOGO deve criar um ponteiro para esse objeto no PRIVATE
 
