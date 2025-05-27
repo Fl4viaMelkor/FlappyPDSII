@@ -1,6 +1,7 @@
 NAME		= flappy_bird
 
-FILES		= main.cpp player.cpp objeto_cano.cpp tela_jogo.cpp
+FILES		= main.cpp player.cpp objeto_cano.cpp util.cpp \
+			interface/figuras.cpp interface/tela_jogo.cpp
 
 SRC_PATH	= src/
 OBJ_PATH	= obj/
@@ -28,6 +29,7 @@ $(OBJ_DIRS):
 	mkdir -p $@
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.cpp
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ_DIRS) $(OBJ)
