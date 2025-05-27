@@ -2,15 +2,16 @@
 #define PLAYER_HPP
 
 #include <allegro5/allegro5.h>
+#include "util.hpp"
 
 class Player {
 private:
     bool dead;
     float velY;    // Velocidade vertical
-    float gravidade; // 
-    bool noChao;   // 
+    float gravidade; //
+    bool noChao;   //
 
-    
+
 public:
     float x, y;
     float speed;
