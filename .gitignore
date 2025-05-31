@@ -6,3 +6,44 @@
 Configurações de IDE
 
 .vscode/
+# CMake build directories
+build/
+out/
+bin/
+*.user
+
+# CMake cache and generated files
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+*.cmake
+
+# Executables and libraries
+*.exe
+*.out
+*.app
+*.so
+*.dylib
+*.dll
+*.a
+*.lib
+.idea
+
+# IDE-specific files (CLion, VS Code, etc.)
+.idea/
+*.sln
+*.vcxproj*
+*.vcproj
+*.suo
+*.opensdf
+*.sdf
+
+# Temporary files
+*~
+*.swp
+*.swo
+.DS_Store
