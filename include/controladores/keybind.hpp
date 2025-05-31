@@ -1,8 +1,10 @@
 //
 // Created by leand on 24/05/2025.
 //
-#include <map.h>
+#include <map>
 #include "../dados/logger.hpp"
+#include "../util.hpp"
+#include <allegro5/allegro5.h>
 
 #ifndef KEYBIND_HPP
 #define KEYBIND_HPP
@@ -11,7 +13,7 @@
 class Keybind {
     private:
         map<ALLEGRO_EVENT, acao> keymap;
-        Keybinder registrador;
+        Keybinder *registrador;
     public:
       Keybind();
       Keybind(Keybinder r);

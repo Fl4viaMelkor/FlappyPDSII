@@ -3,6 +3,7 @@
 //
 #include "pontuador.hpp"
 #include "ator.hpp"
+#include <vector>
 #include "../util.hpp"
 
 #include <unordered_map>

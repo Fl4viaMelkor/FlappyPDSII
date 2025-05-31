@@ -14,11 +14,11 @@ using namespace std;
 class Controlador {
     protected:
         momento_linear momentoLinear; // Momento linear com posição (referente ao centro de massa) e velocidade
-        gravidade *g;
+        gravidade g;
         set<acao> disponiveis; // Lista de ações disponiveis para esse personagem
 
     public:
-        coordenadas executar(acao a);
+        virtual coordenadas executar(acao a) = 0;
 };
 
 #endif //CONTROLADOR_HPP

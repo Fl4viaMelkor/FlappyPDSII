@@ -1,0 +1,17 @@
++-------------------------------------------------+
+|                                                 |
+|        CLASSE: PontuadorStrategy                |
+|                                                 |
+|-------------------------------------------------|
+|                                                 |
+| RESPONSABILIDADES:                              |
+| - Definir a interface para calcular pontos      |
+|   com base na mudança do estado anterior para o |
+|   atual                                         |
+|                                                 |
+|-------------------------------------------------|
+|                                                 |
+| COLABORADORES:                                  |
+| - `estado`                                      |
+|                                                 |
++-------------------------------------------------+
