@@ -12,8 +12,6 @@ class Logger{
       Database *db;
       Dado *atual;
     public:
-      Logger(Database *db);
-
       virtual bool carregar(string id) = 0;
       virtual bool salvar() = 0;
       bool deletar(string id);

@@ -4,8 +4,8 @@
 
 #ifndef REGRAS_JOGO_HPP
 #define REGRAS_JOGO_HPP
-#include "ator.hpp"
-#include "hitbox.h"
+#include "../controladores/ator.hpp"
+#include "hitbox.hpp"
 #include <vector>
 
 // Regras gerais do jogo devem ser implementadas nesse arquivo.
@@ -14,10 +14,10 @@
 
 class Modulo_Fisico{
   	private:
-    	static momento_linear pular(gravidade g, momento_linear pos);
+    	static momento_linear pular(const gravidade &g, momento_linear pos);
   	public:
-    	static momento_linear atualizar_fisica(gravidade g, acao a, momento_linear pos);
-		static momento_linear atualizar_fisica(gravidade g, momento_linear pos);
+    	static momento_linear atualizar_fisica(const gravidade &g, const acao &a, momento_linear pos);
+		static momento_linear atualizar_fisica(const gravidade &g, momento_linear pos);
 
 };
 
@@ -26,8 +26,8 @@ class Detector_Colisao{
         set<Colidivel> *elementos;
 	public:
         Detector_Colisao();
-        bool registrar(Colidivel *e); // Registra um elemento novo e retorna verdadeiro se ele foi inserido com sucesso e falso caso ele já exista
-        bool remover(Colidivel *e);
+        bool registrar(const Colidivel &e); // Registra um elemento novo e retorna verdadeiro se ele foi inserido com sucesso e falso caso ele já exista
+        bool remover(const Colidivel &e);
         pair<CollisionInfo, CollisionInfo> detectar();
 };
 

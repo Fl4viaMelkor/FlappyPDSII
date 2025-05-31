@@ -1,0 +1,20 @@
++-------------------------------------------------+
+|                                                 |
+|        CLASSE: Colidivel                        |
+|                                                 |
+|-------------------------------------------------|
+|                                                 |
+| RESPONSABILIDADES:                              |
+| - Definir interface para obter sua `Hitbox`.    |
+| - Definir interface para obter informações de   |
+|   colisão.                                      |
+| - Definir interface para reagir a um evento de  |
+|   colisão.                                      |
+|                                                 |
+|-------------------------------------------------|
+|                                                 |
+| COLABORADORES:                                  |
+| - `Hitbox`                                      |
+| - `CollisionInfo`                               |
+|                                                 |
++-------------------------------------------------+

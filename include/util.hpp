@@ -9,7 +9,6 @@ using namespace std;
 #ifndef UTIL_HPP
 #define UTIL_HPP
 
-// Estrutura básica que representa as ações possíveis. Cada ação possui um código e um nome.
 struct acao{
     int id;
     string name;
@@ -27,13 +26,15 @@ struct momento_linear{
   coordenadas posicao, velocidade;
 };
 
+// Estrutura básica que representa as ações possíveis. Cada ação possui um código e um nome.
 
 // Classe sem construtor que armazena as ações.
 class Acoes{
-    Acoes() = delete;
-    const static acao pular;
-    const static acao inexistente;
-    const static acao mover_esquerda_devagar;
+    public:
+        Acoes() = delete;
+        const static acao pular;
+        const static acao inexistente;
+        const static acao mover_esquerda_devagar;
 };
 
 #endif //UTIL_HPP

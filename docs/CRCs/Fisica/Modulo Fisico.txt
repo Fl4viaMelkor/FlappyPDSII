@@ -1,0 +1,24 @@
++-------------------------------------------------+
+|                                                 |
+|        CLASSE: Módulo Físico                    |
+|                                                 |
+|-------------------------------------------------|
+|                                                 |
+| RESPONSABILIDADES:                              |
+| - Calcular o efeito de um salto (pular) dada    |
+|   gravidade e momento/posição linear.           |
+| - Calcular o efeito de outros tipos de ações    |
+| dada gravidade e velocidade/posicão.            |
+| - Atualizar o momento linear a partir da        |
+|  gravidade, ação e momento/posição linear.      |
+| - Atualizar a física geral com gravidade e      |
+|   momento/posição linear (sem ação específica). |
+|                                                 |
+|-------------------------------------------------|
+|                                                 |
+| COLABORADORES:                                  |
+| - `gravidade`                                   |
+| - `momento_linear`                              |
+| - `acao`                                        |
+|                                                 |
++-------------------------------------------------+
