@@ -1,0 +1,23 @@
++-------------------------------------------------+
+|                                                 |
+|        CLASSE: Database                         |
+|                                                 |
+|-------------------------------------------------|
+|                                                 |
+| RESPONSABILIDADES:                              |
+| - Gerenciar uma coleção de objetos (`objeto`).  |
+| - Adicionar um novo `objeto`.                   |
+| - Remover um `objeto` existente.                |
+| - Buscar `objetos` por chave/valor.             |
+| - Listar todos os `objetos`.                    |
+| - Limpar (remover todos) os `objetos`.          |
+| - Atualizar um `objeto` existente.              |
+| - Atualizar ou Adicionar um `objeto`.           |
+|                                                 |
+|-------------------------------------------------|
+|                                                 |
+| COLABORADORES:                                  |
+| - `objeto` (para manipular os dados)            |
+| - `std::string` (para parâmetros de busca)      |
+|                                                 |
++-------------------------------------------------+

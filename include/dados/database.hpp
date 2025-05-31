@@ -3,6 +3,7 @@
 //
 
 #include "dados.hpp"
+#include <vector>
 
 using namespace std;
 #ifndef DATABASE_HPP
