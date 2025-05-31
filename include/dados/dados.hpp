@@ -38,6 +38,9 @@ class Dado_Jogador : public Dado{
       int vitorias, derrotas;
       vector<int> pontuacoes;
     public:
+      Dado_Jogador();
+      Dado_Jogador(string nome, string apelido="", int vitorias=0, int derrotas=0);
+      Dado_Jogador(objeto obj);
       void deserialize(objeto obj);
       virtual bool operator==(const Dado& outro);
       virtual bool operator!=(const Dado& outro);
