@@ -14,6 +14,12 @@ using namespace std;
 // Objeto simples a ser armazenado na base de dados. Todos os elementos são strings
 struct objeto{
     unordered_map<string, string> dados;
+    bool operator==(const objeto& outro) const {
+      	return dados == outro.dados;
+    }
+    bool operator!=(const objeto& outro) const {
+      	return !(*this == outro);
+    }
 };
 
 // Implementação concreta do objeto de forma que possa ser lido e usado pelo sistema
@@ -21,9 +27,11 @@ class Dado{
     public:
         virtual void deserialize(objeto obj) = 0;
         virtual objeto serialize() = 0;
-
+		virtual bool operator==(const Dado& outro) const = 0;
+    	virtual bool operator!=(const Dado& outro) const = 0;
 };
 
+// Dado jogador que representa um jogador padrão
 class Dado_Jogador : public Dado{
     protected:
       string nome, apelido;
@@ -31,7 +39,10 @@ class Dado_Jogador : public Dado{
       vector<int> pontuacoes;
     public:
       void deserialize(objeto obj);
+      virtual bool operator==(const Dado& outro);
+      virtual bool operator!=(const Dado& outro);
       objeto serialize();
 };
+
 
 #endif //DADOS_HPP
