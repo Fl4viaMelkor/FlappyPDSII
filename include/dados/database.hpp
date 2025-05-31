@@ -2,17 +2,17 @@
 // Created by leand on 25/05/2025.
 //
 
-#include "dados.hpp"
-#include <vector>
 
 using namespace std;
 #ifndef DATABASE_HPP
 #define DATABASE_HPP
 
-
+#include "dados.hpp"
+#include <vector>
 
 class Database {
     public:
+        virtual ~Database() = default;
         bool virtual adicionar(objeto o) = 0;
         bool virtual excluir(objeto o) = 0;
         vector<objeto> virtual buscar(string chave, string valor) = 0;

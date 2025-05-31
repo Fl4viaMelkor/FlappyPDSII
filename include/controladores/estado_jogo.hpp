@@ -1,15 +1,16 @@
 //
 // Created by leand on 24/05/2025.
 //
+
+#ifndef estado_jogo_HPP
+#define estado_jogo_HPP
+
 #include "pontuador.hpp"
 #include "ator.hpp"
 #include <vector>
 #include "../util.hpp"
 
 #include <unordered_map>
-
-#ifndef estado_jogo_HPP
-#define estado_jogo_HPP
 
 struct estado{
     Ator jogador;

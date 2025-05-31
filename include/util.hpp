@@ -1,13 +1,14 @@
 //
 // Created by leand on 24/05/2025.
 //
-#include<string>
 
 // Arquivo para structs e variáveis utilizadas por múltiplas classes
 
-using namespace std;
 #ifndef UTIL_HPP
 #define UTIL_HPP
+#include<string>
+
+using namespace std;
 
 struct acao{
     int id;
