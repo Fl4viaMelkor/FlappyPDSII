@@ -1,0 +1,25 @@
++-------------------------------------------------+
+|                                                 |
+|        CLASSE: Dado_Jogador                     |
+|                                                 |
+|-------------------------------------------------|
+|                                                 |
+| RESPONSABILIDADES:                              |
+| - Armazenar dados específicos de um jogador     |
+| (nome, apelido, vitórias, derrotas, pontuações).|
+| - Implementar deserialização de um `objeto`.    |
+| - Implementar serialização para um `objeto`.    |
+| - Implementar comparação polimórfica de         |
+| igualdade com outros Dados.                     |
+| - Implementar comparação polimórfica de         |
+| diferença com outros Dados.                     |
+|                                                 |
+|-------------------------------------------------|
+|                                                 |
+| COLABORADORES:                                  |
+| - `Dado` (Herança)                              |
+| - `objeto`                                      |
+| - `std::string`                                 |
+| - `std::vector<int>`                            |
+|                                                 |
++-------------------------------------------------+

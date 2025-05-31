@@ -5,14 +5,22 @@
 |-------------------------------------------------|
 |                                                 |
 | RESPONSABILIDADES:                              |
-| - Gerenciar uma coleção de objetos (`objeto`).  |
-| - Adicionar um novo `objeto`.                   |
-| - Remover um `objeto` existente.                |
-| - Buscar `objetos` por chave/valor.             |
-| - Listar todos os `objetos`.                    |
-| - Limpar (remover todos) os `objetos`.          |
-| - Atualizar um `objeto` existente.              |
-| - Atualizar ou Adicionar um `objeto`.           |
+| - Definir interface para gerenciar uma coleção  |
+| de objetos (`objeto`).                          |
+| - Definir interface para adicionar um novo      |
+| `objeto`.                                       |
+| - Definir interface para remover um `objeto`    |
+| existente.                                      |
+| - Definir interface para buscar `objetos` por   |
+| chave/valor.                                    |
+| - Definir interface para listar todos os        |
+| `objetos`.                                      |
+| - Definir interface para limpar (remover todos) |
+| os `objetos`.                                   |
+| -Definir interface para atualizar um `objeto`   |
+| existente.                                      |
+| - Definir interface para atualizar ou adicionar |
+| um `objeto`.                                    |
 |                                                 |
 |-------------------------------------------------|
 |                                                 |
