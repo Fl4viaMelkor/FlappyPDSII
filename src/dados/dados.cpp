@@ -13,6 +13,7 @@ bool objeto::operator==(const objeto &outro) const { return dados == outro.dados
 
 bool objeto::operator!=(const objeto &outro) const { return !(*this == outro); }
 
+
 // Inicializa um objeto Dado_Jogador com valores padrão.
 Dado_Jogador::Dado_Jogador() : nome_(""), apelido_(""), vitorias_(0), derrotas_(0) {
     cout << "Construtor padrão de Dado_Jogador chamado." << endl;
