@@ -6,5 +6,5 @@
 #include "../doctest.h"
 
 TEST_CASE("Teste Factorial - Caso base"){
-    CHECK(1+1 == 3);
+    CHECK(1+1 == 2);
 }
