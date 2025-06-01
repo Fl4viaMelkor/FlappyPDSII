@@ -11,15 +11,18 @@ using namespace std;
 #include <vector>
 
 class Database {
-    public:
-        virtual ~Database() = default;
-        bool virtual adicionar(objeto o) = 0;
-        bool virtual excluir(objeto o) = 0;
-        vector<objeto> virtual buscar(string chave, string valor) = 0;
-        vector<objeto> virtual listar() = 0;
-        bool virtual limpar() = 0;
-        bool virtual atualizar(objeto o) = 0;
-        bool virtual atualizar_ou_adicionar(objeto o) = 0;
+	protected:
+		string id;
+
+	public:
+		virtual ~Database() = default;
+		virtual bool adicionar(objeto o) const = 0;
+		virtual bool excluir(objeto o) const = 0;
+		virtual vector<objeto> buscar(string chave, string valor) const = 0;
+		virtual vector<objeto> listar() const = 0;
+		virtual bool limpar() const = 0;
+		virtual bool atualizar(objeto o) const = 0;
+		virtual bool atualizar_ou_adicionar(objeto o) const = 0;
 };
 
 #endif //DATABASE_HPP

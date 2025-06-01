@@ -7,7 +7,7 @@
 #define DADOS_HPP
 
 #include <string>
-#include <unordered_map>
+#include <map>
 #include <vector>
 #include <any>
 
@@ -15,7 +15,7 @@ using namespace std;
 
 // Objeto simples a ser armazenado na base de dados. Todos os elementos são strings
 struct objeto {
-    unordered_map<string, string> dados;
+    map<string, string> dados;
     bool operator==(const objeto &outro) const;
     bool operator!=(const objeto &outro) const;
 };
@@ -28,7 +28,6 @@ class Dado {
         virtual ~Dado() = default;
         virtual void carregar(objeto obj) = 0;
         virtual objeto exportar() = 0;
-
         virtual bool operator==(const Dado &outro) const = 0;
         virtual bool operator!=(const Dado &outro) const = 0;
 };
