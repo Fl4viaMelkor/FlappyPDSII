@@ -5,7 +5,7 @@
 
 // Este arquivo fornece as definições para as classes declaradas em dados.hpp.
 #include "../../include/dados/dados.hpp"
-#include <iostream>  // Para saída de depuração potencial (ex.: em deserialize/serialize)
+#include <iostream>  // Para saída de depuração potencial (ex.: em carregar/exportar)
 
 using namespace std;
 
@@ -29,13 +29,13 @@ Dado_Jogador::Dado_Jogador(string nome, string apelido, int vitorias, int derrot
 // Inicializa um objeto Dado_Jogador desserializando dados de um 'objeto'.
 Dado_Jogador::Dado_Jogador(objeto obj) {
     cout << "Construtor de Dado_Jogador a partir de 'objeto' chamado, desserializando..." << endl;
-    Dado_Jogador::deserialize(move(obj)); // Chama a função deserialize para preencher os membros
+    Dado_Jogador::carregar(move(obj)); // Chama a função carregar para preencher os membros
 }
 
-// Função deserialize
+// Função carregar
 // Preenche os membros de Dado_Jogador a partir de um 'objeto'.
 // Esta função precisa de tratamento robusto de erros para chaves ausentes ou tipos de dados inválidos.
-void Dado_Jogador::deserialize(objeto obj) {
+void Dado_Jogador::carregar(objeto obj) {
     cout << "Desserializando Dado_Jogador..." << endl;
 
     // Recupera 'nome'
@@ -87,9 +87,9 @@ void Dado_Jogador::deserialize(objeto obj) {
 }
 
 
-// Função serialize
+// Função exportar
 // Converte os membros de Dado_Jogador em um objeto'
-objeto Dado_Jogador::serialize() {
+objeto Dado_Jogador::exportar() {
     cout << "Serializando Dado_Jogador..." << endl;
     objeto obj;
     obj.dados["nome"] = nome_;

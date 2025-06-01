@@ -23,8 +23,8 @@ struct objeto {
 class Dado {
 public:
     virtual ~Dado() = default;
-    virtual void deserialize(objeto obj) = 0;
-    virtual objeto serialize() = 0;
+    virtual void carregar(objeto obj) = 0;
+    virtual objeto exportar() = 0;
     virtual bool operator==(const Dado &outro) const = 0;
     virtual bool operator!=(const Dado &outro) const = 0;
 };
@@ -40,8 +40,8 @@ public:
     Dado_Jogador();
     Dado_Jogador(string nome, string apelido = "", int vitorias = 0, int derrotas = 0);
     Dado_Jogador(objeto obj);
-    void deserialize(objeto obj) override;
-    objeto serialize() override;
+    void carregar(objeto obj) override;
+    objeto exportar() override;
     virtual bool operator==(const Dado &outro) const;
     virtual bool operator!=(const Dado &outro) const;
 

@@ -20,7 +20,7 @@ using namespace std;
 TEST_CASE("Dado_Jogador: Construtor Padrao") {
     // Testa se o construtor padrão inicializa os membros corretamente
     Dado_Jogador jogador;
-    objeto obj = jogador.serialize();
+    objeto obj = jogador.exportar();
     CHECK(obj.dados["nome"] == "");
     CHECK(obj.dados["apelido"] == "");
     CHECK(obj.dados["vitorias"] == "0");
@@ -32,7 +32,7 @@ TEST_CASE("Dado_Jogador: Construtor Parametrizado") {
     // Testa se o construtor parametrizado inicializa os membros com os valores fornecidos
     objeto obj;
     Dado_Jogador jogador("Leandro", "Leo", 700, 150);
-    obj = jogador.serialize();
+    obj = jogador.exportar();
     CHECK(obj.dados["nome"] == "Leandro");
     CHECK(obj.dados["apelido"] == "Leo");
     CHECK(obj.dados["vitorias"] == "700");
@@ -41,7 +41,7 @@ TEST_CASE("Dado_Jogador: Construtor Parametrizado") {
 
     // Testa com valores padrão
     Dado_Jogador jogador2("Luiz");
-    obj = jogador2.serialize();
+    obj = jogador2.exportar();
     CHECK(obj.dados["nome"] == "Luiz");
     CHECK(obj.dados["apelido"] == "");
     CHECK(obj.dados["vitorias"] == "0");
@@ -61,7 +61,7 @@ TEST_CASE("Dado_Jogador: Construtor Parametrizado com Objeto") {
 
     objeto obj;
     Dado_Jogador jogador(p1);
-    obj = jogador.serialize();
+    obj = jogador.exportar();
     CHECK(obj.dados["nome"] == "Leandro");
     CHECK(obj.dados["apelido"] == "Leo");
     CHECK(obj.dados["vitorias"] == "7");
@@ -69,7 +69,7 @@ TEST_CASE("Dado_Jogador: Construtor Parametrizado com Objeto") {
     CHECK(obj.dados["pontuacoes"]== "1,2,3,4,5");
 }
 
-TEST_CASE("Dado_Jogador: serialize e deserialize") {
+TEST_CASE("Dado_Jogador: exportar e carregar") {
     // Cria um Dado_Jogador, serializa, e depois desserializa para outro objeto
     // e verifica a igualdade.
 
@@ -77,7 +77,7 @@ TEST_CASE("Dado_Jogador: serialize e deserialize") {
     original.pontuacoes({100, 95, 110});
 
     SUBCASE("Serialização e Desserialização de um objeto completo") {
-        objeto obj = original.serialize();
+        objeto obj = original.exportar();
 
         CHECK(obj.dados["nome"] == "Cristiano Ronaldo");
         CHECK(obj.dados["apelido"] == "CR7");
@@ -86,7 +86,7 @@ TEST_CASE("Dado_Jogador: serialize e deserialize") {
         CHECK(obj.dados["pontuacoes"] == "100,95,110");
 
         Dado_Jogador deserialized;
-        deserialized.deserialize(obj);
+        deserialized.carregar(obj);
 
         CHECK(deserialized.nome() == "Cristiano Ronaldo");
         CHECK(deserialized.apelido() == "CR7");
@@ -101,7 +101,7 @@ TEST_CASE("Dado_Jogador: serialize e deserialize") {
         partial_obj.dados["vitorias"] = "50";
 
         Dado_Jogador partial_jogador;
-        partial_jogador.deserialize(partial_obj);
+        partial_jogador.carregar(partial_obj);
 
         CHECK(partial_jogador.nome() == "Meio");
         CHECK(partial_jogador.apelido() == ""); // Deve ser padrão
@@ -116,7 +116,7 @@ TEST_CASE("Dado_Jogador: serialize e deserialize") {
     //     obj_empty_scores.dados["pontuacoes"] = ""; // String vazia
     //
     //     Dado_Jogador jogador_empty_scores;
-    //     jogador_empty_scores.deserialize(obj_empty_scores);
+    //     jogador_empty_scores.carregar(obj_empty_scores);
     //     CHECK(jogador_empty_scores.pontuacoes.empty());
     //
     //     objeto obj_malformed_scores;
@@ -124,7 +124,7 @@ TEST_CASE("Dado_Jogador: serialize e deserialize") {
     //     obj_malformed_scores.dados["pontuacoes"] = "10,abc,20"; // Mal formatado
     //
     //     // Espera-se que std::stoi lance uma exceção para "abc"
-    //     CHECK_THROWS_AS(jogador_malformed_scores.deserialize(obj_malformed_scores), std::invalid_argument);
+    //     CHECK_THROWS_AS(jogador_malformed_scores.carregar(obj_malformed_scores), std::invalid_argument);
     // }
 }
 
@@ -163,8 +163,7 @@ TEST_CASE("Dado_Jogador: Operadores de Comparação (== e !=)") {
         // o dynamic_cast deve retornar nullptr, resultando em false)
         class Dado_Teste : public Dado {
         public:
-            void deserialize(objeto obj) override {
-            }
+            void deserialize(objeto obj) override {}
 
             objeto serialize() override { return objeto(); }
             bool operator==(const Dado &outro) const override { return false; }
