@@ -88,11 +88,11 @@ TEST_CASE("Dado_Jogador: exportar e carregar") {
         Dado_Jogador deserialized;
         deserialized.carregar(obj);
 
-        CHECK(deserialized.nome() == "Cristiano Ronaldo");
-        CHECK(deserialized.apelido() == "CR7");
-        CHECK(deserialized.vitorias() == 800);
-        CHECK(deserialized.derrotas() == 200);
-        CHECK(deserialized.pontuacoes() == std::vector<int>{100, 95, 110});
+        CHECK(deserialized.get("nome") == "Cristiano Ronaldo");
+        CHECK(deserialized.get("apelido") == "CR7");
+        CHECK(deserialized.get("vitorias") == 800);
+        CHECK(deserialized.get("derrotas") == 200);
+        CHECK(deserialized.get("pontuacoes") == std::vector<int>{100, 95, 110});
     }
 
     SUBCASE("Desserialização de objeto com chaves ausentes") {
@@ -103,11 +103,11 @@ TEST_CASE("Dado_Jogador: exportar e carregar") {
         Dado_Jogador partial_jogador;
         partial_jogador.carregar(partial_obj);
 
-        CHECK(partial_jogador.nome() == "Meio");
-        CHECK(partial_jogador.apelido() == ""); // Deve ser padrão
-        CHECK(partial_jogador.vitorias() == 50);
-        CHECK(partial_jogador.derrotas() == 0); // Deve ser padrão
-        CHECK(partial_jogador.pontuacoes().empty()); // Deve ser vazio
+        CHECK(partial_jogador.get("nome") == "Meio");
+        CHECK(partial_jogador.get("apelido") == ""); // Deve ser padrão
+        CHECK(partial_jogador.get("vitorias") == 50);
+        CHECK(partial_jogador.get("derrotas") == 0); // Deve ser padrão
+        CHECK(partial_jogador.get("pontuacoes").empty()); // Deve ser vazio
     }
 
     // SUBCASE("Desserialização de objeto com pontuacoes vazias ou mal formatadas") {
@@ -133,9 +133,9 @@ TEST_CASE("Dado_Jogador: Operadores de Comparação (== e !=)") {
     Dado_Jogador jogador2("Ana", "Aninha", 10, 2); // Idêntico a jogador1
     Dado_Jogador jogador3("Bruno", "Bruninho", 5, 5); // Diferente
     Dado_Jogador jogador4("Ana", "Aninha", 10, 2);
-    jogador4.pontuacoes({1, 2, 3}); // Igual, mas com pontuações diferentes
+    jogador4.set("pontuacoes", {1, 2, 3}); // Igual, mas com pontuações diferentes
     Dado_Jogador jogador5("Ana", "Aninha", 10, 2);
-    jogador5.pontuacoes({1, 2, 3}); // Idêntico a jogador4
+    jogador5.set("pontuacoes", {1, 2, 3}); // Idêntico a jogador4
 
     SUBCASE("Comparação de igualdade") {
         CHECK(jogador1 == jogador2); // Objetos idênticos
@@ -162,12 +162,13 @@ TEST_CASE("Dado_Jogador: Operadores de Comparação (== e !=)") {
         // Teste de comparação com um tipo Dado diferente (embora não tenhamos outros tipos Dado concretos,
         // o dynamic_cast deve retornar nullptr, resultando em false)
         class Dado_Teste : public Dado {
-        public:
-            void deserialize(objeto obj) override {}
-
-            objeto serialize() override { return objeto(); }
-            bool operator==(const Dado &outro) const override { return false; }
-            bool operator!=(const Dado &outro) const override { return true; }
+            public:
+                bool operator==(const Dado &outro) const override { return false; }
+                bool operator!=(const Dado &outro) const override { return true; }
+                void carregar(objeto obj) override {};
+                objeto exportar() override { return objeto(); };
+                void set(string chave, const any &valor) override {};
+                any get(string chave) override { return false };
         };
         Dado_Teste dado_teste;
         CHECK_FALSE(*ptr_jogador1 == dado_teste); // Dado_Jogador vs Dado_Teste

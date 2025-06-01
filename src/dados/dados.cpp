@@ -121,10 +121,10 @@ bool Dado_Jogador::operator==(const Dado &outro) const {
 
     // Compara todos os membros relevantes para igualdade
     return (nome_ == other_jogador->nome_ &&
-            apelido_ == other_jogador->apelido_ &&
-            vitorias_ == other_jogador->vitorias_ &&
-            derrotas_ == other_jogador->derrotas_ &&
-            pontuacoes_ == other_jogador->pontuacoes_); // Comparação de vetor
+        apelido_ == other_jogador->apelido_ &&
+        vitorias_ == other_jogador->vitorias_ &&
+        derrotas_ == other_jogador->derrotas_ &&
+        pontuacoes_ == other_jogador->pontuacoes_); // Comparação de vetor
 }
 
 // Função operator!=
@@ -133,13 +133,26 @@ bool Dado_Jogador::operator==(const Dado &outro) const {
 bool Dado_Jogador::operator!=(const Dado &outro) const { return !(*this == outro); }
 
 // Getters e setters
-string Dado_Jogador::nome() const { return nome_; }
-void Dado_Jogador::nome(const string &nome) { this->nome_ = nome; }
-string Dado_Jogador::apelido() const { return apelido_; }
-void Dado_Jogador::apelido(const string &apelido) { this->apelido_ = apelido; }
-int Dado_Jogador::vitorias() const { return vitorias_; }
-void Dado_Jogador::vitorias(int vitorias) { this->vitorias_ = vitorias; }
-int Dado_Jogador::derrotas() const { return derrotas_; }
-void Dado_Jogador::derrotas(int derrotas) { this->derrotas_ = derrotas; }
-vector<int> Dado_Jogador::pontuacoes() const { return pontuacoes_; }
-void Dado_Jogador::pontuacoes(const vector<int> &pontuacoes) { this->pontuacoes_ = pontuacoes; }
+void Dado_Jogador::set(string chave, const any &valor) {
+    if (chave == "nome") { nome_ = valor; }
+    else if (chave == "apelido") { apelido_ = valor; }
+    else if (chave == "vitorias") { vitorias_ = valor; }
+    else if (chave == "derrotas") { derrotas_ = valor; }
+    else if (chave == "pontuacoes") { pontuacoes_ = valor; }
+    else {
+        // Erro
+        throw runtime_error("Chave inválida durante set.");
+    }
+};
+
+any Dado_Jogador::get(string chave) {
+    if (chave == "nome") { return nome_; }
+    else if (chave == "apelido") { return apelido_; }
+    else if (chave == "vitorias") { return vitorias_; }
+    else if (chave == "derrotas") { return derrotas_; }
+    else if (chave == "pontuacoes") { return pontuacoes_; }
+    else {
+        // Erro
+        throw runtime_error("Chave inválida durante get.");
+    }
+};

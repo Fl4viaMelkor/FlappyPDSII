@@ -1,6 +1,7 @@
 # test/CMakeLists.txt
 cmake_minimum_required(VERSION 3.10)
-set(CMAKE_CXX_STANDARD 17)  # Require C++11
+set(CMAKE_CXX_STANDARD 17)  # Require C++17
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(FlappyPDS CXX)
 
@@ -26,19 +27,19 @@ target_sources(run_tests PRIVATE
 # Os testes precisam das implementações das classes que estão sendo testadas.
 # Por exemplo, test_dados_jogador.cpp testa a implementação em dados.cpp.
 target_sources(run_tests PRIVATE
-    ../src/dados/dados.cpp # Adiciona o arquivo de implementação de Dado_Jogador
-    # ../src/common_code.cpp # Se 'common_tests.cpp' ou outros testes dependem de common_code
+        ../src/dados/dados.cpp # Adiciona o arquivo de implementação de Dado_Jogador
+        # ../src/common_code.cpp # Se 'common_tests.cpp' ou outros testes dependem de common_code
 )
 
 
 # Adicione condicionalmente os arquivos de teste específicos do SO
 #if(WIN32)
 #    target_sources(run_tests PRIVATE windows_tests.cpp)
-    # Se windows_specific.cpp for necessário para windows_tests.cpp
- ##   target_sources(run_tests PRIVATE ../src/windows_specific.cpp)
+# Se windows_specific.cpp for necessário para windows_tests.cpp
+##   target_sources(run_tests PRIVATE ../src/windows_specific.cpp)
 #elseif(UNIX) # __linux__ e __APPLE__ geralmente são englobados por UNIX em CMake
 #    target_sources(run_tests PRIVATE linux_tests.cpp)
-    # Se linux_specific.cpp for necessário para linux_tests.cpp
+# Se linux_specific.cpp for necessário para linux_tests.cpp
 #    target_sources(run_tests PRIVATE ../src/linux_specific.cpp)
 #endif()
 
