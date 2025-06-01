@@ -106,3 +106,32 @@ string Logger::listar_dados(string sep_chave_valor, string sep_dados) {
     }
     return dados;
 }
+
+
+// Construtor
+PlayerLogger::PlayerLogger(const Database &db) : Logger(db) {
+    atual_ = new Dado_Jogador();
+    cout << "PlayerLogger construído e associado a um Database." << endl;
+}
+
+
+void PlayerLogger::resetar() override {
+    if (atual_) {
+        delete atual_; // Deleta o objeto atual
+        atual_ = nullptr; // Garante que o ponteiro seja nulo antes de recriar
+    }
+
+    // Cria um Dado_Jogador no estado padrão.
+    atual_ = new Dado_Jogador();
+}
+
+// Esta implementação fornece uma ordenação específica para as vitorias de um jogador
+string PlayerLogger::listar_dados_ordenados(string sep_chave_valor, string sep_dados) {
+    const vector<objeto> results = db_->listar_ordenado("vitorias", false);
+    string dados = "";
+    for (objeto obj: results) {
+        for (const auto &pair: obj)
+            dados += pair.first + sep_chave_valor + pair.second + sep_dados;
+    }
+    return dados;
+}
