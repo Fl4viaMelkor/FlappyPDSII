@@ -17,6 +17,26 @@ bool objeto::operator!=(const objeto& outro) const {
     return !(*this == outro);
 }
 
+string Dado_Jogador::nome1() const {return nome;}
+
+void Dado_Jogador::set_nome(const string &nome) {this->nome = nome;}
+
+string Dado_Jogador::apelido1() const {return apelido;}
+
+void Dado_Jogador::set_apelido(const string &apelido) {this->apelido = apelido;}
+
+int Dado_Jogador::vitorias1() const {return vitorias;}
+
+void Dado_Jogador::set_vitorias(int vitorias) {this->vitorias = vitorias;}
+
+int Dado_Jogador::derrotas1() const {return derrotas;}
+
+void Dado_Jogador::set_derrotas(int derrotas) {this->derrotas = derrotas;}
+
+vector<int> Dado_Jogador::pontuacoes1() const {return pontuacoes;}
+
+void Dado_Jogador::set_pontuacoes(const vector<int> &pontuacoes) {this->pontuacoes = pontuacoes;}
+
 
 // Inicializa um objeto Dado_Jogador com valores padrão.
 Dado_Jogador::Dado_Jogador() : nome(""), apelido(""), vitorias(0), derrotas(0) {
@@ -119,7 +139,7 @@ objeto Dado_Jogador::serialize() {
 // Função operator==
 // Compara dois objetos Dado para igualdade.
 // Usa dynamic_cast para verificar com segurança se 'outro' também é um Dado_Jogador.
-bool Dado_Jogador::operator==(const Dado& outro) {
+bool Dado_Jogador::operator==(const Dado& outro) const{
     cout << "Comparando objetos Dado_Jogador..." << endl;
     const Dado_Jogador* other_jogador = dynamic_cast<const Dado_Jogador*>(&outro);
     if (!other_jogador) {
@@ -137,6 +157,6 @@ bool Dado_Jogador::operator==(const Dado& outro) {
 // Função operator!=
 // Compara dois objetos Dado para desigualdade.
 // Simplesmente nega o resultado de operator==.
-bool Dado_Jogador::operator!=(const Dado& outro) {
+bool Dado_Jogador::operator!=(const Dado& outro) const{
     return !(*this == outro);
 }

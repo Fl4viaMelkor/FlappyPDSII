@@ -4,14 +4,32 @@ set(CMAKE_CXX_STANDARD 17)  # Require C++11
 
 project(FlappyPDS CXX)
 
-# Adicione suas fontes de código (se necessário para os testes)
-# Por exemplo, se os testes precisam linkar com a biblioteca principal
-# add_library(my_app_lib STATIC ../src/common_code.cpp ...)
-# target_link_libraries(my_app_lib ...)
+# É comum ter as fontes da aplicação aqui para que os testes possam linkar com elas
+# Exemplo: Se 'common_code.cpp' for uma fonte da sua aplicação
+# add_library(my_app_common STATIC ../src/common_code.cpp)
+# target_include_directories(my_app_common PUBLIC ../src) # Para incluir cabeçalhos
 
-# Crie um executável de teste
-add_executable(run_tests
-        dados/test_database.cpp)
+# -------------------------------------------------------------
+# 1. Definição do Executável de Teste
+# Começamos com o 'main_test.cpp' que contém o DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+add_executable(run_tests dados/test_database.cpp)
+
+# -------------------------------------------------------------
+# 2. Adicionar as fontes de teste específicas
+# Cada arquivo .cpp de teste é adicionado separadamente
+target_sources(run_tests PRIVATE
+        dados/test_dados_jogador.cpp # Inclui o arquivo de teste para Dado_Jogador
+)
+
+# -------------------------------------------------------------
+# 3. Adicionar as fontes da aplicação que os testes dependem
+# Os testes precisam das implementações das classes que estão sendo testadas.
+# Por exemplo, test_dados_jogador.cpp testa a implementação em dados.cpp.
+target_sources(run_tests PRIVATE
+    ../src/dados/dados.cpp # Adiciona o arquivo de implementação de Dado_Jogador
+    # ../src/common_code.cpp # Se 'common_tests.cpp' ou outros testes dependem de common_code
+)
+
 
 # Adicione condicionalmente os arquivos de teste específicos do SO
 #if(WIN32)

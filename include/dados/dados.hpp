@@ -35,6 +35,29 @@ class Dado{
 class Dado_Jogador : public Dado{
     protected:
       string nome, apelido;
+
+  public:
+      string nome1() const;
+
+      void set_nome(const string &nome);
+
+      string apelido1() const;
+
+      void set_apelido(const string &apelido);
+
+      int vitorias1() const;
+
+      void set_vitorias(int vitorias);
+
+      int derrotas1() const;
+
+      void set_derrotas(int derrotas);
+
+      vector<int> pontuacoes1() const;
+
+      void set_pontuacoes(const vector<int> &pontuacoes);
+
+  protected:
       int vitorias, derrotas;
       vector<int> pontuacoes;
     public:
@@ -42,8 +65,8 @@ class Dado_Jogador : public Dado{
       Dado_Jogador(string nome, string apelido="", int vitorias=0, int derrotas=0);
       Dado_Jogador(objeto obj);
       void deserialize(objeto obj) override;
-      virtual bool operator==(const Dado& outro);
-      virtual bool operator!=(const Dado& outro);
+      virtual bool operator==(const Dado& outro) const;
+      virtual bool operator!=(const Dado& outro) const;
       objeto serialize() override;
 };
 
