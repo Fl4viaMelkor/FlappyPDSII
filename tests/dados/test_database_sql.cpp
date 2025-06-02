@@ -79,7 +79,7 @@ struct DatabaseFixture {
 TEST_CASE_FIXTURE(DatabaseFixture, "JogadorSQLDatabase: Inicializacao e Criacao de Tabela") {
     // O construtor da fixture já testa a inicialização e criação da tabela.
     // Se a fixture foi construída com sucesso, o banco de dados está aberto e a tabela criada.
-    CHECK(db_instance->hasDb());
+    REQUIRE(db_instance->hasDb());
 
     // Tenta listar para ver se a tabela está vazia (como esperado após a criação)
     vector<objeto> players = db_instance->listar();
@@ -108,6 +108,7 @@ TEST_CASE_FIXTURE(DatabaseFixture, "JogadorSQLDatabase: Adicionar Jogador") {
     objeto player2 = create_jogador_objeto(0, "Bob", "Bobby", 5, 5, "0,1,2,3,5");
     CHECK(db_instance->adicionar(player2));
     players = db_instance->listar();
+
     REQUIRE(players.size() == 2);
     CHECK(players[1].dados.at("NOME") == "Bob");
     CHECK(players[1].dados.at("VITORIAS") == "5");
@@ -120,7 +121,7 @@ TEST_CASE_FIXTURE(DatabaseFixture, "JogadorSQLDatabase: Adicionar Jogador") {
     // A função adicionar deve retornar false e o SQLite deve reportar um erro de UNIQUE constraint
     // (A saída de erro para cerr é esperada aqui)
     CHECK_FALSE(db_instance->adicionar(player_duplicate_nickname));
-    REQUIRE(db_instance->listar().size() == 2); // O número de jogadores não deve mudar
+    CHECK(db_instance->listar().size() == 2); // O número de jogadores não deve mudar
 }
 
 
@@ -159,7 +160,7 @@ TEST_CASE_FIXTURE(DatabaseFixture, "JogadorSQLDatabase: Buscar Jogador") {
 }
 
 TEST_CASE_FIXTURE(DatabaseFixture, "JogadorSQLDatabase: Listar Todos os Jogadores") {
-    CHECK(db_instance->listar().empty()); // Inicialmente vazio
+    REQUIRE(db_instance->listar().empty()); // Inicialmente vazio
 
     db_instance->adicionar(create_jogador_objeto(0, "Alice", "Ali"));
     db_instance->adicionar(create_jogador_objeto(0, "Bob", "Bobby"));
@@ -225,6 +226,24 @@ TEST_CASE_FIXTURE(DatabaseFixture, "JogadorSQLDatabase: Atualizar ou Adicionar")
 
         vector<objeto> results = db_instance->buscar("NOME", "Eve");
         REQUIRE(results.size() == 2);
+
+        updated_eve = create_jogador_objeto(0, "Eve", "Evelyn", 3, 1);
+        CHECK(db_instance->atualizar_ou_adicionar(updated_eve)); // Deve chamar 'atualizar'
+
+        results = db_instance->buscar("NOME", "Eve");
+        REQUIRE(results.size() == 2);
+
+        for (const auto &obj: results) {
+            if (obj.dados.at("APELIDO") == "Evelyn") {
+                CHECK(obj.dados.at("VITORIAS") == "3");
+                CHECK(obj.dados.at("DERROTAS") == "1");
+            }
+            else {
+                CHECK(obj.dados.at("APELIDO") == "Evie");
+                CHECK(obj.dados.at("VITORIAS") == "30");
+                CHECK(obj.dados.at("DERROTAS") == "5");
+            }
+        }
     }
 }
 
@@ -238,61 +257,69 @@ TEST_CASE_FIXTURE(DatabaseFixture, "JogadorSQLDatabase: Excluir Jogador") {
     CHECK(db_instance->buscar("nome", "Frank").empty()); // Não deve mais encontrar Frank
     CHECK(db_instance->listar().empty()); // A tabela deve estar vazia agora
 
+    //Jogadores homonimos não devem ser afetados
+    db_instance->adicionar(create_jogador_objeto(0, "Frank", "Frankie"));
+    db_instance->adicionar(create_jogador_objeto(0, "Frank", "Frank"));
+    CHECK(db_instance->excluir(frank_to_delete));
+    CHECK(db_instance->buscar("nome", "Frank").size() == 1); // Deve existir apenas um Frank
+
+
     // Tentar excluir jogador que não existe (deve retornar false ou não afetar nada)
     objeto non_existent_delete = create_jogador_objeto(999, "NonExistent", "", 0, 0);
     CHECK_FALSE(db_instance->excluir(non_existent_delete));
 }
 
-//
-// TEST_CASE_FIXTURE(DatabaseFixture, "JogadorSQLDatabase: Limpar Tabela") {
-//     db_instance->adicionar(create_jogador_objeto(0, "Grace", "Gracie", 50, 0));
-//     db_instance->adicionar(create_jogador_objeto(0, "Heidi", "H", 60, 1));
-//     REQUIRE(db_instance->listar().size() == 2);
-//
-//     CHECK(db_instance->limpar());
-//     CHECK(db_instance->listar().empty()); // Tabela deve estar vazia após limpar
-// }
-//
-// TEST_CASE_FIXTURE(DatabaseFixture, "JogadorSQLDatabase: Listar Ordenado") {
-//     db_instance->adicionar(create_jogador_objeto(0, "Zulu", "Z", 10, 0));
-//     db_instance->adicionar(create_jogador_objeto(0, "Alpha", "A", 30, 0));
-//     db_instance->adicionar(create_jogador_objeto(0, "Charlie", "C", 20, 0));
-//
-//     SUBCASE("Ordenar por nome crescente") {
-//         vector<objeto> players = db_instance->listar_ordenado("NOME", true);
-//         REQUIRE(players.size() == 3);
-//         CHECK(players[0].dados.at("NOME") == "Alpha");
-//         CHECK(players[1].dados.at("NOME") == "Charlie");
-//         CHECK(players[2].dados.at("NOME") == "Zulu");
-//     }
-//
-//     SUBCASE("Ordenar por nome decrescente") {
-//         vector<objeto> players = db_instance->listar_ordenado("NOME", false);
-//         REQUIRE(players.size() == 3);
-//         CHECK(players[0].dados.at("NOME") == "Zulu");
-//         CHECK(players[1].dados.at("NOME") == "Charlie");
-//         CHECK(players[2].dados.at("NOME") == "Alpha");
-//     }
-//
-//     SUBCASE("Ordenar por vitorias crescente") {
-//         vector<objeto> players = db_instance->listar_ordenado("VITORIAS", true);
-//         REQUIRE(players.size() == 3);
-//         CHECK(players[0].dados.at("VITORIAS") == "10"); // Zulu
-//         CHECK(players[1].dados.at("VITORIAS") == "20"); // Charlie
-//         CHECK(players[2].dados.at("VITORIAS") == "30"); // Alpha
-//     }
-//
-//     SUBCASE("Ordenar por vitorias decrescente") {
-//         vector<objeto> players = db_instance->listar_ordenado("VITORIAS", false);
-//         REQUIRE(players.size() == 3);
-//         CHECK(players[0].dados.at("VITORIAS") == "30"); // Alpha
-//         CHECK(players[1].dados.at("VITORIAS") == "20"); // Charlie
-//         CHECK(players[2].dados.at("VITORIAS") == "10"); // Zulu
-//     }
-//
-//     SUBCASE("Ordenar por chave inválida") {
-//         // A função deve imprimir um erro para cerr e retornar um vetor vazio
-//         vector<objeto> players = db_instance->listar_ordenado("chave_invalida", true);
-//         CHECK(players.empty());
-//     }
-// }
+
+TEST_CASE_FIXTURE(DatabaseFixture, "JogadorSQLDatabase: Limpar Tabela") {
+    db_instance->adicionar(create_jogador_objeto(0, "Grace", "Gracie", 50, 0));
+    db_instance->adicionar(create_jogador_objeto(0, "Heidi", "H", 60, 1));
+    REQUIRE(db_instance->listar().size() == 2);
+
+    CHECK(db_instance->limpar());
+    CHECK(db_instance->listar().empty()); // Tabela deve estar vazia após limpar
+}
+
+
+TEST_CASE_FIXTURE(DatabaseFixture, "JogadorSQLDatabase: Listar Ordenado") {
+    db_instance->adicionar(create_jogador_objeto(0, "Zulu", "Z", 10, 0));
+    db_instance->adicionar(create_jogador_objeto(0, "Alpha", "A", 30, 0));
+    db_instance->adicionar(create_jogador_objeto(0, "Charlie", "C", 20, 0));
+
+    SUBCASE("Ordenar por nome crescente") {
+        vector<objeto> players = db_instance->listar_ordenado("NOME", true);
+        REQUIRE(players.size() == 3);
+        CHECK(players[0].dados.at("NOME") == "Alpha");
+        CHECK(players[1].dados.at("NOME") == "Charlie");
+        CHECK(players[2].dados.at("NOME") == "Zulu");
+    }
+
+    SUBCASE("Ordenar por nome decrescente") {
+        vector<objeto> players = db_instance->listar_ordenado("NOME", false);
+        REQUIRE(players.size() == 3);
+        CHECK(players[0].dados.at("NOME") == "Zulu");
+        CHECK(players[1].dados.at("NOME") == "Charlie");
+        CHECK(players[2].dados.at("NOME") == "Alpha");
+    }
+
+    SUBCASE("Ordenar por vitorias crescente") {
+        vector<objeto> players = db_instance->listar_ordenado("VITORIAS", true);
+        REQUIRE(players.size() == 3);
+        CHECK(players[0].dados.at("VITORIAS") == "10"); // Zulu
+        CHECK(players[1].dados.at("VITORIAS") == "20"); // Charlie
+        CHECK(players[2].dados.at("VITORIAS") == "30"); // Alpha
+    }
+
+    SUBCASE("Ordenar por vitorias decrescente") {
+        vector<objeto> players = db_instance->listar_ordenado("VITORIAS", false);
+        REQUIRE(players.size() == 3);
+        CHECK(players[0].dados.at("VITORIAS") == "30"); // Alpha
+        CHECK(players[1].dados.at("VITORIAS") == "20"); // Charlie
+        CHECK(players[2].dados.at("VITORIAS") == "10"); // Zulu
+    }
+
+    SUBCASE("Ordenar por chave inválida") {
+        // A função deve imprimir um erro para cerr e retornar um vetor vazio
+        vector<objeto> players = db_instance->listar_ordenado("chave_invalida", true);
+        CHECK(players.empty());
+    }
+}
