@@ -10,6 +10,7 @@
 #include <map>
 #include <vector>
 #include <any>
+#include <unordered_map>
 
 using namespace std;
 
@@ -23,8 +24,6 @@ struct objeto {
 // Implementação concreta do objeto de forma que possa ser lido e usado pelo sistema
 class Dado {
     public:
-        virtual void set(string chave, const std::any &valor) = 0;
-        virtual any get(string chave) = 0;
         virtual ~Dado() = default;
         virtual void carregar(objeto obj) = 0;
         virtual objeto exportar() = 0;
@@ -47,8 +46,19 @@ class Dado_Jogador : public Dado {
         objeto exportar() override;
         bool operator==(const Dado &outro) const;
         bool operator!=(const Dado &outro) const;
-        void set(string chave, const any &valor) override;
-        any get(string chave) override;
+        void apelido(const string &apelido);
+        string apelido() const;
+        int vitorias() const;
+        void vitorias(int vitorias);
+        int derrotas() const;
+        void derrotas(int derrotas);
+        vector<int> pontuacoes() const;
+        void pontuacoes(const vector<int> &pontuacoes);
+        string nome() const;
+        void nome(const string &nome);
+
+        static unordered_map<string, string> get_column_types();
+        static vector<string> get_colunas();
 };
 
 

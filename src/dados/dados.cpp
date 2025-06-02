@@ -6,6 +6,7 @@
 // Este arquivo fornece as definições para as classes declaradas em dados.hpp.
 #include "../../include/dados/dados.hpp"
 #include <iostream>  // Para saída de depuração potencial (ex.: em carregar/exportar)
+#include <unordered_map>
 
 using namespace std;
 
@@ -16,20 +17,20 @@ bool objeto::operator!=(const objeto &outro) const { return !(*this == outro); }
 
 // Inicializa um objeto Dado_Jogador com valores padrão.
 Dado_Jogador::Dado_Jogador() : nome_(""), apelido_(""), vitorias_(0), derrotas_(0) {
-    cout << "Construtor padrão de Dado_Jogador chamado." << endl;
+    // cout << "Construtor padrão de Dado_Jogador chamado." << endl;
 }
 
 // Construtor Parametrizado
 // Inicializa um objeto Dado_Jogador com valores fornecidos.
 Dado_Jogador::Dado_Jogador(string nome, string apelido, int vitorias, int derrotas) : nome_(move(nome)),
     apelido_(move(apelido)), vitorias_(vitorias), derrotas_(derrotas) {
-    cout << "Construtor parametrizado de Dado_Jogador chamado." << endl;
+    // cout << "Construtor parametrizado de Dado_Jogador chamado." << endl;
 }
 
 // Construtor a partir de 'objeto'
 // Inicializa um objeto Dado_Jogador desserializando dados de um 'objeto'.
 Dado_Jogador::Dado_Jogador(objeto obj) {
-    cout << "Construtor de Dado_Jogador a partir de 'objeto' chamado, desserializando..." << endl;
+    // cout << "Construtor de Dado_Jogador a partir de 'objeto' chamado, desserializando..." << endl;
     Dado_Jogador::carregar(move(obj)); // Chama a função carregar para preencher os membros
 }
 
@@ -37,7 +38,7 @@ Dado_Jogador::Dado_Jogador(objeto obj) {
 // Preenche os membros de Dado_Jogador a partir de um 'objeto'.
 // Esta função precisa de tratamento robusto de erros para chaves ausentes ou tipos de dados inválidos.
 void Dado_Jogador::carregar(objeto obj) {
-    cout << "Desserializando Dado_Jogador..." << endl;
+    // cout << "Desserializando Dado_Jogador..." << endl;
 
     // Recupera 'nome'
     if (obj.dados.count("nome")) { nome_ = obj.dados["nome"]; }
@@ -91,7 +92,7 @@ void Dado_Jogador::carregar(objeto obj) {
 // Função exportar
 // Converte os membros de Dado_Jogador em um objeto'
 objeto Dado_Jogador::exportar() {
-    cout << "Serializando Dado_Jogador..." << endl;
+    // cout << "Serializando Dado_Jogador..." << endl;
     objeto obj;
     obj.dados["nome"] = nome_;
     obj.dados["apelido"] = apelido_;
@@ -114,7 +115,7 @@ objeto Dado_Jogador::exportar() {
 // Compara dois objetos Dado para igualdade.
 // Usa dynamic_cast para verificar com segurança se 'outro' também é um Dado_Jogador.
 bool Dado_Jogador::operator==(const Dado &outro) const {
-    cout << "Comparando objetos Dado_Jogador..." << endl;
+    // cout << "Comparando objetos Dado_Jogador..." << endl;
     const Dado_Jogador *other_jogador = dynamic_cast<const Dado_Jogador *>(&outro);
     if (!other_jogador)
         return false;
@@ -128,32 +129,37 @@ bool Dado_Jogador::operator==(const Dado &outro) const {
         pontuacoes_ == other_jogador->pontuacoes_); // Comparação de vetor
 }
 
+unordered_map<string, string> Dado_Jogador::get_column_types() {
+    return {
+        {"NOME", "string"},
+        {"APELIDO", "string"},
+        {"VITORIAS", "int"},
+        {"DERROTAS", "int"},
+        {"PONTUACOES", "vector"}
+    };
+}
+
+vector<string> Dado_Jogador::get_colunas() {
+    vector<string> keys;
+    for (const auto &pair: get_column_types()) {
+        keys.push_back(pair.first);
+    }
+    return keys;
+};
+
+
 // Função operator!=
 // Compara dois objetos Dado para desigualdade.
 // Simplesmente nega o resultado de operator==.
 bool Dado_Jogador::operator!=(const Dado &outro) const { return !(*this == outro); }
 
-// Getters e setters
-void Dado_Jogador::set(string chave, const any &valor) {
-    if (chave == "nome") { nome_ = valor; }
-    else if (chave == "apelido") { apelido_ = valor; }
-    else if (chave == "vitorias") { vitorias_ = valor; }
-    else if (chave == "derrotas") { derrotas_ = valor; }
-    else if (chave == "pontuacoes") { pontuacoes_ = valor; }
-    else {
-        // Erro
-        throw runtime_error("Chave inválida durante set.");
-    }
-};
-
-any Dado_Jogador::get(string chave) {
-    if (chave == "nome") { return nome_; }
-    else if (chave == "apelido") { return apelido_; }
-    else if (chave == "vitorias") { return vitorias_; }
-    else if (chave == "derrotas") { return derrotas_; }
-    else if (chave == "pontuacoes") { return pontuacoes_; }
-    else {
-        // Erro
-        throw runtime_error("Chave inválida durante get.");
-    }
-};
+string Dado_Jogador::nome() const { return nome_; }
+void Dado_Jogador::nome(const string &nome) { this->nome_ = nome; }
+string Dado_Jogador::apelido() const { return apelido_; }
+void Dado_Jogador::apelido(const string &apelido) { this->apelido_ = apelido; }
+int Dado_Jogador::vitorias() const { return vitorias_; }
+void Dado_Jogador::vitorias(int vitorias) { this->vitorias_ = vitorias; }
+int Dado_Jogador::derrotas() const { return derrotas_; }
+void Dado_Jogador::derrotas(int derrotas) { this->derrotas_ = derrotas; }
+vector<int> Dado_Jogador::pontuacoes() const { return pontuacoes_; }
+void Dado_Jogador::pontuacoes(const vector<int> &pontuacoes) { this->pontuacoes_ = pontuacoes; }

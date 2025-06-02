@@ -22,6 +22,10 @@ target_sources(run_tests PRIVATE
         dados/test_dados_jogador.cpp # Inclui o arquivo de teste para Dado_Jogador
 )
 
+target_sources(run_tests PRIVATE
+        dados/test_database_sql.cpp # Inclui o arquivo de teste para Dado_Jogador
+)
+
 # -------------------------------------------------------------
 # 3. Adicionar as fontes da aplicação que os testes dependem
 # Os testes precisam das implementações das classes que estão sendo testadas.
@@ -30,7 +34,12 @@ target_sources(run_tests PRIVATE
         ../src/dados/dados.cpp # Adiciona o arquivo de implementação de Dado_Jogador
         # ../src/common_code.cpp # Se 'common_tests.cpp' ou outros testes dependem de common_code
 )
-
+target_sources(run_tests PRIVATE
+        ../src/dados/sqlite3.c # Adiciona o arquivo de implementação de Dado_Jogador
+        ../src/dados/database.cpp # Adiciona o arquivo de implementação de Dado_Jogador
+        ../src/util.cpp
+        # ../src/common_code.cpp # Se 'common_tests.cpp' ou outros testes dependem de common_code
+)
 
 # Adicione condicionalmente os arquivos de teste específicos do SO
 #if(WIN32)
@@ -49,4 +58,4 @@ target_sources(run_tests PRIVATE
 # include_directories(path/to/doctest/include) # Se você tiver os cabeçalhos diretamente
 
 #target_link_libraries(run_tests doctest_with_main) # ou `doctest::doctest` se usar find_package
-# target_link_libraries(run_tests my_app_lib) # Se precisar linkar com sua lib
+target_link_libraries(run_tests sqlite3) # Se precisar linkar com sua lib

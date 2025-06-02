@@ -19,14 +19,15 @@ class Logger {
 		bool deletar(string id) const;
 		virtual void resetar() = 0;
 
-		string listar_dados(string sep_chave_valor = ": ", string sep_dados = "\n");
+		string listar_dados(const string &sep_chave_valor = ": ", const string &sep_dados = "\t",
+		                    const string &sep_entidade = "\n");
 };
 
 class PlayerLogger final : public Logger {
 	public:
 		explicit PlayerLogger(const Database &db);
-		string listar_dados_ordenados(string sep_chave_valor = ": ",
-		                              string sep_dados = "\n");
+		string listar_dados_ordenados(const string &sep_chave_valor = ": ",
+		                              const string &sep_dados = "\n", const string &sep_entidade = "\n");
 		void resetar() override;
 };
 

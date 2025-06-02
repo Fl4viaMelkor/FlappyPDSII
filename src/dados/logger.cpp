@@ -11,10 +11,6 @@
 
 using namespace std;
 
-// =============================================================================
-// Implementação da classe Logger
-// =============================================================================
-
 // Construtor
 // Inicializa o Logger com uma referência para um objeto Database.
 Logger::Logger(const Database &db) : db_(&db), atual_(nullptr) {
@@ -37,7 +33,7 @@ bool Logger::carregar(const string &id) {
         return false;
     }
 
-    vector<objeto> results = db_->buscar("id", id);
+    const vector<objeto> results = db_->buscar("id", id);
 
     if (!results.empty()) {
         // Se já houver um objeto carregado, deleta-o para evitar vazamento de memória
@@ -72,8 +68,8 @@ bool Logger::salvar() const {
         return false;
     }
 
-    // Serializa o objeto Dado atual para obter sua representação 'objeto'
-    objeto obj_to_save = atual_->exportar();
+    // Serializa o objeto Dado atual para obter a sua representação 'objeto'
+    const objeto obj_to_save = atual_->exportar();
 
     return db_->atualizar_ou_adicionar(obj_to_save);
 }
@@ -90,20 +86,22 @@ bool Logger::deletar(string id) const {
     objeto obj_to_delete;
     obj_to_delete.dados["id"] = id; // Assume "id" é a chave identificadora para exclusão
 
-    bool success = db_->excluir(obj_to_delete);
+    const bool success = db_->excluir(obj_to_delete);
 
     return success;
 }
 
-// Retorna uma string formatada com todos os dados do objeto carregado.
+// Retorna uma ‘string’ formatada com todos os dados do objeto carregado.
 // As chaves são listadas em ordem alfabética.
-string Logger::listar_dados(string sep_chave_valor, string sep_dados) {
+string Logger::listar_dados(const string &sep_chave_valor, const string &sep_dados, const string &sep_entidade) {
     const vector<objeto> results = db_->listar();
     string dados = "";
     for (objeto obj: results) {
         for (const auto &pair: obj)
             dados += pair.first + sep_chave_valor + pair.second + sep_dados;
+        dados += sep_entidade;
     }
+
     return dados;
 }
 
@@ -125,13 +123,15 @@ void PlayerLogger::resetar() override {
     atual_ = new Dado_Jogador();
 }
 
-// Esta implementação fornece uma ordenação específica para as vitorias de um jogador
-string PlayerLogger::listar_dados_ordenados(string sep_chave_valor, string sep_dados) {
+// Esta implementação fornece uma ordenação específica para as vitórias de um jogador
+string PlayerLogger::listar_dados_ordenados(const string &sep_chave_valor, const string &sep_dados,
+                                            const string &sep_entidade) {
     const vector<objeto> results = db_->listar_ordenado("vitorias", false);
     string dados = "";
     for (objeto obj: results) {
         for (const auto &pair: obj)
             dados += pair.first + sep_chave_valor + pair.second + sep_dados;
+        dados += sep_entidade;
     }
     return dados;
 }
