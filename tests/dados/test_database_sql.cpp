@@ -23,7 +23,8 @@ using namespace std;
 // =============================================================================
 
 // Cria um objeto 'objeto' com dados de jogador
-objeto create_jogador_objeto(const int id, const string &nome, const string &apelido, int vitorias, int derrotas,
+objeto create_jogador_objeto(const int id, const string &nome, const string &apelido, int vitorias = 0,
+                             int derrotas = 0,
                              const string &pontuacoes_str = "") {
     objeto obj;
     obj.dados["id"] = to_string(id);
@@ -140,127 +141,108 @@ TEST_CASE_FIXTURE(DatabaseFixture, "JogadorSQLDatabase: Buscar Jogador") {
         CHECK(results.empty());
     }
 
-    // SUBCASE("Buscar por apelido (não-único)") {
-    //     vector<objeto> results = db_instance->buscar("APELIDO", "Ali");
-    //     REQUIRE(results.size() == 2); // Deve encontrar Alice e Alice2
-    //     // A ordem dos resultados não é garantida sem ORDER BY na busca
-    //     bool found_alice = false;
-    //     bool found_alice2 = false;
-    //     for (const auto &obj: results) {
-    //         if (obj.dados.at("NOME") == "Alice")
-    //             found_alice = true;
-    //         if (obj.dados.at("NOME") == "Alice2")
-    //             found_alice2 = true;
-    //     }
-    //     CHECK(found_alice);
-    //     CHECK(found_alice2);
-    // }
-    //
-    // SUBCASE("Buscar por ID (assumindo que IDs são gerados automaticamente)") {
-    //     // Para buscar por ID, precisamos do ID gerado.
-    //     // A forma mais simples é listar e pegar o ID.
-    //     vector<objeto> all_players = db_instance->listar();
-    //     REQUIRE(all_players.size() >= 2); // Pelo menos Alice e Bob
-    //
-    //     string alice_id = "";
-    //     for (const auto &p: all_players) {
-    //         if (p.dados.at("NOME") == "Alice") {
-    //             alice_id = p.dados.at("id");
-    //             break;
-    //         }
-    //     }
-    //     REQUIRE_FALSE(alice_id.empty()); // Garante que o ID da Alice foi encontrado
-    //
-    //     vector<objeto> results_by_id = db_instance->buscar("id", alice_id);
-    //     REQUIRE(results_by_id.size() == 1);
-    //     CHECK(results_by_id[0].dados.at("NOME") == "Alice");
-    // }
+    SUBCASE("Buscar por apelido (não-único)") {
+        vector<objeto> results = db_instance->buscar("NOME", "Bob");
+        REQUIRE(results.size() == 2); // Deve encontrar Bob e Bobby
+        // A ordem dos resultados não é garantida sem ORDER BY na busca
+        bool found_bob = false;
+        bool found_bobby = false;
+        for (const auto &obj: results) {
+            if (obj.dados.at("APELIDO") == "Bob")
+                found_bob = true;
+            if (obj.dados.at("APELIDO") == "Bobby")
+                found_bobby = true;
+        }
+        CHECK(found_bob);
+        CHECK(found_bobby);
+    }
 }
 
-// TEST_CASE_FIXTURE(DatabaseFixture, "JogadorSQLDatabase: Listar Todos os Jogadores") {
-//     CHECK(db_instance->listar().empty()); // Inicialmente vazio
-//
-//     db_instance->adicionar(create_jogador_objeto(0, "Alice", "Ali", 10, 2));
-//     db_instance->adicionar(create_jogador_objeto(0, "Bob", "Bobby", 5, 5));
-//     db_instance->adicionar(create_jogador_objeto(0, "Charlie", "Char", 15, 1));
-//
-//     vector<objeto> players = db_instance->listar();
-//     REQUIRE(players.size() == 3);
-//
-//     // Verifica se os nomes esperados estão presentes (ordem não garantida)
-//     bool found_alice = false, found_bob = false, found_charlie = false;
-//     for (const auto &obj: players) {
-//         if (obj.dados.at("NOME") == "Alice")
-//             found_alice = true;
-//         if (obj.dados.at("NOME") == "Bob")
-//             found_bob = true;
-//         if (obj.dados.at("NOME") == "Charlie")
-//             found_charlie = true;
-//     }
-//     CHECK(found_alice);
-//     CHECK(found_bob);
-//     CHECK(found_charlie);
-// }
-//
-// TEST_CASE_FIXTURE(DatabaseFixture, "JogadorSQLDatabase: Atualizar Jogador") {
-//     db_instance->adicionar(create_jogador_objeto(0, "Alice", "Ali", 10, 2));
-//     string alice_id = db_instance->listar()[0].dados.at("id"); // Pega o ID gerado
-//
-//     objeto updated_alice = create_jogador_objeto(stoi(alice_id), "Alice", "Wonder", 12, 3);
-//     updated_alice.dados["PONTUACOES"] = "100,120"; // Adiciona pontuações
-//
-//     CHECK(db_instance->atualizar(updated_alice));
-//
-//     vector<objeto> results = db_instance->buscar("id", alice_id);
-//     REQUIRE(results.size() == 1);
-//     CHECK(results[0].dados.at("NOME") == "Alice");
-//     CHECK(results[0].dados.at("APELIDO") == "Wonder");
-//     CHECK(results[0].dados.at("VITORIAS") == "12");
-//     CHECK(results[0].dados.at("DERROTAS") == "3");
-//     CHECK(results[0].dados.at("PONTUACOES") == "100,120");
-//
-//     // Tentar atualizar jogador que não existe (deve retornar false ou não afetar nada)
-//     objeto non_existent_player = create_jogador_objeto(999, "Fake", "Player", 0, 0);
-//     CHECK_FALSE(db_instance->atualizar(non_existent_player));
-// }
-//
-// TEST_CASE_FIXTURE(DatabaseFixture, "JogadorSQLDatabase: Atualizar ou Adicionar") {
-//     SUBCASE("Adicionar novo jogador") {
-//         objeto new_player = create_jogador_objeto(0, "David", "Dave", 20, 1);
-//         CHECK(db_instance->atualizar_ou_adicionar(new_player));
-//         REQUIRE(db_instance->listar().size() == 1);
-//         CHECK(db_instance->buscar("NOME", "David")[0].dados.at("VITORIAS") == "20");
-//     }
-//
-//     SUBCASE("Atualizar jogador existente") {
-//         db_instance->adicionar(create_jogador_objeto(0, "Eve", "Evie", 30, 5));
-//         string eve_id = db_instance->listar()[0].dados.at("id");
-//
-//         objeto updated_eve = create_jogador_objeto(stoi(eve_id), "Eve", "Evelyn", 35, 6);
-//         CHECK(db_instance->atualizar_ou_adicionar(updated_eve)); // Deve chamar 'atualizar'
-//
-//         vector<objeto> results = db_instance->buscar("id", eve_id);
-//         REQUIRE(results.size() == 1);
-//         CHECK(results[0].dados.at("APELIDO") == "Evelyn");
-//         CHECK(results[0].dados.at("VITORIAS") == "35");
-//     }
-// }
-//
-// TEST_CASE_FIXTURE(DatabaseFixture, "JogadorSQLDatabase: Excluir Jogador") {
-//     db_instance->adicionar(create_jogador_objeto(0, "Frank", "Frankie", 40, 10));
-//     string frank_id = db_instance->listar()[0].dados.at("id");
-//
-//     objeto frank_to_delete = create_jogador_objeto(stoi(frank_id), "Frank", "", 0, 0);
-//     // Apenas ID é necessário para exclusão
-//     CHECK(db_instance->excluir(frank_to_delete));
-//
-//     CHECK(db_instance->buscar("id", frank_id).empty()); // Não deve mais encontrar Frank
-//     CHECK(db_instance->listar().empty()); // A tabela deve estar vazia agora
-//
-//     // Tentar excluir jogador que não existe (deve retornar false ou não afetar nada)
-//     objeto non_existent_delete = create_jogador_objeto(999, "NonExistent", "", 0, 0);
-//     CHECK_FALSE(db_instance->excluir(non_existent_delete));
-// }
+TEST_CASE_FIXTURE(DatabaseFixture, "JogadorSQLDatabase: Listar Todos os Jogadores") {
+    CHECK(db_instance->listar().empty()); // Inicialmente vazio
+
+    db_instance->adicionar(create_jogador_objeto(0, "Alice", "Ali"));
+    db_instance->adicionar(create_jogador_objeto(0, "Bob", "Bobby"));
+    db_instance->adicionar(create_jogador_objeto(0, "Charlie", "Char"));
+
+    vector<objeto> players = db_instance->listar();
+    REQUIRE(players.size() == 3);
+
+    // Verifica se os nomes esperados estão presentes (ordem não garantida)
+    bool found_alice = false, found_bob = false, found_charlie = false;
+    for (const auto &obj: players) {
+        if (obj.dados.at("NOME") == "Alice")
+            found_alice = true;
+        if (obj.dados.at("NOME") == "Bob")
+            found_bob = true;
+        if (obj.dados.at("NOME") == "Charlie")
+            found_charlie = true;
+    }
+    CHECK(found_alice);
+    CHECK(found_bob);
+    CHECK(found_charlie);
+}
+
+
+TEST_CASE_FIXTURE(DatabaseFixture, "JogadorSQLDatabase: Atualizar Jogador") {
+    db_instance->adicionar(create_jogador_objeto(0, "Alice", "Ali", 10, 2));
+
+    // Tenta atualizar jogador com apelido duplicado (PRIMARY KEY)
+    objeto updated_alice = create_jogador_objeto(0, "Alice", "Wonder", 12, 3, "100,120");
+    CHECK_FALSE(db_instance->atualizar(updated_alice));
+
+    updated_alice = create_jogador_objeto(0, "Alice", "Ali", 12, 3, "100,120");
+    CHECK(db_instance->atualizar(updated_alice));
+
+
+    vector<objeto> results = db_instance->buscar("APELIDO", "Ali");
+    REQUIRE(results.size() == 1);
+    CHECK(results[0].dados.at("NOME") == "Alice");
+    CHECK(results[0].dados.at("APELIDO") == "Ali");
+    CHECK(results[0].dados.at("VITORIAS") == "12");
+    CHECK(results[0].dados.at("DERROTAS") == "3");
+    CHECK(results[0].dados.at("PONTUACOES") == "100,120");
+
+    // Tentar atualizar jogador que não existe (deve retornar false ou não afetar nada)
+    objeto non_existent_player = create_jogador_objeto(999, "Fake", "Player", 0, 0);
+    CHECK_FALSE(db_instance->atualizar(non_existent_player));
+}
+
+
+TEST_CASE_FIXTURE(DatabaseFixture, "JogadorSQLDatabase: Atualizar ou Adicionar") {
+    SUBCASE("Adicionar novo jogador") {
+        objeto new_player = create_jogador_objeto(0, "David", "Dave", 20, 1);
+        CHECK(db_instance->atualizar_ou_adicionar(new_player));
+        REQUIRE(db_instance->listar().size() == 1);
+        CHECK(db_instance->buscar("NOME", "David")[0].dados.at("VITORIAS") == "20");
+    }
+
+    SUBCASE("Atualizar jogador existente") {
+        db_instance->adicionar(create_jogador_objeto(0, "Eve", "Evie", 30, 5));
+
+        objeto updated_eve = create_jogador_objeto(0, "Eve", "Evelyn", 35, 6);
+        CHECK(db_instance->atualizar_ou_adicionar(updated_eve)); // Deve chamar 'adicionar'
+
+        vector<objeto> results = db_instance->buscar("NOME", "Eve");
+        REQUIRE(results.size() == 2);
+    }
+}
+
+TEST_CASE_FIXTURE(DatabaseFixture, "JogadorSQLDatabase: Excluir Jogador") {
+    db_instance->adicionar(create_jogador_objeto(0, "Frank", "Frankie", 40, 10));
+
+    objeto frank_to_delete = create_jogador_objeto(0, "", "Frankie", 0, 0);
+    // Apenas ID é necessário para exclusão
+    CHECK(db_instance->excluir(frank_to_delete));
+
+    CHECK(db_instance->buscar("nome", "Frank").empty()); // Não deve mais encontrar Frank
+    CHECK(db_instance->listar().empty()); // A tabela deve estar vazia agora
+
+    // Tentar excluir jogador que não existe (deve retornar false ou não afetar nada)
+    objeto non_existent_delete = create_jogador_objeto(999, "NonExistent", "", 0, 0);
+    CHECK_FALSE(db_instance->excluir(non_existent_delete));
+}
+
 //
 // TEST_CASE_FIXTURE(DatabaseFixture, "JogadorSQLDatabase: Limpar Tabela") {
 //     db_instance->adicionar(create_jogador_objeto(0, "Grace", "Gracie", 50, 0));

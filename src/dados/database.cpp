@@ -272,6 +272,9 @@ bool SQLDatabase::excluir(objeto o) {
         cerr << "SQLDatabase ERROR: Conexao com o banco de dados nao estabelecida para excluir." << endl;
         return false;
     }
+    vector<objeto> results = buscar(primary_key_name_, o.dados.at(primary_key_name_));
+    if (results.size() != 1)
+        return false;
 
     objeto normalized_o = o;
     // Normalize primary key name in the object's data
@@ -481,6 +484,9 @@ bool SQLDatabase::atualizar(objeto o) {
         cerr << "SQLDatabase ERROR: Conexao com o banco de dados nao estabelecida para atualizar." << endl;
         return false;
     }
+    vector<objeto> results = buscar(primary_key_name_, o.dados.at(primary_key_name_));
+    if (results.size() != 1)
+        return false;
 
     objeto normalized_o = o;
     // Normalize primary key name in the object's data
