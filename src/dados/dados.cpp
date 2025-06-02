@@ -129,23 +129,25 @@ bool Dado_Jogador::operator==(const Dado &outro) const {
         pontuacoes_ == other_jogador->pontuacoes_); // Comparação de vetor
 }
 
-unordered_map<string, string> Dado_Jogador::get_column_types() {
+unordered_map<string, string> Dado_Jogador::get_sql_columns() {
     return {
-        {"NOME", "string"},
-        {"APELIDO", "string"},
-        {"VITORIAS", "int"},
-        {"DERROTAS", "int"},
-        {"PONTUACOES", "vector"}
+        {"NOME", "TEXT NOT NULL"},
+        {"APELIDO", "TEXT PRIMARY KEY"},
+        {"VITORIAS", "INTEGER"},
+        {"DERROTAS", "INTEGER"},
+        {"PONTUACOES", "TEXT"}
     };
 }
 
 vector<string> Dado_Jogador::get_colunas() {
     vector<string> keys;
-    for (const auto &pair: get_column_types()) {
+    for (const auto &pair: get_sql_columns()) {
         keys.push_back(pair.first);
     }
     return keys;
-};
+}
+
+string Dado_Jogador::get_primary_key() { return "apelido"; };
 
 
 // Função operator!=

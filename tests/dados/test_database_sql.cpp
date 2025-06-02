@@ -131,7 +131,7 @@ TEST_CASE_FIXTURE(DatabaseFixture, "JogadorSQLDatabase: Buscar Jogador") {
     db_instance->adicionar(create_jogador_objeto(0, "Bob", "Bob", 12, 3)); // Outra Alice
 
     SUBCASE("Buscar por nome existente") {
-        vector<objeto> results = db_instance->buscar("NOME", "Alice");
+        vector<objeto> results = db_instance->buscar("nome", "Alice");
         REQUIRE(results.size() == 1);
         CHECK(results[0].dados.at("APELIDO") == "Ali");
         CHECK(results[0].dados.at("VITORIAS") == "10");

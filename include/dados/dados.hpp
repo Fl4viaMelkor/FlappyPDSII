@@ -57,8 +57,9 @@ class Dado_Jogador : public Dado {
         string nome() const;
         void nome(const string &nome);
 
-        static unordered_map<string, string> get_column_types();
+        static unordered_map<string, string> get_sql_columns();
         static vector<string> get_colunas();
+        static string get_primary_key();
 };
 
 
