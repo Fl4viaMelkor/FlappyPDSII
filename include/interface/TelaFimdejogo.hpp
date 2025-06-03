@@ -1,0 +1,56 @@
+#ifndef TELAFIMDEJOGO_HPP
+#define TELAFIMDEJOGO_HPP
+
+#include "tela_base.hpp" 
+#include <allegro5/allegro5.h>
+#include <allegro5/allegro_font.h> 
+#include <allegro5/allegro_ttf.h>  
+#include <allegro5/allegro_primitives.h> 
+#include <string>
+#include <iostream> 
+
+// Escolhas do jogador
+enum class EstadoProximaTela {
+    NENHUM,             
+    REINICIAR_JOGO,
+    MENU_PRINCIPAL,     
+    SAIR_DO_JOGO
+};
+
+class TelaFimdejogo : public TelaBase {
+private:
+    ALLEGRO_FONT* fonte_titulo;    
+    ALLEGRO_FONT* fonte_texto;     
+    ALLEGRO_BITMAP* imagem_fundo;  
+
+    int pontuacao_final;           
+    EstadoProximaTela proxima_tela_estado; // Qual ação o jogador escolheu
+
+    // Cores para o texto e elementos
+    ALLEGRO_COLOR cor_titulo;
+    ALLEGRO_COLOR cor_texto_pontuacao;
+    ALLEGRO_COLOR cor_texto_opcoes;
+
+
+
+    // Dimensões da tela (para centralizar o texto e elementos)
+    int largura_tela;
+    int altura_tela;
+
+public:
+    // Construtor
+    TelaFimdejogo(int pontuacao, int largura_tela_jogo, int altura_tela_jogo);
+    
+    // Destrutor
+    ~TelaFimdejogo() override; 
+
+    void update() override; 
+    void draw() override;   
+    void step(ALLEGRO_EVENT& evento) override; 
+
+    // Método para o gerenciador de telas saber o que fazer depois
+    EstadoProximaTela getProximaTelaEstado() const;
+    void resetProximaTelaEstado(); // Reseta o estado após ser lido
+};
+
+#endif 
