@@ -2,19 +2,14 @@
 // Created by leand on 01/06/2025.
 //
 #include "../doctest.h"
-#include "../../include/dados/sqlite3.h"
 #include <iostream>
 #include "../../include/dados/database.hpp" // Inclui o cabeçalho da classe SQLDatabase e JogadorSQLDatabase
 #include "../../include/dados/dados.hpp"      // Inclui o cabeçalho da struct 'objeto' e Dado_Jogador
-#include <ctime>  // For seeding
 
 #include <random>
 #include <string>        // Para string
 #include <vector>        // Para vector
-#include <unordered_map> // Para unordered_map
-#include <iostream>      // Para cout, cerr
 #include <fstream>       // Para remove (deletar arquivo)
-#include <stdexcept>     // Para runtime_error
 #include <unordered_set>
 using namespace std;
 
@@ -99,7 +94,7 @@ TEST_CASE_FIXTURE(DatabaseFixture, "JogadorSQLDatabase: Adicionar Jogador") {
     for (const auto &pair: players[0].dados)
         CHECK(vecSet.find(pair.first) != vecSet.end());
 
-    // Valores são strings no objeto
+    // Valores são ‘strings’ no objeto
     CHECK(players[0].dados.at("NOME") == "Alice");
     CHECK(players[0].dados.at("VITORIAS") == "10");
     CHECK(players[0].dados.at("APELIDO") == "Ali");
@@ -251,13 +246,13 @@ TEST_CASE_FIXTURE(DatabaseFixture, "JogadorSQLDatabase: Excluir Jogador") {
     db_instance->adicionar(create_jogador_objeto(0, "Frank", "Frankie", 40, 10));
 
     objeto frank_to_delete = create_jogador_objeto(0, "", "Frankie", 0, 0);
-    // Apenas ID é necessário para exclusão
+
     CHECK(db_instance->excluir(frank_to_delete));
 
     CHECK(db_instance->buscar("nome", "Frank").empty()); // Não deve mais encontrar Frank
     CHECK(db_instance->listar().empty()); // A tabela deve estar vazia agora
 
-    //Jogadores homonimos não devem ser afetados
+    //Jogadores homônimos não devem ser afetados
     db_instance->adicionar(create_jogador_objeto(0, "Frank", "Frankie"));
     db_instance->adicionar(create_jogador_objeto(0, "Frank", "Frank"));
     CHECK(db_instance->excluir(frank_to_delete));

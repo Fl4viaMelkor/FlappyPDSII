@@ -1,0 +1,6 @@
+- Para executar os testes, use os seguintes comandos no terminal dentro da pasta "tests":
+    - mkdir build (para criar a pasta de build)
+    - cd build (para entrar na pasta)
+    - cmake .. (para executar o CMakeLists na pasta teste)
+    - cmake --build . (para construir o executável de testes)
+    - .\run_tests.exe (para executar os testes)

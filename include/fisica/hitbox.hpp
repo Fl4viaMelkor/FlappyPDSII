@@ -1,25 +1,28 @@
 //
 // Created by leand on 25/05/2025.
 //
+
+#ifndef HITBOX_HPP
+#define HITBOX_HPP
+
 #include "fisica.hpp"
 #include "../util.hpp"
 #include "info_colisao.hpp"
 #include "../interface/figuras_basicas.hpp"
 
-#ifndef HITBOX_HPP
-#define HITBOX_HPP
 
-
-class Hitbox{
-    public:
-        virtual bool colisao(coordenadas p) = 0;
+class Hitbox {
+	public:
+		virtual ~Hitbox() = default;
+		virtual bool colisao(coordenadas p) = 0;
 };
 
 class Colidivel {
-    public:
-        virtual Hitbox getHitbox() const = 0;
-        virtual CollisionInfo getInfo() = 0;
-        virtual void onCollision() = 0;
+	public:
+		virtual ~Colidivel() = default;
+		virtual Hitbox getHitbox() const = 0;
+		virtual CollisionInfo getInfo() = 0;
+		virtual void onCollision() = 0;
 };
 
 //class PoligonoHitbox:public Hitbox{
