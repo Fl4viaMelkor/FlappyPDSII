@@ -6,7 +6,7 @@
 
 #ifndef UTIL_HPP
 #define UTIL_HPP
-#include<string>
+#include <string>
 
 using namespace std;
 
@@ -20,7 +20,7 @@ struct gravidade {
 };
 
 struct coordenadas {
-    int x, y;
+    float x, y;
 };
 
 struct momento_linear {
@@ -31,14 +31,14 @@ struct momento_linear {
 
 // Classe sem construtor que armazena as ações.
 class Acoes {
-    public:
-        Acoes() = delete;
-        const static acao pular;
-        const static acao inexistente;
-        const static acao mover_esquerda_devagar;
+  public:
+    Acoes() = delete;
+    const static acao pular;
+    const static acao inexistente;
+    const static acao mover_esquerda_devagar;
 };
 
 string toUpper(const string &input);
 string toLower(const string &input);
 
-#endif //UTIL_HPP
+#endif // UTIL_HPP

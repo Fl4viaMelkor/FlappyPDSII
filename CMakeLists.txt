@@ -107,6 +107,7 @@ add_executable(FlappyPDSII
         src/objeto_cano.cpp
         src/player.cpp
         src/util.cpp
+        src/fisica/fisica.cpp
 )
 target_include_directories(FlappyPDSII PRIVATE ${ALLEGRO_INCLUDE_DIR})
 
@@ -135,6 +136,7 @@ add_executable(FlappyPDSII_Tests
         src/objeto_cano.cpp
         src/player.cpp
         src/util.cpp
+        src/fisica/fisica.cpp
 )
 
 target_include_directories(FlappyPDSII_Tests PRIVATE ${ALLEGRO_INCLUDE_DIR})
