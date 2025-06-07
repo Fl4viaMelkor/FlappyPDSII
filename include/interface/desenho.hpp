@@ -7,6 +7,7 @@
 
 class Desenho {
   public:
+    virtual ~Desenho() = default;
     virtual void draw() = 0;
 };
 

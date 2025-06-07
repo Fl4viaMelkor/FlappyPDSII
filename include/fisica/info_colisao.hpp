@@ -5,12 +5,11 @@
 #ifndef INFO_COLISAO_HPP
 #define INFO_COLISAO_HPP
 
-
 // Estrutura contendo informações detalhadas da colisão
 class CollisionInfo {
-    public:
-        // Construtor básico
-        CollisionInfo();
+  public:
+    // Construtor básico
+    CollisionInfo();
 };
 
-#endif //INFO_COLISAO_HPP
+#endif // INFO_COLISAO_HPP

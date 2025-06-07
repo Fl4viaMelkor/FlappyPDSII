@@ -8,16 +8,17 @@
 
 class Logger {
   protected:
-    Database *db_;
-    Dado *atual_;
-    explicit Logger(const Database &db);
+    Database *db_ = nullptr;
+    Dado *atual_ = nullptr;
+    explicit Logger(Database *db);
+    explicit Logger() = default;
 
   public:
-    explicit Logger(Database &db);
     virtual ~Logger();
+
     bool carregar(const string &id);
-    bool salvar() const;
-    bool deletar(string id) const;
+    virtual bool salvar() const;
+    virtual bool deletar(string id) const;
     virtual void resetar() = 0;
 
     string listar_dados(const string &sep_chave_valor = ": ", const string &sep_dados = "\t",
@@ -26,9 +27,10 @@ class Logger {
 
 class PlayerLogger final : public Logger {
   public:
-    explicit PlayerLogger(Database &db);
+    explicit PlayerLogger(Database *db);
+    explicit PlayerLogger();
     string listar_dados_ordenados(const string &sep_chave_valor = ": ", const string &sep_dados = "\n",
-                                  const string &sep_entidade = "\n");
+                                  const string &sep_entidade = "\n") const;
     void resetar() override;
 };
 

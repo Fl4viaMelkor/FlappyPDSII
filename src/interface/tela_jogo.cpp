@@ -3,6 +3,7 @@
 // Caso algo seja adicionado, lembrese de criar o objeto e de implementar seus métodos, bem como destructors
 
 TelaJogo::TelaJogo()
+  : keyState()
 {
     // Criando objetos que vão estar no jogo
     player = new Player(100, 100, 4.0f, 32, 32);

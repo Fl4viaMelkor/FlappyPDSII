@@ -1,3 +1,5 @@
+#include "./dados/logger.hpp"
+
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/keyboard.h>
@@ -35,6 +37,7 @@ int main()
     TelaBase *fimDeJogo = new tela_fimdejogo(100, 200, 300);
 
     TelaBase *telaAtual = jogo;
+    auto *logger = new PlayerLogger();
 
     ALLEGRO_EVENT event;
 
@@ -80,6 +83,7 @@ int main()
     delete telaAtual;
     delete jogo;
     delete fimDeJogo;
+    cleanup();
 
     return 0;
 }
@@ -101,9 +105,15 @@ void initialize()
 
 void cleanup()
 {
+
+    al_shutdown_image_addon();
+    al_shutdown_ttf_addon();
+    al_shutdown_font_addon();
+    al_shutdown_primitives_addon();
     al_destroy_display(display);
     al_destroy_event_queue(queue);
     al_destroy_timer(timer);
+    al_uninstall_system();
 }
 
 /*

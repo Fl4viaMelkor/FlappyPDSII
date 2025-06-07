@@ -16,15 +16,7 @@
 #include <vector>   // Para vector
 using namespace std;
 
-// Construtor
-// Inicializa o Logger com uma referência para um objeto Database.
-Logger::Logger(Database &db)
-  : db_(&db)
-  , atual_(nullptr)
-{
-    cout << "Logger construído e associado a um Database const." << endl;
-}
-
+Logger::Logger(Database *db) { db_ = db; }
 // Destrutor
 // Libera a memória alocada para 'atual_' se houver um Dado carregado.
 Logger::~Logger()
@@ -121,11 +113,17 @@ string Logger::listar_dados(const string &sep_chave_valor, const string &sep_dad
 }
 
 // Construtor
-PlayerLogger::PlayerLogger(Database &db)
+PlayerLogger::PlayerLogger(Database *db)
   : Logger(db)
 {
     atual_ = new Dado_Jogador();
     cout << "PlayerLogger construído e associado a um Database." << endl;
+}
+
+PlayerLogger::PlayerLogger()
+  : Logger()
+{
+    db_ = new JogadorSQLDatabase();
 }
 
 void PlayerLogger::resetar()
@@ -141,7 +139,7 @@ void PlayerLogger::resetar()
 
 // Esta implementação fornece uma ordenação específica para as vitórias de um jogador
 string PlayerLogger::listar_dados_ordenados(const string &sep_chave_valor, const string &sep_dados,
-                                            const string &sep_entidade)
+                                            const string &sep_entidade) const
 {
     const vector<objeto> results = db_->listar_ordenado("vitorias", false);
     string dados = "";

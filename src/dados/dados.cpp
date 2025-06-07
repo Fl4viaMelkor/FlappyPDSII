@@ -5,7 +5,7 @@
 
 // Este arquivo fornece as definições para as classes declaradas em dados.hpp.
 #include "../../include/dados/dados.hpp"
-#include <iostream>  // Para saída de depuração potencial (ex.: em carregar/exportar)
+#include <iostream> // Para saída de depuração potencial (ex.: em carregar/exportar)
 #include <unordered_map>
 
 using namespace std;
@@ -14,22 +14,29 @@ bool objeto::operator==(const objeto &outro) const { return dados == outro.dados
 
 bool objeto::operator!=(const objeto &outro) const { return !(*this == outro); }
 
-
 // Inicializa um objeto Dado_Jogador com valores padrão.
-Dado_Jogador::Dado_Jogador() : nome_(""), apelido_(""), vitorias_(0), derrotas_(0) {
+Dado_Jogador::Dado_Jogador()
+  : vitorias_(0)
+  , derrotas_(0)
+{
     // cout << "Construtor padrão de Dado_Jogador chamado." << endl;
 }
 
 // Construtor Parametrizado
 // Inicializa um objeto Dado_Jogador com valores fornecidos.
-Dado_Jogador::Dado_Jogador(string nome, string apelido, int vitorias, int derrotas) : nome_(move(nome)),
-    apelido_(move(apelido)), vitorias_(vitorias), derrotas_(derrotas) {
+Dado_Jogador::Dado_Jogador(string nome, string apelido, int vitorias, int derrotas)
+  : nome_(move(nome))
+  , apelido_(move(apelido))
+  , vitorias_(vitorias)
+  , derrotas_(derrotas)
+{
     // cout << "Construtor parametrizado de Dado_Jogador chamado." << endl;
 }
 
 // Construtor a partir de 'objeto'
 // Inicializa um objeto Dado_Jogador desserializando dados de um 'objeto'.
-Dado_Jogador::Dado_Jogador(objeto obj) {
+Dado_Jogador::Dado_Jogador(objeto obj)
+{
     // cout << "Construtor de Dado_Jogador a partir de 'objeto' chamado, desserializando..." << endl;
     Dado_Jogador::carregar(move(obj)); // Chama a função carregar para preencher os membros
 }
@@ -37,11 +44,14 @@ Dado_Jogador::Dado_Jogador(objeto obj) {
 // Função carregar
 // Preenche os membros de Dado_Jogador a partir de um 'objeto'.
 // Esta função precisa de tratamento robusto de erros para chaves ausentes ou tipos de dados inválidos.
-void Dado_Jogador::carregar(objeto obj) {
+void Dado_Jogador::carregar(objeto obj)
+{
     // cout << "Desserializando Dado_Jogador..." << endl;
 
     // Recupera 'nome'
-    if (obj.dados.count("nome")) { nome_ = obj.dados["nome"]; }
+    if (obj.dados.count("nome")) {
+        nome_ = obj.dados["nome"];
+    }
     else {
         // Erro
         nome_ = ""; // Padrão para string vazia se ausente
@@ -49,10 +59,10 @@ void Dado_Jogador::carregar(objeto obj) {
     }
 
     // Recupera 'apelido'
-    if (obj.dados.count("apelido")) { apelido_ = obj.dados["apelido"]; }
+    if (obj.dados.count("apelido"))
+        apelido_ = obj.dados["apelido"];
     else
         apelido_ = ""; // Padrão para string vazia
-
 
     // Recupera 'vitorias' - requer conversão de string para int
     if (obj.dados.count("vitorias"))
@@ -61,25 +71,25 @@ void Dado_Jogador::carregar(objeto obj) {
     else
         vitorias_ = 0; // Padrão para 0
 
-
     // Recupera 'derrotas' - requer conversão de string para int
     if (obj.dados.count("derrotas"))
         derrotas_ = stoi(obj.dados["derrotas"]);
     else
         derrotas_ = 0; // Padrão para 0
 
-
     // Recupera 'pontuacoes' - requer análise de string (ex.: "10,20,30") em vetor de ints
     pontuacoes_.clear(); // Limpa pontuações existentes
     if (obj.dados.count("pontuacoes") && !obj.dados["pontuacoes"].empty()) {
         const string scores_str = obj.dados["pontuacoes"];
         string current_score_str;
-        for (const char c: scores_str) {
+        for (const char c : scores_str) {
             if (c == ',') {
                 pontuacoes_.push_back(stoi(current_score_str));
                 current_score_str = "";
             }
-            else { current_score_str += c; }
+            else {
+                current_score_str += c;
+            }
         }
         if (!current_score_str.empty()) {
             // Adiciona a última pontuação
@@ -88,10 +98,10 @@ void Dado_Jogador::carregar(objeto obj) {
     }
 }
 
-
 // Função exportar
 // Converte os membros de Dado_Jogador em um objeto'
-objeto Dado_Jogador::exportar() {
+objeto Dado_Jogador::exportar()
+{
     // cout << "Serializando Dado_Jogador..." << endl;
     objeto obj;
     obj.dados["nome"] = nome_;
@@ -114,7 +124,8 @@ objeto Dado_Jogador::exportar() {
 // Função operator==
 // Compara dois objetos Dado para igualdade.
 // Usa dynamic_cast para verificar com segurança se 'outro' também é um Dado_Jogador.
-bool Dado_Jogador::operator==(const Dado &outro) const {
+bool Dado_Jogador::operator==(const Dado &outro) const
+{
     // cout << "Comparando objetos Dado_Jogador..." << endl;
     const Dado_Jogador *other_jogador = dynamic_cast<const Dado_Jogador *>(&outro);
     if (!other_jogador)
@@ -122,33 +133,29 @@ bool Dado_Jogador::operator==(const Dado &outro) const {
     // 'outro' não é um Dado_Jogador
 
     // Compara todos os membros relevantes para igualdade
-    return (nome_ == other_jogador->nome_ &&
-        apelido_ == other_jogador->apelido_ &&
-        vitorias_ == other_jogador->vitorias_ &&
-        derrotas_ == other_jogador->derrotas_ &&
-        pontuacoes_ == other_jogador->pontuacoes_); // Comparação de vetor
+    return (nome_ == other_jogador->nome_ && apelido_ == other_jogador->apelido_ &&
+            vitorias_ == other_jogador->vitorias_ && derrotas_ == other_jogador->derrotas_ &&
+            pontuacoes_ == other_jogador->pontuacoes_); // Comparação de vetor
 }
 
-unordered_map<string, string> Dado_Jogador::get_sql_columns() {
-    return {
-        {"NOME", "TEXT NOT NULL"},
-        {"APELIDO", "TEXT PRIMARY KEY"},
-        {"VITORIAS", "INTEGER"},
-        {"DERROTAS", "INTEGER"},
-        {"PONTUACOES", "TEXT"}
-    };
+unordered_map<string, string> Dado_Jogador::get_sql_columns()
+{
+    return { { "NOME", "TEXT NOT NULL" },
+             { "APELIDO", "TEXT PRIMARY KEY" },
+             { "VITORIAS", "INTEGER" },
+             { "DERROTAS", "INTEGER" },
+             { "PONTUACOES", "TEXT" } };
 }
 
-vector<string> Dado_Jogador::get_colunas() {
+vector<string> Dado_Jogador::get_colunas()
+{
     vector<string> keys;
-    for (const auto &pair: get_sql_columns()) {
+    for (const auto &pair : get_sql_columns())
         keys.push_back(pair.first);
-    }
     return keys;
 }
 
-string Dado_Jogador::get_primary_key() { return "apelido"; };
-
+string Dado_Jogador::get_primary_key() { return "apelido"; }
 
 // Função operator!=
 // Compara dois objetos Dado para desigualdade.

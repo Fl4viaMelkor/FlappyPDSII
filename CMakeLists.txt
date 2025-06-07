@@ -100,7 +100,6 @@ add_executable(FlappyPDSII
         src/dados/sqlite3.c
         src/fisica/hitbox.cpp
         src/fisica/info_colisao.cpp
-        src/interface/figuras.cpp
         src/interface/tela_fimdejogo.cpp
         src/interface/tela_jogo.cpp
         src/ator.cpp
@@ -121,8 +120,33 @@ add_executable(FlappyPDSII_Tests
         tests/dados/test_dados_jogador.cpp
         tests/dados/test_database.cpp
         tests/dados/test_database_sql.cpp
+
+        src/controladores/controlador.cpp
+        src/controladores/keybind.cpp
+        src/dados/dados.cpp
+        src/dados/database.cpp
+        src/dados/logger.cpp
+        src/dados/sqlite3.c
+        src/fisica/hitbox.cpp
+        src/fisica/info_colisao.cpp
+        src/interface/tela_fimdejogo.cpp
+        src/interface/tela_jogo.cpp
+        src/ator.cpp
+        src/objeto_cano.cpp
+        src/player.cpp
+        src/util.cpp
 )
-target_link_libraries(FlappyPDSII_Tests PRIVATE ${ALLEGRO_LIBRARIES} sqlite3 doctest) # Assumindo doctest é uma lib
+
+target_include_directories(FlappyPDSII_Tests PRIVATE ${ALLEGRO_INCLUDE_DIR})
+set_target_properties(FlappyPDSII_Tests PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin" # Onde o executável de teste será colocado
+        # Adicione as flags do Doctest aqui:
+        # Passa argumentos para o executável de teste
+        # Veja a documentação do Doctest para mais opções: https://github.com/doctest/doctest/blob/master/doc/markdown/commandline.md
+        # --success: Mostra testes que passaram
+        ARGS "--success --duration --full-timestamps --duration"
+)
+target_link_libraries(FlappyPDSII_Tests PRIVATE ${ALLEGRO_LIBRARIES} sqlite3) # Assumindo doctest é uma lib
 target_include_directories(FlappyPDSII_Tests PRIVATE tests) # Para encontrar doctest.h
 
 # Opcional: Para ocultar a janela do console no Windows, se 'main' não for WinMain

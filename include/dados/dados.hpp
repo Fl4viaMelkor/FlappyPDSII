@@ -40,12 +40,12 @@ class Dado_Jogador : public Dado {
 
   public:
     Dado_Jogador();
-    Dado_Jogador(string nome, string apelido = "", int vitorias = 0, int derrotas = 0);
-    Dado_Jogador(objeto obj);
+    explicit Dado_Jogador(string nome, string apelido = "", int vitorias = 0, int derrotas = 0);
+    explicit Dado_Jogador(objeto obj);
     void carregar(objeto obj) override;
     objeto exportar() override;
-    bool operator==(const Dado &outro) const;
-    bool operator!=(const Dado &outro) const;
+    bool operator==(const Dado &outro) const override;
+    bool operator!=(const Dado &outro) const override;
     void apelido(const string &apelido);
     string apelido() const;
     int vitorias() const;

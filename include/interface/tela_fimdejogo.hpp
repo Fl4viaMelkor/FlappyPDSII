@@ -22,9 +22,9 @@ class tela_fimdejogo : public TelaBase {
     EstadoProximaTela proxima_tela_estado; // Qual ação o jogador escolheu
 
     // Cores para o texto e elementos
-    ALLEGRO_COLOR cor_titulo;
-    ALLEGRO_COLOR cor_texto_pontuacao;
-    ALLEGRO_COLOR cor_texto_opcoes;
+    ALLEGRO_COLOR cor_titulo{};
+    ALLEGRO_COLOR cor_texto_pontuacao{};
+    ALLEGRO_COLOR cor_texto_opcoes{};
 
     // Dimensões da tela (para centralizar o texto e elementos)
     int largura_tela;
