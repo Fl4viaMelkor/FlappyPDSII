@@ -42,8 +42,6 @@ class tela_fimdejogo : public TelaBase {
         void update() override;
         void draw() override;
         void step(ALLEGRO_EVENT &evento) override;
-
-        void resetProximaTelaEstado(); // Reseta o estado após ser lido
 };
 
 #endif

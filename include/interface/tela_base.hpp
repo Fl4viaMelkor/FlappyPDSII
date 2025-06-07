@@ -27,7 +27,11 @@ class TelaBase {
 		virtual void step(ALLEGRO_EVENT &evento) = 0;
 
 		// Função para o gerenciador de telas saber o que fazer depois
-		EstadoProximaTela getProximaTelaEstado() const;
+		virtual EstadoProximaTela getProximaTelaEstado() const = 0;
+
+		void resetProximaTelaEstado(); // Reseta o estado após ser lido
+
+		virtual void resetEstado() {};
 };
 
 #endif
