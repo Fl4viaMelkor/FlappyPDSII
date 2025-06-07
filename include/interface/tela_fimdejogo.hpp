@@ -42,6 +42,7 @@ class tela_fimdejogo : public TelaBase {
         void update() override;
         void draw() override;
         void step(ALLEGRO_EVENT &evento) override;
+        EstadoProximaTela getProximaTelaEstado() const override;
 };
 
 #endif

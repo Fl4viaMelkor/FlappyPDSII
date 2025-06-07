@@ -6,7 +6,9 @@
 enum class EstadoProximaTela {
 	NENHUM,
 	REINICIAR_JOGO,
+	FIM_DE_JOGO,
 	MENU_PRINCIPAL,
+	JOGO_PRINCIPAL,
 	SAIR_DO_JOGO
 };
 

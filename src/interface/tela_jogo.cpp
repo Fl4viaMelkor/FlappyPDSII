@@ -7,7 +7,7 @@ TelaJogo::TelaJogo() {
     //Criando objetos que vão estar no jogo
     player = new Player(100, 100, 4.0f, 32, 32);
 
-    MySquare = new Cano(600.0, 635 , -1 ,200, al_map_rgb(255, 0, 0), 1.0f); // cano de teste
+    MySquare = new Cano(600.0, 635, -1, 200, al_map_rgb(255, 0, 0), 1.0f); // cano de teste
     end = false;
 }
 
@@ -21,7 +21,7 @@ void TelaJogo::update() {
     player->update(keyState);
 
     // Teste
-    if(player->isDead()== true){
+    if (player->isDead() == true) {
         end = true;
     }
 }
@@ -29,10 +29,9 @@ void TelaJogo::update() {
 void TelaJogo::draw() {
     player->draw();
     MySquare->draw();
-
 }
 
-void TelaJogo::step(ALLEGRO_EVENT& evento) {
+void TelaJogo::step(ALLEGRO_EVENT &evento) {
     if (evento.type == ALLEGRO_EVENT_KEY_DOWN || evento.type == ALLEGRO_EVENT_KEY_UP) {
         al_get_keyboard_state(&keyState);
     }
@@ -41,3 +40,7 @@ void TelaJogo::step(ALLEGRO_EVENT& evento) {
 bool TelaJogo::acabouJogo() const {
     return end;
 }
+
+EstadoProximaTela TelaJogo::getProximaTelaEstado() const { return EstadoProximaTela::NENHUM; }
+
+void TelaJogo::resetEstado() {}

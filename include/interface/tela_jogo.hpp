@@ -46,6 +46,8 @@ class TelaJogo : public TelaBase {
 		void step(ALLEGRO_EVENT &evento) override;
 
 		bool acabouJogo() const;
+		EstadoProximaTela getProximaTelaEstado() const override;
+		void resetEstado() override;
 };
 
 

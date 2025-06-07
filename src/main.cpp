@@ -22,13 +22,18 @@ ALLEGRO_EVENT_QUEUE *queue;
 ALLEGRO_TIMER *timer;
 ALLEGRO_KEYBOARD_STATE key_state;
 
+constexpr int ALTURA_TELA = 960, LARGURA_TELA = 1280;
+
 void initialize();
 void cleanup();
 
 int main() {
     initialize();
 
-    TelaBase *telaAtual = new TelaJogo();
+    TelaBase *jogo = new TelaJogo();
+    TelaBase *fimDeJogo = new tela_fimdejogo(100, 200, 300);
+
+    TelaBase TelaBase *telaAtual = jogo;
 
     ALLEGRO_EVENT event;
 
@@ -43,18 +48,28 @@ int main() {
         if (event.type == ALLEGRO_EVENT_TIMER) {
             telaAtual->update();
 
+            switch (telaAtual->getProximaTelaEstado()) {
+                case EstadoProximaTela::NENHUM:
+                    break;
+                case EstadoProximaTela::REINICIAR_JOGO:
+                    break;
+                case EstadoProximaTela::FIM_DE_JOGO:
+                    telaAtual = fimDeJogo;
+                    break;
+                case EstadoProximaTela::MENU_PRINCIPAL:
+                    break;
+                case EstadoProximaTela::SAIR_DO_JOGO:
+                    break;
+                case EstadoProximaTela::JOGO_PRINCIPAL:
+                    telaAtual = jogo;
+                    telaAtual->resetEstado();
+            }
+
             al_clear_to_color(al_map_rgb(0, 0, 0));
 
             //Desenho de telas
             telaAtual->draw();
             al_flip_display();
-
-            // Verifica se o jogo acabou, tentar out depois*
-            TelaJogo *jogo = dynamic_cast<TelaJogo *>(telaAtual);
-            if (jogo && jogo->acabouJogo()) {
-                //
-                break;
-            }
         }
         else {
             telaAtual->step(event);
@@ -70,7 +85,7 @@ void initialize() {
     al_install_keyboard();
     al_init_primitives_addon();
 
-    display = al_create_display(1280, 960);
+    display = al_create_display(LARGURA_TELA, ALTURA_TELA);
     queue = al_create_event_queue();
     timer = al_create_timer(1.0 / 60.0);
 
