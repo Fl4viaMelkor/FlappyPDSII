@@ -11,12 +11,7 @@
 #include <iostream>
 
 // Escolhas do jogador
-enum class EstadoProximaTela {
-    NENHUM,
-    REINICIAR_JOGO,
-    MENU_PRINCIPAL,
-    SAIR_DO_JOGO
-};
+
 
 class tela_fimdejogo : public TelaBase {
     private:
@@ -48,8 +43,6 @@ class tela_fimdejogo : public TelaBase {
         void draw() override;
         void step(ALLEGRO_EVENT &evento) override;
 
-        // Função para o gerenciador de telas saber o que fazer depois
-        EstadoProximaTela getProximaTelaEstado() const;
         void resetProximaTelaEstado(); // Reseta o estado após ser lido
 };
 

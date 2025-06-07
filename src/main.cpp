@@ -6,6 +6,7 @@
 #include "../include/interface/tela_jogo.hpp"
 #include "interface/tela_fimdejogo.hpp"
 
+
 /*
 Comentários Guilherme Asafe: (pra quem está mexendo no main)
   Criei um método para o objeto cano. Ele apenas mostar um retângulo na tela.
@@ -27,20 +28,19 @@ void cleanup();
 int main() {
     initialize();
 
-    TelaBase *telaAtual = new tela_fimdejogo(1, 800, 600);
+    TelaBase *telaAtual = new TelaJogo();
 
-    bool running = true;
     ALLEGRO_EVENT event;
 
     al_start_timer(timer);
 
-    while (running) {
+    while (true) {
         al_wait_for_event(queue, &event);
 
-        if (event.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
-            running = false;
-        }
-        else if (event.type == ALLEGRO_EVENT_TIMER) {
+        if (event.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
+            break;
+
+        if (event.type == ALLEGRO_EVENT_TIMER) {
             telaAtual->update();
 
             al_clear_to_color(al_map_rgb(0, 0, 0));
@@ -53,7 +53,7 @@ int main() {
             TelaJogo *jogo = dynamic_cast<TelaJogo *>(telaAtual);
             if (jogo && jogo->acabouJogo()) {
                 //
-                running = false; // só para exemplo
+                break;
             }
         }
         else {
@@ -70,7 +70,7 @@ void initialize() {
     al_install_keyboard();
     al_init_primitives_addon();
 
-    display = al_create_display(800, 600);
+    display = al_create_display(1280, 960);
     queue = al_create_event_queue();
     timer = al_create_timer(1.0 / 60.0);
 

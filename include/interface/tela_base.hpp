@@ -3,6 +3,13 @@
 
 #include <allegro5/allegro5.h>
 
+enum class EstadoProximaTela {
+	NENHUM,
+	REINICIAR_JOGO,
+	MENU_PRINCIPAL,
+	SAIR_DO_JOGO
+};
+
 //Classe abstrata, todas as telas devem herdar ela
 
 
@@ -18,6 +25,9 @@ class TelaBase {
 
 		// updates do ALLEGRO (teclado, mouse, etc)
 		virtual void step(ALLEGRO_EVENT &evento) = 0;
+
+		// Função para o gerenciador de telas saber o que fazer depois
+		EstadoProximaTela getProximaTelaEstado() const;
 };
 
 #endif
