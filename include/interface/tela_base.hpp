@@ -7,17 +7,17 @@
 
 
 class TelaBase {
-public:
-    virtual ~TelaBase() {} //Destrutor.
+	public:
+		virtual ~TelaBase() = default; //Destrutor.
 
-    // update (posição, lógica, etc)
-    virtual void update() = 0;
+		// update (posição, lógica, etc)
+		virtual void update() = 0;
 
-    // Draw, pra tudo que for desenhado
-    virtual void draw() = 0;
+		// Draw, pra tudo que for desenhado
+		virtual void draw() = 0;
 
-    // updates do ALLEGRP (teclado, mouse, etc)
-    virtual void step(ALLEGRO_EVENT &evento) = 0;
+		// updates do ALLEGRO (teclado, mouse, etc)
+		virtual void step(ALLEGRO_EVENT &evento) = 0;
 };
 
 #endif

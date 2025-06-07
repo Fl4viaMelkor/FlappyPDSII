@@ -2,8 +2,9 @@
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/keyboard.h>
 
-#include "../include/interface/tela_jogo.hpp"
 #include "../include/interface/tela_base.hpp"
+#include "../include/interface/tela_jogo.hpp"
+#include "interface/tela_fimdejogo.hpp"
 
 /*
 Comentários Guilherme Asafe: (pra quem está mexendo no main)
@@ -15,24 +16,18 @@ Comentários Guilherme Asafe: (pra quem está mexendo no main)
   Flávia: Eu coloquei no pass, dentro da classe tela jogo, depois checa pra ver se é isso mesmo.
   Caso queira alterar algo no cano, não esqueça de mexer no tela_jogo ou coloque um aviso lá pra eu ou alguém mexer
 */
+ALLEGRO_DISPLAY *display;
+ALLEGRO_EVENT_QUEUE *queue;
+ALLEGRO_TIMER *timer;
+ALLEGRO_KEYBOARD_STATE key_state;
 
-
+void initialize();
+void cleanup();
 
 int main() {
-    al_init();
-    al_install_keyboard();
-    al_init_primitives_addon();
+    initialize();
 
-    ALLEGRO_DISPLAY* display = al_create_display(800, 600);
-    ALLEGRO_EVENT_QUEUE* queue = al_create_event_queue();
-    ALLEGRO_TIMER* timer = al_create_timer(1.0 / 60.0);
-    ALLEGRO_KEYBOARD_STATE key_state;
-
-    al_register_event_source(queue, al_get_keyboard_event_source());
-    al_register_event_source(queue, al_get_display_event_source(display));
-    al_register_event_source(queue, al_get_timer_event_source(timer));
-
-    TelaBase* telaAtual = new TelaJogo();
+    TelaBase *telaAtual = new tela_fimdejogo(1, 800, 600);
 
     bool running = true;
     ALLEGRO_EVENT event;
@@ -44,33 +39,50 @@ int main() {
 
         if (event.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
             running = false;
-        } else if (event.type == ALLEGRO_EVENT_TIMER) {
-          telaAtual->update();
+        }
+        else if (event.type == ALLEGRO_EVENT_TIMER) {
+            telaAtual->update();
 
-          al_clear_to_color(al_map_rgb(0, 0, 0));
+            al_clear_to_color(al_map_rgb(0, 0, 0));
 
-          //Desenho de telas
-          telaAtual->draw();
-          al_flip_display();
+            //Desenho de telas
+            telaAtual->draw();
+            al_flip_display();
 
-          // Verifica se o jogo acabou, tentar outro método depois*
-          TelaJogo* jogo = dynamic_cast<TelaJogo*>(telaAtual);
-          if (jogo && jogo->acabouJogo()) {
-          //
-          running = false; // só para exemplo
-          }
-        }else{
+            // Verifica se o jogo acabou, tentar out depois*
+            TelaJogo *jogo = dynamic_cast<TelaJogo *>(telaAtual);
+            if (jogo && jogo->acabouJogo()) {
+                //
+                running = false; // só para exemplo
+            }
+        }
+        else {
             telaAtual->step(event);
-
-          }
+        }
     }
+    delete telaAtual;
 
-delete telaAtual;
+    return 0;
+}
 
+void initialize() {
+    al_init();
+    al_install_keyboard();
+    al_init_primitives_addon();
+
+    display = al_create_display(800, 600);
+    queue = al_create_event_queue();
+    timer = al_create_timer(1.0 / 60.0);
+
+    al_register_event_source(queue, al_get_keyboard_event_source());
+    al_register_event_source(queue, al_get_display_event_source(display));
+    al_register_event_source(queue, al_get_timer_event_source(timer));
+}
+
+void cleanup() {
     al_destroy_display(display);
     al_destroy_event_queue(queue);
     al_destroy_timer(timer);
-    return 0;
 }
 
 

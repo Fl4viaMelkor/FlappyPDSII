@@ -29,25 +29,24 @@
 
 // Exemplo
 class TelaJogo : public TelaBase {
-private:
-	gravidade g {2, 3};
-    Player* player;
+	private:
+		gravidade g{2, 3};
+		Player *player;
 
-    Cano* MySquare; //teste
-    ALLEGRO_KEYBOARD_STATE keyState;
-    bool end;   //Possível controlador para fim da tela
+		Cano *MySquare; //teste
+		ALLEGRO_KEYBOARD_STATE keyState;
+		bool end; //Possível controlador para fim da tela
 
-public:
-    TelaJogo();
-    ~TelaJogo();
+	public:
+		TelaJogo();
+		~TelaJogo() override;
 
-    void update() override;
-    void draw() override;
-    void step(ALLEGRO_EVENT& evento) override;
+		void update() override;
+		void draw() override;
+		void step(ALLEGRO_EVENT &evento) override;
 
-    bool acabouJogo() const;
+		bool acabouJogo() const;
 };
-
 
 
 #endif

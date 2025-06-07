@@ -1,7 +1,8 @@
 NAME		= flappy_bird
 
 FILES		= main.cpp player.cpp objeto_cano.cpp util.cpp \
-			interface/figuras.cpp interface/tela_jogo.cpp
+			interface/figuras.cpp interface/tela_jogo.cpp \
+			interface/tela_fimdejogo.cpp
 
 SRC_PATH	= src/
 OBJ_PATH	= obj/
@@ -11,7 +12,7 @@ OBJ_DIRS	= obj/
 
 CC			= g++
 CFLAGS		= -std=c++11 -Wall -g
-LIBS		+= $(shell pkg-config --libs --cflags allegro-5 allegro_main-5 allegro_audio-5 allegro_image-5 allegro_font-5 allegro_primitives-5 allegro_acodec-5 allegro_ttf-5)
+LIBS		+= $(shell pkg-config --libs --cflags allegro-5 allegro_main-5 allegro_audio-5 allegro_image-5 allegro_font-5 allegro_primitives-5 allegro_acodec-5 allegro_ttf-5 )
 CFLAGS		+= -I $(INC_PATH)
 
 RM			= rm -rf
