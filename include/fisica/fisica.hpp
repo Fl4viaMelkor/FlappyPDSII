@@ -4,7 +4,6 @@
 
 #ifndef REGRAS_JOGO_HPP
 #define REGRAS_JOGO_HPP
-#include "../controladores/ator.hpp"
 #include "../util.hpp"
 #include "./hitbox.hpp"
 #include "./info_colisao.hpp"
@@ -27,13 +26,13 @@ class Modulo_Fisico {
 
 class Detector_Colisao {
   private:
-    static set<Colidivel &> elementos;
+    set<Colidivel *> elementos;
 
   public:
     Detector_Colisao() = default;
-    static bool registrar(const Colidivel &e); // Registra um elemento novo e retorna verdadeiro se ele foi inserido com
-                                               // sucesso e falso caso ele já exista
-    static bool remover(const Colidivel &e);
+    bool registrar(Colidivel *e); // Registra um elemento novo e retorna verdadeiro se ele foi inserido com
+                                  // sucesso e falso caso ele já exista
+    bool remover(Colidivel *e);
     static pair<CollisionInfo, CollisionInfo> detectar();
 };
 
