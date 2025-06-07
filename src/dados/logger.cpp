@@ -5,29 +5,39 @@
 #include "../../include/dados/logger.hpp"
 #include "../../include/dados/dados.hpp"
 
-#include <iostream>    // Para cerr, endl
-#include <vector>      // Para vector
-#include <string>      // Para string
-
+#include <algorithm> // Para std::sort
+#include <iostream>  // Para cerr, endl
+#include <iostream>  // Para std::cerr
+#include <iterator> // Para std::begin e std::end, embora muitas vezes n├ö├Â┬úÔö£Ôòæo seja estritamente necess├ö├Â┬úÔö£┬írio para cont├ö├Â┬úÔö¼┬╝ineres padr├ö├Â┬úÔö£Ôòæo como vector/map/unordered_map
+#include <iterator> // Para std::begin e std::end, embora muitas vezes nÔö£├║o seja estritamente necessÔö£├¡rio para contÔö£┬¼ineres padrÔö£├║o como vector/map/unordered_map
+#include <sstream>  // Para std::ostringstream
+#include <string>   // Para string
+#include <utility>  // Para std::pair, e indiretamente para begin/end em alguns contextos
+#include <vector>   // Para vector
 using namespace std;
 
 // Construtor
 // Inicializa o Logger com uma referência para um objeto Database.
-Logger::Logger(const Database &db) : db_(&db), atual_(nullptr) {
+Logger::Logger(Database &db)
+  : db_(&db)
+  , atual_(nullptr)
+{
     cout << "Logger construído e associado a um Database const." << endl;
 }
 
 // Destrutor
 // Libera a memória alocada para 'atual_' se houver um Dado carregado.
-Logger::~Logger() {
+Logger::~Logger()
+{
     cout << "Logger destruído." << endl;
-    delete atual_; // Libera a memória do objeto Dado carregado
+    delete atual_;    // Libera a memória do objeto Dado carregado
     atual_ = nullptr; // Garante que o ponteiro não aponte para memória inválida
 }
 
 // Função carregar
 // Tenta carregar um objeto Dado do Database usando um ‘ID’.
-bool Logger::carregar(const string &id) {
+bool Logger::carregar(const string &id)
+{
     if (!db_) {
         cerr << "Logger error: Ponteiro para Database é nulo ao carregar." << endl;
         return false;
@@ -37,9 +47,8 @@ bool Logger::carregar(const string &id) {
 
     if (!results.empty()) {
         // Se já houver um objeto carregado, deleta-o para evitar vazamento de memória
-        if (atual_) {
+        if (atual_)
             delete atual_;
-        }
         // Cria uma instância de Dado_Jogador a partir do primeiro resultado encontrado.
         try {
             atual_ = new Dado_Jogador(results[0]);
@@ -58,7 +67,8 @@ bool Logger::carregar(const string &id) {
 
 // Função salvar
 // Salva o objeto Dado atualmente carregado no Database.
-bool Logger::salvar() const {
+bool Logger::salvar() const
+{
     if (!db_) {
         cerr << "Logger error: Ponteiro para Database é nulo ao salvar." << endl;
         return false;
@@ -76,7 +86,8 @@ bool Logger::salvar() const {
 
 // Função deletar
 // Deleta um objeto do Database por ‘ID’.
-bool Logger::deletar(string id) const {
+bool Logger::deletar(string id) const
+{
     if (!db_) {
         cerr << "Logger error: Ponteiro para Database é nulo ao deletar." << endl;
         return false;
@@ -93,29 +104,34 @@ bool Logger::deletar(string id) const {
 
 // Retorna uma ‘string’ formatada com todos os dados do objeto carregado.
 // As chaves são listadas em ordem alfabética.
-string Logger::listar_dados(const string &sep_chave_valor, const string &sep_dados, const string &sep_entidade) {
-    const vector<objeto> results = db_->listar();
-    string dados = "";
-    for (objeto obj: results) {
-        for (const auto &pair: obj)
-            dados += pair.first + sep_chave_valor + pair.second + sep_dados;
-        dados += sep_entidade;
-    }
+string Logger::listar_dados(const string &sep_chave_valor, const string &sep_dados, const string &sep_entidade)
+{
+    if (!db_)
+        return "Erro: Base de dados nao inicializada.";
+    const std::vector<objeto> results = db_->listar(); // ou db_->buscar(chave, valor);
 
-    return dados;
+    std::ostringstream oss;
+    oss << "Dados encontrados:\n";
+    for (const auto &obj : results) {
+        for (const auto &pair : obj.dados) // Agora begin/end deve ser encontrado.
+            oss << ", " << pair.first << ": " << pair.second;
+        oss << "\n";
+    }
+    return oss.str();
 }
 
-
 // Construtor
-PlayerLogger::PlayerLogger(const Database &db) : Logger(db) {
+PlayerLogger::PlayerLogger(Database &db)
+  : Logger(db)
+{
     atual_ = new Dado_Jogador();
     cout << "PlayerLogger construído e associado a um Database." << endl;
 }
 
-
-void PlayerLogger::resetar() override {
+void PlayerLogger::resetar()
+{
     if (atual_) {
-        delete atual_; // Deleta o objeto atual
+        delete atual_;    // Deleta o objeto atual
         atual_ = nullptr; // Garante que o ponteiro seja nulo antes de recriar
     }
 
@@ -125,11 +141,12 @@ void PlayerLogger::resetar() override {
 
 // Esta implementação fornece uma ordenação específica para as vitórias de um jogador
 string PlayerLogger::listar_dados_ordenados(const string &sep_chave_valor, const string &sep_dados,
-                                            const string &sep_entidade) {
+                                            const string &sep_entidade)
+{
     const vector<objeto> results = db_->listar_ordenado("vitorias", false);
     string dados = "";
-    for (objeto obj: results) {
-        for (const auto &pair: obj)
+    for (objeto obj : results) {
+        for (const auto &pair : obj.dados)
             dados += pair.first + sep_chave_valor + pair.second + sep_dados;
         dados += sep_entidade;
     }

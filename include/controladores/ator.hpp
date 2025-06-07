@@ -5,27 +5,28 @@
 #ifndef ATOR_HPP
 #define ATOR_HPP
 
-#include "controlador.hpp"
 #include "../fisica/hitbox.hpp"
-#include "../interface/graficos.hpp"
+#include "../interface/desenho.hpp"
+#include "controlador.hpp"
 
-class Elemento {
-    protected:
-        Controlador *controller;
-        Desenho grafico;
-    public:
-        Elemento(const Controlador &control);
-        void atualizar(acao a);
-        void renderizar();
-        void atualizar_e_renderizar(acao a);
-        ~Elemento();
+class Ator : public Desenho, public Colidivel {
+  protected:
+    Controlador *controller;
+    Hitbox *hitbox;
+
+    Ator(const Controlador &control);
+    void atualizar(acao a);
+    void renderizar();
+    void atualizar_e_renderizar(acao a);
+    ~Ator();
+
+  public:
+    Hitbox *getHitbox() const override;
+    CollisionInfo getInfo() override;
+    void onCollision() override;
+    void draw() override;
+
+  protected:
 };
 
-class Ator: public Elemento, public Colidivel {
-    protected:
-      Hitbox *hitbox;
-};
-
-
-
-#endif //ATOR_HPP
+#endif // ATOR_HPP

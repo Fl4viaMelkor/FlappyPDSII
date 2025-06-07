@@ -6,7 +6,6 @@
 #include "../include/interface/tela_jogo.hpp"
 #include "interface/tela_fimdejogo.hpp"
 
-
 /*
 Comentários Guilherme Asafe: (pra quem está mexendo no main)
   Criei um método para o objeto cano. Ele apenas mostar um retângulo na tela.
@@ -14,8 +13,9 @@ Comentários Guilherme Asafe: (pra quem está mexendo no main)
 
 
 
-  Flávia: Eu coloquei no pass, dentro da classe tela jogo, depois checa pra ver se é isso mesmo.
-  Caso queira alterar algo no cano, não esqueça de mexer no tela_jogo ou coloque um aviso lá pra eu ou alguém mexer
+  Flávia: Eu coloquei no pass, dentro da classe tela jogo, depois checa pra ver
+se é isso mesmo. Caso queira alterar algo no cano, não esqueça de mexer no
+tela_jogo ou coloque um aviso lá pra eu ou alguém mexer
 */
 ALLEGRO_DISPLAY *display;
 ALLEGRO_EVENT_QUEUE *queue;
@@ -27,13 +27,14 @@ constexpr int ALTURA_TELA = 960, LARGURA_TELA = 1280;
 void initialize();
 void cleanup();
 
-int main() {
+int main()
+{
     initialize();
 
     TelaBase *jogo = new TelaJogo();
     TelaBase *fimDeJogo = new tela_fimdejogo(100, 200, 300);
 
-    TelaBase TelaBase *telaAtual = jogo;
+    TelaBase *telaAtual = jogo;
 
     ALLEGRO_EVENT event;
 
@@ -67,7 +68,7 @@ int main() {
 
             al_clear_to_color(al_map_rgb(0, 0, 0));
 
-            //Desenho de telas
+            // Desenho de telas
             telaAtual->draw();
             al_flip_display();
         }
@@ -75,12 +76,16 @@ int main() {
             telaAtual->step(event);
         }
     }
+
     delete telaAtual;
+    delete jogo;
+    delete fimDeJogo;
 
     return 0;
 }
 
-void initialize() {
+void initialize()
+{
     al_init();
     al_install_keyboard();
     al_init_primitives_addon();
@@ -94,12 +99,12 @@ void initialize() {
     al_register_event_source(queue, al_get_timer_event_source(timer));
 }
 
-void cleanup() {
+void cleanup()
+{
     al_destroy_display(display);
     al_destroy_event_queue(queue);
     al_destroy_timer(timer);
 }
-
 
 /*
 Implementação Asafe, canos: (movimento, geração aleatória)
@@ -117,12 +122,13 @@ int main() {
         return -1;
     }
 
-    al_init_primitives_addon();   // Inicializa addon para primitivas gráficas (retângulos, linhas, etc)
+    al_init_primitives_addon();   // Inicializa addon para primitivas gráficas
+(retângulos, linhas, etc)
 
     al_install_keyboard();        // Inicializa entrada do teclado
 
 
-    const int LARGURA = 800;      // largura da janela
+    const int LARGURA = 800;      // largura das janela
     const int ALTURA = 600;       // altura da janela
 
 
@@ -136,7 +142,8 @@ int main() {
 
     }
 
-    ALLEGRO_TIMER* timer = al_create_timer(1.0 / 60); // timer para 60 frames por segundo
+    ALLEGRO_TIMER* timer = al_create_timer(1.0 / 60); // timer para 60 frames
+por segundo
 
 
     ALLEGRO_EVENT_QUEUE* fila = al_create_event_queue();
@@ -156,9 +163,10 @@ int main() {
 
 
     float largura_cano = 80.0f;          // largura dos canos
-    float abertura = 100.0f;             // espaço vertical entre os blocos (abertura)
-    float velocidade = -2.0f;            // velocidade de movimento para esquerda
-    float espacamento_horizontal = 250.0f; // espaço horizontal entre os canos
+    float abertura = 100.0f;             // espaço vertical entre os blocos
+(abertura) float velocidade = -2.0f;            // velocidade de movimento para
+esquerda float espacamento_horizontal = 250.0f; // espaço horizontal entre os
+canos
 
 
 
@@ -166,7 +174,8 @@ int main() {
     std::vector<Cano> canos;
     for (int i = 0; i < 4; ++i) {
         float x_inicial = LARGURA + i * espacamento_horizontal;
-        canos.emplace_back(x_inicial, largura_cano, abertura, ALTURA, verde, 2.0f);
+        canos.emplace_back(x_inicial, largura_cano, abertura, ALTURA,
+verde, 2.0f);
     }
 
 
@@ -209,9 +218,9 @@ int main() {
 
 
 
-            // Reseta os canos que saíram da tela, reposicionando após o último cano
-            for (auto& cano : canos) {
-                cano.reset_if_out_of_screen(0, pos_ultimo, espacamento_horizontal, ALTURA);
+            // Reseta os canos que saíram da tela, reposicionando após o último
+cano for (auto& cano : canos) { cano.reset_if_out_of_screen(0, pos_ultimo,
+espacamento_horizontal, ALTURA);
             }
 
 
