@@ -2,7 +2,7 @@
 // Created by leand on 24/05/2025.
 //
 #include "../../include/controladores/keybind.hpp"
-#include "../util.hpp"
+#include "../../include/util.hpp"
 
 Keybind::Keybind(map<acao, ALLEGRO_EVENT> k) { keymap = k; }
 

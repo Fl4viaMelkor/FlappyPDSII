@@ -1,4 +1,4 @@
-#include "./dados/logger.hpp"
+#include "../include/dados/logger.hpp"
 
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_primitives.h>
@@ -6,7 +6,7 @@
 
 #include "../include/interface/tela_base.hpp"
 #include "../include/interface/tela_jogo.hpp"
-#include "interface/tela_fimdejogo.hpp"
+#include "../include/interface/tela_fimdejogo.hpp"
 
 /*
 Comentários Guilherme Asafe: (pra quem está mexendo no main)

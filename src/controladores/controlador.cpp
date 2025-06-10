@@ -2,4 +2,4 @@
 // Created by leand on 24/05/2025.
 //
 
-#include "controlador.hpp"
+#include "../../include/controladores/controlador.hpp"
