@@ -6,6 +6,7 @@
 #include "../util.hpp"
 #include "tela_base.hpp"
 #include <allegro5/allegro5.h>
+
 // Caso algum item ou coisa seja adicionado na tela de JOGO deve criar um ponteiro para esse objeto no PRIVATE
 
 // class TelaJogo : public TelaBase {
