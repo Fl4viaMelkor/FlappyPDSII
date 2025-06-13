@@ -35,12 +35,11 @@ class Dado {
 class Dado_Jogador : public Dado {
   protected:
     string nome_, apelido_;
-    int vitorias_, derrotas_;
     vector<int> pontuacoes_;
 
   public:
     Dado_Jogador();
-    explicit Dado_Jogador(string nome, string apelido = "", int vitorias = 0, int derrotas = 0);
+    explicit Dado_Jogador(string nome, string apelido = "");
     explicit Dado_Jogador(objeto obj);
     void carregar(objeto obj) override;
     objeto exportar() override;
@@ -48,10 +47,6 @@ class Dado_Jogador : public Dado {
     bool operator!=(const Dado &outro) const override;
     void apelido(const string &apelido);
     string apelido() const;
-    int vitorias() const;
-    void vitorias(int vitorias);
-    int derrotas() const;
-    void derrotas(int derrotas);
     vector<int> pontuacoes() const;
     void pontuacoes(const vector<int> &pontuacoes);
     string nome() const;
