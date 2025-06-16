@@ -1,10 +1,13 @@
 #include "../../include/interface/tela_jogo.hpp"
+#include "../../include/interface/camada_background.hpp"
+#include "../../include/config.hpp"
 
 // Caso algo seja adicionado, lembrese de criar o objeto e de implementar seus métodos, bem como destructors
 
 TelaJogo::TelaJogo()
   : keyState()
 {
+    bg = new CamadaBackground("assets/background/glacial_mountains.png", 50.0f, LARGURA_TELA, ALTURA_TELA);
     // Criando objetos que vão estar no jogo
     player = new Player(100, 100, 4.0f, 32, 32);
 
@@ -17,11 +20,13 @@ TelaJogo::~TelaJogo()
     // Destrutores
     delete player;
     delete MySquare;
+    delete bg;
 }
 
 void TelaJogo::update()
 {
     player->update(keyState);
+    bg->update(1.0f / FPS);
 
     // Teste
     if (player->isDead() == true)
@@ -30,6 +35,7 @@ void TelaJogo::update()
 
 void TelaJogo::draw()
 {
+    bg->draw();
     player->draw();
     MySquare->draw();
 }
