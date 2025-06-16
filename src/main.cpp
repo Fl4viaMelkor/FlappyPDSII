@@ -7,18 +7,9 @@
 #include "../include/interface/tela_base.hpp"
 #include "../include/interface/tela_jogo.hpp"
 #include "../include/interface/tela_fimdejogo.hpp"
+#include "../include/config.hpp"
 
-/*
-Comentários Guilherme Asafe: (pra quem está mexendo no main)
-  Criei um método para o objeto cano. Ele apenas mostar um retângulo na tela.
-  Pra testar se está funcionando coloque:
-
-
-
-  Flávia: Eu coloquei no pass, dentro da classe tela jogo, depois checa pra ver
-se é isso mesmo. Caso queira alterar algo no cano, não esqueça de mexer no
-tela_jogo ou coloque um aviso lá pra eu ou alguém mexer
-*/
+#include "../include/objeto_cano.hpp"
 ALLEGRO_DISPLAY *display;
 ALLEGRO_EVENT_QUEUE *queue;
 ALLEGRO_TIMER *timer;
