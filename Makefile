@@ -5,6 +5,7 @@ FILES		= main.cpp player.cpp objeto_cano.cpp util.cpp ator.cpp\
 			dados/logger.cpp dados/dados.cpp dados/database.cpp \
 			fisica/fisica.cpp fisica/hitbox.cpp fisica/info_colisao.cpp \
 			interface/tela_jogo.cpp interface/tela_fimdejogo.cpp \
+			interface/camada_background.cpp  \
 
 SRC_PATH	= src/
 OBJ_PATH	= obj/
