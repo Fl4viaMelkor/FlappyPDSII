@@ -15,16 +15,16 @@ tela_fimdejogo::tela_fimdejogo(int pontuacao, int largura_tela_jogo, int altura_
     al_init_ttf_addon();
     al_init_image_addon();
 
-    fonte_titulo = al_load_ttf_font("../assets/fonts/joystix/joystixmonospace.otf", 72, 0);
+    fonte_titulo = al_load_ttf_font("assets/fonts/joystix/joystixmonospace.otf", 72, 0);
 
     if (!fonte_titulo)
         std::cerr << "Erro ao carregar 'joystix monospace.otf' para fonte_titulo" << std::endl;
 
-    fonte_texto = al_load_font("../assets/fonts/joystix/joystixmonospace.otf", 24, 0);
+    fonte_texto = al_load_font("assets/fonts/joystix/joystixmonospace.otf", 24, 0);
     if (!fonte_texto)
         std::cerr << "Erro ao carregar 'joystix monospace.otf' para fonte_texto ." << std::endl;
 
-    imagem_fundo = al_load_bitmap("../assets/imagens/deadlow.jpg");
+    imagem_fundo = al_load_bitmap("assets/imagens/deadlow.jpg");
     if (!imagem_fundo)
         std::cerr << "Erro ao carregar imagem de fundo para tela_fimdejogo." << std::endl;
 
