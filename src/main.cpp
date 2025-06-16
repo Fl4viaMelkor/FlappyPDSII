@@ -7,7 +7,6 @@
 #include "../include/interface/tela_base.hpp"
 #include "../include/interface/tela_jogo.hpp"
 #include "../include/interface/tela_fimdejogo.hpp"
-#include "../include/config.hpp"
 
 /*
 Comentários Guilherme Asafe: (pra quem está mexendo no main)

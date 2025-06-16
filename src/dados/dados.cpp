@@ -16,19 +16,15 @@ bool objeto::operator!=(const objeto &outro) const { return !(*this == outro); }
 
 // Inicializa um objeto Dado_Jogador com valores padrão.
 Dado_Jogador::Dado_Jogador()
-  : vitorias_(0)
-  , derrotas_(0)
 {
     // cout << "Construtor padrão de Dado_Jogador chamado." << endl;
 }
 
 // Construtor Parametrizado
 // Inicializa um objeto Dado_Jogador com valores fornecidos.
-Dado_Jogador::Dado_Jogador(string nome, string apelido, int vitorias, int derrotas)
+Dado_Jogador::Dado_Jogador(string nome, string apelido)
   : nome_(move(nome))
   , apelido_(move(apelido))
-  , vitorias_(vitorias)
-  , derrotas_(derrotas)
 {
     // cout << "Construtor parametrizado de Dado_Jogador chamado." << endl;
 }
@@ -64,19 +60,6 @@ void Dado_Jogador::carregar(objeto obj)
     else
         apelido_ = ""; // Padrão para string vazia
 
-    // Recupera 'vitorias' - requer conversão de string para int
-    if (obj.dados.count("vitorias"))
-        vitorias_ = stoi(obj.dados["vitorias"]);
-
-    else
-        vitorias_ = 0; // Padrão para 0
-
-    // Recupera 'derrotas' - requer conversão de string para int
-    if (obj.dados.count("derrotas"))
-        derrotas_ = stoi(obj.dados["derrotas"]);
-    else
-        derrotas_ = 0; // Padrão para 0
-
     // Recupera 'pontuacoes' - requer análise de string (ex.: "10,20,30") em vetor de ints
     pontuacoes_.clear(); // Limpa pontuações existentes
     if (obj.dados.count("pontuacoes") && !obj.dados["pontuacoes"].empty()) {
@@ -106,8 +89,6 @@ objeto Dado_Jogador::exportar()
     objeto obj;
     obj.dados["nome"] = nome_;
     obj.dados["apelido"] = apelido_;
-    obj.dados["vitorias"] = to_string(vitorias_);
-    obj.dados["derrotas"] = to_string(derrotas_);
 
     // Converte vector<int> pontuacoes em uma única string (ex.: "10,20,30")
     string pontuacoes_str;
@@ -134,7 +115,6 @@ bool Dado_Jogador::operator==(const Dado &outro) const
 
     // Compara todos os membros relevantes para igualdade
     return (nome_ == other_jogador->nome_ && apelido_ == other_jogador->apelido_ &&
-            vitorias_ == other_jogador->vitorias_ && derrotas_ == other_jogador->derrotas_ &&
             pontuacoes_ == other_jogador->pontuacoes_); // Comparação de vetor
 }
 
@@ -166,9 +146,5 @@ string Dado_Jogador::nome() const { return nome_; }
 void Dado_Jogador::nome(const string &nome) { this->nome_ = nome; }
 string Dado_Jogador::apelido() const { return apelido_; }
 void Dado_Jogador::apelido(const string &apelido) { this->apelido_ = apelido; }
-int Dado_Jogador::vitorias() const { return vitorias_; }
-void Dado_Jogador::vitorias(int vitorias) { this->vitorias_ = vitorias; }
-int Dado_Jogador::derrotas() const { return derrotas_; }
-void Dado_Jogador::derrotas(int derrotas) { this->derrotas_ = derrotas; }
 vector<int> Dado_Jogador::pontuacoes() const { return pontuacoes_; }
 void Dado_Jogador::pontuacoes(const vector<int> &pontuacoes) { this->pontuacoes_ = pontuacoes; }
