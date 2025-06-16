@@ -9,7 +9,7 @@ TelaJogo::TelaJogo()
 {
     parallaxBg = new ParallaxBackground(LARGURA_TELA, ALTURA_TELA);
     // Criando objetos que vão estar no jogo
-    player = new Player(100, 100, 4.0f, 32, 32);
+    player = new Player("assets/player/bluebird-midflap.png",100, 100, 4.0f, 32, 32);
 
     MySquare = new Cano(300.0, 135, -1, 200, al_map_rgb(35, 161, 49), 0.4f); // cano de teste
 
