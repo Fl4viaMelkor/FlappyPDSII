@@ -9,7 +9,7 @@ TelaJogo::TelaJogo()
 {
     bg = new CamadaBackground("assets/background/glacial_mountains.png", 50.0f, LARGURA_TELA, ALTURA_TELA);
     // Criando objetos que vão estar no jogo
-    player = new Player(100, 100, 4.0f, 32, 32);
+    player = new Player("assets/player/bluebird-midflap.png",100, 100, 4.0f, 32, 32);
 
     MySquare = new Cano(600.0, 635, -1, 200, al_map_rgb(255, 0, 0), 1.0f); // cano de teste
     end = false;
