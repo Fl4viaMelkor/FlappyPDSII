@@ -1,5 +1,5 @@
 #include "../../include/interface/tela_jogo.hpp"
-#include "../../include/interface/camada_background.hpp"
+#include "../../include/interface/parallax_background.hpp"
 #include "../../include/config.hpp"
 
 // Caso algo seja adicionado, lembrese de criar o objeto e de implementar seus métodos, bem como destructors
@@ -7,11 +7,15 @@
 TelaJogo::TelaJogo()
   : keyState()
 {
-    bg = new CamadaBackground("assets/background/glacial_mountains.png", 50.0f, LARGURA_TELA, ALTURA_TELA);
+    parallaxBg = new ParallaxBackground(LARGURA_TELA, ALTURA_TELA);
     // Criando objetos que vão estar no jogo
     player = new Player(100, 100, 4.0f, 32, 32);
 
-    MySquare = new Cano(600.0, 635, -1, 200, al_map_rgb(255, 0, 0), 1.0f); // cano de teste
+    MySquare = new Cano(300.0, 135, -1, 200, al_map_rgb(35, 161, 49), 0.4f); // cano de teste
+
+    parallaxBg->adicionarCamada("assets/background/sky.png", 0.0f);
+    parallaxBg->adicionarCamada("assets/background/clouds_bg.png", 30.0f);
+    parallaxBg->adicionarCamada("assets/background/glacial_mountains.png", 50.0f);
     end = false;
 }
 
@@ -20,13 +24,13 @@ TelaJogo::~TelaJogo()
     // Destrutores
     delete player;
     delete MySquare;
-    delete bg;
+    delete parallaxBg;
 }
 
 void TelaJogo::update()
 {
     player->update(keyState);
-    bg->update(1.0f / FPS);
+    parallaxBg->update(1.0f / FPS);
 
     // Teste
     if (player->isDead() == true)
@@ -35,7 +39,7 @@ void TelaJogo::update()
 
 void TelaJogo::draw()
 {
-    bg->draw();
+    parallaxBg->draw();
     player->draw();
     MySquare->draw();
 }
