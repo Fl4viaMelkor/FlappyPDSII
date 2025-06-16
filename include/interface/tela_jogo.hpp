@@ -5,7 +5,7 @@
 #include "../player.hpp"
 #include "../util.hpp"
 #include "tela_base.hpp"
-#include "camada_background.hpp"
+#include "parallax_background.hpp"
 #include <allegro5/allegro5.h>
 
 // Caso algum item ou coisa seja adicionado na tela de JOGO deve criar um ponteiro para esse objeto no PRIVATE
@@ -37,7 +37,7 @@ class TelaJogo : public TelaBase {
 
     Cano *MySquare; // teste
     ALLEGRO_KEYBOARD_STATE keyState;
-    CamadaBackground* bg;
+    ParallaxBackground* parallaxBg;
     bool end; // Possível controlador para fim da tela
 
   public:
