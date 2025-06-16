@@ -7,6 +7,7 @@
 #include "../include/interface/tela_base.hpp"
 #include "../include/interface/tela_jogo.hpp"
 #include "../include/interface/tela_fimdejogo.hpp"
+#include "../include/config.hpp"
 
 /*
 Comentários Guilherme Asafe: (pra quem está mexendo no main)
@@ -22,9 +23,7 @@ tela_jogo ou coloque um aviso lá pra eu ou alguém mexer
 ALLEGRO_DISPLAY *display;
 ALLEGRO_EVENT_QUEUE *queue;
 ALLEGRO_TIMER *timer;
-ALLEGRO_KEYBOARD_STATE key_state;
-
-constexpr int ALTURA_TELA = 960, LARGURA_TELA = 1280;
+ALLEGRO_BITMAP* bgImage = NULL;
 
 void initialize();
 void cleanup();
@@ -40,6 +39,7 @@ int main()
     auto *logger = new PlayerLogger();
 
     ALLEGRO_EVENT event;
+    ALLEGRO_KEYBOARD_STATE key_state;
 
     al_start_timer(timer);
 
@@ -83,6 +83,7 @@ int main()
     delete telaAtual;
     delete jogo;
     delete fimDeJogo;
+    al_destroy_bitmap(bgImage);
     cleanup();
 
     return 0;
@@ -93,10 +94,11 @@ void initialize()
     al_init();
     al_install_keyboard();
     al_init_primitives_addon();
+    al_init_image_addon();
 
     display = al_create_display(LARGURA_TELA, ALTURA_TELA);
     queue = al_create_event_queue();
-    timer = al_create_timer(1.0 / 60.0);
+    timer = al_create_timer(1.0 / FPS);
 
     al_register_event_source(queue, al_get_keyboard_event_source());
     al_register_event_source(queue, al_get_display_event_source(display));
