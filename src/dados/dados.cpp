@@ -92,7 +92,7 @@ objeto Dado_Jogador::exportar()
 
     // Converte vector<int> pontuacoes em uma única string (ex.: "10,20,30")
     string pontuacoes_str;
-    for (int i = 0; i < pontuacoes_.size(); ++i) {
+    for (size_t i = 0; i < pontuacoes_.size(); ++i) {
         pontuacoes_str += to_string(pontuacoes_[i]);
         if (i < pontuacoes_.size() - 1)
             pontuacoes_str += ",";
