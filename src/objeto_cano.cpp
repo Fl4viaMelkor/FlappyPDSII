@@ -1,4 +1,5 @@
 #include "../include/objeto_cano.hpp"
+#include "../include/config.hpp"
 
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_color.h> // Para al_map_rgb
@@ -42,7 +43,7 @@ void Cano::draw() const
     // inferior (de
     // m_y_base até o fim
     // da tela)
-    al_draw_filled_rectangle(m_x, m_y_base, m_x + m_largura, 600, m_color);
+    al_draw_filled_rectangle(m_x, m_y_base, m_x + m_largura, ALTURA_TELA, m_color);
 }
 
 // Move o cano
@@ -108,7 +109,7 @@ bool Cano::colisao_com_jogador(float jogador_x, float jogador_y, float jogador_l
     float cano_inf_x1 = m_x;
     float cano_inf_y1 = m_y_topo + m_espaco;
     float cano_inf_x2 = m_x + m_largura;
-    float cano_inf_y2 = 600; // altura da
+    float cano_inf_y2 = ALTURA_TELA; // altura da
                              // tela, pode
                              // ser passado
                              // como

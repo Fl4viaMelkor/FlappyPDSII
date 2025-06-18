@@ -3,7 +3,7 @@
 #include <allegro5/allegro_font.h>
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/keyboard.h>
-#include "sprite.hpp"
+#include "../include/sprite.hpp"
 
 Player::Player(const std::string& filename,float x, float y, float speed, int width, int height)
     : sprite(filename),dead(false), velY(0), gravidade(0.5f), noChao(false), x(x), y(y), speed(speed), width(width), height(height) {}

@@ -129,8 +129,8 @@ int main() {
     al_install_keyboard();        // Inicializa entrada do teclado
 
 
-    const int LARGURA = 800;      // largura das janela
-    const int ALTURA = 600;       // altura da janela
+    const int LARGURA = LARGURA_TELA;      // largura das janela
+    const int ALTURA = ALTURA_TELA;       // altura da janela
 
 
     ALLEGRO_DISPLAY* display = al_create_display(LARGURA, ALTURA);
