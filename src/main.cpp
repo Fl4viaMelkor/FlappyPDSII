@@ -9,7 +9,6 @@
 #include "../include/interface/tela_fimdejogo.hpp"
 #include "../include/config.hpp"
 
-#include "../include/objeto_cano.hpp"
 ALLEGRO_DISPLAY *display;
 ALLEGRO_EVENT_QUEUE *queue;
 ALLEGRO_TIMER *timer;

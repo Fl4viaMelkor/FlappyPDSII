@@ -1,4 +1,4 @@
-#include "objeto_cano.hpp"
+#include "../include/objeto_cano.hpp"
 
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_color.h> // Para al_map_rgb
