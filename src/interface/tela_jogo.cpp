@@ -14,7 +14,8 @@ TelaJogo::TelaJogo()
     MySquare = new Cano(300.0, 135, -1, 200, al_map_rgb(35, 161, 49), 0.4f); // cano de teste
 
     parallaxBg->adicionarCamada("assets/background/sky.png", 0.0f);
-    parallaxBg->adicionarCamada("assets/background/clouds_bg.png", 30.0f);
+    parallaxBg->adicionarCamada("assets/background/clouds_bg.png", 32.0f);
+    parallaxBg->adicionarCamada("assets/background/cloud_lonely.png", 40.0f);
     parallaxBg->adicionarCamada("assets/background/glacial_mountains.png", 50.0f);
     end = false;
 }
