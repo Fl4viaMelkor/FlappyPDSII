@@ -36,6 +36,9 @@ void TelaJogo::update()
     // Teste
     if (player->isDead() == true)
         end = true;
+
+    MySquare->move(-2.0f);  // move o cano 2 pixels
+    MySquare->reset_if_out_of_screen(0.0f, 300.0f, 135.0f, ALTURA_TELA); // reposiciona o objeto cano se ele sair da tela
 }
 
 void TelaJogo::draw()

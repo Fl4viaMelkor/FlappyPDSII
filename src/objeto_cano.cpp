@@ -141,3 +141,5 @@ bool Cano::colisao_com_jogador(float jogador_x, float jogador_y, float jogador_l
     // Sem colisão
     return false;
 }
+
+
