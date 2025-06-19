@@ -1,7 +1,7 @@
 NAME		= flappy_bird
 
-FILES		= main.cpp player.cpp objeto_cano.cpp util.cpp ator.cpp sprite.cpp\
-			controladores/controlador.cpp controladores/keybind.cpp \
+FILES		= main.cpp player.cpp objeto_cano.cpp util.cpp sprite.cpp\
+			controladores/keybind.cpp \
 			dados/logger.cpp dados/dados.cpp dados/database.cpp \
 			fisica/fisica.cpp fisica/hitbox.cpp fisica/info_colisao.cpp \
 			interface/tela_jogo.cpp interface/tela_fimdejogo.cpp \

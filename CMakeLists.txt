@@ -102,7 +102,6 @@ add_executable(FlappyPDSII
         src/fisica/info_colisao.cpp
         src/interface/tela_fimdejogo.cpp
         src/interface/tela_jogo.cpp
-        src/ator.cpp
         src/main.cpp
         src/objeto_cano.cpp
         src/player.cpp
@@ -133,7 +132,6 @@ add_executable(FlappyPDSII_Tests
         src/fisica/info_colisao.cpp
         src/interface/tela_fimdejogo.cpp
         src/interface/tela_jogo.cpp
-        src/ator.cpp
         src/objeto_cano.cpp
         src/player.cpp
         src/util.cpp
