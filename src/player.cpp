@@ -6,23 +6,21 @@
 #include <allegro5/keyboard.h>
 
 Player::Player(const std::string &filename, float x, float y, float speed, float width, float height)
-  : velY(0)
-  , p({ x, y })
+  : RetanguloHitbox({ x, y }, width, height)
+  , velY(0)
   , speed(speed)
-  , width(width)
-  , height(height)
-  , sprite(filename, this->p)
+  , sprite(filename, this->ponto_inferior_esquerdo)
   , gravidade(GRAVIDADE)
-  , RetanguloHitbox(this->p, this->width, this->height)
+
 {
 }
 
 void Player::update(const ALLEGRO_KEYBOARD_STATE &key_state)
 {
     if (al_key_down(&key_state, ALLEGRO_KEY_UP))
-        p.y -= speed;
+        ponto_inferior_esquerdo.y -= speed;
     if (al_key_down(&key_state, ALLEGRO_KEY_DOWN))
-        p.y += speed;
+        ponto_inferior_esquerdo.y += speed;
 
     // Pulo
     if (al_key_down(&key_state, ALLEGRO_KEY_SPACE))
@@ -30,7 +28,7 @@ void Player::update(const ALLEGRO_KEYBOARD_STATE &key_state)
 
     // Gravidade
     velY += gravidade;
-    p.y += velY;
+    ponto_inferior_esquerdo.y += velY;
 
     // Jogo gradativamente mais rápido e difícil
     gravidade += 0.0001;
@@ -38,5 +36,11 @@ void Player::update(const ALLEGRO_KEYBOARD_STATE &key_state)
 }
 
 void Player::draw() { sprite.draw(); }
-bool Player::colisao(coordenadas p) { return noPerimetro(p) || noInterior(p); }
+bool Player::colisao(coordenadas p)
+{
+    // cout << "Ponto p:" << p.x << "," << p.y << endl;
+    // cout << "no perimitro" << noPerimetro(p) << endl;
+    // cout << "no interior" << noInterior(p) << endl;
+    return noPerimetro(p) || noInterior(p);
+}
 void Player::onCollision() { cout << "Aconteceu uma colisão no jogador"; }

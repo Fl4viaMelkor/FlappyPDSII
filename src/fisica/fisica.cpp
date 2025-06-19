@@ -3,14 +3,20 @@
 //
 #include "../../include/fisica/fisica.hpp"
 
-bool Detector_Colisao::registrar(Colidivel *e)
+void Detector_Colisao::registrar(Colidivel *e) { elementos.insert(e); }
+void Detector_Colisao::remover(Colidivel *e) { elementos.erase(e); }
+void Detector_Colisao::detectar() const
 {
-    elementos.insert(e);
-    return true;
+    vector<coordenadas> pontos_player = player.get_pontos();
+    for (const auto colidivel : elementos) {
+        vector<coordenadas> pontos = colidivel->get_pontos();
+        for (const auto p : pontos)
+            if (player.colisao(p))
+                player.onCollision();
+        for (const auto p : pontos_player)
+            if (colidivel->colisao(p))
+                player.onCollision();
+        cout << endl;
+    }
+    cout << endl;
 }
-bool Detector_Colisao::remover(Colidivel *e)
-{
-    elementos.erase(e);
-    return true;
-}
-void Detector_Colisao::detectar() {}

@@ -4,6 +4,7 @@
 #include "../objeto_cano.hpp"
 #include "../player.hpp"
 #include "../util.hpp"
+#include "./fisica/fisica.hpp"
 #include "parallax_background.hpp"
 #include "tela_base.hpp"
 #include <allegro5/allegro5.h>
@@ -40,6 +41,8 @@ class TelaJogo : public TelaBase, public RetanguloHitbox {
     ParallaxBackground *parallaxBg;
     bool end; // Possível controlador para fim da tela
 
+    Detector_Colisao *detector;
+
   public:
     TelaJogo();
     ~TelaJogo() override;
@@ -53,7 +56,7 @@ class TelaJogo : public TelaBase, public RetanguloHitbox {
     void resetEstado() override;
     void resetProximaTelaEstado() override;
 
-    bool colisao(coordenadas p) override { return noPerimetro(p); }
+    bool colisao(coordenadas p) override { return !noInterior(p); }
     void onCollision() override { cout << "Colisão aconteceu " << endl; }
 };
 

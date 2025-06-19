@@ -31,3 +31,12 @@ bool RetanguloHitbox::noPerimetro(const coordenadas &p) const
 
     return false;
 }
+vector<coordenadas> RetanguloHitbox::get_pontos() const
+{
+    vector<coordenadas> ret;
+    ret.push_back({ ponto_inferior_esquerdo.x, ponto_inferior_esquerdo.y });
+    ret.push_back({ ponto_inferior_esquerdo.x + base, ponto_inferior_esquerdo.y });
+    ret.push_back({ ponto_inferior_esquerdo.x, ponto_inferior_esquerdo.y + altura });
+    ret.push_back({ ponto_inferior_esquerdo.x + base, ponto_inferior_esquerdo.y + altura });
+    return ret;
+}

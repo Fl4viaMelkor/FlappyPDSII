@@ -11,7 +11,6 @@ TelaJogo::TelaJogo()
     parallaxBg = new ParallaxBackground(LARGURA_TELA, ALTURA_TELA);
     // Criando objetos que vão estar no jogo
     player = new Player("assets/player/bluebird-midflap.png", 100, 100, 4.0f, 32, 32);
-
     MySquare = new Cano(300.0, 135, 150, ALTURA_TELA, al_map_rgb(35, 161, 49), 0.4f); // cano de teste
 
     parallaxBg->adicionarCamada("assets/background/sky.png", 0.0f);
@@ -19,6 +18,10 @@ TelaJogo::TelaJogo()
     parallaxBg->adicionarCamada("assets/background/cloud_lonely.png", 40.0f);
     parallaxBg->adicionarCamada("assets/background/glacial_mountains.png", 50.0f);
     end = false;
+
+    detector = new Detector_Colisao(*player);
+    detector->registrar(this);
+    // detector->registrar(MySquare);
 }
 
 TelaJogo::~TelaJogo()
@@ -37,6 +40,7 @@ void TelaJogo::update()
     MySquare->move(-2.0f); // move o cano 2 pixels
     MySquare->reset_if_out_of_screen(0.0f, 300.0f, 135.0f,
                                      ALTURA_TELA); // reposiciona o objeto cano se ele sair da tela
+    detector->detectar();
 }
 
 void TelaJogo::draw()

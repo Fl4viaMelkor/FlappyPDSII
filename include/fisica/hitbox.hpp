@@ -8,6 +8,7 @@
 #include "../interface/figuras_basicas.hpp"
 #include "../util.hpp"
 #include <cmath>
+#include <vector>
 
 class Colidivel {
   public:
@@ -16,21 +17,16 @@ class Colidivel {
     virtual bool colisao(coordenadas p) = 0;
     virtual bool noInterior(const coordenadas &p) const = 0;
     virtual bool noPerimetro(const coordenadas &p) const = 0;
+    virtual vector<coordenadas> get_pontos() const = 0;
 };
 
 class RetanguloHitbox : public Colidivel {
 
   protected:
-    coordenadas &ponto_inferior_esquerdo;
-    float &base, &altura;
+    coordenadas ponto_inferior_esquerdo;
+    float base, altura;
 
   public:
-    RetanguloHitbox(coordenadas &p1, float &b, float &a)
-      : ponto_inferior_esquerdo(p1)
-      , base(b)
-      , altura(a)
-    {
-    }
     RetanguloHitbox(coordenadas p1, float b, float a)
       : ponto_inferior_esquerdo(p1)
       , base(b)
@@ -39,6 +35,7 @@ class RetanguloHitbox : public Colidivel {
     }
     bool noInterior(const coordenadas &p) const override;
     bool noPerimetro(const coordenadas &p) const override;
+    vector<coordenadas> get_pontos() const override;
 };
 
 // class PoligonoHitbox:public Hitbox{

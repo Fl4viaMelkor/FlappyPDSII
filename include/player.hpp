@@ -11,9 +11,7 @@ class Player : public RetanguloHitbox {
   private:
     Sprite sprite; // Ver se roda um sprite.
     float velY;    // Velocidade vertical
-    coordenadas p;
     float speed;
-    float width, height;
     float gravidade;
 
   public:
