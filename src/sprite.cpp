@@ -22,7 +22,6 @@ Sprite::Sprite(const std::string &filename, float &x, float &y)
 
 Sprite::~Sprite()
 {
-
     if (bitmap)
         al_destroy_bitmap(bitmap);
 }

@@ -8,21 +8,6 @@
 #include "./hitbox.hpp"
 #include "./info_colisao.hpp"
 #include <set>
-#include <vector>
-
-// Regras gerais do jogo devem ser implementadas nesse arquivo.
-// O jogo possuirá as suas regras padrões e cada personagem terá a sua. Desta forma, é possível implementar elementos
-// com funcionamentos diferentes
-
-class Modulo_Fisico {
-  private:
-    static momento_linear pular(const gravidade &g, momento_linear pos);
-    static momento_linear mover_esquerda(gravidade gravidade, momento_linear pos);
-
-  public:
-    static momento_linear atualizar_fisica(const gravidade &g, const acao &a, momento_linear pos);
-    static momento_linear atualizar_fisica(const gravidade &g, momento_linear pos);
-};
 
 class Detector_Colisao {
   private:

@@ -1,6 +1,6 @@
 #include "../../include/interface/tela_jogo.hpp"
-#include "../../include/interface/parallax_background.hpp"
 #include "../../include/config.hpp"
+#include "../../include/interface/parallax_background.hpp"
 
 // Caso algo seja adicionado, lembrese de criar o objeto e de implementar seus métodos, bem como destructors
 
@@ -9,7 +9,7 @@ TelaJogo::TelaJogo()
 {
     parallaxBg = new ParallaxBackground(LARGURA_TELA, ALTURA_TELA);
     // Criando objetos que vão estar no jogo
-    player = new Player("assets/player/bluebird-midflap.png",100, 100, 4.0f, 32, 32);
+    player = new Player("assets/player/bluebird-midflap.png", 100, 100, 4.0f, 32, 32);
 
     MySquare = new Cano(300.0, 135, 150, ALTURA_TELA, al_map_rgb(35, 161, 49), 0.4f); // cano de teste
 
@@ -33,12 +33,9 @@ void TelaJogo::update()
     player->update(keyState);
     parallaxBg->update(1.0f / FPS);
 
-    // Teste
-    if (player->isDead() == true)
-        end = true;
-
-    MySquare->move(-2.0f);  // move o cano 2 pixels
-    MySquare->reset_if_out_of_screen(0.0f, 300.0f, 135.0f, ALTURA_TELA); // reposiciona o objeto cano se ele sair da tela
+    MySquare->move(-2.0f); // move o cano 2 pixels
+    MySquare->reset_if_out_of_screen(0.0f, 300.0f, 135.0f,
+                                     ALTURA_TELA); // reposiciona o objeto cano se ele sair da tela
 }
 
 void TelaJogo::draw()

@@ -23,6 +23,22 @@ class Colidivel {
     virtual void onCollision() = 0;
 };
 
+class QuadrilateroHitbox : public Hitbox {
+  protected:
+    coordenadas p1, p2, p3, p4;
+
+  public:
+    QuadrilateroHitbox(coordenadas p1, coordenadas p2, coordenadas p3, coordenadas p4)
+      : p1(p1)
+      , p2(p2)
+      , p3(p3)
+      , p4(p4)
+    {
+    }
+    bool noInterior(coordenadas p);
+    bool noPerimetro(coordenadas p);
+};
+
 // class PoligonoHitbox:public Hitbox{
 //   protected:
 //     Poligono poligono;

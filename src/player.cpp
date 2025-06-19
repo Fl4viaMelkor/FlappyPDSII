@@ -6,15 +6,14 @@
 #include <allegro5/keyboard.h>
 
 Player::Player(const std::string &filename, float x, float y, float speed, int width, int height)
-  : dead(false)
-  , velY(0)
-  , gravidade(0.5f)
+  : velY(0)
   , x(x)
   , y(y)
   , speed(speed)
   , width(width)
   , height(height)
   , sprite(filename, this->x, this->y)
+  , gravidade(GRAVIDADE)
 {
 }
 
@@ -27,17 +26,15 @@ void Player::update(const ALLEGRO_KEYBOARD_STATE &key_state)
 
     // Pulo
     if (al_key_down(&key_state, ALLEGRO_KEY_SPACE))
-        velY = -5.0f; // força do pulo
+        velY = -10 * gravidade; // força do pulo
 
     // Gravidade
     velY += gravidade;
     y += velY;
-    cout << "Player: " << x << ", " << y << "\n";
+
+    // Jogo gradativamente mais rápido e difícil
+    gravidade += 0.0001;
     // Pensar no cooldown do pulo **
 }
 
 void Player::draw() { sprite.draw(); }
-
-void Player::setDead(bool d) { dead = d; }
-
-bool Player::isDead() const { return dead; }

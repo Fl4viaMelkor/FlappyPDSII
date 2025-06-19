@@ -14,6 +14,7 @@ struct acao {
     int id;
     string name;
 };
+constexpr float GRAVIDADE = 0.5f;
 
 struct gravidade {
     float acc_Y, acc_X;
