@@ -92,7 +92,6 @@ include_directories(include/interface)
 
 # Define o nome do seu executável principal e LISTA APENAS OS ARQUIVOS FONTE (.cpp e .c).
 add_executable(FlappyPDSII
-        src/controladores/controlador.cpp
         src/controladores/keybind.cpp
         src/dados/dados.cpp
         src/dados/database.cpp
@@ -122,7 +121,6 @@ add_executable(FlappyPDSII_Tests
         tests/dados/test_database.cpp
         tests/dados/test_database_sql.cpp
 
-        src/controladores/controlador.cpp
         src/controladores/keybind.cpp
         src/dados/dados.cpp
         src/dados/database.cpp

@@ -8,11 +8,14 @@
 #include "../interface/figuras_basicas.hpp"
 #include "../util.hpp"
 #include "info_colisao.hpp"
+#include <cmath>
 
 class Hitbox {
   public:
     virtual ~Hitbox() = default;
     virtual bool colisao(coordenadas p) = 0;
+    virtual bool noInterior(const coordenadas &p) const = 0;
+    virtual bool noPerimetro(const coordenadas &p) const = 0;
 };
 
 class Colidivel {
@@ -23,20 +26,21 @@ class Colidivel {
     virtual void onCollision() = 0;
 };
 
-class QuadrilateroHitbox : public Hitbox {
+class RetanguloHitbox : public Hitbox, public Colidivel {
+
   protected:
-    coordenadas p1, p2, p3, p4;
+    coordenadas ponto_inferior_esquerdo;
+    float base, altura;
 
   public:
-    QuadrilateroHitbox(coordenadas p1, coordenadas p2, coordenadas p3, coordenadas p4)
-      : p1(p1)
-      , p2(p2)
-      , p3(p3)
-      , p4(p4)
+    RetanguloHitbox(coordenadas p1, float b, float a)
+      : ponto_inferior_esquerdo(p1)
+      , base(b)
+      , altura(a)
     {
     }
-    bool noInterior(coordenadas p);
-    bool noPerimetro(coordenadas p);
+    bool noInterior(const coordenadas &p) const override;
+    bool noPerimetro(const coordenadas &p) const override;
 };
 
 // class PoligonoHitbox:public Hitbox{
