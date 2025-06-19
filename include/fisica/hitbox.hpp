@@ -9,28 +9,28 @@
 #include "../util.hpp"
 #include <cmath>
 
-class Hitbox {
+class Colidivel {
   public:
-    virtual ~Hitbox() = default;
+    virtual ~Colidivel() = default;
+    virtual void onCollision() = 0;
     virtual bool colisao(coordenadas p) = 0;
     virtual bool noInterior(const coordenadas &p) const = 0;
     virtual bool noPerimetro(const coordenadas &p) const = 0;
 };
 
-class Colidivel {
-  public:
-    virtual ~Colidivel() = default;
-    virtual Hitbox *getHitbox() const = 0;
-    virtual void onCollision() = 0;
-};
-
-class RetanguloHitbox : public Hitbox, public Colidivel {
+class RetanguloHitbox : public Colidivel {
 
   protected:
-    coordenadas ponto_inferior_esquerdo;
-    float base, altura;
+    coordenadas &ponto_inferior_esquerdo;
+    float &base, &altura;
 
   public:
+    RetanguloHitbox(coordenadas &p1, float &b, float &a)
+      : ponto_inferior_esquerdo(p1)
+      , base(b)
+      , altura(a)
+    {
+    }
     RetanguloHitbox(coordenadas p1, float b, float a)
       : ponto_inferior_esquerdo(p1)
       , base(b)

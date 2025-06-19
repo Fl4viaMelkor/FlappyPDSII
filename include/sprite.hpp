@@ -2,6 +2,7 @@
 #define SPRITE_HPP
 
 #include "./interface/desenho.hpp"
+#include "util.hpp"
 
 #include <allegro5/allegro.h>
 #include <iostream>
@@ -12,10 +13,10 @@ class Sprite : public Desenho {
     ALLEGRO_BITMAP *bitmap;
     int width;
     int height;
-    float &x, &y;
+    coordenadas &posicao;
 
   public:
-    Sprite(const std::string &filename, float &x, float &y);
+    Sprite(const std::string &filename, coordenadas &p);
     ~Sprite();
 
     void draw() override;

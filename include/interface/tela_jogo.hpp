@@ -54,7 +54,6 @@ class TelaJogo : public TelaBase, public RetanguloHitbox {
     void resetProximaTelaEstado() override;
 
     bool colisao(coordenadas p) override { return noPerimetro(p); }
-    Hitbox *getHitbox() const override { return (Hitbox *)this; }
     void onCollision() override { cout << "Colisão aconteceu " << endl; }
 };
 

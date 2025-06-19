@@ -7,20 +7,22 @@
 #include "util.hpp"
 #include <allegro5/allegro5.h>
 
-class Player {
+class Player : public RetanguloHitbox {
   private:
     Sprite sprite; // Ver se roda um sprite.
     float velY;    // Velocidade vertical
-    float x, y;
+    coordenadas p;
     float speed;
-    int width, height;
+    float width, height;
     float gravidade;
 
   public:
-    Player(const std::string &filename, float x, float y, float speed, int width, int height);
+    Player(const std::string &filename, float x, float y, float speed, float width, float height);
 
     void update(const ALLEGRO_KEYBOARD_STATE &key_state);
     void draw();
+    bool colisao(coordenadas p) override;
+    void onCollision() override;
     // Hitbox *getHitbox() const override;
     // CollisionInfo getInfo() override;
     // void onCollision() override;

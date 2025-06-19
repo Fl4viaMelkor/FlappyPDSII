@@ -5,7 +5,7 @@
 // Caso algo seja adicionado, lembrese de criar o objeto e de implementar seus métodos, bem como destructors
 
 TelaJogo::TelaJogo()
-  : RetanguloHitbox({ 0, 0 }, LARGURA_TELA, ALTURA_TELA)
+  : RetanguloHitbox({ 0, 0 }, static_cast<float>(LARGURA_TELA), static_cast<float>(ALTURA_TELA))
   , keyState()
 {
     parallaxBg = new ParallaxBackground(LARGURA_TELA, ALTURA_TELA);

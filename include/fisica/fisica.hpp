@@ -11,13 +11,30 @@
 class Detector_Colisao {
   private:
     set<Colidivel *> elementos;
+    Colidivel &player;
 
   public:
-    Detector_Colisao() = default;
+    explicit Detector_Colisao(Colidivel &player)
+      : player(player)
+    {
+    }
     bool registrar(Colidivel *e); // Registra um elemento novo e retorna verdadeiro se ele foi inserido com
                                   // sucesso e falso caso ele já exista
     bool remover(Colidivel *e);
     void detectar();
+};
+
+class GameEndException : public std::exception {
+  public:
+    explicit GameEndException(const std::string &message = "Aconteceu uma colisão")
+      : m_message(message)
+    {
+    }
+
+    const char *what() const noexcept override { return m_message.c_str(); }
+
+  private:
+    string m_message;
 };
 
 #endif // REGRAS_JOGO_HPP

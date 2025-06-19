@@ -6,12 +6,11 @@
 
 using namespace std;
 
-Sprite::Sprite(const std::string &filename, float &x, float &y)
+Sprite::Sprite(const std::string &filename, coordenadas &p)
   : bitmap(nullptr)
   , width(0)
   , height(0)
-  , x(x)
-  , y(y)
+  , posicao(p)
 {
     bitmap = al_load_bitmap(filename.c_str());
     if (!bitmap)
@@ -26,7 +25,7 @@ Sprite::~Sprite()
         al_destroy_bitmap(bitmap);
 }
 
-void Sprite::draw() { al_draw_bitmap(bitmap, x, y, 0); }
+void Sprite::draw() { al_draw_bitmap(bitmap, posicao.x, posicao.y, 0); }
 
 int Sprite::getWidth() const { return width; }
 
