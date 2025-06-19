@@ -4,8 +4,8 @@
 #include "../objeto_cano.hpp"
 #include "../player.hpp"
 #include "../util.hpp"
-#include "tela_base.hpp"
 #include "parallax_background.hpp"
+#include "tela_base.hpp"
 #include <allegro5/allegro5.h>
 
 // Caso algum item ou coisa seja adicionado na tela de JOGO deve criar um ponteiro para esse objeto no PRIVATE
@@ -30,14 +30,14 @@
 // };
 
 // Exemplo
-class TelaJogo : public TelaBase {
+class TelaJogo : public TelaBase, public RetanguloHitbox {
   private:
     gravidade g{ 2, 3 };
     Player *player;
 
     Cano *MySquare; // teste
     ALLEGRO_KEYBOARD_STATE keyState;
-    ParallaxBackground* parallaxBg;
+    ParallaxBackground *parallaxBg;
     bool end; // Possível controlador para fim da tela
 
   public:
@@ -52,6 +52,10 @@ class TelaJogo : public TelaBase {
     EstadoProximaTela getProximaTelaEstado() const override;
     void resetEstado() override;
     void resetProximaTelaEstado() override;
+
+    bool colisao(coordenadas p) override { return noPerimetro(p); }
+    Hitbox *getHitbox() const override { return (Hitbox *)this; }
+    void onCollision() override { cout << "Colisão aconteceu " << endl; }
 };
 
 #endif

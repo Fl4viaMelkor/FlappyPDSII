@@ -7,7 +7,6 @@
 
 #include "../interface/figuras_basicas.hpp"
 #include "../util.hpp"
-#include "info_colisao.hpp"
 #include <cmath>
 
 class Hitbox {
@@ -22,7 +21,6 @@ class Colidivel {
   public:
     virtual ~Colidivel() = default;
     virtual Hitbox *getHitbox() const = 0;
-    virtual CollisionInfo getInfo() = 0;
     virtual void onCollision() = 0;
 };
 

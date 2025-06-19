@@ -6,7 +6,6 @@
 #define REGRAS_JOGO_HPP
 #include "../util.hpp"
 #include "./hitbox.hpp"
-#include "./info_colisao.hpp"
 #include <set>
 
 class Detector_Colisao {
@@ -18,7 +17,7 @@ class Detector_Colisao {
     bool registrar(Colidivel *e); // Registra um elemento novo e retorna verdadeiro se ele foi inserido com
                                   // sucesso e falso caso ele já exista
     bool remover(Colidivel *e);
-    static pair<CollisionInfo, CollisionInfo> detectar();
+    void detectar();
 };
 
 #endif // REGRAS_JOGO_HPP

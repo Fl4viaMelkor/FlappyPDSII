@@ -98,7 +98,6 @@ add_executable(FlappyPDSII
         src/dados/logger.cpp
         src/dados/sqlite3.c
         src/fisica/hitbox.cpp
-        src/fisica/info_colisao.cpp
         src/interface/tela_fimdejogo.cpp
         src/interface/tela_jogo.cpp
         src/main.cpp
@@ -127,7 +126,6 @@ add_executable(FlappyPDSII_Tests
         src/dados/logger.cpp
         src/dados/sqlite3.c
         src/fisica/hitbox.cpp
-        src/fisica/info_colisao.cpp
         src/interface/tela_fimdejogo.cpp
         src/interface/tela_jogo.cpp
         src/objeto_cano.cpp

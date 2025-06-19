@@ -3,7 +3,7 @@ NAME		= flappy_bird
 FILES		= main.cpp player.cpp objeto_cano.cpp util.cpp sprite.cpp\
 			controladores/keybind.cpp \
 			dados/logger.cpp dados/dados.cpp dados/database.cpp \
-			fisica/fisica.cpp fisica/hitbox.cpp fisica/info_colisao.cpp \
+			fisica/fisica.cpp fisica/hitbox.cpp  \
 			interface/tela_jogo.cpp interface/tela_fimdejogo.cpp \
 			interface/camada_background.cpp  interface/parallax_background.cpp  \
 
