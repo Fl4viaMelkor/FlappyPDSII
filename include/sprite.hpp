@@ -1,29 +1,25 @@
 #ifndef SPRITE_HPP
 #define SPRITE_HPP
 
-#include "./interface/desenho.hpp"
-#include "util.hpp"
-
-#include <allegro5/allegro.h>
-#include <iostream>
 #include <string>
+#include <allegro5/allegro5.h>
+#include "util.hpp" // 
 
-class Sprite : public Desenho {
-  private:
-    ALLEGRO_BITMAP *bitmap;
+class Sprite {
+private:
+    ALLEGRO_BITMAP* bitmap;
     int width;
     int height;
-    coordenadas &posicao;
 
-  public:
-    Sprite(const std::string &filename, coordenadas &p);
+public:
+    Sprite(const std::string& filename);
     ~Sprite();
 
-    void draw() override;
+    void draw(const coordenadas& pos) const;
 
     int getWidth() const;
     int getHeight() const;
-    ALLEGRO_BITMAP *getBitmap() const;
+    ALLEGRO_BITMAP* getBitmap() const;
 };
 
 #endif
