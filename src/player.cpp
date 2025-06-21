@@ -11,7 +11,7 @@ Player::Player(const std::string &filename, float x, float y, float speed, float
   : RetanguloHitbox({ x, y }, width, height)
   , velY(0)
   , speed(speed)
-  , sprite(filename) // <-- Agora sem a posição
+  , sprite(filename) //  Recebe pos de outro jeito
   , gravidade(GRAVIDADE)
   , IsAlive(true)
 {
@@ -70,7 +70,7 @@ bool Player::colisao(coordenadas p)
 
 void Player::Kill() {
     IsAlive = false;
-    std::cout << "Player foi morto! IsAlive = " << IsAlive << "\n";
+    //std::cout << "Player foi morto! IsAlive = " << IsAlive << "\n";
 }
 
 
