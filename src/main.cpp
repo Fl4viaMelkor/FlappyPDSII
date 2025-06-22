@@ -1,80 +1,127 @@
 #include "../include/dados/logger.hpp"
 
-#include <allegro5/allegro.h>
+#include <iostream>
+#include <allegro5/allegro5.h>
+#include <allegro5/allegro_font.h>
+#include <allegro5/allegro_ttf.h>
 #include <allegro5/allegro_primitives.h>
-#include <allegro5/keyboard.h>
+#include <allegro5/allegro_image.h>
+
 
 #include "../include/interface/tela_base.hpp"
+#include "../include/interface/TelaInicial.hpp"
 #include "../include/interface/tela_jogo.hpp"
 #include "../include/interface/tela_fimdejogo.hpp"
-#include "../include/config.hpp"
+#include "../include/interface/TelaCadastro.hpp"
+#include "../include/interface/TelaHighScore.hpp"
+#include "../include/dados/GerenciadorHighScore.hpp"
+#include "../include/config.hpp" 
+
+
+void initialize();
+void cleanup();
+
 
 ALLEGRO_DISPLAY *display;
 ALLEGRO_EVENT_QUEUE *queue;
 ALLEGRO_TIMER *timer;
-ALLEGRO_BITMAP* bgImage = NULL;
-
-void initialize();
-void cleanup();
 
 int main()
 {
     initialize();
 
-    TelaBase *jogo = new TelaJogo();
-    TelaBase *fimDeJogo = new tela_fimdejogo(100, 200, 300);
-
-    TelaBase *telaAtual = jogo;
-    auto *logger = new PlayerLogger();
+    GerenciadorHighScores gerenciador_scores("scores.txt");
+    
+    //Ponteiro pra tela inicial
+    TelaBase *tela_atual = nullptr;
+    tela_atual = new TelaInicial(LARGURA_TELA, ALTURA_TELA);
 
     ALLEGRO_EVENT event;
-    ALLEGRO_KEYBOARD_STATE key_state;
+    bool rodando = true;
+    bool redesenhar = true;
 
     al_start_timer(timer);
 
-    while (true) {
+    //loop principal
+    while (rodando) {
         al_wait_for_event(queue, &event);
 
-        if (event.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
-            break;
+        // Se a janela for fechada no X
+        if (event.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
+            rodando = false;
+        }
+        // Se a janela for redimensionada
+        else if(event.type == ALLEGRO_EVENT_DISPLAY_RESIZE) {
+            al_acknowledge_resize(display);
+        }
+        // Passa eventos de input para a tela atual
+        else if (tela_atual) {
+            tela_atual->step(event);
+        }
 
+        //transição/animação de telas
         if (event.type == ALLEGRO_EVENT_TIMER) {
-            telaAtual->update();
+            if (tela_atual) {
+                tela_atual->update();
+            }
+            
+            // Lógica de transição
+            if (tela_atual) {
+                EstadoProximaTela proxima = tela_atual->getProximaTelaEstado();
 
-            switch (telaAtual->getProximaTelaEstado()) {
-                case EstadoProximaTela::NENHUM:
-                    break;
-                case EstadoProximaTela::REINICIAR_JOGO:
-                    break;
-                case EstadoProximaTela::FIM_DE_JOGO:
-                    telaAtual = fimDeJogo;
-                    break;
-                case EstadoProximaTela::MENU_PRINCIPAL:
-                    break;
-                case EstadoProximaTela::SAIR_DO_JOGO:
-                    break;
-                case EstadoProximaTela::JOGO_PRINCIPAL:
-                    telaAtual = jogo;
-                    telaAtual->resetEstado();
+                if (proxima != EstadoProximaTela::NENHUM) {
+                    if (proxima == EstadoProximaTela::SAIR_DO_JOGO) {
+                        rodando = false;
+                    } else {
+                        TelaBase* proxima_tela = nullptr;
+                        switch (proxima) {
+                            case EstadoProximaTela::JOGO_PRINCIPAL:
+                                proxima_tela = new TelaJogo();
+                                break;
+                            case EstadoProximaTela::MENU_PRINCIPAL:
+                                proxima_tela = new TelaInicial(LARGURA_TELA, ALTURA_TELA);
+                                break;
+                            case EstadoProximaTela::TELA_HIGHSCORES:
+                                proxima_tela = new TelaHighScores(gerenciador_scores, LARGURA_TELA, ALTURA_TELA);
+                                break;
+                            default: break;
+                        }
+                        delete tela_atual;
+                        tela_atual = proxima_tela;
+                    }
+                }
             }
 
-            al_clear_to_color(al_map_rgb(0, 0, 0));
+            // Lógica especial para quando o jogo acaba
+            if (TelaJogo* jogo_ptr = dynamic_cast<TelaJogo*>(tela_atual)) {
+                if (jogo_ptr->acabouJogo()) {
+                    int pontuacao = jogo_ptr->getPontuacaoFinal();
+                    delete tela_atual;
 
-            // Desenho de telas
-            telaAtual->draw();
-            al_flip_display();
+                    if (gerenciador_scores.isHighScore(pontuacao)) {
+                        tela_atual = new TelaCadastro(pontuacao, gerenciador_scores, LARGURA_TELA, ALTURA_TELA);
+                    } else {
+                        tela_atual = new tela_fimdejogo(pontuacao, LARGURA_TELA, ALTURA_TELA);
+                    }
+                }
+            }
+            
+            redesenhar = true;
         }
-        else {
-            telaAtual->step(event);
+//desenho
+        if (redesenhar && al_is_event_queue_empty(queue)) {
+            redesenhar = false;
+            al_clear_to_color(al_map_rgb(0, 0, 0));
+            if (tela_atual) {
+                tela_atual->draw();
+            }
+            al_flip_display();
         }
     }
 
-    delete telaAtual;
-    delete jogo;
-    delete fimDeJogo;
-    al_destroy_bitmap(bgImage);
+    // --- LIMPEZA FINAL ---
+    delete tela_atual; 
     cleanup();
-
     return 0;
 }
 
@@ -84,6 +131,8 @@ void initialize()
     al_install_keyboard();
     al_init_primitives_addon();
     al_init_image_addon();
+    al_init_font_addon();   
+    al_init_ttf_addon();   
 
     display = al_create_display(LARGURA_TELA, ALTURA_TELA);
     queue = al_create_event_queue();
@@ -98,13 +147,13 @@ void cleanup()
 {
 
     al_shutdown_image_addon();
-    al_shutdown_ttf_addon();
-    al_shutdown_font_addon();
+    al_shutdown_font_addon(); 
     al_shutdown_primitives_addon();
     al_destroy_display(display);
     al_destroy_event_queue(queue);
     al_destroy_timer(timer);
-    al_uninstall_system();
+    al_uninstall_keyboard(); 
+    al_uninstall_system();  
 }
 
 /*
