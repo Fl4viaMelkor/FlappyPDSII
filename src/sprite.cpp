@@ -4,6 +4,8 @@
 
 
 //Created by Flávia
+
+
 SpriteAnimado::SpriteAnimado(const std::string& filename, int numFrames, int frameLargura, int frameAltura, float fps)
     : bitmap(nullptr),
       frameLargura(frameLargura),

@@ -7,6 +7,8 @@
 
 //Created by Flávia
 
+//No construtor, basta dizer o numero de frames de spritsheet num todo, e altura e largura de UM unico frame e quantos frames por segundo quer que seja animado.
+
 class SpriteAnimado {
 private:
     ALLEGRO_BITMAP* bitmap;
