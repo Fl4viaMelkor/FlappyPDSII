@@ -16,7 +16,7 @@ struct PontuacaoEntry {
     }
 };
 
-class GerenciadorHighScore {
+class GerenciadorHighScores {
 private:
     std::string arquivo_scores;
     std::vector<PontuacaoEntry> scores;
@@ -26,7 +26,7 @@ private:
     void salvarScores();
 
 public:
-    GerenciadorHighScore(const std::string& arquivo, size_t max = 10);
+    GerenciadorHighScores(const std::string& arquivo, size_t max = 10);
     
     // Retorna a lista de scores para exibição
     const std::vector<PontuacaoEntry>& getScores() const;
