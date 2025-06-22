@@ -9,6 +9,7 @@ enum class EstadoProximaTela {
     FIM_DE_JOGO,
     MENU_PRINCIPAL,
     JOGO_PRINCIPAL,
+    TELA_HIGHSCORES,
     SAIR_DO_JOGO
 };
 
