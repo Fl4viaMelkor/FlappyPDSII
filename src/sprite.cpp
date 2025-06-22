@@ -2,34 +2,42 @@
 #include <allegro5/allegro_image.h>
 #include <stdexcept>
 
-Sprite::Sprite(const std::string& filename)
-    : bitmap(nullptr), width(0), height(0)
+
+//Created by Flávia
+SpriteAnimado::SpriteAnimado(const std::string& filename, int numFrames, int frameLargura, int frameAltura, float fps)
+    : bitmap(nullptr),
+      frameLargura(frameLargura),
+      frameAltura(frameAltura),
+      numFrames(numFrames),
+      frameAtual(0),
+      tempoPorFrame(1.0f / fps),
+      tempoAcumulado(0.0f)
 {
     bitmap = al_load_bitmap(filename.c_str());
     if (!bitmap)
-        throw std::runtime_error("Erro ao carregar imagem: " + filename);
-
-    width = al_get_bitmap_width(bitmap);
-    height = al_get_bitmap_height(bitmap);
+        throw std::runtime_error("Erro ao carregar spritsheet: " + filename);
 }
 
-Sprite::~Sprite() {
+SpriteAnimado::~SpriteAnimado() {
     if (bitmap)
         al_destroy_bitmap(bitmap);
 }
 
-void Sprite::draw(const coordenadas& pos) const {
-    al_draw_bitmap(bitmap, pos.x, pos.y, 0);
+void SpriteAnimado::update(float deltaTime) {
+    tempoAcumulado += deltaTime;
+
+    if (tempoAcumulado >= tempoPorFrame) {
+        tempoAcumulado -= tempoPorFrame;
+        frameAtual = (frameAtual + 1) % numFrames;
+    }
 }
 
-int Sprite::getWidth() const {
-    return width;
-}
-
-int Sprite::getHeight() const {
-    return height;
-}
-
-ALLEGRO_BITMAP* Sprite::getBitmap() const {
-    return bitmap;
+void SpriteAnimado::draw(const coordenadas& pos) const {
+    al_draw_bitmap_region(
+        bitmap,
+        frameAtual * frameLargura, 0,           // posição na spritesheet
+        frameLargura, frameAltura,              // tamanho de um frame
+        pos.x, pos.y,                           // onde desenhar
+        0
+    );
 }

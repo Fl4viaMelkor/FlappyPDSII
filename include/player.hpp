@@ -7,15 +7,19 @@
 #include "util.hpp"
 #include <allegro5/allegro5.h>
 
+//Created by Flávia
+
 class Player : public RetanguloHitbox {
   private:
-    Sprite sprite; // Ver se roda um sprite.
+    SpriteAnimado sprite;; // Sprite animado.
     float velY;    // Velocidade vertical
     float speed;
     float gravidade;
     bool IsAlive;
     float lastJumpTime = 0.0f;   // Tempo do último pulo
     const float jumpCooldown = 0.3f;  // Meio segundo de cooldown no pulo
+    float ultimoTempo = 0.0f;
+
 
   public:
     Player(const std::string &filename, float x, float y, float speed, float width, float height);
