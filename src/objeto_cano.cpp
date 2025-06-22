@@ -7,30 +7,34 @@
 
 using namespace std;
 
+#include <stdexcept>
+
 Cano::Cano(float x, float largura, float abertura, float altura_tela, ALLEGRO_COLOR cor, float espessura, const std::string& sprite_path)
   : m_x(x)
   , m_largura(largura)
   , m_espaco(abertura)
   , m_color(cor)
   , m_espessura(espessura)
-  , sprite(sprite_path, 1, largura, altura_tela, 1.0f) // 1 frame, largura, altura tela, FPS não importa
+  , sprite(sprite_path, 1, 52, 320, 1.0f) // 1 frame, 52 largura, 320 altura, FPS não importa
 {
     m_y_topo = rand() % int(altura_tela - abertura - 100);
 }
+
 
 
 // Desenha o par de canos
 // (superior e inferior)
 
 void Cano::draw() const {
-    float m_y_base = m_y_topo + m_espaco;
+    float yBase = m_y_topo + m_espaco;
 
-    // Desenha o cano superior com flip vertical
-    sprite.draw({ m_x, m_y_topo - sprite.getHeight() }, true);
+    // Desenha cano superior: desenha com flip vertical e desloca para cima pela altura do sprite
+    sprite.draw({m_x, m_y_topo - sprite.getHeight()}, true);
 
-    // Desenha o cano inferior normalmente
-    sprite.draw({ m_x, m_y_base });
+    // Desenha cano inferior normal, começando em yBase
+    sprite.draw({m_x, yBase});
 }
+
 
 
 
