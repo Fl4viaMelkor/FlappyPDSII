@@ -36,7 +36,11 @@ class TelaJogo : public TelaBase, public RetanguloHitbox {
     gravidade g{ 2, 3 };
     Player *player;
 
-    Cano *MySquare; // teste
+    //adicionando vector
+    std::vector<Cano*> canos;  // substitui MySquare
+    
+    //Cano *MySquare; *trocado pelo vector
+
     ALLEGRO_KEYBOARD_STATE keyState;
     ParallaxBackground *parallaxBg;
     bool end; // Possível controlador para fim da tela
