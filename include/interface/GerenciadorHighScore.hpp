@@ -1,5 +1,5 @@
-#ifndef GERENCIADORHIGHSCORES_HPP
-#define GERENCIADORHIGHSCORES_HPP
+#ifndef GERENCIADORHIGHSCORE_HPP
+#define GERENCIADORHIGHSCORE_HPP
 
 #include <vector>
 #include <string>
@@ -16,7 +16,7 @@ struct PontuacaoEntry {
     }
 };
 
-class GerenciadorHighScores {
+class GerenciadorHighScore {
 private:
     std::string arquivo_scores;
     std::vector<PontuacaoEntry> scores;
@@ -26,7 +26,7 @@ private:
     void salvarScores();
 
 public:
-    GerenciadorHighScores(const std::string& arquivo, size_t max = 10);
+    GerenciadorHighScore(const std::string& arquivo, size_t max = 10);
     
     // Retorna a lista de scores para exibição
     const std::vector<PontuacaoEntry>& getScores() const;
