@@ -2,12 +2,12 @@
 #define CONFIG_HPP
 
 //configurções da tela
-const int LARGURA_JANELA = 1280;
-const int ALTURA_JANELA = 720;
+const int LARGURA_JANELA = 480;
+const int ALTURA_JANELA = 360;
 
-//resolução interna
-const int LARGURA_NATIVA = 800;
-const int ALTURA_NATIVA = 600;
+//resolução interna onde aparece os elementos
+const int LARGURA_NATIVA = 400;
+const int ALTURA_NATIVA = 300;
 
 
 const float FPS = 60.0f;
