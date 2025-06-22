@@ -15,7 +15,7 @@
 #include "../include/interface/TelaCadastro.hpp"
 #include "../include/interface/TelaHighScore.hpp"
 #include "../include/dados/GerenciadorHighScore.hpp"
-#include "../include/config.hpp" 
+#include "../include/dados/config.hpp" 
 
 
 void initialize();
