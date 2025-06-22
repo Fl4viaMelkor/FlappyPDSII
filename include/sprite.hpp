@@ -24,7 +24,12 @@ public:
     ~SpriteAnimado();
 
     void update(float deltaTime);
-    void draw(const coordenadas& pos) const;
+    void draw(const coordenadas& pos, bool flip_vertical = false) const;
+
+
+    int getWidth() const;
+    int getHeight() const;
+
 };
 
 #endif

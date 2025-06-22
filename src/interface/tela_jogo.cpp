@@ -10,8 +10,8 @@ TelaJogo::TelaJogo()
 {
     parallaxBg = new ParallaxBackground(LARGURA_TELA, ALTURA_TELA);
     // Criando objetos que vão estar no jogo
-    player = new Player("assets/player/galinha_spritesheet.png", 100, 100, 4.0f, 32, 32);
-    MySquare = new Cano(300.0, 135, 150, ALTURA_TELA, al_map_rgb(35, 161, 49), 0.4f); // cano de teste
+    player = new Player("assets/player/blue_bird_spritesheet.png", 100, 100, 4.0f, 32, 32); //blue_bird_spritesheet.png  galinha_spritesheet.png
+    MySquare = new Cano(300.0, 135, 150, ALTURA_TELA, al_map_rgb(35, 161, 49), 0.4f, "assets/obj/pipe-green.png"); // cano de teste
 
     parallaxBg->adicionarCamada("assets/background/sky.png", 0.0f);
     parallaxBg->adicionarCamada("assets/background/clouds_bg.png", 32.0f);

@@ -34,12 +34,25 @@ void SpriteAnimado::update(float deltaTime) {
     }
 }
 
-void SpriteAnimado::draw(const coordenadas& pos) const {
+void SpriteAnimado::draw(const coordenadas& pos, bool flip_vertical) const {
+    int flags = 0;
+    if (flip_vertical)
+        flags |= ALLEGRO_FLIP_VERTICAL;
+
     al_draw_bitmap_region(
         bitmap,
-        frameAtual * frameLargura, 0,           // posição na spritesheet
-        frameLargura, frameAltura,              // tamanho de um frame
-        pos.x, pos.y,                           // onde desenhar
-        0
+        frameAtual * frameLargura, 0,
+        frameLargura, frameAltura,
+        pos.x, pos.y,
+        flags
     );
+}
+
+
+int SpriteAnimado::getWidth() const {
+    return frameLargura;
+}
+
+int SpriteAnimado::getHeight() const {
+    return frameAltura;
 }

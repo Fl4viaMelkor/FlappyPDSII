@@ -7,44 +7,32 @@
 
 using namespace std;
 
-Cano::Cano(float x, float largura, float abertura, float altura_tela, ALLEGRO_COLOR cor, float espessura)
+Cano::Cano(float x, float largura, float abertura, float altura_tela, ALLEGRO_COLOR cor, float espessura, const std::string& sprite_path)
   : m_x(x)
   , m_largura(largura)
   , m_espaco(abertura)
   , m_color(cor)
   , m_espessura(espessura)
+  , sprite(sprite_path, 1, largura, altura_tela, 1.0f) // 1 frame, largura, altura tela, FPS não importa
 {
-
-    // Inicializa a
-    // posição vertical
-    // do cano superior
-    // aleatoriamente no
-    // construtor
     m_y_topo = rand() % int(altura_tela - abertura - 100);
 }
 
+
 // Desenha o par de canos
 // (superior e inferior)
-void Cano::draw() const
-{
-    float m_y_base = m_y_topo + m_espaco; // posição
-                                          // inicial
-                                          // do
-                                          // cano
-                                          // inferior
 
-    // Desenha bloco
-    // superior (do topo
-    // da tela até
-    // m_y_topo)
-    al_draw_filled_rectangle(m_x, 0, m_x + m_largura, m_y_topo, m_color);
+void Cano::draw() const {
+    float m_y_base = m_y_topo + m_espaco;
 
-    // Desenha bloco
-    // inferior (de
-    // m_y_base até o fim
-    // da tela)
-    al_draw_filled_rectangle(m_x, m_y_base, m_x + m_largura, ALTURA_TELA, m_color);
+    // Desenha o cano superior com flip vertical
+    sprite.draw({ m_x, m_y_topo - sprite.getHeight() }, true);
+
+    // Desenha o cano inferior normalmente
+    sprite.draw({ m_x, m_y_base });
 }
+
+
 
 // Move o cano
 // horizontalmente (dx
@@ -95,7 +83,7 @@ void Cano::reset_if_out_of_screen(float limite_esquerdo, float posicao_ultimo_ca
     }
 }
 
-bool Cano::colisao_com_jogador(float jogador_x, float jogador_y, float jogador_largura, float jogador_altura) const
+/* bool Cano::colisao_com_jogador(float jogador_x, float jogador_y, float jogador_largura, float jogador_altura) const
 {
 
     // Define retângulos
@@ -140,6 +128,6 @@ bool Cano::colisao_com_jogador(float jogador_x, float jogador_y, float jogador_l
 
     // Sem colisão
     return false;
-}
+} */
 
 

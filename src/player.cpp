@@ -11,7 +11,7 @@
 
 Player::Player(const std::string &filename, float x, float y, float speed, float width, float height)
   : RetanguloHitbox({ x, y }, width, height)
-  , sprite(filename, 3, 24, 24, 8.0f) // 3 frames, cada uma 24x24, 8FPS.
+  , sprite(filename, 3, 34, 24, 8.0f) // 3 frames, cada uma 24x24, 8FPS. Ou 34x24.
   , velY(0)
   , speed(speed)
   , gravidade(GRAVIDADE)
@@ -47,7 +47,7 @@ void Player::update(const ALLEGRO_KEYBOARD_STATE &key_state)
 
 
 void Player::draw() {
-    sprite.draw(ponto_inferior_esquerdo); // passa a posição atual
+    sprite.draw(ponto_inferior_esquerdo, false); // ou true se precisar flipar o player passa a posição atual
 }
 
 
