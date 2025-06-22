@@ -35,8 +35,7 @@ al_set_window_title(display, "Flying Chicken");
     GerenciadorHighScores gerenciador_scores("scores.txt");
     
     //Ponteiro pra tela inicial
-    TelaBase *tela_atual = new TelaInicial(LARGURA_NATIVA, ALTURA_NATIVA);
-    tela_atual = new TelaInicial(LARGURA_JANELA, ALTURA_JANELA);
+TelaBase *tela_atual = new TelaInicial(LARGURA_NATIVA, ALTURA_NATIVA);
 
     ALLEGRO_EVENT event;
     bool rodando = true;
@@ -81,10 +80,10 @@ al_set_window_title(display, "Flying Chicken");
                                 proxima_tela = new TelaJogo();
                                 break;
                             case EstadoProximaTela::MENU_PRINCIPAL:
-                                proxima_tela = new TelaInicial(LARGURA_TELA, ALTURA_TELA);
+                                proxima_tela = new TelaInicial(LARGURA_NATIVA, ALTURA_NATIVA);
                                 break;
                             case EstadoProximaTela::TELA_HIGHSCORES:
-                                proxima_tela = new TelaHighScores(gerenciador_scores, LARGURA_TELA, ALTURA_TELA);
+                                proxima_tela = new TelaHighScores(gerenciador_scores, LARGURA_NATIVA, ALTURA_NATIVA);
                                 break;
                             default: break;
                         }
