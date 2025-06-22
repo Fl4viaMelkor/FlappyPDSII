@@ -14,7 +14,7 @@
 #include "../include/interface/tela_fimdejogo.hpp"
 #include "../include/interface/TelaCadastro.hpp"
 #include "../include/interface/TelaHighScore.hpp"
-#include "../include/dados/GerenciadorHighScore.hpp"
+#include "../include/interface/GerenciadorHighScore.hpp"
 #include "../include/dados/config.hpp" 
 
 
