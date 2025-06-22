@@ -30,13 +30,13 @@ int main()
 {
     initialize();
 
-al_set_window_title(display, Flying Chicken);
+al_set_window_title(display, "Flying Chicken");
     
     GerenciadorHighScores gerenciador_scores("scores.txt");
     
     //Ponteiro pra tela inicial
     TelaBase *tela_atual = new TelaInicial(LARGURA_NATIVA, ALTURA_NATIVA);
-    tela_atual = new TelaInicial(LARGURA_TELA, ALTURA_TELA);
+    tela_atual = new TelaInicial(LARGURA_JANELA, ALTURA_JANELA);
 
     ALLEGRO_EVENT event;
     bool rodando = true;
@@ -95,7 +95,7 @@ al_set_window_title(display, Flying Chicken);
             }
 
             // Lógica especial para quando o jogo acaba
-            if (TelaJogo* jogo_ptr = dynamic_cast<TelaJogo*>(tela_atual)) {
+            /*if (TelaJogo* jogo_ptr = dynamic_cast<TelaJogo*>(tela_atual)) {
                 if (jogo_ptr->acabouJogo()) {
                     int pontuacao = jogo_ptr->getPontuacaoFinal();
                     delete tela_atual;
@@ -106,7 +106,7 @@ al_set_window_title(display, Flying Chicken);
                         tela_atual = new tela_fimdejogo(pontuacao, LARGURA_TELA, ALTURA_TELA);
                     }
                 }
-            }
+            }*/ //Logica para pontuação aq
             
             redesenhar = true;
         }
@@ -136,7 +136,7 @@ void initialize()
     al_init_font_addon();   
     al_init_ttf_addon();   
 
-    display = al_create_display(LARGURA_JANELA, ALTURA_TELA);
+    display = al_create_display(LARGURA_JANELA, ALTURA_JANELA);
     queue = al_create_event_queue();
     timer = al_create_timer(1.0 / FPS);
 
