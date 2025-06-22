@@ -30,10 +30,12 @@ int main()
 {
     initialize();
 
+al_set_window_title(display, Flying Chicken);
+    
     GerenciadorHighScores gerenciador_scores("scores.txt");
     
     //Ponteiro pra tela inicial
-    TelaBase *tela_atual = nullptr;
+    TelaBase *tela_atual = new TelaInicial(LARGURA_NATIVA, ALTURA_NATIVA);
     tela_atual = new TelaInicial(LARGURA_TELA, ALTURA_TELA);
 
     ALLEGRO_EVENT event;
@@ -134,7 +136,7 @@ void initialize()
     al_init_font_addon();   
     al_init_ttf_addon();   
 
-    display = al_create_display(LARGURA_TELA, ALTURA_TELA);
+    display = al_create_display(LARGURA_JANELA, ALTURA_TELA);
     queue = al_create_event_queue();
     timer = al_create_timer(1.0 / FPS);
 
