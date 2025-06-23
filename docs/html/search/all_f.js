@@ -1,6 +1,6 @@
 var searchData=
 [
   ['objeto_0',['objeto',['../structobjeto.html',1,'']]],
-  ['onorusing_1',['OnOrUsing',['../structOnOrUsing.html',1,'']]],
-  ['operator_20result_2',['operator Result',['../structdoctest_1_1detail_1_1Expression__lhs.html#aa0ab4a18aac56bfb02fba8970ed304b3',1,'doctest::detail::Expression_lhs']]]
+  ['oncollision_1',['onCollision',['../classPlayer.html#ab4ac6aa46f8aa40a9cd1926eccae0e6c',1,'Player']]],
+  ['onorusing_2',['OnOrUsing',['../structOnOrUsing.html',1,'']]]
 ];

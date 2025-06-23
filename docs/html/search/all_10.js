@@ -12,7 +12,7 @@ var searchData=
   ['pghdr_9',['PgHdr',['../structPgHdr.html',1,'']]],
   ['pghdr1_10',['PgHdr1',['../structPgHdr1.html',1,'']]],
   ['pgroup_11',['PGroup',['../structPGroup.html',1,'']]],
-  ['player_12',['Player',['../classPlayer.html',1,'']]],
+  ['player_12',['player',['../classPlayer.html',1,'Player'],['../classPlayer.html#a4fbb911b93bdf4e48750416b1fa73a48',1,'Player::Player()']]],
   ['player_20tt_13',['Classe &lt;tt&gt;Player&lt;/tt&gt;',['../md_README.html#autotoc_md1',1,'']]],
   ['playerexception_14',['PlayerException',['../classPlayerException.html',1,'']]],
   ['playerlogger_15',['PlayerLogger',['../classPlayerLogger.html',1,'']]],

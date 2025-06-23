@@ -83,7 +83,7 @@ Diagrama de hierarquia da classe Colidivel:</div>
 <area shape="rect" title=" " alt="" coords="44,5,123,31"/>
 <area shape="rect" href="classRetanguloHitbox.html" title=" " alt="" coords="18,79,149,104"/>
 <area shape="poly" title=" " alt="" coords="86,44,86,79,81,79,81,44"/>
-<area shape="rect" href="classPlayer.html" title=" " alt="" coords="5,152,68,177"/>
+<area shape="rect" href="classPlayer.html" title="Classe que representa o jogador no jogo." alt="" coords="5,152,68,177"/>
 <area shape="poly" title=" " alt="" coords="70,117,46,153,42,150,66,114"/>
 <area shape="rect" href="classTelaJogo.html" title=" " alt="" coords="92,152,168,177"/>
 <area shape="poly" title=" " alt="" coords="101,114,125,150,120,153,96,117"/>
@@ -92,11 +92,9 @@ Diagrama de hierarquia da classe Colidivel:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
-<tr class="memitem:a014956b8261e186b2345108627e03566" id="r_a014956b8261e186b2345108627e03566"><td class="memItemLeft" align="right" valign="top"><a id="a014956b8261e186b2345108627e03566" name="a014956b8261e186b2345108627e03566"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>onCollision</b> ()=0</td></tr>
+<tr class="memitem:a014956b8261e186b2345108627e03566" id="r_a014956b8261e186b2345108627e03566"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColidivel.html#a014956b8261e186b2345108627e03566">onCollision</a> ()=0</td></tr>
 <tr class="separator:a014956b8261e186b2345108627e03566"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade420f4cdfba30e28136181d270afc0f" id="r_ade420f4cdfba30e28136181d270afc0f"><td class="memItemLeft" align="right" valign="top"><a id="ade420f4cdfba30e28136181d270afc0f" name="ade420f4cdfba30e28136181d270afc0f"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>colisao</b> (<a class="el" href="structcoordenadas.html">coordenadas</a> p)=0</td></tr>
+<tr class="memitem:ade420f4cdfba30e28136181d270afc0f" id="r_ade420f4cdfba30e28136181d270afc0f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColidivel.html#ade420f4cdfba30e28136181d270afc0f">colisao</a> (<a class="el" href="structcoordenadas.html">coordenadas</a> p)=0</td></tr>
 <tr class="separator:ade420f4cdfba30e28136181d270afc0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a475c127efcc2d4006f15015651d097d6" id="r_a475c127efcc2d4006f15015651d097d6"><td class="memItemLeft" align="right" valign="top"><a id="a475c127efcc2d4006f15015651d097d6" name="a475c127efcc2d4006f15015651d097d6"></a>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>noInterior</b> (const <a class="el" href="structcoordenadas.html">coordenadas</a> &amp;p) const =0</td></tr>
@@ -108,6 +106,62 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>noPerimetro</
 virtual vector&lt; <a class="el" href="structcoordenadas.html">coordenadas</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>get_pontos</b> () const =0</td></tr>
 <tr class="separator:a6bd5a3950acd160e5d1424bc341a08f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Documentação das funções</h2>
+<a id="ade420f4cdfba30e28136181d270afc0f" name="ade420f4cdfba30e28136181d270afc0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade420f4cdfba30e28136181d270afc0f">&#9670;&#160;</a></span>colisao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Colidivel::colisao </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcoordenadas.html">coordenadas</a>&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementado por <a class="el" href="classPlayer.html#a60a87398ca319f6fa372a0c3add47750">Player</a>.</p>
+
+</div>
+</div>
+<a id="a014956b8261e186b2345108627e03566" name="a014956b8261e186b2345108627e03566"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a014956b8261e186b2345108627e03566">&#9670;&#160;</a></span>onCollision()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Colidivel::onCollision </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementado por <a class="el" href="classPlayer.html#ab4ac6aa46f8aa40a9cd1926eccae0e6c">Player</a>.</p>
+
+</div>
+</div>
 <hr/>A documentação para essa classe foi gerada a partir do seguinte arquivo:<ul>
 <li>include/fisica/<a class="el" href="hitbox_8hpp_source.html">hitbox.hpp</a></li>
 </ul>

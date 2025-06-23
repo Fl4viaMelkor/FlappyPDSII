@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000000" href="$classColidivel.html" title=" " alt="" coords="5,31,84,56"/>
 <area shape="rect" id="Node000001" href="$classRetanguloHitbox.html" title=" " alt="" coords="132,31,263,56"/>
 <area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="98,41,132,41,132,46,98,46"/>
-<area shape="rect" id="Node000002" href="$classPlayer.html" title=" " alt="" coords="340,5,403,31"/>
+<area shape="rect" id="Node000002" href="$classPlayer.html" title="Classe que representa o jogador no jogo." alt="" coords="340,5,403,31"/>
 <area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="276,29,340,20,340,25,277,34"/>
 <area shape="rect" id="Node000003" href="$classTelaJogo.html" title=" " alt="" coords="333,55,409,80"/>
 <area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="277,52,334,60,333,65,276,57"/>

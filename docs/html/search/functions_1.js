@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['unary_5fassert_0',['unary_assert',['../structdoctest_1_1detail_1_1ResultBuilder.html#a63a2a19638f4a761c70abd5563e2d23a',1,'doctest::detail::ResultBuilder']]]
+  ['draw_0',['draw',['../classPlayer.html#ac18c9d30d2997765321c62030a4b20b7',1,'Player']]]
 ];

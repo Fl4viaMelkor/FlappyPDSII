@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_20result_0',['operator Result',['../structdoctest_1_1detail_1_1Expression__lhs.html#aa0ab4a18aac56bfb02fba8970ed304b3',1,'doctest::detail::Expression_lhs']]]
+  ['colisao_0',['colisao',['../classPlayer.html#a60a87398ca319f6fa372a0c3add47750',1,'Player']]]
 ];
