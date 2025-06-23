@@ -14,7 +14,8 @@
 #include "../include/interface/tela_fimdejogo.hpp"
 #include "../include/interface/TelaCadastro.hpp"
 #include "../include/interface/TelaHighScore.hpp"
-#include "../include/interface/GerenciadorHighScore.hpp"
+#include "../include/dados/dados.hpp"
+#include "../include/dados/logger.hpp"
 #include "../include/dados/config.hpp" 
 
 
@@ -31,8 +32,7 @@ int main()
     initialize();
 
 al_set_window_title(display, "Flying Chicken");
-    
-    GerenciadorHighScores gerenciador_scores("scores.txt");
+
     
     //Ponteiro pra tela inicial
 TelaBase *tela_atual = new TelaInicial(LARGURA_NATIVA, ALTURA_NATIVA);
@@ -43,6 +43,8 @@ TelaBase *tela_atual = new TelaInicial(LARGURA_NATIVA, ALTURA_NATIVA);
 
     al_start_timer(timer);
 
+PlayerLogger logger;
+    
     //loop principal
     while (rodando) {
         al_wait_for_event(queue, &event);
@@ -83,7 +85,7 @@ TelaBase *tela_atual = new TelaInicial(LARGURA_NATIVA, ALTURA_NATIVA);
                                 proxima_tela = new TelaInicial(LARGURA_NATIVA, ALTURA_NATIVA);
                                 break;
                             case EstadoProximaTela::TELA_HIGHSCORES:
-                                proxima_tela = new TelaHighScores(gerenciador_scores, LARGURA_NATIVA, ALTURA_NATIVA);
+                                proxima_tela = new TelaHighScores(logger, LARGURA_NATIVA, ALTURA_NATIVA);
                                 break;
                             default: break;
                         }
@@ -93,19 +95,14 @@ TelaBase *tela_atual = new TelaInicial(LARGURA_NATIVA, ALTURA_NATIVA);
                 }
             }
 
-            // Lógica especial para quando o jogo acaba
-            /*if (TelaJogo* jogo_ptr = dynamic_cast<TelaJogo*>(tela_atual)) {
-                if (jogo_ptr->acabouJogo()) {
-                    int pontuacao = jogo_ptr->getPontuacaoFinal();
-                    delete tela_atual;
+          /* if (TelaJogo* jogo_ptr = dynamic_cast<TelaJogo*>(tela_atual)) {
+        if (jogo_ptr->acabouJogo()) {
+            int pontuacao = jogo_ptr->getPontuacaoFinal();
+            delete tela_atual;
 
-                    if (gerenciador_scores.isHighScore(pontuacao)) {
-                        tela_atual = new TelaCadastro(pontuacao, gerenciador_scores, LARGURA_TELA, ALTURA_TELA);
-                    } else {
-                        tela_atual = new tela_fimdejogo(pontuacao, LARGURA_TELA, ALTURA_TELA);
-                    }
-                }
-            }*/ //Logica para pontuação aq
+            tela_atual = new TelaCadastro(pontuacao, logger, LARGURA_NATIVA, ALTURA_NATIVA);
+        }
+    }*/
             
             redesenhar = true;
         }
