@@ -1,12 +1,12 @@
-#include "../../include/interface/TelaCadastro.hpp" // Ajuste este caminho se necessário
+#include "../../include/interface/TelaCadastro.hpp" 
 #include <allegro5/allegro_primitives.h>
 
-TelaCadastro::TelaCadastro(int pontuacao, GerenciadorHighScores& manager, int largura, int altura) : //construtor
+TelaCadastro::TelaCadastro(int pontuacao, PlayerLogger& logger_ref, int largura, int altura) :
     fonte_titulo(nullptr), fonte_input(nullptr),
     pontuacao_final(pontuacao), entrada_concluida(false),
     proxima_tela_estado(EstadoProximaTela::NENHUM),
     cursor_timer(0.0f), cursor_visivel(true),
-    gerenciador_scores(manager),
+    logger(logger_ref), // Inicializa a referência
     largura_tela(largura), altura_tela(altura) {
 
     nome_jogador.reserve(15); //espaço pra colocar o nome do player
@@ -70,8 +70,16 @@ void TelaCadastro::step(ALLEGRO_EVENT& evento) {//entrada do teclado
                 nome_jogador = "JOGADOR";
             }
             entrada_concluida = true;
-            gerenciador_scores.adicionarScore(nome_jogador, pontuacao_final);
-            std::cout << "Score salvo: " << nome_jogador << " - " << pontuacao_final << std::endl;
+            logger.carregar(nome_jogador);
+
+            
+            if (logger.salvar(pontuacao_final)) {
+                std::cout << "Score salvo com sucesso via Logger para o jogador: " << nome_jogador << std::endl;
+            } else {
+                std::cerr << "Falha ao salvar o score via Logger." << std::endl;
+            }
+            
+            // Define o estado para voltar ao menu principal
             proxima_tela_estado = EstadoProximaTela::MENU_PRINCIPAL;
         }
     }
