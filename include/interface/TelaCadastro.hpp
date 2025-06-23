@@ -2,7 +2,7 @@
 #define TELACADASTRO_HPP
 
 #include "tela_base.hpp"
-#include "GerenciadorHighScore.hpp"
+#include "../dados/logger.hpp"
 #include <allegro5/allegro_font.h>
 #include <string>
 #include <iostream>
@@ -22,13 +22,13 @@ private:
     float cursor_timer;
     bool cursor_visivel;
 
-    GerenciadorHighScores& gerenciador_scores;
+    PlayerLogger& logger;
 
     int largura_tela;
     int altura_tela;
 
 public:
-    TelaCadastro(int pontuacao, GerenciadorHighScores& manager, int largura, int altura);
+    TelaCadastro(int pontuacao, PlayerLogger& logger_ref, int largura, int altura);
     ~TelaCadastro() override;
 
    
