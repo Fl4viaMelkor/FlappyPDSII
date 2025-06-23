@@ -1,5 +1,4 @@
 // Created by Flávia
-
 #ifndef SPRITE_ANIMADO_HPP
 #define SPRITE_ANIMADO_HPP
 

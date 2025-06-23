@@ -8,8 +8,8 @@ TelaHighScores::TelaHighScores(GerenciadorHighScores& manager, int largura, int 
     proxima_tela_estado(EstadoProximaTela::NENHUM),
     largura_tela(largura), altura_tela(altura) {
         
-    fonte_titulo = al_load_font("../../assets/fonts/joystix/joystixmonospace.otf", 48, 0);
-    fonte_scores = al_load_font("../../assets/fonts/joystix/joystixmonospace.otf", 32, 0);
+    fonte_titulo = al_load_font("assets/fonts/joystix/joystixmonospace.otf", 48, 0);
+    fonte_scores = al_load_font("assets/fonts/joystix/joystixmonospace.otf", 32, 0);
     if (!fonte_titulo || !fonte_scores) throw std::runtime_error("Falha ao carregar fontes para TelaHighScore");
 }
 
