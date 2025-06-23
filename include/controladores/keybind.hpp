@@ -18,7 +18,7 @@ class Keybind {
 
   public:
     Keybind();
-    Keybind(Keybinder r);
+    Keybind(Keybinder *r);
     Keybind(map<acao, ALLEGRO_EVENT> k);
     bool adicionar_acao(ALLEGRO_EVENT al, acao a);
     bool existe(ALLEGRO_EVENT al);
