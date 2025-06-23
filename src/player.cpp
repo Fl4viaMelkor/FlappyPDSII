@@ -11,16 +11,27 @@
 
 Player::Player(const std::string &filename, float x, float y, float speed, float width, float height)
   : RetanguloHitbox({ x, y }, width, height)
-  , sprite(filename, 3, 24, 24, 8.0f) // 3 frames, cada uma 24x24, 8FPS. Ou 34x24.
+  , sprite(nullptr)
   , velY(0)
   , speed(speed)
   , gravidade(GRAVIDADE)
   , IsAlive(true)
   , lastJumpTime(0.0f)
-{}
+  , carregouSprite(false)
+{
+    try {
+        sprite = new SpriteAnimado(filename, 3, 24, 24, 8.0f);
+        carregouSprite = true;
+    } catch (const std::runtime_error &e) {
+        std::cerr << "Aviso: " << e.what() << std::endl;
+        carregouSprite = false;
+    }
+}
 
 
-
+Player::~Player() {
+    delete sprite;
+}
 
 void Player::update(const ALLEGRO_KEYBOARD_STATE &key_state)
 {
@@ -30,7 +41,6 @@ void Player::update(const ALLEGRO_KEYBOARD_STATE &key_state)
     float deltaTime = currentTime - ultimoTempo;
     ultimoTempo = currentTime;
 
-    // Controle do cooldown no pulo
     if (al_key_down(&key_state, ALLEGRO_KEY_SPACE)) {
         if (currentTime - lastJumpTime >= jumpCooldown) {
             velY = -15 * gravidade;
@@ -42,41 +52,40 @@ void Player::update(const ALLEGRO_KEYBOARD_STATE &key_state)
     ponto_inferior_esquerdo.y += velY;
     gravidade += 0.0001;
 
-    sprite.update(deltaTime);
+    if (carregouSprite && sprite)
+        sprite->update(deltaTime);
 }
-
 
 void Player::draw() {
-    sprite.draw(ponto_inferior_esquerdo, false); // ou true se precisar flipar o player passa a posição atual
+    if (carregouSprite && sprite) {
+        sprite->draw(ponto_inferior_esquerdo, false);
+    } else {
+        // Desenha retângulo vermelho se sprite não carregou
+        al_draw_filled_rectangle(
+            ponto_inferior_esquerdo.x,
+            ponto_inferior_esquerdo.y,
+            ponto_inferior_esquerdo.x + base,
+            ponto_inferior_esquerdo.y + altura,
+            al_map_rgb(255, 0, 0)
+        );
+    }
 }
 
-
-
-bool Player::colisao(coordenadas p)
-{
-    // cout << "Ponto p:" << p.x << "," << p.y << endl;
-    // cout << "no perimitro" << noPerimetro(p) << endl;
-    // cout << "no interior" << noInterior(p) << endl;
+bool Player::colisao(coordenadas p) {
     return noPerimetro(p) || noInterior(p);
 }
 
-
 void Player::Kill() {
     IsAlive = false;
-    //std::cout << "Player foi morto! IsAlive = " << IsAlive << "\n";
-    velY = 0;       // Para paralisar o player como no jogo original.
-    speed = 0;      // 
+    velY = 0;
+    speed = 0;
 }
-
 
 bool Player::getIsAlive() const {
     return IsAlive;
 }
 
 void Player::onCollision(){ 
-        Kill();
-        throw PlayerException("O jogador morreu.");
-
-
+    Kill();
+    throw PlayerException("O jogador morreu.");
 }
-
