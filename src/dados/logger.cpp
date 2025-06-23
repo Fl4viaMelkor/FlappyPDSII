@@ -53,7 +53,7 @@ bool Logger::carregar(const string &id)
             return false;
         }
     }
-    atual_ = nullptr; // Nenhum objeto encontrado, 'atual_' deve ser nulo
+    atual_ = new Dado_Jogador(id, id);
     return false;
 }
 
