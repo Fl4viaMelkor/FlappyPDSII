@@ -7,6 +7,7 @@
 #include "../../include/dados/dados.hpp"
 #include <iostream> // Para saída de depuração potencial (ex.: em carregar/exportar)
 #include <unordered_map>
+#include <vector>
 
 using namespace std;
 
@@ -147,4 +148,5 @@ void Dado_Jogador::nome(const string &nome) { this->nome_ = nome; }
 string Dado_Jogador::apelido() const { return apelido_; }
 void Dado_Jogador::apelido(const string &apelido) { this->apelido_ = apelido; }
 vector<int> Dado_Jogador::pontuacoes() const { return pontuacoes_; }
+void Dado_Jogador::add_pontuacao(const int pontuacao) { this->pontuacoes_.push_back(pontuacao); }
 void Dado_Jogador::pontuacoes(const vector<int> &pontuacoes) { this->pontuacoes_ = pontuacoes; }

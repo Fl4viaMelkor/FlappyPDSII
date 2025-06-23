@@ -16,7 +16,7 @@ using namespace std;
 
 /**
  * @brief Representa um objeto genérico que pode ser armazenado em uma base de dados.
- * 
+ *
  * Todos os elementos são pares chave-valor de strings.
  */
 struct objeto {
@@ -39,7 +39,7 @@ struct objeto {
 
 /**
  * @brief Classe abstrata que define a interface para dados que podem ser carregados e exportados.
- * 
+ *
  * Permite leitura e gravação genérica de objetos no sistema.
  */
 class Dado {
@@ -78,9 +78,9 @@ class Dado {
  */
 class Dado_Jogador : public Dado {
   protected:
-    string nome_;                ///< Nome do jogador.
-    string apelido_;             ///< Apelido do jogador.
-    vector<int> pontuacoes_;     ///< Histórico de pontuações do jogador.
+    string nome_;            ///< Nome do jogador.
+    string apelido_;         ///< Apelido do jogador.
+    vector<int> pontuacoes_; ///< Histórico de pontuações do jogador.
 
   public:
     /**
@@ -125,6 +125,10 @@ class Dado_Jogador : public Dado {
      */
     vector<int> pontuacoes() const;
 
+    /**
+     * @brief Adiciona uma pontuação ao vetor de pontuações.
+     */
+    void add_pontuacao(int pontuacao);
     /**
      * @brief Define a lista de pontuações do jogador.
      * @param pontuacoes Vetor com novas pontuações.
