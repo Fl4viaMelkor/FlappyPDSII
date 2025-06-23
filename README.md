@@ -1,132 +1,73 @@
 # FlappyPDSII
 
+Projeto acadêmico desenvolvido em C++ utilizando a biblioteca gráfica Allegro 5, como parte da disciplina de Programação e Desenvolvimento de Software II, da Universidade Federal de Minas Gerais(UFMG).
 
+## Introdução
 
-- Flávia
-    ## Classe `Player`
+O objetivo do projeto foi implementar uma versão funcional do clássico jogo *Flappy Bird*, explorando conceitos de orientação a objetos, modularização e manipulação de gráficos em tempo real com Allegro. O jogo simula a movimentação de um pássaro que deve evitar colisões com obstáculos para acumular pontos, com foco em estruturação modular, detecção de colisões e animações.
 
-    Classe que representa o jogador do jogo.
+## Visão geral da solução
 
-    ### Construtor
+O projeto está estruturado em diferentes módulos, organizados nas seguintes pastas, como requisitado:
 
-    ```cpp
-    Player(const std::string &filename, float x, float y, float speed, float width, float height);
-    ```
+- `src/` e `include/`: contêm a lógica principal do jogo dividida por responsabilidade (controle, física, interface, dados).
+- `assets/`: reúne os recursos gráficos e sonoros utilizados.
+- `tests/`: abriga os testes unitários desenvolvidos com a biblioteca `doctest`.
+- `docs/`: contém documentação gerada automaticamente via Doxygen, além de documentos auxiliares.
 
-    - `filename`: caminho da imagem do sprite sheet do jogador.
-    - `x`, `y`: posição inicial do jogador.
-    - `speed`: velocidade horizontal/vertical.
-    - `width`, `height`: dimensões da hitbox do jogador.
+A lógica do jogo é dividida em camadas (como interface, controle e física) e permite reutilização e fácil manutenção de código. Foram utilizados padrões como Strategy e State, além de banco de dados com SQLite para registrar pontuações.
 
-    ### Atributos principais
+## Dificuldades encontradas
 
-    - `SpriteAnimado sprite`: classe reponsável pela animação do jogador.
-    - `velY`: velocidade vertical (afetada pela gravidade).
-    - `gravidade`: força gravitacional que acelera o jogador para baixo.
-    - `IsAlive`: booleano que determina se o jogador está vivo.
-    - `lastJumpTime`: último momento em que o jogador pulou.
-    - `jumpCooldown`: tempo de espera entre pulos.
+As principais dificuldades estiveram relacionadas à divisão de tarefas entre membros do grupo, garantindo integração adequada entre os módulos desenvolvidos separadamente. Além disso, mesmo sendo bastante útil, a biblioteca Allegro 5 exige certo improviso para suprir funcionalidades que seriam mais diretas com o uso de uma engine dedicada para jogos. Também surgiram desafios na correção de bugs lógicos relacionados à movimentação, detecção de colisão e sincronização dos estados do jogo.
 
-    ### Métodos
+## Extras implementados
 
-    - `void update(const ALLEGRO_KEYBOARD_STATE &key_state)`  
-    Atualiza posição e física do jogador com base na gravidade e input do teclado.
+- (espaço reservado para listar os extras do grupo)
 
-    - `void draw()`  
-    Desenha o frame atual da animação do jogador na tela.(Guarda a posição)
+## Compilação
 
-    - `void Kill()`  
-    Seta o estado do jogador para morto, congelando ele.
+Pré-requisitos:
 
-    - `void onCollision()`  
-    Mata o jogador e lança a exceção `PlayerException`.
+- CMake
+- Allegro 5
+- g++
 
-    - `bool colisao(coordenadas p)`  
-    Verifica se um ponto colide com a hitbox do jogador.
+Para compilar:
 
-    - `bool getIsAlive() const`  
-    Retorna se o jogador está vivo.
+```bash
+mkdir build
+cd build
+cmake ..
+make
+./bin/FlappyPDSII
+````
 
-    ---
+## Testes
 
-    ## Classe `SpriteAnimado`
+Os testes usam a biblioteca [doctest](https://github.com/doctest/doctest). Para executar:
 
-    Classe responsável por controlar e desenhar uma animação 2D a partir de um spritesheet.
+```bash
+cd tests/build
+make
+./run_tests
+```
 
-    ### Construtor
+## Documentação
 
-    ```cpp
-    SpriteAnimado(const std::string& filename, int numFrames, int frameLargura, int frameAltura, float fps);
-    ```
+A documentação pode ser gerada com [Doxygen](https://www.doxygen.nl/):
 
-    - `filename`: caminho para o sprite sheet.
-    - `numFrames`: número total de quadros no sprite sheet.
-    - `frameLargura`, `frameAltura`: dimensões de cada quadro da animação.
-    - `fps`: quantos quadros por segundo a animação deve exibir.
+```bash
+doxygen Doxyfile
+```
 
-    ### Atributos principais
+Abra `docs/html/index.html` no navegador para consultar.
 
-    - `bitmap`: imagem carregada do sprite sheet.
-    - `frameAtual`: índice do frame atual da animação.
-    - `tempoAcumulado`: tempo acumulado para trocar de frame.
-    - `tempoPorFrame`: tempo que cada frame deve durar.
+## Contribuidores
 
-    ### Métodos
+* Flávia Silva ([Fl4viaMelkor](https://github.com/Fl4viaMelkor))
+* \[Demais nomes do grupo aqui]
 
-    - `void update(float deltaTime)`  
-    Atualiza o frame atual com base no tempo passado(Contador de FPS).
+## Licença
 
-    - `void draw(const coordenadas& pos) const`  
-    Desenha o quadro atual na posição `pos`.
-
-    - `~SpriteAnimado()`  
-    Libera os recursos alocados pela imagem.
-
-
-
-    ## Classe: `Sprite`
-
-    Representa um sprite 2D com várias imagens (quadros), útil para animações.
-
-    #### Métodos Públicos
-
-    - `Sprite(std::string caminho, int largura, int altura, int espacamento = 0)`
-    - **Construtor**: Carrega uma imagem com múltiplos quadros.
-    - `caminho`: Caminho para o arquivo da imagem.
-    - `largura`: Largura de cada quadro.
-    - `altura`: Altura de cada quadro.
-    - `espacamento`: Espaçamento entre os quadros (opcional).
-
-    - `~Sprite()`
-    - **Destrutor**: Libera os recursos de imagem.
-
-    - `void desenhar(float x, float y, int indice = 0, bool flip = false) const`
-    - Desenha o quadro indicado no ponto (x, y).
-    - `indice`: Índice do quadro.
-    - `flip`: Se verdadeiro, espelha horizontalmente.
-
-    - `int get_num_quadros() const`
-    - Retorna o número total de quadros.
-
-    - `int get_largura() const`
-    - Retorna a largura de um quadro.
-
-    - `int get_altura() const`
-    - Retorna a altura de um quadro.
-
-    ---
-
-    ## `player_exception.hpp`
-
-    ### Classe: `PlayerException : public std::runtime_error`
-
-    Classe de exceção personalizada para erros relacionados ao `Player`.
-
-    #### Métodos Públicos
-
-    - `PlayerException(const std::string& mensagem)`
-    - Construtor que recebe uma mensagem de erro.
-
-    ---
-
-
+Projeto acadêmico desenvolvido exclusivamente para fins educacionais.
