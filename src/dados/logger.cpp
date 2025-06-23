@@ -22,13 +22,13 @@ Logger::Logger(Database *db) { db_ = db; }
 Logger::~Logger()
 {
     cout << "Logger destruído." << endl;
-    delete atual_;    // Libera a memória do objeto Dado carregado
-    atual_ = nullptr; // Garante que o ponteiro não aponte para memória inválida
+    delete db_;    // Libera a memória do objeto Dado carregado
+    db_ = nullptr; // Garante que o ponteiro não aponte para memória inválida
 }
 
 // Função carregar
 // Tenta carregar um objeto Dado do Database usando um ‘ID’.
-bool Logger::carregar(const string &id)
+bool PlayerLogger::carregar(const string &id)
 {
     if (!db_) {
         cerr << "Logger error: Ponteiro para Database é nulo ao carregar." << endl;
@@ -59,7 +59,7 @@ bool Logger::carregar(const string &id)
 
 // Função salvar
 // Salva o objeto Dado atualmente carregado no Database.
-bool Logger::salvar() const
+bool PlayerLogger::salvar() const
 {
     if (!db_) {
         cerr << "Logger error: Ponteiro para Database é nulo ao salvar." << endl;
@@ -74,6 +74,11 @@ bool Logger::salvar() const
     const objeto obj_to_save = atual_->exportar();
 
     return db_->atualizar_ou_adicionar(obj_to_save);
+}
+PlayerLogger::~PlayerLogger()
+{
+    delete atual_;    // Libera a memória do objeto Dado carregado
+    atual_ = nullptr; // Garante que o ponteiro não aponte para memória inválida
 }
 
 // Função deletar
@@ -135,6 +140,11 @@ void PlayerLogger::resetar()
 
     // Cria um Dado_Jogador no estado padrão.
     atual_ = new Dado_Jogador();
+}
+bool PlayerLogger::salvar(int pontuacao_mais_recente)
+{
+    atual_->add_pontuacao(pontuacao_mais_recente);
+    return salvar();
 }
 
 // Esta implementação fornece uma ordenação específica para as vitórias de um jogador

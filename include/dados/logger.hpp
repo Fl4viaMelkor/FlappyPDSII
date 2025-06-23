@@ -9,13 +9,12 @@
 
 /**
  * @brief Classe base para gerenciamento de logs com persistência em banco de dados.
- * 
+ *
  * Controla operações de carregar, salvar, deletar e listar dados associados a uma entidade.
  */
 class Logger {
   protected:
-    Database *db_ = nullptr;   ///< Ponteiro para o banco de dados utilizado.
-    Dado *atual_ = nullptr;    ///< Instância do dado atual que está sendo manipulado.
+    Database *db_ = nullptr; ///< Ponteiro para o banco de dados utilizado.
 
     /**
      * @brief Construtor protegido que associa o Logger a um banco de dados.
@@ -36,13 +35,13 @@ class Logger {
      * @param id Identificador da entidade.
      * @return true se o carregamento foi bem-sucedido.
      */
-    bool carregar(const string &id);
+    virtual bool carregar(const string &id) = 0;
 
     /**
      * @brief Salva os dados atuais no banco.
      * @return true se a operação foi bem-sucedida.
      */
-    virtual bool salvar() const;
+    virtual bool salvar() const = 0;
 
     /**
      * @brief Deleta os dados associados ao identificador informado.
@@ -53,7 +52,7 @@ class Logger {
 
     /**
      * @brief Reseta ou limpa os dados associados ao Logger.
-     * 
+     *
      * Método abstrato, deve ser implementado pelas classes derivadas.
      */
     virtual void resetar() = 0;
@@ -73,6 +72,9 @@ class Logger {
  * @brief Logger especializado para dados de jogadores.
  */
 class PlayerLogger final : public Logger {
+  private:
+    Dado_Jogador *atual_ = nullptr;
+
   public:
     /**
      * @brief Construtor que associa o PlayerLogger a um banco de dados.
@@ -99,6 +101,10 @@ class PlayerLogger final : public Logger {
      * @brief Reseta os dados do logger de jogador.
      */
     void resetar() override;
+    bool salvar(int pontuacao_mais_recente);
+    bool salvar() const override;
+    ~PlayerLogger() override;
+    bool carregar(const string &id) override;
 };
 
 /**
