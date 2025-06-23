@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['player_0',['Player',['../classPlayer.html#a4fbb911b93bdf4e48750416b1fa73a48',1,'Player']]]
+  ['figura_0',['Figura',['../classFigura.html#aa1f8edce555d32219a053e00ee2cc97f',1,'Figura']]]
 ];

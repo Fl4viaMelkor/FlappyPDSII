@@ -2,10 +2,10 @@
 <area shape="rect" id="Node000001" title=" " alt="" coords="47,168,123,193"/>
 <area shape="rect" id="Node000002" href="$classTelaBase.html" title=" " alt="" coords="5,93,85,119"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="61,130,81,166,77,169,56,132"/>
-<area shape="rect" id="Node000003" href="$classRetanguloHitbox.html" title=" " alt="" coords="109,93,240,119"/>
+<area shape="rect" id="Node000003" href="$classRetanguloHitbox.html" title="Implementa uma hitbox retangular." alt="" coords="109,93,240,119"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="151,130,102,170,98,165,148,125"/>
-<area shape="rect" id="Node000004" href="$classColidivel.html" title=" " alt="" coords="77,5,155,31"/>
+<area shape="rect" id="Node000004" href="$classColidivel.html" title="Interface para elementos colidíveis no jogo." alt="" coords="77,5,155,31"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="134,41,169,91,164,94,129,44"/>
-<area shape="rect" id="Node000005" href="$structcoordenadas.html" title=" " alt="" coords="179,5,285,31"/>
+<area shape="rect" id="Node000005" href="$structcoordenadas.html" title="Representa uma posição ou ponto no espaço bidimensional." alt="" coords="179,5,285,31"/>
 <area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="219,44,185,94,180,91,214,41"/>
 </map>

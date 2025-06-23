@@ -76,15 +76,20 @@ $(function() {
   <div class="headertitle"><div class="title">Referência da Classe Poligono</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Representa um polígono definido por um vetor de coordenadas.  
+ <a href="classPoligono.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="figuras__basicas_8hpp_source.html">figuras_basicas.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Diagrama de hierarquia da classe Poligono:</div>
 <div class="dyncontent">
 <div class="center"><img src="classPoligono__inherit__graph.png" border="0" usemap="#aPoligono_inherit__map" alt="Inheritance graph"/></div>
 <map name="aPoligono_inherit__map" id="aPoligono_inherit__map">
-<area shape="rect" title=" " alt="" coords="69,79,148,104"/>
-<area shape="rect" href="classRetangulo.html" title=" " alt="" coords="65,152,153,177"/>
+<area shape="rect" title="Representa um polígono definido por um vetor de coordenadas." alt="" coords="69,79,148,104"/>
+<area shape="rect" href="classRetangulo.html" title="Representa um retângulo como um tipo de polígono." alt="" coords="65,152,153,177"/>
 <area shape="poly" title=" " alt="" coords="111,118,111,152,106,152,106,118"/>
-<area shape="rect" href="classForma__Geometrica__Fechada.html" title=" " alt="" coords="5,5,212,31"/>
+<area shape="rect" href="classForma__Geometrica__Fechada.html" title="Interface para formas geométricas fechadas." alt="" coords="5,5,212,31"/>
 <area shape="poly" title=" " alt="" coords="111,44,111,79,106,79,106,44"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
@@ -93,37 +98,89 @@ Diagrama de colaboração para Poligono:</div>
 <div class="dyncontent">
 <div class="center"><img src="classPoligono__coll__graph.png" border="0" usemap="#aPoligono_coll__map" alt="Collaboration graph"/></div>
 <map name="aPoligono_coll__map" id="aPoligono_coll__map">
-<area shape="rect" title=" " alt="" coords="69,79,148,104"/>
-<area shape="rect" href="classForma__Geometrica__Fechada.html" title=" " alt="" coords="5,5,212,31"/>
+<area shape="rect" title="Representa um polígono definido por um vetor de coordenadas." alt="" coords="69,79,148,104"/>
+<area shape="rect" href="classForma__Geometrica__Fechada.html" title="Interface para formas geométricas fechadas." alt="" coords="5,5,212,31"/>
 <area shape="poly" title=" " alt="" coords="111,44,111,79,106,79,106,44"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
-<tr class="memitem:abf337978fcd128c247b35852c9ce0f41" id="r_abf337978fcd128c247b35852c9ce0f41"><td class="memItemLeft" align="right" valign="top"><a id="abf337978fcd128c247b35852c9ce0f41" name="abf337978fcd128c247b35852c9ce0f41"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Poligono</b> (vector&lt; <a class="el" href="structcoordenadas.html">coordenadas</a> &gt; p)</td></tr>
+<tr class="memitem:abf337978fcd128c247b35852c9ce0f41" id="r_abf337978fcd128c247b35852c9ce0f41"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoligono.html#abf337978fcd128c247b35852c9ce0f41">Poligono</a> (vector&lt; <a class="el" href="structcoordenadas.html">coordenadas</a> &gt; p)</td></tr>
+<tr class="memdesc:abf337978fcd128c247b35852c9ce0f41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor que define o polígono com base em pontos.  <br /></td></tr>
 <tr class="separator:abf337978fcd128c247b35852c9ce0f41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf2daa02668bfb1607b7b7294de69178" id="r_aaf2daa02668bfb1607b7b7294de69178"><td class="memItemLeft" align="right" valign="top"><a id="aaf2daa02668bfb1607b7b7294de69178" name="aaf2daa02668bfb1607b7b7294de69178"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPerimetro</b> (vector&lt; <a class="el" href="structcoordenadas.html">coordenadas</a> &gt; p)</td></tr>
+<tr class="memitem:aaf2daa02668bfb1607b7b7294de69178" id="r_aaf2daa02668bfb1607b7b7294de69178"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoligono.html#aaf2daa02668bfb1607b7b7294de69178">setPerimetro</a> (vector&lt; <a class="el" href="structcoordenadas.html">coordenadas</a> &gt; p)</td></tr>
+<tr class="memdesc:aaf2daa02668bfb1607b7b7294de69178"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define ou redefine o perímetro do polígono.  <br /></td></tr>
 <tr class="separator:aaf2daa02668bfb1607b7b7294de69178"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad950760b2fd0dd98033744ffe3ec4485" id="r_ad950760b2fd0dd98033744ffe3ec4485"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoligono.html#ad950760b2fd0dd98033744ffe3ec4485">noInterior</a> (<a class="el" href="structcoordenadas.html">coordenadas</a> p)</td></tr>
-<tr class="separator:ad950760b2fd0dd98033744ffe3ec4485"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafd84e9ab70b240b484ea357f36e4dee" id="r_aafd84e9ab70b240b484ea357f36e4dee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoligono.html#aafd84e9ab70b240b484ea357f36e4dee">noPerimetro</a> (<a class="el" href="structcoordenadas.html">coordenadas</a> p)</td></tr>
-<tr class="separator:aafd84e9ab70b240b484ea357f36e4dee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba58f8e4d462e28644d7f8c9d90908bb" id="r_aba58f8e4d462e28644d7f8c9d90908bb"><td class="memItemLeft" align="right" valign="top"><a id="aba58f8e4d462e28644d7f8c9d90908bb" name="aba58f8e4d462e28644d7f8c9d90908bb"></a>
-vector&lt; <a class="el" href="structcoordenadas.html">coordenadas</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>get_poligono</b> ()</td></tr>
+<tr class="memitem:ab900062ae1dcc71c3af24dc1f4e53356" id="r_ab900062ae1dcc71c3af24dc1f4e53356"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoligono.html#ab900062ae1dcc71c3af24dc1f4e53356">noInterior</a> (<a class="el" href="structcoordenadas.html">coordenadas</a> p) override</td></tr>
+<tr class="memdesc:ab900062ae1dcc71c3af24dc1f4e53356"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se o ponto está no interior da figura (excluindo bordas).  <br /></td></tr>
+<tr class="separator:ab900062ae1dcc71c3af24dc1f4e53356"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64df399892b23ecf2f83b0f0d1721914" id="r_a64df399892b23ecf2f83b0f0d1721914"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoligono.html#a64df399892b23ecf2f83b0f0d1721914">noPerimetro</a> (<a class="el" href="structcoordenadas.html">coordenadas</a> p) override</td></tr>
+<tr class="memdesc:a64df399892b23ecf2f83b0f0d1721914"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se o ponto está no perímetro da figura.  <br /></td></tr>
+<tr class="separator:a64df399892b23ecf2f83b0f0d1721914"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba58f8e4d462e28644d7f8c9d90908bb" id="r_aba58f8e4d462e28644d7f8c9d90908bb"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="structcoordenadas.html">coordenadas</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPoligono.html#aba58f8e4d462e28644d7f8c9d90908bb">get_poligono</a> ()</td></tr>
+<tr class="memdesc:aba58f8e4d462e28644d7f8c9d90908bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna os pontos que formam o polígono.  <br /></td></tr>
 <tr class="separator:aba58f8e4d462e28644d7f8c9d90908bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Atributos Protegidos</h2></td></tr>
 <tr class="memitem:a03a31c4c6406448e7d2c05c27ef6067f" id="r_a03a31c4c6406448e7d2c05c27ef6067f"><td class="memItemLeft" align="right" valign="top"><a id="a03a31c4c6406448e7d2c05c27ef6067f" name="a03a31c4c6406448e7d2c05c27ef6067f"></a>
 vector&lt; <a class="el" href="structcoordenadas.html">coordenadas</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>perimetro</b></td></tr>
+<tr class="memdesc:a03a31c4c6406448e7d2c05c27ef6067f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pontos que definem os lados do polígono. <br /></td></tr>
 <tr class="separator:a03a31c4c6406448e7d2c05c27ef6067f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Representa um polígono definido por um vetor de coordenadas. </p>
+</div><h2 class="groupheader">Construtores e Destrutores</h2>
+<a id="abf337978fcd128c247b35852c9ce0f41" name="abf337978fcd128c247b35852c9ce0f41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf337978fcd128c247b35852c9ce0f41">&#9670;&#160;</a></span>Poligono()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Poligono::Poligono </td>
+          <td>(</td>
+          <td class="paramtype">vector&lt; <a class="el" href="structcoordenadas.html">coordenadas</a> &gt;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construtor que define o polígono com base em pontos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Vetor de pontos que definem o contorno. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Documentação das funções</h2>
-<a id="ad950760b2fd0dd98033744ffe3ec4485" name="ad950760b2fd0dd98033744ffe3ec4485"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad950760b2fd0dd98033744ffe3ec4485">&#9670;&#160;</a></span>noInterior()</h2>
+<a id="aba58f8e4d462e28644d7f8c9d90908bb" name="aba58f8e4d462e28644d7f8c9d90908bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba58f8e4d462e28644d7f8c9d90908bb">&#9670;&#160;</a></span>get_poligono()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; <a class="el" href="structcoordenadas.html">coordenadas</a> &gt; Poligono::get_poligono </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna os pontos que formam o polígono. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Vetor de coordenadas. </dd></dl>
+
+</div>
+</div>
+<a id="ab900062ae1dcc71c3af24dc1f4e53356" name="ab900062ae1dcc71c3af24dc1f4e53356"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab900062ae1dcc71c3af24dc1f4e53356">&#9670;&#160;</a></span>noInterior()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -141,17 +198,28 @@ vector&lt; <a class="el" href="structcoordenadas.html">coordenadas</a> &gt;&#160
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implementa <a class="el" href="classForma__Geometrica__Fechada.html">Forma_Geometrica_Fechada</a>.</p>
+<p>Verifica se o ponto está no interior da figura (excluindo bordas). </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Coordenada do ponto. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se estiver no interior. </dd></dl>
+
+<p>Implementa <a class="el" href="classForma__Geometrica__Fechada.html#ab439f4c9d247a52cdafd70e9914c97f7">Forma_Geometrica_Fechada</a>.</p>
+
+<p>Reimplementado por <a class="el" href="classRetangulo.html#ae67d6a0cbee699cf6dba7bcf335143db">Retangulo</a>.</p>
 
 </div>
 </div>
-<a id="aafd84e9ab70b240b484ea357f36e4dee" name="aafd84e9ab70b240b484ea357f36e4dee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aafd84e9ab70b240b484ea357f36e4dee">&#9670;&#160;</a></span>noPerimetro()</h2>
+<a id="a64df399892b23ecf2f83b0f0d1721914" name="a64df399892b23ecf2f83b0f0d1721914"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64df399892b23ecf2f83b0f0d1721914">&#9670;&#160;</a></span>noPerimetro()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -169,12 +237,49 @@ vector&lt; <a class="el" href="structcoordenadas.html">coordenadas</a> &gt;&#160
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implementa <a class="el" href="classForma__Geometrica__Fechada.html">Forma_Geometrica_Fechada</a>.</p>
+<p>Verifica se o ponto está no perímetro da figura. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Coordenada do ponto. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se estiver no perímetro. </dd></dl>
+
+<p>Implementa <a class="el" href="classForma__Geometrica__Fechada.html#a5af419ce0f39a5b9116aacab98641268">Forma_Geometrica_Fechada</a>.</p>
+
+<p>Reimplementado por <a class="el" href="classRetangulo.html#af1e71971b43b237b41101f44709863e5">Retangulo</a>.</p>
+
+</div>
+</div>
+<a id="aaf2daa02668bfb1607b7b7294de69178" name="aaf2daa02668bfb1607b7b7294de69178"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf2daa02668bfb1607b7b7294de69178">&#9670;&#160;</a></span>setPerimetro()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Poligono::setPerimetro </td>
+          <td>(</td>
+          <td class="paramtype">vector&lt; <a class="el" href="structcoordenadas.html">coordenadas</a> &gt;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define ou redefine o perímetro do polígono. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Vetor de coordenadas. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

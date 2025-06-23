@@ -75,22 +75,138 @@ $(function() {
   <div class="headertitle"><div class="title">Referência da Classe Detector_Colisao</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Responsável por detectar colisões entre o jogador e outros objetos colidíveis no jogo.  
+ <a href="classDetector__Colisao.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="fisica_8hpp_source.html">fisica.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
-<tr class="memitem:a67619c1c2a9c8d02b925a009adf7d590" id="r_a67619c1c2a9c8d02b925a009adf7d590"><td class="memItemLeft" align="right" valign="top"><a id="a67619c1c2a9c8d02b925a009adf7d590" name="a67619c1c2a9c8d02b925a009adf7d590"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Detector_Colisao</b> (<a class="el" href="classColidivel.html">Colidivel</a> &amp;player)</td></tr>
+<tr class="memitem:a67619c1c2a9c8d02b925a009adf7d590" id="r_a67619c1c2a9c8d02b925a009adf7d590"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDetector__Colisao.html#a67619c1c2a9c8d02b925a009adf7d590">Detector_Colisao</a> (<a class="el" href="classColidivel.html">Colidivel</a> &amp;player)</td></tr>
+<tr class="memdesc:a67619c1c2a9c8d02b925a009adf7d590"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor que recebe uma referência ao jogador.  <br /></td></tr>
 <tr class="separator:a67619c1c2a9c8d02b925a009adf7d590"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae98bb30f5bbe38bd1d2bef67508f8ded" id="r_ae98bb30f5bbe38bd1d2bef67508f8ded"><td class="memItemLeft" align="right" valign="top"><a id="ae98bb30f5bbe38bd1d2bef67508f8ded" name="ae98bb30f5bbe38bd1d2bef67508f8ded"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>registrar</b> (<a class="el" href="classColidivel.html">Colidivel</a> *e)</td></tr>
+<tr class="memitem:ae98bb30f5bbe38bd1d2bef67508f8ded" id="r_ae98bb30f5bbe38bd1d2bef67508f8ded"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDetector__Colisao.html#ae98bb30f5bbe38bd1d2bef67508f8ded">registrar</a> (<a class="el" href="classColidivel.html">Colidivel</a> *e)</td></tr>
+<tr class="memdesc:ae98bb30f5bbe38bd1d2bef67508f8ded"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registra um novo elemento colidível.  <br /></td></tr>
 <tr class="separator:ae98bb30f5bbe38bd1d2bef67508f8ded"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25b910276631f012c7bf3da65158402d" id="r_a25b910276631f012c7bf3da65158402d"><td class="memItemLeft" align="right" valign="top"><a id="a25b910276631f012c7bf3da65158402d" name="a25b910276631f012c7bf3da65158402d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>remover</b> (<a class="el" href="classColidivel.html">Colidivel</a> *e)</td></tr>
+<tr class="memitem:a25b910276631f012c7bf3da65158402d" id="r_a25b910276631f012c7bf3da65158402d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDetector__Colisao.html#a25b910276631f012c7bf3da65158402d">remover</a> (<a class="el" href="classColidivel.html">Colidivel</a> *e)</td></tr>
+<tr class="memdesc:a25b910276631f012c7bf3da65158402d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove um elemento colidível do conjunto.  <br /></td></tr>
 <tr class="separator:a25b910276631f012c7bf3da65158402d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23ab92801c27afae2fb561791561e926" id="r_a23ab92801c27afae2fb561791561e926"><td class="memItemLeft" align="right" valign="top"><a id="a23ab92801c27afae2fb561791561e926" name="a23ab92801c27afae2fb561791561e926"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>detectar</b> () const</td></tr>
+<tr class="memitem:a23ab92801c27afae2fb561791561e926" id="r_a23ab92801c27afae2fb561791561e926"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDetector__Colisao.html#a23ab92801c27afae2fb561791561e926">detectar</a> () const</td></tr>
+<tr class="memdesc:a23ab92801c27afae2fb561791561e926"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se o jogador colidiu com algum dos elementos registrados.  <br /></td></tr>
 <tr class="separator:a23ab92801c27afae2fb561791561e926"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Responsável por detectar colisões entre o jogador e outros objetos colidíveis no jogo. </p>
+</div><h2 class="groupheader">Construtores e Destrutores</h2>
+<a id="a67619c1c2a9c8d02b925a009adf7d590" name="a67619c1c2a9c8d02b925a009adf7d590"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67619c1c2a9c8d02b925a009adf7d590">&#9670;&#160;</a></span>Detector_Colisao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Detector_Colisao::Detector_Colisao </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classColidivel.html">Colidivel</a> &amp;&#160;</td>
+          <td class="paramname"><em>player</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construtor que recebe uma referência ao jogador. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">player</td><td>Referência ao objeto do jogador. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentação das funções</h2>
+<a id="a23ab92801c27afae2fb561791561e926" name="a23ab92801c27afae2fb561791561e926"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23ab92801c27afae2fb561791561e926">&#9670;&#160;</a></span>detectar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Detector_Colisao::detectar </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifica se o jogador colidiu com algum dos elementos registrados. </p>
+<p>Se houver colisão, a exceção <code><a class="el" href="classGameEndException.html" title="Exceção lançada quando o jogo deve terminar (por exemplo, ao ocorrer uma colisão fatal).">GameEndException</a></code> pode ser lançada. </p>
+
+</div>
+</div>
+<a id="ae98bb30f5bbe38bd1d2bef67508f8ded" name="ae98bb30f5bbe38bd1d2bef67508f8ded"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae98bb30f5bbe38bd1d2bef67508f8ded">&#9670;&#160;</a></span>registrar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Detector_Colisao::registrar </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classColidivel.html">Colidivel</a> *&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registra um novo elemento colidível. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td>Ponteiro para o elemento colidível. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Observação</dt><dd>Elementos repetidos não são adicionados novamente. </dd></dl>
+
+</div>
+</div>
+<a id="a25b910276631f012c7bf3da65158402d" name="a25b910276631f012c7bf3da65158402d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25b910276631f012c7bf3da65158402d">&#9670;&#160;</a></span>remover()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Detector_Colisao::remover </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classColidivel.html">Colidivel</a> *&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove um elemento colidível do conjunto. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td>Ponteiro para o elemento a ser removido. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>A documentação para essa classe foi gerada a partir dos seguintes arquivos:<ul>
 <li>include/fisica/<a class="el" href="fisica_8hpp_source.html">fisica.hpp</a></li>
 <li>src/fisica/<b>fisica.cpp</b></li>

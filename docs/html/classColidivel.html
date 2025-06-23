@@ -75,13 +75,18 @@ $(function() {
   <div class="headertitle"><div class="title">Referência da Classe Colidivel<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Interface para elementos colidíveis no jogo.  
+ <a href="classColidivel.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="hitbox_8hpp_source.html">hitbox.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Diagrama de hierarquia da classe Colidivel:</div>
 <div class="dyncontent">
 <div class="center"><img src="classColidivel__inherit__graph.png" border="0" usemap="#aColidivel_inherit__map" alt="Inheritance graph"/></div>
 <map name="aColidivel_inherit__map" id="aColidivel_inherit__map">
-<area shape="rect" title=" " alt="" coords="44,5,123,31"/>
-<area shape="rect" href="classRetanguloHitbox.html" title=" " alt="" coords="18,79,149,104"/>
+<area shape="rect" title="Interface para elementos colidíveis no jogo." alt="" coords="44,5,123,31"/>
+<area shape="rect" href="classRetanguloHitbox.html" title="Implementa uma hitbox retangular." alt="" coords="18,79,149,104"/>
 <area shape="poly" title=" " alt="" coords="86,44,86,79,81,79,81,44"/>
 <area shape="rect" href="classPlayer.html" title="Classe que representa o jogador no jogo." alt="" coords="5,152,68,177"/>
 <area shape="poly" title=" " alt="" coords="70,117,46,153,42,150,66,114"/>
@@ -93,20 +98,25 @@ Diagrama de hierarquia da classe Colidivel:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
 <tr class="memitem:a014956b8261e186b2345108627e03566" id="r_a014956b8261e186b2345108627e03566"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColidivel.html#a014956b8261e186b2345108627e03566">onCollision</a> ()=0</td></tr>
+<tr class="memdesc:a014956b8261e186b2345108627e03566"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define o comportamento do objeto ao colidir.  <br /></td></tr>
 <tr class="separator:a014956b8261e186b2345108627e03566"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade420f4cdfba30e28136181d270afc0f" id="r_ade420f4cdfba30e28136181d270afc0f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColidivel.html#ade420f4cdfba30e28136181d270afc0f">colisao</a> (<a class="el" href="structcoordenadas.html">coordenadas</a> p)=0</td></tr>
+<tr class="memdesc:ade420f4cdfba30e28136181d270afc0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se há colisão com um ponto específico.  <br /></td></tr>
 <tr class="separator:ade420f4cdfba30e28136181d270afc0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a475c127efcc2d4006f15015651d097d6" id="r_a475c127efcc2d4006f15015651d097d6"><td class="memItemLeft" align="right" valign="top"><a id="a475c127efcc2d4006f15015651d097d6" name="a475c127efcc2d4006f15015651d097d6"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>noInterior</b> (const <a class="el" href="structcoordenadas.html">coordenadas</a> &amp;p) const =0</td></tr>
+<tr class="memitem:a475c127efcc2d4006f15015651d097d6" id="r_a475c127efcc2d4006f15015651d097d6"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColidivel.html#a475c127efcc2d4006f15015651d097d6">noInterior</a> (const <a class="el" href="structcoordenadas.html">coordenadas</a> &amp;p) const =0</td></tr>
+<tr class="memdesc:a475c127efcc2d4006f15015651d097d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se um ponto está no interior da forma.  <br /></td></tr>
 <tr class="separator:a475c127efcc2d4006f15015651d097d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5959db60e5547736c11cbd722e10cf8b" id="r_a5959db60e5547736c11cbd722e10cf8b"><td class="memItemLeft" align="right" valign="top"><a id="a5959db60e5547736c11cbd722e10cf8b" name="a5959db60e5547736c11cbd722e10cf8b"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>noPerimetro</b> (const <a class="el" href="structcoordenadas.html">coordenadas</a> &amp;p) const =0</td></tr>
+<tr class="memitem:a5959db60e5547736c11cbd722e10cf8b" id="r_a5959db60e5547736c11cbd722e10cf8b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColidivel.html#a5959db60e5547736c11cbd722e10cf8b">noPerimetro</a> (const <a class="el" href="structcoordenadas.html">coordenadas</a> &amp;p) const =0</td></tr>
+<tr class="memdesc:a5959db60e5547736c11cbd722e10cf8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se um ponto está no perímetro da forma.  <br /></td></tr>
 <tr class="separator:a5959db60e5547736c11cbd722e10cf8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bd5a3950acd160e5d1424bc341a08f4" id="r_a6bd5a3950acd160e5d1424bc341a08f4"><td class="memItemLeft" align="right" valign="top"><a id="a6bd5a3950acd160e5d1424bc341a08f4" name="a6bd5a3950acd160e5d1424bc341a08f4"></a>
-virtual vector&lt; <a class="el" href="structcoordenadas.html">coordenadas</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>get_pontos</b> () const =0</td></tr>
+<tr class="memitem:a6bd5a3950acd160e5d1424bc341a08f4" id="r_a6bd5a3950acd160e5d1424bc341a08f4"><td class="memItemLeft" align="right" valign="top">virtual vector&lt; <a class="el" href="structcoordenadas.html">coordenadas</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColidivel.html#a6bd5a3950acd160e5d1424bc341a08f4">get_pontos</a> () const =0</td></tr>
+<tr class="memdesc:a6bd5a3950acd160e5d1424bc341a08f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna os pontos que definem a forma geométrica.  <br /></td></tr>
 <tr class="separator:a6bd5a3950acd160e5d1424bc341a08f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentação das funções</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Interface para elementos colidíveis no jogo. </p>
+<p>Define a estrutura comum para classes que possuem detecção de colisão. </p>
+</div><h2 class="groupheader">Documentação das funções</h2>
 <a id="ade420f4cdfba30e28136181d270afc0f" name="ade420f4cdfba30e28136181d270afc0f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ade420f4cdfba30e28136181d270afc0f">&#9670;&#160;</a></span>colisao()</h2>
 
@@ -131,7 +141,120 @@ virtual vector&lt; <a class="el" href="structcoordenadas.html">coordenadas</a> &
 </table>
 </div><div class="memdoc">
 
-<p>Implementado por <a class="el" href="classPlayer.html#a60a87398ca319f6fa372a0c3add47750">Player</a>.</p>
+<p>Verifica se há colisão com um ponto específico. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Coordenada a ser verificada. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se houver colisão com o ponto. </dd></dl>
+
+<p>Implementado por <a class="el" href="classTelaJogo.html#a79b93cc3c9d060409c684eb5f8fe60a6">TelaJogo</a> e <a class="el" href="classPlayer.html#a60a87398ca319f6fa372a0c3add47750">Player</a>.</p>
+
+</div>
+</div>
+<a id="a6bd5a3950acd160e5d1424bc341a08f4" name="a6bd5a3950acd160e5d1424bc341a08f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bd5a3950acd160e5d1424bc341a08f4">&#9670;&#160;</a></span>get_pontos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual vector&lt; <a class="el" href="structcoordenadas.html">coordenadas</a> &gt; Colidivel::get_pontos </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retorna os pontos que definem a forma geométrica. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Vetor de coordenadas da forma. </dd></dl>
+
+<p>Implementado por <a class="el" href="classRetanguloHitbox.html#a681084b16cdbdbde14b355f5ac342572">RetanguloHitbox</a>.</p>
+
+</div>
+</div>
+<a id="a475c127efcc2d4006f15015651d097d6" name="a475c127efcc2d4006f15015651d097d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a475c127efcc2d4006f15015651d097d6">&#9670;&#160;</a></span>noInterior()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Colidivel::noInterior </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structcoordenadas.html">coordenadas</a> &amp;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Verifica se um ponto está no interior da forma. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Coordenada a ser verificada. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se o ponto estiver dentro da hitbox. </dd></dl>
+
+<p>Implementado por <a class="el" href="classRetanguloHitbox.html#af03af1ab88b636dc46911557e745a0d8">RetanguloHitbox</a>.</p>
+
+</div>
+</div>
+<a id="a5959db60e5547736c11cbd722e10cf8b" name="a5959db60e5547736c11cbd722e10cf8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5959db60e5547736c11cbd722e10cf8b">&#9670;&#160;</a></span>noPerimetro()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Colidivel::noPerimetro </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structcoordenadas.html">coordenadas</a> &amp;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Verifica se um ponto está no perímetro da forma. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Coordenada a ser verificada. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se o ponto estiver no contorno da hitbox. </dd></dl>
+
+<p>Implementado por <a class="el" href="classRetanguloHitbox.html#ab862ce81742fd945d979f01318cb3c03">RetanguloHitbox</a>.</p>
 
 </div>
 </div>
@@ -158,7 +281,9 @@ virtual vector&lt; <a class="el" href="structcoordenadas.html">coordenadas</a> &
 </table>
 </div><div class="memdoc">
 
-<p>Implementado por <a class="el" href="classPlayer.html#ab4ac6aa46f8aa40a9cd1926eccae0e6c">Player</a>.</p>
+<p>Define o comportamento do objeto ao colidir. </p>
+
+<p>Implementado por <a class="el" href="classTelaJogo.html#ac781076a724e80d17a0657732affb037">TelaJogo</a> e <a class="el" href="classPlayer.html#ab4ac6aa46f8aa40a9cd1926eccae0e6c">Player</a>.</p>
 
 </div>
 </div>

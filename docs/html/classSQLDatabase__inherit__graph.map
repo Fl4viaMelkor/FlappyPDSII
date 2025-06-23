@@ -1,7 +1,7 @@
 <map id="SQLDatabase" name="SQLDatabase">
-<area shape="rect" id="Node000001" title=" " alt="" coords="30,79,139,104"/>
-<area shape="rect" id="Node000003" href="$classJogadorSQLDatabase.html" title=" " alt="" coords="5,152,164,177"/>
+<area shape="rect" id="Node000001" title="Implementação de banco de dados usando SQLite." alt="" coords="30,79,139,104"/>
+<area shape="rect" id="Node000003" href="$classJogadorSQLDatabase.html" title="Implementação concreta da base de dados específica para jogadores." alt="" coords="5,152,164,177"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="87,118,87,152,82,152,82,118"/>
-<area shape="rect" id="Node000002" href="$classDatabase.html" title=" " alt="" coords="43,5,127,31"/>
+<area shape="rect" id="Node000002" href="$classDatabase.html" title="Interface genérica para bancos de dados de objetos." alt="" coords="43,5,127,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,44,87,79,82,79,82,44"/>
 </map>

@@ -1,6 +1,11 @@
 var searchData=
 [
-  ['namecontext_0',['NameContext',['../structNameContext.html',1,'']]],
-  ['nthvaluectx_1',['NthValueCtx',['../structNthValueCtx.html',1,'']]],
-  ['ntilectx_2',['NtileCtx',['../structNtileCtx.html',1,'']]]
+  ['name_0',['name',['../structacao.html#a5f7126b8bd2e652a7f04af7fe144b9df',1,'acao']]],
+  ['namecontext_1',['NameContext',['../structNameContext.html',1,'']]],
+  ['nointerior_2',['nointerior',['../classColidivel.html#a475c127efcc2d4006f15015651d097d6',1,'Colidivel::noInterior()'],['../classRetanguloHitbox.html#af03af1ab88b636dc46911557e745a0d8',1,'RetanguloHitbox::noInterior()'],['../classForma__Geometrica__Fechada.html#ab439f4c9d247a52cdafd70e9914c97f7',1,'Forma_Geometrica_Fechada::noInterior()'],['../classPoligono.html#ab900062ae1dcc71c3af24dc1f4e53356',1,'Poligono::noInterior()'],['../classRetangulo.html#ae67d6a0cbee699cf6dba7bcf335143db',1,'Retangulo::noInterior()'],['../classCirculo.html#ac22ac05ba46861d9867f800c924418da',1,'Circulo::noInterior()'],['../classFigura.html#aaf6ff65a54f231708370cca933cbd643',1,'Figura::noInterior()']]],
+  ['nome_3',['nome',['../classDado__Jogador.html#ad2aae9046cfe7e3a919e9313d39da6f8',1,'Dado_Jogador::nome() const'],['../classDado__Jogador.html#a674f63e2900f8222e6531a803805f50e',1,'Dado_Jogador::nome(const string &amp;nome)']]],
+  ['nome_5f_4',['nome_',['../classDado__Jogador.html#ad7d6ec20f27f19a9177465ddd7d37119',1,'Dado_Jogador']]],
+  ['noperimetro_5',['noperimetro',['../classFigura.html#a1aa9ca5d42051096bfdb98da0648c07b',1,'Figura::noPerimetro()'],['../classCirculo.html#aeb43390bd6489dd7e784854d6c05dcb3',1,'Circulo::noPerimetro()'],['../classRetangulo.html#af1e71971b43b237b41101f44709863e5',1,'Retangulo::noPerimetro()'],['../classPoligono.html#a64df399892b23ecf2f83b0f0d1721914',1,'Poligono::noPerimetro()'],['../classForma__Geometrica__Fechada.html#a5af419ce0f39a5b9116aacab98641268',1,'Forma_Geometrica_Fechada::noPerimetro()'],['../classRetanguloHitbox.html#ab862ce81742fd945d979f01318cb3c03',1,'RetanguloHitbox::noPerimetro()'],['../classColidivel.html#a5959db60e5547736c11cbd722e10cf8b',1,'Colidivel::noPerimetro()']]],
+  ['nthvaluectx_6',['NthValueCtx',['../structNthValueCtx.html',1,'']]],
+  ['ntilectx_7',['NtileCtx',['../structNtileCtx.html',1,'']]]
 ];

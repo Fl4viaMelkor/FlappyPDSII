@@ -75,32 +75,115 @@ $(function() {
   <div class="headertitle"><div class="title">Referência da Classe Forma_Geometrica_Fechada<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Interface para formas geométricas fechadas.  
+ <a href="classForma__Geometrica__Fechada.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="figuras__basicas_8hpp_source.html">figuras_basicas.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Diagrama de hierarquia da classe Forma_Geometrica_Fechada:</div>
 <div class="dyncontent">
 <div class="center"><img src="classForma__Geometrica__Fechada__inherit__graph.png" border="0" usemap="#aForma__Geometrica__Fechada_inherit__map" alt="Inheritance graph"/></div>
 <map name="aForma__Geometrica__Fechada_inherit__map" id="aForma__Geometrica__Fechada_inherit__map">
-<area shape="rect" title=" " alt="" coords="25,5,231,31"/>
-<area shape="rect" href="classCirculo.html" title=" " alt="" coords="5,79,72,104"/>
+<area shape="rect" title="Interface para formas geométricas fechadas." alt="" coords="25,5,231,31"/>
+<area shape="rect" href="classCirculo.html" title="Representa um círculo com centro e raio." alt="" coords="5,79,72,104"/>
 <area shape="poly" title=" " alt="" coords="105,41,55,81,52,76,101,37"/>
-<area shape="rect" href="classFigura.html" title=" " alt="" coords="97,79,159,104"/>
+<area shape="rect" href="classFigura.html" title="Representa uma figura composta por várias formas geométricas fechadas." alt="" coords="97,79,159,104"/>
 <area shape="poly" title=" " alt="" coords="131,44,131,79,125,79,125,44"/>
-<area shape="rect" href="classPoligono.html" title=" " alt="" coords="183,79,262,104"/>
+<area shape="rect" href="classPoligono.html" title="Representa um polígono definido por um vetor de coordenadas." alt="" coords="183,79,262,104"/>
 <area shape="poly" title=" " alt="" coords="156,37,209,76,206,81,153,41"/>
-<area shape="rect" href="classRetangulo.html" title=" " alt="" coords="179,152,267,177"/>
+<area shape="rect" href="classRetangulo.html" title="Representa um retângulo como um tipo de polígono." alt="" coords="179,152,267,177"/>
 <area shape="poly" title=" " alt="" coords="225,118,225,152,220,152,220,118"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
-<tr class="memitem:ab439f4c9d247a52cdafd70e9914c97f7" id="r_ab439f4c9d247a52cdafd70e9914c97f7"><td class="memItemLeft" align="right" valign="top"><a id="ab439f4c9d247a52cdafd70e9914c97f7" name="ab439f4c9d247a52cdafd70e9914c97f7"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>noInterior</b> (<a class="el" href="structcoordenadas.html">coordenadas</a> p)=0</td></tr>
+<tr class="memitem:ab439f4c9d247a52cdafd70e9914c97f7" id="r_ab439f4c9d247a52cdafd70e9914c97f7"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForma__Geometrica__Fechada.html#ab439f4c9d247a52cdafd70e9914c97f7">noInterior</a> (<a class="el" href="structcoordenadas.html">coordenadas</a> p)=0</td></tr>
+<tr class="memdesc:ab439f4c9d247a52cdafd70e9914c97f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se o ponto está no interior da figura (excluindo bordas).  <br /></td></tr>
 <tr class="separator:ab439f4c9d247a52cdafd70e9914c97f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5af419ce0f39a5b9116aacab98641268" id="r_a5af419ce0f39a5b9116aacab98641268"><td class="memItemLeft" align="right" valign="top"><a id="a5af419ce0f39a5b9116aacab98641268" name="a5af419ce0f39a5b9116aacab98641268"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>noPerimetro</b> (<a class="el" href="structcoordenadas.html">coordenadas</a> p)=0</td></tr>
+<tr class="memitem:a5af419ce0f39a5b9116aacab98641268" id="r_a5af419ce0f39a5b9116aacab98641268"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForma__Geometrica__Fechada.html#a5af419ce0f39a5b9116aacab98641268">noPerimetro</a> (<a class="el" href="structcoordenadas.html">coordenadas</a> p)=0</td></tr>
+<tr class="memdesc:a5af419ce0f39a5b9116aacab98641268"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se o ponto está no perímetro da figura.  <br /></td></tr>
 <tr class="separator:a5af419ce0f39a5b9116aacab98641268"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Interface para formas geométricas fechadas. </p>
+<p>Define métodos para verificar se um ponto está dentro ou sobre o perímetro da forma. </p>
+</div><h2 class="groupheader">Documentação das funções</h2>
+<a id="ab439f4c9d247a52cdafd70e9914c97f7" name="ab439f4c9d247a52cdafd70e9914c97f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab439f4c9d247a52cdafd70e9914c97f7">&#9670;&#160;</a></span>noInterior()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Forma_Geometrica_Fechada::noInterior </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcoordenadas.html">coordenadas</a>&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Verifica se o ponto está no interior da figura (excluindo bordas). </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Coordenada do ponto. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se estiver no interior. </dd></dl>
+
+<p>Implementado por <a class="el" href="classPoligono.html#ab900062ae1dcc71c3af24dc1f4e53356">Poligono</a>, <a class="el" href="classRetangulo.html#ae67d6a0cbee699cf6dba7bcf335143db">Retangulo</a>, <a class="el" href="classCirculo.html#ac22ac05ba46861d9867f800c924418da">Circulo</a> e <a class="el" href="classFigura.html#aaf6ff65a54f231708370cca933cbd643">Figura</a>.</p>
+
+</div>
+</div>
+<a id="a5af419ce0f39a5b9116aacab98641268" name="a5af419ce0f39a5b9116aacab98641268"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5af419ce0f39a5b9116aacab98641268">&#9670;&#160;</a></span>noPerimetro()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Forma_Geometrica_Fechada::noPerimetro </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcoordenadas.html">coordenadas</a>&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Verifica se o ponto está no perímetro da figura. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Coordenada do ponto. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se estiver no perímetro. </dd></dl>
+
+<p>Implementado por <a class="el" href="classPoligono.html#a64df399892b23ecf2f83b0f0d1721914">Poligono</a>, <a class="el" href="classRetangulo.html#af1e71971b43b237b41101f44709863e5">Retangulo</a>, <a class="el" href="classCirculo.html#aeb43390bd6489dd7e784854d6c05dcb3">Circulo</a> e <a class="el" href="classFigura.html#a1aa9ca5d42051096bfdb98da0648c07b">Figura</a>.</p>
+
+</div>
+</div>
 <hr/>A documentação para essa classe foi gerada a partir do seguinte arquivo:<ul>
 <li>include/interface/<a class="el" href="figuras__basicas_8hpp_source.html">figuras_basicas.hpp</a></li>
 </ul>

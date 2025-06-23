@@ -75,32 +75,181 @@ $(function() {
   <div class="headertitle"><div class="title">Referência da Classe Dado<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe abstrata que define a interface para dados que podem ser carregados e exportados.  
+ <a href="classDado.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="dados_8hpp_source.html">dados.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Diagrama de hierarquia da classe Dado:</div>
 <div class="dyncontent">
 <div class="center"><img src="classDado__inherit__graph.png" border="0" usemap="#aDado_inherit__map" alt="Inheritance graph"/></div>
 <map name="aDado_inherit__map" id="aDado_inherit__map">
-<area shape="rect" title=" " alt="" coords="33,5,89,31"/>
-<area shape="rect" href="classDado__Jogador.html" title=" " alt="" coords="5,79,117,104"/>
+<area shape="rect" title="Classe abstrata que define a interface para dados que podem ser carregados e exportados." alt="" coords="33,5,89,31"/>
+<area shape="rect" href="classDado__Jogador.html" title="Representa um dado específico de jogador, com nome, apelido e pontuações." alt="" coords="5,79,117,104"/>
 <area shape="poly" title=" " alt="" coords="64,44,64,79,59,79,59,44"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
-<tr class="memitem:a3c491865e9297c1aeda96d617ba1c831" id="r_a3c491865e9297c1aeda96d617ba1c831"><td class="memItemLeft" align="right" valign="top"><a id="a3c491865e9297c1aeda96d617ba1c831" name="a3c491865e9297c1aeda96d617ba1c831"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>carregar</b> (<a class="el" href="structobjeto.html">objeto</a> obj)=0</td></tr>
+<tr class="memitem:a3c491865e9297c1aeda96d617ba1c831" id="r_a3c491865e9297c1aeda96d617ba1c831"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDado.html#a3c491865e9297c1aeda96d617ba1c831">carregar</a> (<a class="el" href="structobjeto.html">objeto</a> obj)=0</td></tr>
+<tr class="memdesc:a3c491865e9297c1aeda96d617ba1c831"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carrega os dados a partir de um objeto.  <br /></td></tr>
 <tr class="separator:a3c491865e9297c1aeda96d617ba1c831"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a6b485ac4f396dc723131a4b5e0a1ed" id="r_a1a6b485ac4f396dc723131a4b5e0a1ed"><td class="memItemLeft" align="right" valign="top"><a id="a1a6b485ac4f396dc723131a4b5e0a1ed" name="a1a6b485ac4f396dc723131a4b5e0a1ed"></a>
-virtual <a class="el" href="structobjeto.html">objeto</a>&#160;</td><td class="memItemRight" valign="bottom"><b>exportar</b> ()=0</td></tr>
+<tr class="memitem:a1a6b485ac4f396dc723131a4b5e0a1ed" id="r_a1a6b485ac4f396dc723131a4b5e0a1ed"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structobjeto.html">objeto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDado.html#a1a6b485ac4f396dc723131a4b5e0a1ed">exportar</a> ()=0</td></tr>
+<tr class="memdesc:a1a6b485ac4f396dc723131a4b5e0a1ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exporta os dados no formato de objeto.  <br /></td></tr>
 <tr class="separator:a1a6b485ac4f396dc723131a4b5e0a1ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bac1508f25f5d28ea1c6e71b883a51e" id="r_a3bac1508f25f5d28ea1c6e71b883a51e"><td class="memItemLeft" align="right" valign="top"><a id="a3bac1508f25f5d28ea1c6e71b883a51e" name="a3bac1508f25f5d28ea1c6e71b883a51e"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classDado.html">Dado</a> &amp;outro) const =0</td></tr>
+<tr class="memitem:a3bac1508f25f5d28ea1c6e71b883a51e" id="r_a3bac1508f25f5d28ea1c6e71b883a51e"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDado.html#a3bac1508f25f5d28ea1c6e71b883a51e">operator==</a> (const <a class="el" href="classDado.html">Dado</a> &amp;outro) const =0</td></tr>
+<tr class="memdesc:a3bac1508f25f5d28ea1c6e71b883a51e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compara dois dados quanto à igualdade.  <br /></td></tr>
 <tr class="separator:a3bac1508f25f5d28ea1c6e71b883a51e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36621de6a86df1a9517302b6eda40563" id="r_a36621de6a86df1a9517302b6eda40563"><td class="memItemLeft" align="right" valign="top"><a id="a36621de6a86df1a9517302b6eda40563" name="a36621de6a86df1a9517302b6eda40563"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="classDado.html">Dado</a> &amp;outro) const =0</td></tr>
+<tr class="memitem:a36621de6a86df1a9517302b6eda40563" id="r_a36621de6a86df1a9517302b6eda40563"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDado.html#a36621de6a86df1a9517302b6eda40563">operator!=</a> (const <a class="el" href="classDado.html">Dado</a> &amp;outro) const =0</td></tr>
+<tr class="memdesc:a36621de6a86df1a9517302b6eda40563"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compara dois dados quanto à diferença.  <br /></td></tr>
 <tr class="separator:a36621de6a86df1a9517302b6eda40563"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Classe abstrata que define a interface para dados que podem ser carregados e exportados. </p>
+<p>Permite leitura e gravação genérica de objetos no sistema. </p>
+</div><h2 class="groupheader">Documentação das funções</h2>
+<a id="a3c491865e9297c1aeda96d617ba1c831" name="a3c491865e9297c1aeda96d617ba1c831"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c491865e9297c1aeda96d617ba1c831">&#9670;&#160;</a></span>carregar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Dado::carregar </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structobjeto.html">objeto</a>&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Carrega os dados a partir de um objeto. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>Objeto genérico contendo os dados. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implementado por <a class="el" href="classDado__Jogador.html#aea7adfcd23eed0b401f715d729e337f5">Dado_Jogador</a>.</p>
+
+</div>
+</div>
+<a id="a1a6b485ac4f396dc723131a4b5e0a1ed" name="a1a6b485ac4f396dc723131a4b5e0a1ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a6b485ac4f396dc723131a4b5e0a1ed">&#9670;&#160;</a></span>exportar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="structobjeto.html">objeto</a> Dado::exportar </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Exporta os dados no formato de objeto. </p>
+<dl class="section return"><dt>Retorna</dt><dd>objeto contendo os dados da instância. </dd></dl>
+
+<p>Implementado por <a class="el" href="classDado__Jogador.html#ad2ab492952f956f82b3779ba7cba55cd">Dado_Jogador</a>.</p>
+
+</div>
+</div>
+<a id="a36621de6a86df1a9517302b6eda40563" name="a36621de6a86df1a9517302b6eda40563"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36621de6a86df1a9517302b6eda40563">&#9670;&#160;</a></span>operator!=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Dado::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classDado.html">Dado</a> &amp;&#160;</td>
+          <td class="paramname"><em>outro</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compara dois dados quanto à diferença. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">outro</td><td>Outro dado a ser comparado. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se forem diferentes. </dd></dl>
+
+<p>Implementado por <a class="el" href="classDado__Jogador.html#a5c99d79f832dc305d638ba6dd63b7d49">Dado_Jogador</a>.</p>
+
+</div>
+</div>
+<a id="a3bac1508f25f5d28ea1c6e71b883a51e" name="a3bac1508f25f5d28ea1c6e71b883a51e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bac1508f25f5d28ea1c6e71b883a51e">&#9670;&#160;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Dado::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classDado.html">Dado</a> &amp;&#160;</td>
+          <td class="paramname"><em>outro</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compara dois dados quanto à igualdade. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">outro</td><td>Outro dado a ser comparado. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se forem equivalentes. </dd></dl>
+
+<p>Implementado por <a class="el" href="classDado__Jogador.html#af0e607898dcdebc2ee6101c0b4588bbd">Dado_Jogador</a>.</p>
+
+</div>
+</div>
 <hr/>A documentação para essa classe foi gerada a partir do seguinte arquivo:<ul>
 <li>include/dados/<a class="el" href="dados_8hpp_source.html">dados.hpp</a></li>
 </ul>

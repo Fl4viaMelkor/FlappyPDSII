@@ -1,4 +1,11 @@
 var searchData=
 [
-  ['update_0',['update',['../classPlayer.html#a309e55d4028eee27e2f659ff15a0714b',1,'Player']]]
+  ['gameendexception_0',['GameEndException',['../classGameEndException.html#a3a772641ff65d4ef5de082165732631d',1,'GameEndException']]],
+  ['get_5fcolunas_1',['get_colunas',['../classDado__Jogador.html#a0f44f12cb5436a35fd6d1f4f371b6450',1,'Dado_Jogador']]],
+  ['get_5fpoligono_2',['get_poligono',['../classPoligono.html#aba58f8e4d462e28644d7f8c9d90908bb',1,'Poligono']]],
+  ['get_5fpontos_3',['get_pontos',['../classColidivel.html#a6bd5a3950acd160e5d1424bc341a08f4',1,'Colidivel::get_pontos()'],['../classRetanguloHitbox.html#a681084b16cdbdbde14b355f5ac342572',1,'RetanguloHitbox::get_pontos()']]],
+  ['get_5fprimary_5fkey_4',['get_primary_key',['../classDado__Jogador.html#a232f329700de1145bdce16d0c960bd14',1,'Dado_Jogador']]],
+  ['get_5fsql_5fcolumns_5',['get_sql_columns',['../classDado__Jogador.html#aad743bbbe191718fda670e1aefd5c68e',1,'Dado_Jogador']]],
+  ['get_5fsql_5ftype_5ffrom_5fschema_6',['get_sql_type_from_schema',['../classSQLDatabase.html#ab323c7aaba7f368c69edba9c5d39b108',1,'SQLDatabase']]],
+  ['getisalive_7',['getIsAlive',['../classPlayer.html#a180f2bcd9d370dd3dd8839f06fb1bb77',1,'Player']]]
 ];

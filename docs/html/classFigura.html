@@ -76,13 +76,18 @@ $(function() {
   <div class="headertitle"><div class="title">Referência da Classe Figura</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Representa uma figura composta por várias formas geométricas fechadas.  
+ <a href="classFigura.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="figuras__basicas_8hpp_source.html">figuras_basicas.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Diagrama de hierarquia da classe Figura:</div>
 <div class="dyncontent">
 <div class="center"><img src="classFigura__inherit__graph.png" border="0" usemap="#aFigura_inherit__map" alt="Inheritance graph"/></div>
 <map name="aFigura_inherit__map" id="aFigura_inherit__map">
-<area shape="rect" title=" " alt="" coords="77,79,140,104"/>
-<area shape="rect" href="classForma__Geometrica__Fechada.html" title=" " alt="" coords="5,5,212,31"/>
+<area shape="rect" title="Representa uma figura composta por várias formas geométricas fechadas." alt="" coords="77,79,140,104"/>
+<area shape="rect" href="classForma__Geometrica__Fechada.html" title="Interface para formas geométricas fechadas." alt="" coords="5,5,212,31"/>
 <area shape="poly" title=" " alt="" coords="111,44,111,79,106,79,106,44"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
@@ -91,39 +96,73 @@ Diagrama de colaboração para Figura:</div>
 <div class="dyncontent">
 <div class="center"><img src="classFigura__coll__graph.png" border="0" usemap="#aFigura_coll__map" alt="Collaboration graph"/></div>
 <map name="aFigura_coll__map" id="aFigura_coll__map">
-<area shape="rect" title=" " alt="" coords="167,93,229,119"/>
-<area shape="rect" href="classForma__Geometrica__Fechada.html" title=" " alt="" coords="5,5,212,31"/>
+<area shape="rect" title="Representa uma figura composta por várias formas geométricas fechadas." alt="" coords="167,93,229,119"/>
+<area shape="rect" href="classForma__Geometrica__Fechada.html" title="Interface para formas geométricas fechadas." alt="" coords="5,5,212,31"/>
 <area shape="poly" title=" " alt="" coords="132,38,187,91,184,95,129,42"/>
-<area shape="rect" href="structcoordenadas.html" title=" " alt="" coords="236,5,341,31"/>
+<area shape="rect" href="structcoordenadas.html" title="Representa uma posição ou ponto no espaço bidimensional." alt="" coords="236,5,341,31"/>
 <area shape="poly" title=" " alt="" coords="268,42,212,95,209,91,265,38"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
-<tr class="memitem:aa1f8edce555d32219a053e00ee2cc97f" id="r_aa1f8edce555d32219a053e00ee2cc97f"><td class="memItemLeft" align="right" valign="top"><a id="aa1f8edce555d32219a053e00ee2cc97f" name="aa1f8edce555d32219a053e00ee2cc97f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Figura</b> (<a class="el" href="structcoordenadas.html">coordenadas</a> ponto_referencia)</td></tr>
+<tr class="memitem:aa1f8edce555d32219a053e00ee2cc97f" id="r_aa1f8edce555d32219a053e00ee2cc97f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFigura.html#aa1f8edce555d32219a053e00ee2cc97f">Figura</a> (<a class="el" href="structcoordenadas.html">coordenadas</a> <a class="el" href="classFigura.html#ab487b240b19a5fb34451ddde75608d71">ponto_referencia</a>)</td></tr>
+<tr class="memdesc:aa1f8edce555d32219a053e00ee2cc97f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor com ponto de referência.  <br /></td></tr>
 <tr class="separator:aa1f8edce555d32219a053e00ee2cc97f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20fd5e351f89e1546f31b2ecc9c265d3" id="r_a20fd5e351f89e1546f31b2ecc9c265d3"><td class="memItemLeft" align="right" valign="top"><a id="a20fd5e351f89e1546f31b2ecc9c265d3" name="a20fd5e351f89e1546f31b2ecc9c265d3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setFigura</b> (<a class="el" href="structcoordenadas.html">coordenadas</a> ponto_referencia)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setFigura</b> (<a class="el" href="structcoordenadas.html">coordenadas</a> <a class="el" href="classFigura.html#ab487b240b19a5fb34451ddde75608d71">ponto_referencia</a>)</td></tr>
+<tr class="memdesc:a20fd5e351f89e1546f31b2ecc9c265d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define ou redefine a figura com base em novo ponto de referência. <br /></td></tr>
 <tr class="separator:a20fd5e351f89e1546f31b2ecc9c265d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3994791091c347ae388170412e2923b4" id="r_a3994791091c347ae388170412e2923b4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFigura.html#a3994791091c347ae388170412e2923b4">noInterior</a> (<a class="el" href="structcoordenadas.html">coordenadas</a> p)</td></tr>
-<tr class="separator:a3994791091c347ae388170412e2923b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2edca1d94278a14ee788554fad9fd097" id="r_a2edca1d94278a14ee788554fad9fd097"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFigura.html#a2edca1d94278a14ee788554fad9fd097">noPerimetro</a> (<a class="el" href="structcoordenadas.html">coordenadas</a> p)</td></tr>
-<tr class="separator:a2edca1d94278a14ee788554fad9fd097"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf6ff65a54f231708370cca933cbd643" id="r_aaf6ff65a54f231708370cca933cbd643"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFigura.html#aaf6ff65a54f231708370cca933cbd643">noInterior</a> (<a class="el" href="structcoordenadas.html">coordenadas</a> p) override</td></tr>
+<tr class="memdesc:aaf6ff65a54f231708370cca933cbd643"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se o ponto está no interior da figura (excluindo bordas).  <br /></td></tr>
+<tr class="separator:aaf6ff65a54f231708370cca933cbd643"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1aa9ca5d42051096bfdb98da0648c07b" id="r_a1aa9ca5d42051096bfdb98da0648c07b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFigura.html#a1aa9ca5d42051096bfdb98da0648c07b">noPerimetro</a> (<a class="el" href="structcoordenadas.html">coordenadas</a> p) override</td></tr>
+<tr class="memdesc:a1aa9ca5d42051096bfdb98da0648c07b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se o ponto está no perímetro da figura.  <br /></td></tr>
+<tr class="separator:a1aa9ca5d42051096bfdb98da0648c07b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Atributos Protegidos</h2></td></tr>
 <tr class="memitem:a5b39deb40360a2687794284b393ec072" id="r_a5b39deb40360a2687794284b393ec072"><td class="memItemLeft" align="right" valign="top"><a id="a5b39deb40360a2687794284b393ec072" name="a5b39deb40360a2687794284b393ec072"></a>
 vector&lt; <a class="el" href="classForma__Geometrica__Fechada.html">Forma_Geometrica_Fechada</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>elementos</b></td></tr>
+<tr class="memdesc:a5b39deb40360a2687794284b393ec072"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lista de formas que compõem a figura. <br /></td></tr>
 <tr class="separator:a5b39deb40360a2687794284b393ec072"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab487b240b19a5fb34451ddde75608d71" id="r_ab487b240b19a5fb34451ddde75608d71"><td class="memItemLeft" align="right" valign="top"><a id="ab487b240b19a5fb34451ddde75608d71" name="ab487b240b19a5fb34451ddde75608d71"></a>
 <a class="el" href="structcoordenadas.html">coordenadas</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ponto_referencia</b></td></tr>
+<tr class="memdesc:ab487b240b19a5fb34451ddde75608d71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ponto de referência para a figura. <br /></td></tr>
 <tr class="separator:ab487b240b19a5fb34451ddde75608d71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Representa uma figura composta por várias formas geométricas fechadas. </p>
+</div><h2 class="groupheader">Construtores e Destrutores</h2>
+<a id="aa1f8edce555d32219a053e00ee2cc97f" name="aa1f8edce555d32219a053e00ee2cc97f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1f8edce555d32219a053e00ee2cc97f">&#9670;&#160;</a></span>Figura()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Figura::Figura </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcoordenadas.html">coordenadas</a>&#160;</td>
+          <td class="paramname"><em>ponto_referencia</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construtor com ponto de referência. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ponto_referencia</td><td>Ponto central ou base da figura composta. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Documentação das funções</h2>
-<a id="a3994791091c347ae388170412e2923b4" name="a3994791091c347ae388170412e2923b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3994791091c347ae388170412e2923b4">&#9670;&#160;</a></span>noInterior()</h2>
+<a id="aaf6ff65a54f231708370cca933cbd643" name="aaf6ff65a54f231708370cca933cbd643"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf6ff65a54f231708370cca933cbd643">&#9670;&#160;</a></span>noInterior()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -141,17 +180,26 @@ vector&lt; <a class="el" href="classForma__Geometrica__Fechada.html">Forma_Geome
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implementa <a class="el" href="classForma__Geometrica__Fechada.html">Forma_Geometrica_Fechada</a>.</p>
+<p>Verifica se o ponto está no interior da figura (excluindo bordas). </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Coordenada do ponto. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se estiver no interior. </dd></dl>
+
+<p>Implementa <a class="el" href="classForma__Geometrica__Fechada.html#ab439f4c9d247a52cdafd70e9914c97f7">Forma_Geometrica_Fechada</a>.</p>
 
 </div>
 </div>
-<a id="a2edca1d94278a14ee788554fad9fd097" name="a2edca1d94278a14ee788554fad9fd097"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2edca1d94278a14ee788554fad9fd097">&#9670;&#160;</a></span>noPerimetro()</h2>
+<a id="a1aa9ca5d42051096bfdb98da0648c07b" name="a1aa9ca5d42051096bfdb98da0648c07b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1aa9ca5d42051096bfdb98da0648c07b">&#9670;&#160;</a></span>noPerimetro()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -169,12 +217,21 @@ vector&lt; <a class="el" href="classForma__Geometrica__Fechada.html">Forma_Geome
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implementa <a class="el" href="classForma__Geometrica__Fechada.html">Forma_Geometrica_Fechada</a>.</p>
+<p>Verifica se o ponto está no perímetro da figura. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Coordenada do ponto. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se estiver no perímetro. </dd></dl>
+
+<p>Implementa <a class="el" href="classForma__Geometrica__Fechada.html#a5af419ce0f39a5b9116aacab98641268">Forma_Geometrica_Fechada</a>.</p>
 
 </div>
 </div>

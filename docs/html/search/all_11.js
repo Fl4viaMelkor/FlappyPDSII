@@ -1,15 +1,20 @@
 var searchData=
 [
-  ['rcstr_0',['RCStr',['../structRCStr.html',1,'']]],
-  ['refsrclist_1',['RefSrcList',['../structRefSrcList.html',1,'']]],
-  ['renamectx_2',['RenameCtx',['../structRenameCtx.html',1,'']]],
-  ['renametoken_3',['RenameToken',['../structRenameToken.html',1,'']]],
-  ['retangulo_4',['Retangulo',['../classRetangulo.html',1,'']]],
-  ['retangulohitbox_5',['RetanguloHitbox',['../classRetanguloHitbox.html',1,'']]],
-  ['returning_6',['Returning',['../structReturning.html',1,'']]],
-  ['reusablespace_7',['ReusableSpace',['../structReusableSpace.html',1,'']]],
-  ['rowloadinfo_8',['RowLoadInfo',['../structRowLoadInfo.html',1,'']]],
-  ['rowset_9',['RowSet',['../structRowSet.html',1,'']]],
-  ['rowsetchunk_10',['RowSetChunk',['../structRowSetChunk.html',1,'']]],
-  ['rowsetentry_11',['RowSetEntry',['../structRowSetEntry.html',1,'']]]
+  ['radius_0',['radius',['../classCirculo.html#a9c789f2b2b3187a8249fee3a22bfa3ac',1,'Circulo']]],
+  ['rc_5f_1',['rc_',['../classSQLDatabase.html#a3e33d4cb7ca4281369a4fa965cb50578',1,'SQLDatabase']]],
+  ['rcstr_2',['RCStr',['../structRCStr.html',1,'']]],
+  ['refsrclist_3',['RefSrcList',['../structRefSrcList.html',1,'']]],
+  ['registrar_4',['registrar',['../classDetector__Colisao.html#ae98bb30f5bbe38bd1d2bef67508f8ded',1,'Detector_Colisao']]],
+  ['remover_5',['remover',['../classDetector__Colisao.html#a25b910276631f012c7bf3da65158402d',1,'Detector_Colisao']]],
+  ['renamectx_6',['RenameCtx',['../structRenameCtx.html',1,'']]],
+  ['renametoken_7',['RenameToken',['../structRenameToken.html',1,'']]],
+  ['resetar_8',['resetar',['../classKeybinder.html#a12d74e87f4f3c79a3087d34a5788e234',1,'Keybinder::resetar()'],['../classPlayerLogger.html#a854ffa7e99cc1f69ad3ea5fabf5260f6',1,'PlayerLogger::resetar()'],['../classLogger.html#a7db24a7c1e353192dcf4da7795d55571',1,'Logger::resetar()']]],
+  ['retangulo_9',['retangulo',['../classRetangulo.html',1,'Retangulo'],['../classRetangulo.html#a0b57c2987d57502c382f2b6d080d668c',1,'Retangulo::Retangulo()']]],
+  ['retangulohitbox_10',['retangulohitbox',['../classRetanguloHitbox.html#afdaa91894c7effa4e3f87a71c5750894',1,'RetanguloHitbox::RetanguloHitbox()'],['../classRetanguloHitbox.html',1,'RetanguloHitbox']]],
+  ['returning_11',['Returning',['../structReturning.html',1,'']]],
+  ['reusablespace_12',['ReusableSpace',['../structReusableSpace.html',1,'']]],
+  ['rowloadinfo_13',['RowLoadInfo',['../structRowLoadInfo.html',1,'']]],
+  ['rowset_14',['RowSet',['../structRowSet.html',1,'']]],
+  ['rowsetchunk_15',['RowSetChunk',['../structRowSetChunk.html',1,'']]],
+  ['rowsetentry_16',['RowSetEntry',['../structRowSetEntry.html',1,'']]]
 ];

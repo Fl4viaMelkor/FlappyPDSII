@@ -72,126 +72,62 @@ $(function() {
   <div class="headertitle"><div class="title">FlappyPDSII</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md0"></a></p>
-<ul>
-<li>Flávia </li>
-</ul>
+<div class="textblock"><p><a class="anchor" id="autotoc_md0"></a> Projeto acadêmico desenvolvido em C++ utilizando a biblioteca gráfica Allegro 5, como parte da disciplina de Programação e Desenvolvimento de Software II, da Universidade Federal de Minas Gerais(UFMG).</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
-Classe &lt;tt&gt;Player&lt;/tt&gt;</h1>
-<p>Classe que representa o jogador do jogo.</p>
-<h2><a class="anchor" id="autotoc_md2"></a>
-Construtor</h2>
-<div class="fragment"><div class="line"><a class="code hl_class" href="classPlayer.html">Player</a>(<span class="keyword">const</span> std::string &amp;filename, <span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> speed, <span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height);</div>
-<div class="ttc" id="aclassPlayer_html"><div class="ttname"><a href="classPlayer.html">Player</a></div><div class="ttdoc">Classe que representa o jogador no jogo.</div><div class="ttdef"><b>Definição</b> player.hpp:15</div></div>
-</div><!-- fragment --><ul>
-<li><code>filename</code>: caminho da imagem do sprite sheet do jogador.</li>
-<li><code>x</code>, <code>y</code>: posição inicial do jogador.</li>
-<li><code>speed</code>: velocidade horizontal/vertical.</li>
-<li><code>width</code>, <code>height</code>: dimensões da hitbox do jogador.</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md3"></a>
-Atributos principais</h2>
+Introdução</h1>
+<p>O objetivo do projeto foi implementar uma versão funcional do clássico jogo <em>Flappy Bird</em>, explorando conceitos de orientação a objetos, modularização e manipulação de gráficos em tempo real com Allegro. O jogo simula a movimentação de um pássaro que deve evitar colisões com obstáculos para acumular pontos, com foco em estruturação modular, detecção de colisões e animações.</p>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Visão geral da solução</h1>
+<p>O projeto está estruturado em diferentes módulos, organizados nas seguintes pastas, como requisitado:</p>
 <ul>
-<li><code><a class="el" href="classSpriteAnimado.html">SpriteAnimado</a> sprite</code>: classe reponsável pela animação do jogador.</li>
-<li><code>velY</code>: velocidade vertical (afetada pela gravidade).</li>
-<li><code>gravidade</code>: força gravitacional que acelera o jogador para baixo.</li>
-<li><code>IsAlive</code>: booleano que determina se o jogador está vivo.</li>
-<li><code>lastJumpTime</code>: último momento em que o jogador pulou.</li>
-<li><code>jumpCooldown</code>: tempo de espera entre pulos.</li>
+<li><code>src/</code> e <code>include/</code>: contêm a lógica principal do jogo dividida por responsabilidade (controle, física, interface, dados).</li>
+<li><code>assets/</code>: reúne os recursos gráficos e sonoros utilizados.</li>
+<li><code>tests/</code>: abriga os testes unitários desenvolvidos com a biblioteca <code>doctest</code>.</li>
+<li><code>docs/</code>: contém documentação gerada automaticamente via Doxygen, além de documentos auxiliares.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md4"></a>
-Métodos</h2>
+<p>A lógica do jogo é dividida em camadas (como interface, controle e física) e permite reutilização e fácil manutenção de código. Foram utilizados padrões como Strategy e State, além de banco de dados com SQLite para registrar pontuações.</p>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Dificuldades encontradas</h1>
+<p>As principais dificuldades estiveram relacionadas à divisão de tarefas entre membros do grupo, garantindo integração adequada entre os módulos desenvolvidos separadamente. Além disso, mesmo sendo bastante útil, a biblioteca Allegro 5 exige certo improviso para suprir funcionalidades que seriam mais diretas com o uso de uma engine dedicada para jogos. Também surgiram desafios na correção de bugs lógicos relacionados à movimentação, detecção de colisão e sincronização dos estados do jogo.</p>
+<h1><a class="anchor" id="autotoc_md4"></a>
+Extras implementados</h1>
 <ul>
-<li><code>void update(const ALLEGRO_KEYBOARD_STATE &amp;key_state)</code> <br  />
- Atualiza posição e física do jogador com base na gravidade e input do teclado.</li>
-<li><code>void draw()</code> <br  />
- Desenha o frame atual da animação do jogador na tela.(Guarda a posição)</li>
-<li><code>void Kill()</code> <br  />
- Seta o estado do jogador para morto, congelando ele.</li>
-<li><code>void onCollision()</code> <br  />
- Mata o jogador e lança a exceção <code><a class="el" href="classPlayerException.html">PlayerException</a></code>.</li>
-<li><code>bool colisao(coordenadas p)</code> <br  />
- Verifica se um ponto colide com a hitbox do jogador.</li>
-<li><code>bool getIsAlive() const</code> <br  />
- Retorna se o jogador está vivo.</li>
+<li>(espaço reservado para listar os extras do grupo)</li>
 </ul>
-<hr  />
+<h1><a class="anchor" id="autotoc_md5"></a>
+Compilação</h1>
+<p>Pré-requisitos:</p>
+<ul>
+<li>CMake</li>
+<li>Allegro 5</li>
+<li>g++</li>
+</ul>
+<p>Para compilar:</p>
+<div class="fragment"><div class="line">mkdir build</div>
+<div class="line">cd build</div>
+<div class="line">cmake ..</div>
+<div class="line">make</div>
+<div class="line">./bin/FlappyPDSII</div>
+<div class="line">````</div>
+<div class="line"> </div>
+<div class="line">## Testes</div>
+<div class="line"> </div>
+<div class="line">Os testes usam a biblioteca [doctest](https://github.com/doctest/doctest). Para executar:</div>
+</div><!-- fragment --><p> bash cd tests/build make ./run_tests </p><div class="fragment"><div class="line">## Documentação</div>
+<div class="line"> </div>
+<div class="line">A documentação pode ser gerada com [Doxygen](https://www.doxygen.nl/):</div>
+</div><!-- fragment --><p> bash doxygen Doxyfile ```</p>
+<p>Abra <code>docs/html/index.html</code> no navegador para consultar.</p>
 <h1><a class="anchor" id="autotoc_md6"></a>
-Classe &lt;tt&gt;SpriteAnimado&lt;/tt&gt;</h1>
-<p>Classe responsável por controlar e desenhar uma animação 2D a partir de um spritesheet.</p>
-<h2><a class="anchor" id="autotoc_md7"></a>
-Construtor</h2>
-<div class="fragment"><div class="line"><a class="code hl_class" href="classSpriteAnimado.html">SpriteAnimado</a>(<span class="keyword">const</span> std::string&amp; filename, <span class="keywordtype">int</span> numFrames, <span class="keywordtype">int</span> frameLargura, <span class="keywordtype">int</span> frameAltura, <span class="keywordtype">float</span> fps);</div>
-<div class="ttc" id="aclassSpriteAnimado_html"><div class="ttname"><a href="classSpriteAnimado.html">SpriteAnimado</a></div><div class="ttdef"><b>Definição</b> sprite.hpp:13</div></div>
-</div><!-- fragment --><ul>
-<li><code>filename</code>: caminho para o sprite sheet.</li>
-<li><code>numFrames</code>: número total de quadros no sprite sheet.</li>
-<li><code>frameLargura</code>, <code>frameAltura</code>: dimensões de cada quadro da animação.</li>
-<li><code>fps</code>: quantos quadros por segundo a animação deve exibir.</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md8"></a>
-Atributos principais</h2>
+Contribuidores</h1>
 <ul>
-<li><code>bitmap</code>: imagem carregada do sprite sheet.</li>
-<li><code>frameAtual</code>: índice do frame atual da animação.</li>
-<li><code>tempoAcumulado</code>: tempo acumulado para trocar de frame.</li>
-<li><code>tempoPorFrame</code>: tempo que cada frame deve durar.</li>
+<li>Flávia Silva (<a href="https://github.com/Fl4viaMelkor">Fl4viaMelkor</a>)</li>
+<li>[Demais nomes do grupo aqui]</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md9"></a>
-Métodos</h2>
-<ul>
-<li><code>void update(float deltaTime)</code> <br  />
- Atualiza o frame atual com base no tempo passado(Contador de FPS).</li>
-<li><code>void draw(const coordenadas&amp; pos) const</code> <br  />
- Desenha o quadro atual na posição <code>pos</code>.</li>
-<li><code>~SpriteAnimado()</code> <br  />
- Libera os recursos alocados pela imagem.</li>
-</ul>
-<pre class="fragment">## Classe: `Sprite`
-
-Representa um sprite 2D com várias imagens (quadros), útil para animações.
-
-#### Métodos Públicos
-
-- `Sprite(std::string caminho, int largura, int altura, int espacamento = 0)`
-- **Construtor**: Carrega uma imagem com múltiplos quadros.
-- `caminho`: Caminho para o arquivo da imagem.
-- `largura`: Largura de cada quadro.
-- `altura`: Altura de cada quadro.
-- `espacamento`: Espaçamento entre os quadros (opcional).
-
-- `~Sprite()`
-- **Destrutor**: Libera os recursos de imagem.
-
-- `void desenhar(float x, float y, int indice = 0, bool flip = false) const`
-- Desenha o quadro indicado no ponto (x, y).
-- `indice`: Índice do quadro.
-- `flip`: Se verdadeiro, espelha horizontalmente.
-
-- `int get_num_quadros() const`
-- Retorna o número total de quadros.
-
-- `int get_largura() const`
-- Retorna a largura de um quadro.
-
-- `int get_altura() const`
-- Retorna a altura de um quadro.
-
----
-
-## `player_exception.hpp`
-
-### Classe: `PlayerException : public std::runtime_error`
-
-Classe de exceção personalizada para erros relacionados ao `Player`.
-
-#### Métodos Públicos
-
-- `PlayerException(const std::string&amp; mensagem)`
-- Construtor que recebe uma mensagem de erro.
-
----
-</pre> </div></div><!-- contents -->
+<h1><a class="anchor" id="autotoc_md7"></a>
+Licença</h1>
+<p>Projeto acadêmico desenvolvido exclusivamente para fins educacionais. </p>
+</div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

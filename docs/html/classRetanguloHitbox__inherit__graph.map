@@ -1,9 +1,9 @@
 <map id="RetanguloHitbox" name="RetanguloHitbox">
-<area shape="rect" id="Node000001" title=" " alt="" coords="18,79,149,104"/>
+<area shape="rect" id="Node000001" title="Implementa uma hitbox retangular." alt="" coords="18,79,149,104"/>
 <area shape="rect" id="Node000003" href="$classPlayer.html" title="Classe que representa o jogador no jogo." alt="" coords="5,152,68,177"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="70,117,46,153,42,150,66,114"/>
 <area shape="rect" id="Node000004" href="$classTelaJogo.html" title=" " alt="" coords="92,152,168,177"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="101,114,125,150,120,153,96,117"/>
-<area shape="rect" id="Node000002" href="$classColidivel.html" title=" " alt="" coords="44,5,123,31"/>
+<area shape="rect" id="Node000002" href="$classColidivel.html" title="Interface para elementos colidíveis no jogo." alt="" coords="44,5,123,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,44,86,79,81,79,81,44"/>
 </map>

@@ -77,15 +77,20 @@ $(function() {
   <div class="headertitle"><div class="title">Referência da Classe SQLDatabase</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Implementação de banco de dados usando SQLite.  
+ <a href="classSQLDatabase.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="database_8hpp_source.html">database.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Diagrama de hierarquia da classe SQLDatabase:</div>
 <div class="dyncontent">
 <div class="center"><img src="classSQLDatabase__inherit__graph.png" border="0" usemap="#aSQLDatabase_inherit__map" alt="Inheritance graph"/></div>
 <map name="aSQLDatabase_inherit__map" id="aSQLDatabase_inherit__map">
-<area shape="rect" title=" " alt="" coords="30,79,139,104"/>
-<area shape="rect" href="classJogadorSQLDatabase.html" title=" " alt="" coords="5,152,164,177"/>
+<area shape="rect" title="Implementação de banco de dados usando SQLite." alt="" coords="30,79,139,104"/>
+<area shape="rect" href="classJogadorSQLDatabase.html" title="Implementação concreta da base de dados específica para jogadores." alt="" coords="5,152,164,177"/>
 <area shape="poly" title=" " alt="" coords="87,118,87,152,82,152,82,118"/>
-<area shape="rect" href="classDatabase.html" title=" " alt="" coords="43,5,127,31"/>
+<area shape="rect" href="classDatabase.html" title="Interface genérica para bancos de dados de objetos." alt="" coords="43,5,127,31"/>
 <area shape="poly" title=" " alt="" coords="87,44,87,79,82,79,82,44"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
@@ -94,8 +99,8 @@ Diagrama de colaboração para SQLDatabase:</div>
 <div class="dyncontent">
 <div class="center"><img src="classSQLDatabase__coll__graph.png" border="0" usemap="#aSQLDatabase_coll__map" alt="Collaboration graph"/></div>
 <map name="aSQLDatabase_coll__map" id="aSQLDatabase_coll__map">
-<area shape="rect" title=" " alt="" coords="279,466,388,491"/>
-<area shape="rect" href="classDatabase.html" title=" " alt="" coords="291,347,375,372"/>
+<area shape="rect" title="Implementação de banco de dados usando SQLite." alt="" coords="279,466,388,491"/>
+<area shape="rect" href="classDatabase.html" title="Interface genérica para bancos de dados de objetos." alt="" coords="291,347,375,372"/>
 <area shape="poly" title=" " alt="" coords="336,386,336,466,331,466,331,386"/>
 <area shape="rect" href="structsqlite3.html" title=" " alt="" coords="1459,347,1525,372"/>
 <area shape="poly" title=" " alt="" coords="1445,363,1230,363,932,367,652,377,551,386,493,398,484,404,478,411,463,428,364,468,362,463,460,423,474,408,480,400,491,394,550,381,652,372,932,361,1230,358,1445,358"/>
@@ -272,64 +277,151 @@ Diagrama de colaboração para SQLDatabase:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
 <tr class="memitem:a44c97e06b6a047f44d20065f75081bc2" id="r_a44c97e06b6a047f44d20065f75081bc2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLDatabase.html#a44c97e06b6a047f44d20065f75081bc2">adicionar</a> (<a class="el" href="structobjeto.html">objeto</a> o) final</td></tr>
+<tr class="memdesc:a44c97e06b6a047f44d20065f75081bc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona um novo objeto ao banco de dados.  <br /></td></tr>
 <tr class="separator:a44c97e06b6a047f44d20065f75081bc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09d27f25f84cce96f61118da855c2b28" id="r_a09d27f25f84cce96f61118da855c2b28"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLDatabase.html#a09d27f25f84cce96f61118da855c2b28">excluir</a> (const <a class="el" href="structobjeto.html">objeto</a> &amp;o) final</td></tr>
+<tr class="memdesc:a09d27f25f84cce96f61118da855c2b28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove um objeto do banco.  <br /></td></tr>
 <tr class="separator:a09d27f25f84cce96f61118da855c2b28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9be225ca7b74136612d7ef9588196606" id="r_a9be225ca7b74136612d7ef9588196606"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="structobjeto.html">objeto</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLDatabase.html#a9be225ca7b74136612d7ef9588196606">buscar</a> (const string &amp;chave, const string &amp;valor) final</td></tr>
+<tr class="memdesc:a9be225ca7b74136612d7ef9588196606"><td class="mdescLeft">&#160;</td><td class="mdescRight">Busca objetos que correspondem a um valor em uma chave específica.  <br /></td></tr>
 <tr class="separator:a9be225ca7b74136612d7ef9588196606"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f202c7d632db33565d96e1115a29990" id="r_a0f202c7d632db33565d96e1115a29990"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="structobjeto.html">objeto</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLDatabase.html#a0f202c7d632db33565d96e1115a29990">listar</a> () final</td></tr>
+<tr class="memdesc:a0f202c7d632db33565d96e1115a29990"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna todos os objetos cadastrados.  <br /></td></tr>
 <tr class="separator:a0f202c7d632db33565d96e1115a29990"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac24bf60b1190bc9bd08182b8e10e9db3" id="r_ac24bf60b1190bc9bd08182b8e10e9db3"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="structobjeto.html">objeto</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLDatabase.html#ac24bf60b1190bc9bd08182b8e10e9db3">listar_ordenado</a> (string chave, bool crescente) final</td></tr>
+<tr class="memdesc:ac24bf60b1190bc9bd08182b8e10e9db3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lista os objetos ordenados por uma determinada chave.  <br /></td></tr>
 <tr class="separator:ac24bf60b1190bc9bd08182b8e10e9db3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02157d89b6d6740c0e28c977d66b52ee" id="r_a02157d89b6d6740c0e28c977d66b52ee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLDatabase.html#a02157d89b6d6740c0e28c977d66b52ee">limpar</a> () final</td></tr>
+<tr class="memdesc:a02157d89b6d6740c0e28c977d66b52ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove todos os objetos do banco de dados.  <br /></td></tr>
 <tr class="separator:a02157d89b6d6740c0e28c977d66b52ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a6414315e35ea573f74b01a0b3a9ab8" id="r_a0a6414315e35ea573f74b01a0b3a9ab8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLDatabase.html#a0a6414315e35ea573f74b01a0b3a9ab8">atualizar</a> (<a class="el" href="structobjeto.html">objeto</a> o) final</td></tr>
+<tr class="memdesc:a0a6414315e35ea573f74b01a0b3a9ab8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza os dados de um objeto existente.  <br /></td></tr>
 <tr class="separator:a0a6414315e35ea573f74b01a0b3a9ab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9bf39fefb3f16de9691683e258675608" id="r_a9bf39fefb3f16de9691683e258675608"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLDatabase.html#a9bf39fefb3f16de9691683e258675608">atualizar_ou_adicionar</a> (<a class="el" href="structobjeto.html">objeto</a> o) final</td></tr>
+<tr class="memdesc:a9bf39fefb3f16de9691683e258675608"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza o objeto, ou o adiciona caso não exista.  <br /></td></tr>
 <tr class="separator:a9bf39fefb3f16de9691683e258675608"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45a2849b388fad83c682028d30e909d4" id="r_a45a2849b388fad83c682028d30e909d4"><td class="memItemLeft" align="right" valign="top"><a id="a45a2849b388fad83c682028d30e909d4" name="a45a2849b388fad83c682028d30e909d4"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>hasDb</b> () const</td></tr>
+<tr class="memitem:a45a2849b388fad83c682028d30e909d4" id="r_a45a2849b388fad83c682028d30e909d4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLDatabase.html#a45a2849b388fad83c682028d30e909d4">hasDb</a> () const</td></tr>
+<tr class="memdesc:a45a2849b388fad83c682028d30e909d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se o banco foi inicializado corretamente.  <br /></td></tr>
 <tr class="separator:a45a2849b388fad83c682028d30e909d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Membros protegidos</h2></td></tr>
-<tr class="memitem:ab323c7aaba7f368c69edba9c5d39b108" id="r_ab323c7aaba7f368c69edba9c5d39b108"><td class="memItemLeft" align="right" valign="top"><a id="ab323c7aaba7f368c69edba9c5d39b108" name="ab323c7aaba7f368c69edba9c5d39b108"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>get_sql_type_from_schema</b> (const string &amp;col_name) const</td></tr>
+<tr class="memitem:ab323c7aaba7f368c69edba9c5d39b108" id="r_ab323c7aaba7f368c69edba9c5d39b108"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLDatabase.html#ab323c7aaba7f368c69edba9c5d39b108">get_sql_type_from_schema</a> (const string &amp;col_name) const</td></tr>
+<tr class="memdesc:ab323c7aaba7f368c69edba9c5d39b108"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o tipo SQL da coluna conforme o esquema fornecido.  <br /></td></tr>
 <tr class="separator:ab323c7aaba7f368c69edba9c5d39b108"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84dad1b6812df29e166c832c660c7e26" id="r_a84dad1b6812df29e166c832c660c7e26"><td class="memItemLeft" align="right" valign="top"><a id="a84dad1b6812df29e166c832c660c7e26" name="a84dad1b6812df29e166c832c660c7e26"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SQLDatabase</b> (const string &amp;fileName, const string &amp;tableName, const unordered_map&lt; string, string &gt; &amp;columns, const string &amp;primaryKeyName, bool pkAutoIncrement)</td></tr>
+<tr class="memitem:a84dad1b6812df29e166c832c660c7e26" id="r_a84dad1b6812df29e166c832c660c7e26"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLDatabase.html#a84dad1b6812df29e166c832c660c7e26">SQLDatabase</a> (const string &amp;fileName, const string &amp;tableName, const unordered_map&lt; string, string &gt; &amp;columns, const string &amp;primaryKeyName, bool pkAutoIncrement)</td></tr>
+<tr class="memdesc:a84dad1b6812df29e166c832c660c7e26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor protegido, utilizado por classes filhas.  <br /></td></tr>
 <tr class="separator:a84dad1b6812df29e166c832c660c7e26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Atributos Protegidos</h2></td></tr>
 <tr class="memitem:a203c44f8070c8365c736b3f63529d99b" id="r_a203c44f8070c8365c736b3f63529d99b"><td class="memItemLeft" align="right" valign="top"><a id="a203c44f8070c8365c736b3f63529d99b" name="a203c44f8070c8365c736b3f63529d99b"></a>
 <a class="el" href="structsqlite3.html">sqlite3</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>db_</b> = nullptr</td></tr>
+<tr class="memdesc:a203c44f8070c8365c736b3f63529d99b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ponteiro para o banco de dados SQLite. <br /></td></tr>
 <tr class="separator:a203c44f8070c8365c736b3f63529d99b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1c4dd47f22a97b861e5e3538f97e7df" id="r_ae1c4dd47f22a97b861e5e3538f97e7df"><td class="memItemLeft" align="right" valign="top"><a id="ae1c4dd47f22a97b861e5e3538f97e7df" name="ae1c4dd47f22a97b861e5e3538f97e7df"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><b>fileName_</b></td></tr>
+<tr class="memdesc:ae1c4dd47f22a97b861e5e3538f97e7df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Caminho do arquivo de banco. <br /></td></tr>
 <tr class="separator:ae1c4dd47f22a97b861e5e3538f97e7df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a946889d3910d20f5306b67808aa47077" id="r_a946889d3910d20f5306b67808aa47077"><td class="memItemLeft" align="right" valign="top"><a id="a946889d3910d20f5306b67808aa47077" name="a946889d3910d20f5306b67808aa47077"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><b>table_name_</b></td></tr>
+<tr class="memdesc:a946889d3910d20f5306b67808aa47077"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nome da tabela. <br /></td></tr>
 <tr class="separator:a946889d3910d20f5306b67808aa47077"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57779296af428310a23f7d0c64275999" id="r_a57779296af428310a23f7d0c64275999"><td class="memItemLeft" align="right" valign="top"><a id="a57779296af428310a23f7d0c64275999" name="a57779296af428310a23f7d0c64275999"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><b>primary_key_name_</b></td></tr>
+<tr class="memdesc:a57779296af428310a23f7d0c64275999"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nome da chave primária. <br /></td></tr>
 <tr class="separator:a57779296af428310a23f7d0c64275999"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9141fbf47d383e4fb04909b3f6e89050" id="r_a9141fbf47d383e4fb04909b3f6e89050"><td class="memItemLeft" align="right" valign="top"><a id="a9141fbf47d383e4fb04909b3f6e89050" name="a9141fbf47d383e4fb04909b3f6e89050"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><b>sql_query_str_</b></td></tr>
+<tr class="memdesc:a9141fbf47d383e4fb04909b3f6e89050"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consulta SQL atual (pode ser reutilizada). <br /></td></tr>
 <tr class="separator:a9141fbf47d383e4fb04909b3f6e89050"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6089b00a0bac0bc07f2eda1e5b4ab62f" id="r_a6089b00a0bac0bc07f2eda1e5b4ab62f"><td class="memItemLeft" align="right" valign="top"><a id="a6089b00a0bac0bc07f2eda1e5b4ab62f" name="a6089b00a0bac0bc07f2eda1e5b4ab62f"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>pkAutoIncrement_</b> = false</td></tr>
+<tr class="memdesc:a6089b00a0bac0bc07f2eda1e5b4ab62f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indica se a chave primária é autoincrementada. <br /></td></tr>
 <tr class="separator:a6089b00a0bac0bc07f2eda1e5b4ab62f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee3daca194ba7c04ec2a9bf085acd016" id="r_aee3daca194ba7c04ec2a9bf085acd016"><td class="memItemLeft" align="right" valign="top"><a id="aee3daca194ba7c04ec2a9bf085acd016" name="aee3daca194ba7c04ec2a9bf085acd016"></a>
 unordered_map&lt; string, string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>colunas_</b></td></tr>
+<tr class="memdesc:aee3daca194ba7c04ec2a9bf085acd016"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mapeamento de colunas SQL. <br /></td></tr>
 <tr class="separator:aee3daca194ba7c04ec2a9bf085acd016"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee2e405d750be22aead46423698372a4" id="r_aee2e405d750be22aead46423698372a4"><td class="memItemLeft" align="right" valign="top"><a id="aee2e405d750be22aead46423698372a4" name="aee2e405d750be22aead46423698372a4"></a>
 char *&#160;</td><td class="memItemRight" valign="bottom"><b>zErrMsg_</b> = nullptr</td></tr>
+<tr class="memdesc:aee2e405d750be22aead46423698372a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Armazena mensagens de erro da execução. <br /></td></tr>
 <tr class="separator:aee2e405d750be22aead46423698372a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e33d4cb7ca4281369a4fa965cb50578" id="r_a3e33d4cb7ca4281369a4fa965cb50578"><td class="memItemLeft" align="right" valign="top"><a id="a3e33d4cb7ca4281369a4fa965cb50578" name="a3e33d4cb7ca4281369a4fa965cb50578"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>rc_</b> = 0</td></tr>
+<tr class="memdesc:a3e33d4cb7ca4281369a4fa965cb50578"><td class="mdescLeft">&#160;</td><td class="mdescRight">Código de retorno das operações SQLite. <br /></td></tr>
 <tr class="separator:a3e33d4cb7ca4281369a4fa965cb50578"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Implementação de banco de dados usando SQLite. </p>
+<p>Armazena e manipula objetos em um arquivo <code>.db</code> via SQL. </p>
+</div><h2 class="groupheader">Construtores e Destrutores</h2>
+<a id="a84dad1b6812df29e166c832c660c7e26" name="a84dad1b6812df29e166c832c660c7e26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84dad1b6812df29e166c832c660c7e26">&#9670;&#160;</a></span>SQLDatabase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SQLDatabase::SQLDatabase </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>fileName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>tableName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unordered_map&lt; string, string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>columns</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>primaryKeyName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>pkAutoIncrement</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construtor protegido, utilizado por classes filhas. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileName</td><td>Nome do arquivo do banco. </td></tr>
+    <tr><td class="paramname">tableName</td><td>Nome da tabela. </td></tr>
+    <tr><td class="paramname">columns</td><td>Mapeamento das colunas. </td></tr>
+    <tr><td class="paramname">primaryKeyName</td><td>Nome da chave primária. </td></tr>
+    <tr><td class="paramname">pkAutoIncrement</td><td>Se a chave primária é autoincrementada. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Documentação das funções</h2>
 <a id="a44c97e06b6a047f44d20065f75081bc2" name="a44c97e06b6a047f44d20065f75081bc2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a44c97e06b6a047f44d20065f75081bc2">&#9670;&#160;</a></span>adicionar()</h2>
@@ -355,7 +447,16 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>rc_</b> = 0</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implementa <a class="el" href="classDatabase.html">Database</a>.</p>
+<p>Adiciona um novo objeto ao banco de dados. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">o</td><td>Objeto a ser adicionado. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se a operação for bem-sucedida. </dd></dl>
+
+<p>Implementa <a class="el" href="classDatabase.html#a8cc3e110f7c2c636d2e2930d3cb69ab1">Database</a>.</p>
 
 </div>
 </div>
@@ -383,7 +484,16 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>rc_</b> = 0</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implementa <a class="el" href="classDatabase.html">Database</a>.</p>
+<p>Atualiza os dados de um objeto existente. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">o</td><td>Objeto com dados atualizados. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se a atualização for bem-sucedida. </dd></dl>
+
+<p>Implementa <a class="el" href="classDatabase.html#a6b929dd59aaa81b4aceb4fea3ff6447a">Database</a>.</p>
 
 </div>
 </div>
@@ -411,7 +521,16 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>rc_</b> = 0</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implementa <a class="el" href="classDatabase.html">Database</a>.</p>
+<p>Atualiza o objeto, ou o adiciona caso não exista. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">o</td><td>Objeto a ser atualizado ou adicionado. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se a operação for bem-sucedida. </dd></dl>
+
+<p>Implementa <a class="el" href="classDatabase.html#a74911bc55a9fce78cb8f6389197d3cc4">Database</a>.</p>
 
 </div>
 </div>
@@ -449,7 +568,17 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>rc_</b> = 0</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implementa <a class="el" href="classDatabase.html">Database</a>.</p>
+<p>Busca objetos que correspondem a um valor em uma chave específica. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chave</td><td>Nome da chave a buscar. </td></tr>
+    <tr><td class="paramname">valor</td><td>Valor a ser procurado. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Vetor com objetos encontrados. </dd></dl>
+
+<p>Implementa <a class="el" href="classDatabase.html#a1021fb6715521ae34b357124dd5e868c">Database</a>.</p>
 
 </div>
 </div>
@@ -477,7 +606,71 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>rc_</b> = 0</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implementa <a class="el" href="classDatabase.html">Database</a>.</p>
+<p>Remove um objeto do banco. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">o</td><td>Objeto a ser removido. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se a operação for bem-sucedida. </dd></dl>
+
+<p>Implementa <a class="el" href="classDatabase.html#a63dd6248a824b13e261da11aa85e62a4">Database</a>.</p>
+
+</div>
+</div>
+<a id="ab323c7aaba7f368c69edba9c5d39b108" name="ab323c7aaba7f368c69edba9c5d39b108"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab323c7aaba7f368c69edba9c5d39b108">&#9670;&#160;</a></span>get_sql_type_from_schema()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string SQLDatabase::get_sql_type_from_schema </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>col_name</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retorna o tipo SQL da coluna conforme o esquema fornecido. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">col_name</td><td>Nome da coluna. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Tipo SQL correspondente. </dd></dl>
+
+</div>
+</div>
+<a id="a45a2849b388fad83c682028d30e909d4" name="a45a2849b388fad83c682028d30e909d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45a2849b388fad83c682028d30e909d4">&#9670;&#160;</a></span>hasDb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SQLDatabase::hasDb </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifica se o banco foi inicializado corretamente. </p>
+<dl class="section return"><dt>Retorna</dt><dd>true se o ponteiro do banco não for nulo. </dd></dl>
 
 </div>
 </div>
@@ -504,7 +697,10 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>rc_</b> = 0</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implementa <a class="el" href="classDatabase.html">Database</a>.</p>
+<p>Remove todos os objetos do banco de dados. </p>
+<dl class="section return"><dt>Retorna</dt><dd>true se a operação for bem-sucedida. </dd></dl>
+
+<p>Implementa <a class="el" href="classDatabase.html#a4e27e1c6ecf2fb29e0519b06fb95deaa">Database</a>.</p>
 
 </div>
 </div>
@@ -531,7 +727,10 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>rc_</b> = 0</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implementa <a class="el" href="classDatabase.html">Database</a>.</p>
+<p>Retorna todos os objetos cadastrados. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Vetor com todos os objetos. </dd></dl>
+
+<p>Implementa <a class="el" href="classDatabase.html#acf82c2cd3e8f62a29e8b2957a910fc50">Database</a>.</p>
 
 </div>
 </div>
@@ -569,7 +768,17 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>rc_</b> = 0</td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implementa <a class="el" href="classDatabase.html">Database</a>.</p>
+<p>Lista os objetos ordenados por uma determinada chave. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chave</td><td>A chave pela qual ordenar. </td></tr>
+    <tr><td class="paramname">crescente</td><td>Se true, ordena de forma crescente; senão, decrescente. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Vetor de objetos ordenados. </dd></dl>
+
+<p>Implementa <a class="el" href="classDatabase.html#a5e5b934961a3bd83c6f57bcedc9822f4">Database</a>.</p>
 
 </div>
 </div>

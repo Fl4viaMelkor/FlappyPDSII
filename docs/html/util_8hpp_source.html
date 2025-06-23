@@ -89,58 +89,75 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef UTIL_HPP</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define UTIL_HPP</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">using namespace </span>std;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classAcoes.html#ad52c8062aaecb8b89832e8764403eaa2">   10</a></span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classAcoes.html#a8892b6a0256520f7f60abfa19db5712b">   11</a></span><span class="keyword">using namespace </span>std;</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="structacao.html">   13</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structacao.html">acao</a> {</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">int</span> id;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">string</span> name;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>};</div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="structacao.html">   16</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structacao.html">acao</a> {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="structacao.html#a6e2ea2fd811e296d89951793b3448570">   17</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structacao.html#a6e2ea2fd811e296d89951793b3448570">id</a>;         </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="structacao.html#a5f7126b8bd2e652a7f04af7fe144b9df">   18</a></span>    <span class="keywordtype">string</span> <a class="code hl_variable" href="structacao.html#a5f7126b8bd2e652a7f04af7fe144b9df">name</a>;    </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>};</div>
 </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">constexpr</span> <span class="keywordtype">float</span> GRAVIDADE = 0.5f;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="structgravidade.html">   19</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structgravidade.html">gravidade</a> {</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">float</span> acc_Y, acc_X;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>};</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">constexpr</span> <span class="keywordtype">float</span> GRAVIDADE = 0.5f;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="structgravidade.html">   29</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structgravidade.html">gravidade</a> {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="structgravidade.html#a0c88b4c7a33e4700832bd5466837ffbd">   30</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structgravidade.html#a0c88b4c7a33e4700832bd5466837ffbd">acc_Y</a>; </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="structgravidade.html#aa8c7495203eacad8f20a325284221cfa">   31</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structgravidade.html#aa8c7495203eacad8f20a325284221cfa">acc_X</a>; </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>};</div>
 </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="foldopen" id="foldopen00023" data-start="{" data-end="};">
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="structcoordenadas.html">   23</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structcoordenadas.html">coordenadas</a> {</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">float</span> x, y;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
-</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="structmomento__linear.html">   27</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structmomento__linear.html">momento_linear</a> {</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_struct" href="structcoordenadas.html">coordenadas</a> posicao, velocidade;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>};</div>
-</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">// Estrutura básica que representa as ações possíveis. Cada ação possui um código e um nome.</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">// Classe sem construtor que armazena as ações.</span></div>
-<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classAcoes.html">   34</a></span><span class="keyword">class </span><a class="code hl_class" href="classAcoes.html">Acoes</a> {</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_class" href="classAcoes.html">Acoes</a>() = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">const</span> <span class="keyword">static</span> <a class="code hl_struct" href="structacao.html">acao</a> pular;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">const</span> <span class="keyword">static</span> <a class="code hl_struct" href="structacao.html">acao</a> inexistente;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">const</span> <span class="keyword">static</span> <a class="code hl_struct" href="structacao.html">acao</a> mover_esquerda_devagar;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="};">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="structcoordenadas.html">   37</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structcoordenadas.html">coordenadas</a> {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="structcoordenadas.html#a1c085260c76900fef8ba491cb2c4b324">   38</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structcoordenadas.html#a1c085260c76900fef8ba491cb2c4b324">x</a>; </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="structcoordenadas.html#a28eeed571d6d53a5784336bb641dc145">   39</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structcoordenadas.html#a28eeed571d6d53a5784336bb641dc145">y</a>; </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>};</div>
 </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keywordtype">string</span> toUpper(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;input);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keywordtype">string</span> toLower(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;input);</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#endif </span><span class="comment">// UTIL_HPP</span></div>
-<div class="ttc" id="aclassAcoes_html"><div class="ttname"><a href="classAcoes.html">Acoes</a></div><div class="ttdef"><b>Definição</b> util.hpp:34</div></div>
-<div class="ttc" id="astructacao_html"><div class="ttname"><a href="structacao.html">acao</a></div><div class="ttdef"><b>Definição</b> util.hpp:13</div></div>
-<div class="ttc" id="astructcoordenadas_html"><div class="ttname"><a href="structcoordenadas.html">coordenadas</a></div><div class="ttdef"><b>Definição</b> util.hpp:23</div></div>
-<div class="ttc" id="astructgravidade_html"><div class="ttname"><a href="structgravidade.html">gravidade</a></div><div class="ttdef"><b>Definição</b> util.hpp:19</div></div>
-<div class="ttc" id="astructmomento__linear_html"><div class="ttname"><a href="structmomento__linear.html">momento_linear</a></div><div class="ttdef"><b>Definição</b> util.hpp:27</div></div>
+<div class="foldopen" id="foldopen00045" data-start="{" data-end="};">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="structmomento__linear.html">   45</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structmomento__linear.html">momento_linear</a> {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="structmomento__linear.html#ab8f7353f521b72ee379a15821e080e3e">   46</a></span>    <a class="code hl_struct" href="structcoordenadas.html">coordenadas</a> <a class="code hl_variable" href="structmomento__linear.html#ab8f7353f521b72ee379a15821e080e3e">posicao</a>;   </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="structmomento__linear.html#a036c81617a77957664ab359779e8cdc7">   47</a></span>    <a class="code hl_struct" href="structcoordenadas.html">coordenadas</a> <a class="code hl_variable" href="structmomento__linear.html#a036c81617a77957664ab359779e8cdc7">velocidade</a>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>};</div>
+</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="};">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classAcoes.html">   55</a></span><span class="keyword">class </span><a class="code hl_class" href="classAcoes.html">Acoes</a> {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classAcoes.html#af8cb5b88076fa5e3eda496f665d9ffe4">   57</a></span>    <a class="code hl_function" href="classAcoes.html#af8cb5b88076fa5e3eda496f665d9ffe4">Acoes</a>() = <span class="keyword">delete</span>; </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">const</span> <span class="keyword">static</span> <a class="code hl_struct" href="structacao.html">acao</a> <a class="code hl_variable" href="classAcoes.html#ad52c8062aaecb8b89832e8764403eaa2">pular</a>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keyword">const</span> <span class="keyword">static</span> <a class="code hl_struct" href="structacao.html">acao</a> <a class="code hl_variable" href="classAcoes.html#a6b98ec1f3ad4c5cfd1d4f16cf09a3f45">inexistente</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keyword">const</span> <span class="keyword">static</span> <a class="code hl_struct" href="structacao.html">acao</a> <a class="code hl_variable" href="classAcoes.html#a8892b6a0256520f7f60abfa19db5712b">mover_esquerda_devagar</a>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>};</div>
+</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keywordtype">string</span> toUpper(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;input);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keywordtype">string</span> toLower(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;input);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">#endif </span><span class="comment">// UTIL_HPP</span></div>
+<div class="ttc" id="aclassAcoes_html"><div class="ttname"><a href="classAcoes.html">Acoes</a></div><div class="ttdoc">Armazena ações predefinidas usadas no jogo.</div><div class="ttdef"><b>Definição</b> util.hpp:55</div></div>
+<div class="ttc" id="aclassAcoes_html_a6b98ec1f3ad4c5cfd1d4f16cf09a3f45"><div class="ttname"><a href="classAcoes.html#a6b98ec1f3ad4c5cfd1d4f16cf09a3f45">Acoes::inexistente</a></div><div class="ttdeci">static const acao inexistente</div><div class="ttdoc">Ação inexistente (placeholder).</div><div class="ttdef"><b>Definição</b> util.hpp:13</div></div>
+<div class="ttc" id="aclassAcoes_html_a8892b6a0256520f7f60abfa19db5712b"><div class="ttname"><a href="classAcoes.html#a8892b6a0256520f7f60abfa19db5712b">Acoes::mover_esquerda_devagar</a></div><div class="ttdeci">static const acao mover_esquerda_devagar</div><div class="ttdoc">Ação para mover lentamente à esquerda (usada para obstáculos, talvez).</div><div class="ttdef"><b>Definição</b> util.hpp:11</div></div>
+<div class="ttc" id="aclassAcoes_html_ad52c8062aaecb8b89832e8764403eaa2"><div class="ttname"><a href="classAcoes.html#ad52c8062aaecb8b89832e8764403eaa2">Acoes::pular</a></div><div class="ttdeci">static const acao pular</div><div class="ttdoc">Ação de pulo do jogador.</div><div class="ttdef"><b>Definição</b> util.hpp:10</div></div>
+<div class="ttc" id="aclassAcoes_html_af8cb5b88076fa5e3eda496f665d9ffe4"><div class="ttname"><a href="classAcoes.html#af8cb5b88076fa5e3eda496f665d9ffe4">Acoes::Acoes</a></div><div class="ttdeci">Acoes()=delete</div><div class="ttdoc">Impede a criação de instâncias.</div></div>
+<div class="ttc" id="astructacao_html"><div class="ttname"><a href="structacao.html">acao</a></div><div class="ttdoc">Representa uma ação com identificador e nome.</div><div class="ttdef"><b>Definição</b> util.hpp:16</div></div>
+<div class="ttc" id="astructacao_html_a5f7126b8bd2e652a7f04af7fe144b9df"><div class="ttname"><a href="structacao.html#a5f7126b8bd2e652a7f04af7fe144b9df">acao::name</a></div><div class="ttdeci">string name</div><div class="ttdoc">Nome descritivo da ação.</div><div class="ttdef"><b>Definição</b> util.hpp:18</div></div>
+<div class="ttc" id="astructacao_html_a6e2ea2fd811e296d89951793b3448570"><div class="ttname"><a href="structacao.html#a6e2ea2fd811e296d89951793b3448570">acao::id</a></div><div class="ttdeci">int id</div><div class="ttdoc">Identificador único da ação.</div><div class="ttdef"><b>Definição</b> util.hpp:17</div></div>
+<div class="ttc" id="astructcoordenadas_html"><div class="ttname"><a href="structcoordenadas.html">coordenadas</a></div><div class="ttdoc">Representa uma posição ou ponto no espaço bidimensional.</div><div class="ttdef"><b>Definição</b> util.hpp:37</div></div>
+<div class="ttc" id="astructcoordenadas_html_a1c085260c76900fef8ba491cb2c4b324"><div class="ttname"><a href="structcoordenadas.html#a1c085260c76900fef8ba491cb2c4b324">coordenadas::x</a></div><div class="ttdeci">float x</div><div class="ttdoc">Coordenada horizontal.</div><div class="ttdef"><b>Definição</b> util.hpp:38</div></div>
+<div class="ttc" id="astructcoordenadas_html_a28eeed571d6d53a5784336bb641dc145"><div class="ttname"><a href="structcoordenadas.html#a28eeed571d6d53a5784336bb641dc145">coordenadas::y</a></div><div class="ttdeci">float y</div><div class="ttdoc">Coordenada vertical.</div><div class="ttdef"><b>Definição</b> util.hpp:39</div></div>
+<div class="ttc" id="astructgravidade_html"><div class="ttname"><a href="structgravidade.html">gravidade</a></div><div class="ttdoc">Representa uma gravidade com aceleração nos eixos X e Y.</div><div class="ttdef"><b>Definição</b> util.hpp:29</div></div>
+<div class="ttc" id="astructgravidade_html_a0c88b4c7a33e4700832bd5466837ffbd"><div class="ttname"><a href="structgravidade.html#a0c88b4c7a33e4700832bd5466837ffbd">gravidade::acc_Y</a></div><div class="ttdeci">float acc_Y</div><div class="ttdoc">Aceleração vertical.</div><div class="ttdef"><b>Definição</b> util.hpp:30</div></div>
+<div class="ttc" id="astructgravidade_html_aa8c7495203eacad8f20a325284221cfa"><div class="ttname"><a href="structgravidade.html#aa8c7495203eacad8f20a325284221cfa">gravidade::acc_X</a></div><div class="ttdeci">float acc_X</div><div class="ttdoc">Aceleração horizontal (geralmente zero no Flappy).</div><div class="ttdef"><b>Definição</b> util.hpp:31</div></div>
+<div class="ttc" id="astructmomento__linear_html"><div class="ttname"><a href="structmomento__linear.html">momento_linear</a></div><div class="ttdoc">Representa o momento linear de um objeto com posição e velocidade.</div><div class="ttdef"><b>Definição</b> util.hpp:45</div></div>
+<div class="ttc" id="astructmomento__linear_html_a036c81617a77957664ab359779e8cdc7"><div class="ttname"><a href="structmomento__linear.html#a036c81617a77957664ab359779e8cdc7">momento_linear::velocidade</a></div><div class="ttdeci">coordenadas velocidade</div><div class="ttdoc">Velocidade atual.</div><div class="ttdef"><b>Definição</b> util.hpp:47</div></div>
+<div class="ttc" id="astructmomento__linear_html_ab8f7353f521b72ee379a15821e080e3e"><div class="ttname"><a href="structmomento__linear.html#ab8f7353f521b72ee379a15821e080e3e">momento_linear::posicao</a></div><div class="ttdeci">coordenadas posicao</div><div class="ttdoc">Posição atual.</div><div class="ttdef"><b>Definição</b> util.hpp:46</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

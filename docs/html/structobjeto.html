@@ -76,22 +76,86 @@ $(function() {
   <div class="headertitle"><div class="title">Referência da Estrutura objeto</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Representa um objeto genérico que pode ser armazenado em uma base de dados.  
+ <a href="structobjeto.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="dados_8hpp_source.html">dados.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
-<tr class="memitem:af1ace35c089baa21692e37594709bea9" id="r_af1ace35c089baa21692e37594709bea9"><td class="memItemLeft" align="right" valign="top"><a id="af1ace35c089baa21692e37594709bea9" name="af1ace35c089baa21692e37594709bea9"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="structobjeto.html">objeto</a> &amp;outro) const</td></tr>
+<tr class="memitem:af1ace35c089baa21692e37594709bea9" id="r_af1ace35c089baa21692e37594709bea9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structobjeto.html#af1ace35c089baa21692e37594709bea9">operator==</a> (const <a class="el" href="structobjeto.html">objeto</a> &amp;outro) const</td></tr>
+<tr class="memdesc:af1ace35c089baa21692e37594709bea9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compara dois objetos quanto à igualdade.  <br /></td></tr>
 <tr class="separator:af1ace35c089baa21692e37594709bea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90d47a950a0c2a836af3d25f3e77da09" id="r_a90d47a950a0c2a836af3d25f3e77da09"><td class="memItemLeft" align="right" valign="top"><a id="a90d47a950a0c2a836af3d25f3e77da09" name="a90d47a950a0c2a836af3d25f3e77da09"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="structobjeto.html">objeto</a> &amp;outro) const</td></tr>
+<tr class="memitem:a90d47a950a0c2a836af3d25f3e77da09" id="r_a90d47a950a0c2a836af3d25f3e77da09"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structobjeto.html#a90d47a950a0c2a836af3d25f3e77da09">operator!=</a> (const <a class="el" href="structobjeto.html">objeto</a> &amp;outro) const</td></tr>
+<tr class="memdesc:a90d47a950a0c2a836af3d25f3e77da09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compara dois objetos quanto à diferença.  <br /></td></tr>
 <tr class="separator:a90d47a950a0c2a836af3d25f3e77da09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Atributos Públicos</h2></td></tr>
 <tr class="memitem:a969bc6a3b3a486127c495bcfd0e987f6" id="r_a969bc6a3b3a486127c495bcfd0e987f6"><td class="memItemLeft" align="right" valign="top"><a id="a969bc6a3b3a486127c495bcfd0e987f6" name="a969bc6a3b3a486127c495bcfd0e987f6"></a>
 map&lt; string, string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>dados</b></td></tr>
+<tr class="memdesc:a969bc6a3b3a486127c495bcfd0e987f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mapa contendo os dados do objeto como chave e valor string. <br /></td></tr>
 <tr class="separator:a969bc6a3b3a486127c495bcfd0e987f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Representa um objeto genérico que pode ser armazenado em uma base de dados. </p>
+<p>Todos os elementos são pares chave-valor de strings. </p>
+</div><h2 class="groupheader">Documentação das funções</h2>
+<a id="a90d47a950a0c2a836af3d25f3e77da09" name="a90d47a950a0c2a836af3d25f3e77da09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90d47a950a0c2a836af3d25f3e77da09">&#9670;&#160;</a></span>operator!=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool objeto::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structobjeto.html">objeto</a> &amp;&#160;</td>
+          <td class="paramname"><em>outro</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compara dois objetos quanto à diferença. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">outro</td><td>Outro objeto a ser comparado. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se houver qualquer diferença nos dados. </dd></dl>
+
+</div>
+</div>
+<a id="af1ace35c089baa21692e37594709bea9" name="af1ace35c089baa21692e37594709bea9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1ace35c089baa21692e37594709bea9">&#9670;&#160;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool objeto::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structobjeto.html">objeto</a> &amp;&#160;</td>
+          <td class="paramname"><em>outro</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compara dois objetos quanto à igualdade. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">outro</td><td>Outro objeto a ser comparado. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se todos os pares chave-valor forem iguais. </dd></dl>
+
+</div>
+</div>
 <hr/>A documentação para essa estrutura foi gerada a partir dos seguintes arquivos:<ul>
 <li>include/dados/<a class="el" href="dados_8hpp_source.html">dados.hpp</a></li>
 <li>src/dados/<b>dados.cpp</b></li>

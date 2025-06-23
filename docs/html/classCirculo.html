@@ -76,13 +76,18 @@ $(function() {
   <div class="headertitle"><div class="title">Referência da Classe Circulo</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Representa um círculo com centro e raio.  
+ <a href="classCirculo.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="figuras__basicas_8hpp_source.html">figuras_basicas.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Diagrama de hierarquia da classe Circulo:</div>
 <div class="dyncontent">
 <div class="center"><img src="classCirculo__inherit__graph.png" border="0" usemap="#aCirculo_inherit__map" alt="Inheritance graph"/></div>
 <map name="aCirculo_inherit__map" id="aCirculo_inherit__map">
-<area shape="rect" title=" " alt="" coords="75,79,142,104"/>
-<area shape="rect" href="classForma__Geometrica__Fechada.html" title=" " alt="" coords="5,5,212,31"/>
+<area shape="rect" title="Representa um círculo com centro e raio." alt="" coords="75,79,142,104"/>
+<area shape="rect" href="classForma__Geometrica__Fechada.html" title="Interface para formas geométricas fechadas." alt="" coords="5,5,212,31"/>
 <area shape="poly" title=" " alt="" coords="111,44,111,79,106,79,106,44"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
@@ -91,39 +96,84 @@ Diagrama de colaboração para Circulo:</div>
 <div class="dyncontent">
 <div class="center"><img src="classCirculo__coll__graph.png" border="0" usemap="#aCirculo_coll__map" alt="Collaboration graph"/></div>
 <map name="aCirculo_coll__map" id="aCirculo_coll__map">
-<area shape="rect" title=" " alt="" coords="165,93,231,119"/>
-<area shape="rect" href="classForma__Geometrica__Fechada.html" title=" " alt="" coords="5,5,212,31"/>
+<area shape="rect" title="Representa um círculo com centro e raio." alt="" coords="165,93,231,119"/>
+<area shape="rect" href="classForma__Geometrica__Fechada.html" title="Interface para formas geométricas fechadas." alt="" coords="5,5,212,31"/>
 <area shape="poly" title=" " alt="" coords="132,38,187,91,184,95,129,42"/>
-<area shape="rect" href="structcoordenadas.html" title=" " alt="" coords="236,5,341,31"/>
+<area shape="rect" href="structcoordenadas.html" title="Representa uma posição ou ponto no espaço bidimensional." alt="" coords="236,5,341,31"/>
 <area shape="poly" title=" " alt="" coords="268,42,212,95,209,91,265,38"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
-<tr class="memitem:ad80b456baa217812b71672457d9c7601" id="r_ad80b456baa217812b71672457d9c7601"><td class="memItemLeft" align="right" valign="top"><a id="ad80b456baa217812b71672457d9c7601" name="ad80b456baa217812b71672457d9c7601"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Circulo</b> (<a class="el" href="structcoordenadas.html">coordenadas</a> centro, float radius)</td></tr>
+<tr class="memitem:ad80b456baa217812b71672457d9c7601" id="r_ad80b456baa217812b71672457d9c7601"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCirculo.html#ad80b456baa217812b71672457d9c7601">Circulo</a> (<a class="el" href="structcoordenadas.html">coordenadas</a> <a class="el" href="classCirculo.html#ab6b15244ee9ea2d552499190d01de2e9">centro</a>, float <a class="el" href="classCirculo.html#a9c789f2b2b3187a8249fee3a22bfa3ac">radius</a>)</td></tr>
+<tr class="memdesc:ad80b456baa217812b71672457d9c7601"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor do círculo.  <br /></td></tr>
 <tr class="separator:ad80b456baa217812b71672457d9c7601"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b262cb68834db96467e57dbb98cf5fe" id="r_a0b262cb68834db96467e57dbb98cf5fe"><td class="memItemLeft" align="right" valign="top"><a id="a0b262cb68834db96467e57dbb98cf5fe" name="a0b262cb68834db96467e57dbb98cf5fe"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set_circulo</b> (<a class="el" href="structcoordenadas.html">coordenadas</a> centro, float radius)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>set_circulo</b> (<a class="el" href="structcoordenadas.html">coordenadas</a> <a class="el" href="classCirculo.html#ab6b15244ee9ea2d552499190d01de2e9">centro</a>, float <a class="el" href="classCirculo.html#a9c789f2b2b3187a8249fee3a22bfa3ac">radius</a>)</td></tr>
+<tr class="memdesc:a0b262cb68834db96467e57dbb98cf5fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define um novo centro e raio para o círculo. <br /></td></tr>
 <tr class="separator:a0b262cb68834db96467e57dbb98cf5fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88605c74ccf19d1bf6052ac98a993768" id="r_a88605c74ccf19d1bf6052ac98a993768"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCirculo.html#a88605c74ccf19d1bf6052ac98a993768">noInterior</a> (<a class="el" href="structcoordenadas.html">coordenadas</a> p)</td></tr>
-<tr class="separator:a88605c74ccf19d1bf6052ac98a993768"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2147036a5cc1617e6ba57689ae8c475" id="r_aa2147036a5cc1617e6ba57689ae8c475"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCirculo.html#aa2147036a5cc1617e6ba57689ae8c475">noPerimetro</a> (<a class="el" href="structcoordenadas.html">coordenadas</a> p)</td></tr>
-<tr class="separator:aa2147036a5cc1617e6ba57689ae8c475"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac22ac05ba46861d9867f800c924418da" id="r_ac22ac05ba46861d9867f800c924418da"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCirculo.html#ac22ac05ba46861d9867f800c924418da">noInterior</a> (<a class="el" href="structcoordenadas.html">coordenadas</a> p) override</td></tr>
+<tr class="memdesc:ac22ac05ba46861d9867f800c924418da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se o ponto está no interior da figura (excluindo bordas).  <br /></td></tr>
+<tr class="separator:ac22ac05ba46861d9867f800c924418da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb43390bd6489dd7e784854d6c05dcb3" id="r_aeb43390bd6489dd7e784854d6c05dcb3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCirculo.html#aeb43390bd6489dd7e784854d6c05dcb3">noPerimetro</a> (<a class="el" href="structcoordenadas.html">coordenadas</a> p) override</td></tr>
+<tr class="memdesc:aeb43390bd6489dd7e784854d6c05dcb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se o ponto está no perímetro da figura.  <br /></td></tr>
+<tr class="separator:aeb43390bd6489dd7e784854d6c05dcb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Atributos Protegidos</h2></td></tr>
 <tr class="memitem:ab6b15244ee9ea2d552499190d01de2e9" id="r_ab6b15244ee9ea2d552499190d01de2e9"><td class="memItemLeft" align="right" valign="top"><a id="ab6b15244ee9ea2d552499190d01de2e9" name="ab6b15244ee9ea2d552499190d01de2e9"></a>
 <a class="el" href="structcoordenadas.html">coordenadas</a>&#160;</td><td class="memItemRight" valign="bottom"><b>centro</b></td></tr>
+<tr class="memdesc:ab6b15244ee9ea2d552499190d01de2e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Centro do círculo. <br /></td></tr>
 <tr class="separator:ab6b15244ee9ea2d552499190d01de2e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c789f2b2b3187a8249fee3a22bfa3ac" id="r_a9c789f2b2b3187a8249fee3a22bfa3ac"><td class="memItemLeft" align="right" valign="top"><a id="a9c789f2b2b3187a8249fee3a22bfa3ac" name="a9c789f2b2b3187a8249fee3a22bfa3ac"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>radius</b></td></tr>
+<tr class="memdesc:a9c789f2b2b3187a8249fee3a22bfa3ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raio do círculo. <br /></td></tr>
 <tr class="separator:a9c789f2b2b3187a8249fee3a22bfa3ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Representa um círculo com centro e raio. </p>
+</div><h2 class="groupheader">Construtores e Destrutores</h2>
+<a id="ad80b456baa217812b71672457d9c7601" name="ad80b456baa217812b71672457d9c7601"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad80b456baa217812b71672457d9c7601">&#9670;&#160;</a></span>Circulo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Circulo::Circulo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcoordenadas.html">coordenadas</a>&#160;</td>
+          <td class="paramname"><em>centro</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>radius</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construtor do círculo. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">centro</td><td>Centro do círculo. </td></tr>
+    <tr><td class="paramname">radius</td><td>Raio do círculo. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Documentação das funções</h2>
-<a id="a88605c74ccf19d1bf6052ac98a993768" name="a88605c74ccf19d1bf6052ac98a993768"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88605c74ccf19d1bf6052ac98a993768">&#9670;&#160;</a></span>noInterior()</h2>
+<a id="ac22ac05ba46861d9867f800c924418da" name="ac22ac05ba46861d9867f800c924418da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac22ac05ba46861d9867f800c924418da">&#9670;&#160;</a></span>noInterior()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -141,17 +191,26 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>radius</b></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implementa <a class="el" href="classForma__Geometrica__Fechada.html">Forma_Geometrica_Fechada</a>.</p>
+<p>Verifica se o ponto está no interior da figura (excluindo bordas). </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Coordenada do ponto. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se estiver no interior. </dd></dl>
+
+<p>Implementa <a class="el" href="classForma__Geometrica__Fechada.html#ab439f4c9d247a52cdafd70e9914c97f7">Forma_Geometrica_Fechada</a>.</p>
 
 </div>
 </div>
-<a id="aa2147036a5cc1617e6ba57689ae8c475" name="aa2147036a5cc1617e6ba57689ae8c475"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2147036a5cc1617e6ba57689ae8c475">&#9670;&#160;</a></span>noPerimetro()</h2>
+<a id="aeb43390bd6489dd7e784854d6c05dcb3" name="aeb43390bd6489dd7e784854d6c05dcb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb43390bd6489dd7e784854d6c05dcb3">&#9670;&#160;</a></span>noPerimetro()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -169,12 +228,21 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>radius</b></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implementa <a class="el" href="classForma__Geometrica__Fechada.html">Forma_Geometrica_Fechada</a>.</p>
+<p>Verifica se o ponto está no perímetro da figura. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Coordenada do ponto. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se estiver no perímetro. </dd></dl>
+
+<p>Implementa <a class="el" href="classForma__Geometrica__Fechada.html#a5af419ce0f39a5b9116aacab98641268">Forma_Geometrica_Fechada</a>.</p>
 
 </div>
 </div>

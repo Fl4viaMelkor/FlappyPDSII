@@ -1,5 +1,5 @@
 <map id="Dado_Jogador" name="Dado_Jogador">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,79,117,104"/>
-<area shape="rect" id="Node000002" href="$classDado.html" title=" " alt="" coords="33,5,89,31"/>
+<area shape="rect" id="Node000001" title="Representa um dado específico de jogador, com nome, apelido e pontuações." alt="" coords="5,79,117,104"/>
+<area shape="rect" id="Node000002" href="$classDado.html" title="Classe abstrata que define a interface para dados que podem ser carregados e exportados." alt="" coords="33,5,89,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="64,44,64,79,59,79,59,44"/>
 </map>

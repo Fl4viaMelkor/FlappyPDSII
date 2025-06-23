@@ -75,12 +75,17 @@ $(function() {
   <div class="headertitle"><div class="title">Referência da Classe GameEndException</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Exceção lançada quando o jogo deve terminar (por exemplo, ao ocorrer uma colisão fatal).  
+ <a href="classGameEndException.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="fisica_8hpp_source.html">fisica.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Diagrama de hierarquia da classe GameEndException:</div>
 <div class="dyncontent">
 <div class="center"><img src="classGameEndException__inherit__graph.png" border="0" usemap="#aGameEndException_inherit__map" alt="Inheritance graph"/></div>
 <map name="aGameEndException_inherit__map" id="aGameEndException_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,79,155,104"/>
+<area shape="rect" title="Exceção lançada quando o jogo deve terminar (por exemplo, ao ocorrer uma colisão fatal)." alt="" coords="5,79,155,104"/>
 <area shape="rect" title=" " alt="" coords="23,5,137,31"/>
 <area shape="poly" title=" " alt="" coords="83,44,83,79,77,79,77,44"/>
 </map>
@@ -90,7 +95,7 @@ Diagrama de colaboração para GameEndException:</div>
 <div class="dyncontent">
 <div class="center"><img src="classGameEndException__coll__graph.png" border="0" usemap="#aGameEndException_coll__map" alt="Collaboration graph"/></div>
 <map name="aGameEndException_coll__map" id="aGameEndException_coll__map">
-<area shape="rect" title=" " alt="" coords="5,79,155,104"/>
+<area shape="rect" title="Exceção lançada quando o jogo deve terminar (por exemplo, ao ocorrer uma colisão fatal)." alt="" coords="5,79,155,104"/>
 <area shape="rect" title=" " alt="" coords="23,5,137,31"/>
 <area shape="poly" title=" " alt="" coords="83,44,83,79,77,79,77,44"/>
 </map>
@@ -98,13 +103,79 @@ Diagrama de colaboração para GameEndException:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
-<tr class="memitem:a3a772641ff65d4ef5de082165732631d" id="r_a3a772641ff65d4ef5de082165732631d"><td class="memItemLeft" align="right" valign="top"><a id="a3a772641ff65d4ef5de082165732631d" name="a3a772641ff65d4ef5de082165732631d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>GameEndException</b> (const std::string &amp;message=&quot;Aconteceu uma colisão&quot;)</td></tr>
+<tr class="memitem:a3a772641ff65d4ef5de082165732631d" id="r_a3a772641ff65d4ef5de082165732631d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameEndException.html#a3a772641ff65d4ef5de082165732631d">GameEndException</a> (const std::string &amp;message=&quot;Aconteceu uma colisão&quot;)</td></tr>
+<tr class="memdesc:a3a772641ff65d4ef5de082165732631d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor com mensagem personalizada.  <br /></td></tr>
 <tr class="separator:a3a772641ff65d4ef5de082165732631d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6cca37d51d4774d71445d4fd13aea4f1" id="r_a6cca37d51d4774d71445d4fd13aea4f1"><td class="memItemLeft" align="right" valign="top"><a id="a6cca37d51d4774d71445d4fd13aea4f1" name="a6cca37d51d4774d71445d4fd13aea4f1"></a>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><b>what</b> () const noexcept override</td></tr>
+<tr class="memitem:a6cca37d51d4774d71445d4fd13aea4f1" id="r_a6cca37d51d4774d71445d4fd13aea4f1"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameEndException.html#a6cca37d51d4774d71445d4fd13aea4f1">what</a> () const noexcept override</td></tr>
+<tr class="memdesc:a6cca37d51d4774d71445d4fd13aea4f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna a mensagem de erro.  <br /></td></tr>
 <tr class="separator:a6cca37d51d4774d71445d4fd13aea4f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Exceção lançada quando o jogo deve terminar (por exemplo, ao ocorrer uma colisão fatal). </p>
+</div><h2 class="groupheader">Construtores e Destrutores</h2>
+<a id="a3a772641ff65d4ef5de082165732631d" name="a3a772641ff65d4ef5de082165732631d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a772641ff65d4ef5de082165732631d">&#9670;&#160;</a></span>GameEndException()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameEndException::GameEndException </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>message</em> = <code>&quot;Aconteceu&#160;uma&#160;colisão&quot;</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construtor com mensagem personalizada. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>Mensagem explicando o motivo do encerramento do jogo. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentação das funções</h2>
+<a id="a6cca37d51d4774d71445d4fd13aea4f1" name="a6cca37d51d4774d71445d4fd13aea4f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cca37d51d4774d71445d4fd13aea4f1">&#9670;&#160;</a></span>what()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * GameEndException::what </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retorna a mensagem de erro. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Mensagem C-style (const char*). </dd></dl>
+
+</div>
+</div>
 <hr/>A documentação para essa classe foi gerada a partir do seguinte arquivo:<ul>
 <li>include/fisica/<a class="el" href="fisica_8hpp_source.html">fisica.hpp</a></li>
 </ul>

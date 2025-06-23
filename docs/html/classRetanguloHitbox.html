@@ -76,17 +76,22 @@ $(function() {
   <div class="headertitle"><div class="title">Referência da Classe RetanguloHitbox</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Implementa uma hitbox retangular.  
+ <a href="classRetanguloHitbox.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="hitbox_8hpp_source.html">hitbox.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Diagrama de hierarquia da classe RetanguloHitbox:</div>
 <div class="dyncontent">
 <div class="center"><img src="classRetanguloHitbox__inherit__graph.png" border="0" usemap="#aRetanguloHitbox_inherit__map" alt="Inheritance graph"/></div>
 <map name="aRetanguloHitbox_inherit__map" id="aRetanguloHitbox_inherit__map">
-<area shape="rect" title=" " alt="" coords="18,79,149,104"/>
+<area shape="rect" title="Implementa uma hitbox retangular." alt="" coords="18,79,149,104"/>
 <area shape="rect" href="classPlayer.html" title="Classe que representa o jogador no jogo." alt="" coords="5,152,68,177"/>
 <area shape="poly" title=" " alt="" coords="70,117,46,153,42,150,66,114"/>
 <area shape="rect" href="classTelaJogo.html" title=" " alt="" coords="92,152,168,177"/>
 <area shape="poly" title=" " alt="" coords="101,114,125,150,120,153,96,117"/>
-<area shape="rect" href="classColidivel.html" title=" " alt="" coords="44,5,123,31"/>
+<area shape="rect" href="classColidivel.html" title="Interface para elementos colidíveis no jogo." alt="" coords="44,5,123,31"/>
 <area shape="poly" title=" " alt="" coords="86,44,86,79,81,79,81,44"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
@@ -95,43 +100,107 @@ Diagrama de colaboração para RetanguloHitbox:</div>
 <div class="dyncontent">
 <div class="center"><img src="classRetanguloHitbox__coll__graph.png" border="0" usemap="#aRetanguloHitbox_coll__map" alt="Collaboration graph"/></div>
 <map name="aRetanguloHitbox_coll__map" id="aRetanguloHitbox_coll__map">
-<area shape="rect" title=" " alt="" coords="37,93,167,119"/>
-<area shape="rect" href="classColidivel.html" title=" " alt="" coords="5,5,84,31"/>
+<area shape="rect" title="Implementa uma hitbox retangular." alt="" coords="37,93,167,119"/>
+<area shape="rect" href="classColidivel.html" title="Interface para elementos colidíveis no jogo." alt="" coords="5,5,84,31"/>
 <area shape="poly" title=" " alt="" coords="62,41,96,91,92,94,58,44"/>
-<area shape="rect" href="structcoordenadas.html" title=" " alt="" coords="108,5,213,31"/>
+<area shape="rect" href="structcoordenadas.html" title="Representa uma posição ou ponto no espaço bidimensional." alt="" coords="108,5,213,31"/>
 <area shape="poly" title=" " alt="" coords="147,44,112,94,108,91,143,41"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
-<tr class="memitem:afdaa91894c7effa4e3f87a71c5750894" id="r_afdaa91894c7effa4e3f87a71c5750894"><td class="memItemLeft" align="right" valign="top"><a id="afdaa91894c7effa4e3f87a71c5750894" name="afdaa91894c7effa4e3f87a71c5750894"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>RetanguloHitbox</b> (<a class="el" href="structcoordenadas.html">coordenadas</a> p1, float b, float a)</td></tr>
+<tr class="memitem:afdaa91894c7effa4e3f87a71c5750894" id="r_afdaa91894c7effa4e3f87a71c5750894"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRetanguloHitbox.html#afdaa91894c7effa4e3f87a71c5750894">RetanguloHitbox</a> (<a class="el" href="structcoordenadas.html">coordenadas</a> p1, float b, float a)</td></tr>
+<tr class="memdesc:afdaa91894c7effa4e3f87a71c5750894"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor que define a posição e dimensões do retângulo.  <br /></td></tr>
 <tr class="separator:afdaa91894c7effa4e3f87a71c5750894"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af03af1ab88b636dc46911557e745a0d8" id="r_af03af1ab88b636dc46911557e745a0d8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRetanguloHitbox.html#af03af1ab88b636dc46911557e745a0d8">noInterior</a> (const <a class="el" href="structcoordenadas.html">coordenadas</a> &amp;p) const override</td></tr>
+<tr class="memdesc:af03af1ab88b636dc46911557e745a0d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se um ponto está no interior da forma.  <br /></td></tr>
 <tr class="separator:af03af1ab88b636dc46911557e745a0d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab862ce81742fd945d979f01318cb3c03" id="r_ab862ce81742fd945d979f01318cb3c03"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRetanguloHitbox.html#ab862ce81742fd945d979f01318cb3c03">noPerimetro</a> (const <a class="el" href="structcoordenadas.html">coordenadas</a> &amp;p) const override</td></tr>
+<tr class="memdesc:ab862ce81742fd945d979f01318cb3c03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se um ponto está no perímetro da forma.  <br /></td></tr>
 <tr class="separator:ab862ce81742fd945d979f01318cb3c03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a681084b16cdbdbde14b355f5ac342572" id="r_a681084b16cdbdbde14b355f5ac342572"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="structcoordenadas.html">coordenadas</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRetanguloHitbox.html#a681084b16cdbdbde14b355f5ac342572">get_pontos</a> () const override</td></tr>
+<tr class="memdesc:a681084b16cdbdbde14b355f5ac342572"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna os pontos que definem a forma geométrica.  <br /></td></tr>
 <tr class="separator:a681084b16cdbdbde14b355f5ac342572"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classColidivel"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classColidivel')"><img src="closed.png" alt="-"/>&#160;Membros Públicos herdados de <a class="el" href="classColidivel.html">Colidivel</a></td></tr>
 <tr class="memitem:a014956b8261e186b2345108627e03566 inherit pub_methods_classColidivel" id="r_a014956b8261e186b2345108627e03566"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColidivel.html#a014956b8261e186b2345108627e03566">onCollision</a> ()=0</td></tr>
+<tr class="memdesc:a014956b8261e186b2345108627e03566 inherit pub_methods_classColidivel"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define o comportamento do objeto ao colidir.  <br /></td></tr>
 <tr class="separator:a014956b8261e186b2345108627e03566 inherit pub_methods_classColidivel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade420f4cdfba30e28136181d270afc0f inherit pub_methods_classColidivel" id="r_ade420f4cdfba30e28136181d270afc0f"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColidivel.html#ade420f4cdfba30e28136181d270afc0f">colisao</a> (<a class="el" href="structcoordenadas.html">coordenadas</a> p)=0</td></tr>
+<tr class="memdesc:ade420f4cdfba30e28136181d270afc0f inherit pub_methods_classColidivel"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se há colisão com um ponto específico.  <br /></td></tr>
 <tr class="separator:ade420f4cdfba30e28136181d270afc0f inherit pub_methods_classColidivel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Atributos Protegidos</h2></td></tr>
 <tr class="memitem:a37249aba7c67ffd33b70b87c9395b82c" id="r_a37249aba7c67ffd33b70b87c9395b82c"><td class="memItemLeft" align="right" valign="top"><a id="a37249aba7c67ffd33b70b87c9395b82c" name="a37249aba7c67ffd33b70b87c9395b82c"></a>
 <a class="el" href="structcoordenadas.html">coordenadas</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ponto_inferior_esquerdo</b></td></tr>
+<tr class="memdesc:a37249aba7c67ffd33b70b87c9395b82c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Canto inferior esquerdo do retângulo. <br /></td></tr>
 <tr class="separator:a37249aba7c67ffd33b70b87c9395b82c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af45d5da59f9d4db75f7b05484830fe4c" id="r_af45d5da59f9d4db75f7b05484830fe4c"><td class="memItemLeft" align="right" valign="top"><a id="af45d5da59f9d4db75f7b05484830fe4c" name="af45d5da59f9d4db75f7b05484830fe4c"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>base</b></td></tr>
+<tr class="memdesc:af45d5da59f9d4db75f7b05484830fe4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largura do retângulo. <br /></td></tr>
 <tr class="separator:af45d5da59f9d4db75f7b05484830fe4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51ae068aaee565f65b03e9c19a958352" id="r_a51ae068aaee565f65b03e9c19a958352"><td class="memItemLeft" align="right" valign="top"><a id="a51ae068aaee565f65b03e9c19a958352" name="a51ae068aaee565f65b03e9c19a958352"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>altura</b></td></tr>
+<tr class="memdesc:a51ae068aaee565f65b03e9c19a958352"><td class="mdescLeft">&#160;</td><td class="mdescRight">Altura do retângulo. <br /></td></tr>
 <tr class="separator:a51ae068aaee565f65b03e9c19a958352"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Implementa uma hitbox retangular. </p>
+<p>Baseada em um ponto inferior esquerdo, com altura e base definidas. </p>
+</div><h2 class="groupheader">Construtores e Destrutores</h2>
+<a id="afdaa91894c7effa4e3f87a71c5750894" name="afdaa91894c7effa4e3f87a71c5750894"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdaa91894c7effa4e3f87a71c5750894">&#9670;&#160;</a></span>RetanguloHitbox()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RetanguloHitbox::RetanguloHitbox </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcoordenadas.html">coordenadas</a>&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construtor que define a posição e dimensões do retângulo. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p1</td><td>Ponto inferior esquerdo. </td></tr>
+    <tr><td class="paramname">b</td><td>Largura (base). </td></tr>
+    <tr><td class="paramname">a</td><td>Altura. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Documentação das funções</h2>
 <a id="a681084b16cdbdbde14b355f5ac342572" name="a681084b16cdbdbde14b355f5ac342572"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a681084b16cdbdbde14b355f5ac342572">&#9670;&#160;</a></span>get_pontos()</h2>
@@ -156,7 +225,10 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>altura</b></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implementa <a class="el" href="classColidivel.html">Colidivel</a>.</p>
+<p>Retorna os pontos que definem a forma geométrica. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Vetor de coordenadas da forma. </dd></dl>
+
+<p>Implementa <a class="el" href="classColidivel.html#a6bd5a3950acd160e5d1424bc341a08f4">Colidivel</a>.</p>
 
 </div>
 </div>
@@ -184,7 +256,16 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>altura</b></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implementa <a class="el" href="classColidivel.html">Colidivel</a>.</p>
+<p>Verifica se um ponto está no interior da forma. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Coordenada a ser verificada. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se o ponto estiver dentro da hitbox. </dd></dl>
+
+<p>Implementa <a class="el" href="classColidivel.html#a475c127efcc2d4006f15015651d097d6">Colidivel</a>.</p>
 
 </div>
 </div>
@@ -212,7 +293,16 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>altura</b></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implementa <a class="el" href="classColidivel.html">Colidivel</a>.</p>
+<p>Verifica se um ponto está no perímetro da forma. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Coordenada a ser verificada. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se o ponto estiver no contorno da hitbox. </dd></dl>
+
+<p>Implementa <a class="el" href="classColidivel.html#a5959db60e5547736c11cbd722e10cf8b">Colidivel</a>.</p>
 
 </div>
 </div>

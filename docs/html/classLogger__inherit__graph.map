@@ -1,7 +1,7 @@
 <map id="Logger" name="Logger">
-<area shape="rect" id="Node000001" title=" " alt="" coords="75,5,142,31"/>
-<area shape="rect" id="Node000002" href="$classKeybinder.html" title=" " alt="" coords="5,79,92,104"/>
+<area shape="rect" id="Node000001" title="Classe base para gerenciamento de logs com persistência em banco de dados." alt="" coords="75,5,142,31"/>
+<area shape="rect" id="Node000002" href="$classKeybinder.html" title="Logger especializado para configuração de keybindings." alt="" coords="5,79,92,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,43,60,80,56,77,88,40"/>
-<area shape="rect" id="Node000003" href="$classPlayerLogger.html" title=" " alt="" coords="117,79,223,104"/>
+<area shape="rect" id="Node000003" href="$classPlayerLogger.html" title="Logger especializado para dados de jogadores." alt="" coords="117,79,223,104"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="130,40,162,77,158,80,126,43"/>
 </map>

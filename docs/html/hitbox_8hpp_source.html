@@ -93,69 +93,66 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classColidivel.html">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="classColidivel.html">Colidivel</a> {</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="classColidivel.html">~Colidivel</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> onCollision() = 0;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> colisao(<a class="code hl_struct" href="structcoordenadas.html">coordenadas</a> p) = 0;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> noInterior(<span class="keyword">const</span> <a class="code hl_struct" href="structcoordenadas.html">coordenadas</a> &amp;p) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> noPerimetro(<span class="keyword">const</span> <a class="code hl_struct" href="structcoordenadas.html">coordenadas</a> &amp;p) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">virtual</span> vector&lt;coordenadas&gt; get_pontos() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>};</div>
-</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="foldopen" id="foldopen00023" data-start="{" data-end="};">
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classRetanguloHitbox.html">   23</a></span><span class="keyword">class </span><a class="code hl_class" href="classRetanguloHitbox.html">RetanguloHitbox</a> : <span class="keyword">public</span> <a class="code hl_class" href="classColidivel.html">Colidivel</a> {</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  <span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_struct" href="structcoordenadas.html">coordenadas</a> ponto_inferior_esquerdo;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">float</span> base, altura;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_class" href="classRetanguloHitbox.html">RetanguloHitbox</a>(<a class="code hl_struct" href="structcoordenadas.html">coordenadas</a> p1, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> a)</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>      : ponto_inferior_esquerdo(p1)</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>      , base(b)</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>      , altura(a)</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    {</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    }</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">bool</span> noInterior(<span class="keyword">const</span> <a class="code hl_struct" href="structcoordenadas.html">coordenadas</a> &amp;p) <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">bool</span> noPerimetro(<span class="keyword">const</span> <a class="code hl_struct" href="structcoordenadas.html">coordenadas</a> &amp;p) <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    vector&lt;coordenadas&gt; get_pontos() <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>};</div>
-</div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classColidivel.html">   18</a></span><span class="keyword">class </span><a class="code hl_class" href="classColidivel.html">Colidivel</a> {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="classColidivel.html">~Colidivel</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classColidivel.html#a014956b8261e186b2345108627e03566">   25</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classColidivel.html#a014956b8261e186b2345108627e03566">onCollision</a>() = 0;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classColidivel.html#ade420f4cdfba30e28136181d270afc0f">   32</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classColidivel.html#ade420f4cdfba30e28136181d270afc0f">colisao</a>(<a class="code hl_struct" href="structcoordenadas.html">coordenadas</a> p) = 0;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classColidivel.html#a475c127efcc2d4006f15015651d097d6">   39</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classColidivel.html#a475c127efcc2d4006f15015651d097d6">noInterior</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structcoordenadas.html">coordenadas</a> &amp;p) <span class="keyword">const</span> = 0;</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">// class PoligonoHitbox:public Hitbox{</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">//   protected:</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">//     Poligono poligono;</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">//   public:</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">//     PoligonoHitbox(Poligono p):poligono(p){}</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">//     bool noInterior(coordenadas p);</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">//     bool noPerimetro(coordenadas p);</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">// };</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">//</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">// class CurvaHitbox:public Hitbox{</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">//   protected:</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">//     Curva circulo;</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">// public:</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">//     CurvaHitbox(Curva c):circulo(c){}</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">//     bool noInterior(coordenadas p);</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">//     bool noPerimetro(coordenadas p);</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">// };</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">//</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">// class FiguraHitbox: public Hitbox{</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">//     protected:</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">//         Figura figura;</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">//     public:</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">//          FiguraHitbox(Figura f):figura(f){}</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">//         virtual bool noInterior(coordenadas p) = 0;</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">//         virtual bool noPerimetro(coordenadas p) = 0;</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">// };</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#endif </span><span class="comment">// HITBOX_HPP</span></div>
-<div class="ttc" id="aclassColidivel_html"><div class="ttname"><a href="classColidivel.html">Colidivel</a></div><div class="ttdef"><b>Definição</b> hitbox.hpp:13</div></div>
-<div class="ttc" id="aclassRetanguloHitbox_html"><div class="ttname"><a href="classRetanguloHitbox.html">RetanguloHitbox</a></div><div class="ttdef"><b>Definição</b> hitbox.hpp:23</div></div>
-<div class="ttc" id="astructcoordenadas_html"><div class="ttname"><a href="structcoordenadas.html">coordenadas</a></div><div class="ttdef"><b>Definição</b> util.hpp:23</div></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classColidivel.html#a5959db60e5547736c11cbd722e10cf8b">   46</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classColidivel.html#a5959db60e5547736c11cbd722e10cf8b">noPerimetro</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structcoordenadas.html">coordenadas</a> &amp;p) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classColidivel.html#a6bd5a3950acd160e5d1424bc341a08f4">   52</a></span>    <span class="keyword">virtual</span> vector&lt;coordenadas&gt; <a class="code hl_function" href="classColidivel.html#a6bd5a3950acd160e5d1424bc341a08f4">get_pontos</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>};</div>
+</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="foldopen" id="foldopen00060" data-start="{" data-end="};">
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classRetanguloHitbox.html">   60</a></span><span class="keyword">class </span><a class="code hl_class" href="classRetanguloHitbox.html">RetanguloHitbox</a> : <span class="keyword">public</span> <a class="code hl_class" href="classColidivel.html">Colidivel</a> {</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classRetanguloHitbox.html#a37249aba7c67ffd33b70b87c9395b82c">   62</a></span>    <a class="code hl_struct" href="structcoordenadas.html">coordenadas</a> <a class="code hl_variable" href="classRetanguloHitbox.html#a37249aba7c67ffd33b70b87c9395b82c">ponto_inferior_esquerdo</a>; </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classRetanguloHitbox.html#af45d5da59f9d4db75f7b05484830fe4c">   63</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classRetanguloHitbox.html#af45d5da59f9d4db75f7b05484830fe4c">base</a>;   </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classRetanguloHitbox.html#a51ae068aaee565f65b03e9c19a958352">   64</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classRetanguloHitbox.html#a51ae068aaee565f65b03e9c19a958352">altura</a>; </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>  <span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00073" data-start="{" data-end="}">
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classRetanguloHitbox.html#afdaa91894c7effa4e3f87a71c5750894">   73</a></span>    <a class="code hl_function" href="classRetanguloHitbox.html#afdaa91894c7effa4e3f87a71c5750894">RetanguloHitbox</a>(<a class="code hl_struct" href="structcoordenadas.html">coordenadas</a> p1, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> a)</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>      : <a class="code hl_variable" href="classRetanguloHitbox.html#a37249aba7c67ffd33b70b87c9395b82c">ponto_inferior_esquerdo</a>(p1), <a class="code hl_variable" href="classRetanguloHitbox.html#af45d5da59f9d4db75f7b05484830fe4c">base</a>(b), <a class="code hl_variable" href="classRetanguloHitbox.html#a51ae068aaee565f65b03e9c19a958352">altura</a>(a)</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    }</div>
+</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classRetanguloHitbox.html#af03af1ab88b636dc46911557e745a0d8">noInterior</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structcoordenadas.html">coordenadas</a> &amp;p) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classRetanguloHitbox.html#ab862ce81742fd945d979f01318cb3c03">noPerimetro</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structcoordenadas.html">coordenadas</a> &amp;p) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    vector&lt;coordenadas&gt; <a class="code hl_function" href="classRetanguloHitbox.html#a681084b16cdbdbde14b355f5ac342572">get_pontos</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>};</div>
+</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">// Comentários futuros para as classes abaixo, se forem implementadas:</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">//</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">// class PoligonoHitbox: public Hitbox { ... }</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">// class CurvaHitbox: public Hitbox { ... }</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">// class FiguraHitbox: public Hitbox { ... }</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="preprocessor">#endif </span><span class="comment">// HITBOX_HPP</span></div>
+<div class="ttc" id="aclassColidivel_html"><div class="ttname"><a href="classColidivel.html">Colidivel</a></div><div class="ttdoc">Interface para elementos colidíveis no jogo.</div><div class="ttdef"><b>Definição</b> hitbox.hpp:18</div></div>
+<div class="ttc" id="aclassColidivel_html_a014956b8261e186b2345108627e03566"><div class="ttname"><a href="classColidivel.html#a014956b8261e186b2345108627e03566">Colidivel::onCollision</a></div><div class="ttdeci">virtual void onCollision()=0</div><div class="ttdoc">Define o comportamento do objeto ao colidir.</div></div>
+<div class="ttc" id="aclassColidivel_html_a475c127efcc2d4006f15015651d097d6"><div class="ttname"><a href="classColidivel.html#a475c127efcc2d4006f15015651d097d6">Colidivel::noInterior</a></div><div class="ttdeci">virtual bool noInterior(const coordenadas &amp;p) const =0</div><div class="ttdoc">Verifica se um ponto está no interior da forma.</div></div>
+<div class="ttc" id="aclassColidivel_html_a5959db60e5547736c11cbd722e10cf8b"><div class="ttname"><a href="classColidivel.html#a5959db60e5547736c11cbd722e10cf8b">Colidivel::noPerimetro</a></div><div class="ttdeci">virtual bool noPerimetro(const coordenadas &amp;p) const =0</div><div class="ttdoc">Verifica se um ponto está no perímetro da forma.</div></div>
+<div class="ttc" id="aclassColidivel_html_a6bd5a3950acd160e5d1424bc341a08f4"><div class="ttname"><a href="classColidivel.html#a6bd5a3950acd160e5d1424bc341a08f4">Colidivel::get_pontos</a></div><div class="ttdeci">virtual vector&lt; coordenadas &gt; get_pontos() const =0</div><div class="ttdoc">Retorna os pontos que definem a forma geométrica.</div></div>
+<div class="ttc" id="aclassColidivel_html_ade420f4cdfba30e28136181d270afc0f"><div class="ttname"><a href="classColidivel.html#ade420f4cdfba30e28136181d270afc0f">Colidivel::colisao</a></div><div class="ttdeci">virtual bool colisao(coordenadas p)=0</div><div class="ttdoc">Verifica se há colisão com um ponto específico.</div></div>
+<div class="ttc" id="aclassRetanguloHitbox_html"><div class="ttname"><a href="classRetanguloHitbox.html">RetanguloHitbox</a></div><div class="ttdoc">Implementa uma hitbox retangular.</div><div class="ttdef"><b>Definição</b> hitbox.hpp:60</div></div>
+<div class="ttc" id="aclassRetanguloHitbox_html_a37249aba7c67ffd33b70b87c9395b82c"><div class="ttname"><a href="classRetanguloHitbox.html#a37249aba7c67ffd33b70b87c9395b82c">RetanguloHitbox::ponto_inferior_esquerdo</a></div><div class="ttdeci">coordenadas ponto_inferior_esquerdo</div><div class="ttdoc">Canto inferior esquerdo do retângulo.</div><div class="ttdef"><b>Definição</b> hitbox.hpp:62</div></div>
+<div class="ttc" id="aclassRetanguloHitbox_html_a51ae068aaee565f65b03e9c19a958352"><div class="ttname"><a href="classRetanguloHitbox.html#a51ae068aaee565f65b03e9c19a958352">RetanguloHitbox::altura</a></div><div class="ttdeci">float altura</div><div class="ttdoc">Altura do retângulo.</div><div class="ttdef"><b>Definição</b> hitbox.hpp:64</div></div>
+<div class="ttc" id="aclassRetanguloHitbox_html_a681084b16cdbdbde14b355f5ac342572"><div class="ttname"><a href="classRetanguloHitbox.html#a681084b16cdbdbde14b355f5ac342572">RetanguloHitbox::get_pontos</a></div><div class="ttdeci">vector&lt; coordenadas &gt; get_pontos() const override</div><div class="ttdoc">Retorna os pontos que definem a forma geométrica.</div><div class="ttdef"><b>Definição</b> hitbox.cpp:34</div></div>
+<div class="ttc" id="aclassRetanguloHitbox_html_ab862ce81742fd945d979f01318cb3c03"><div class="ttname"><a href="classRetanguloHitbox.html#ab862ce81742fd945d979f01318cb3c03">RetanguloHitbox::noPerimetro</a></div><div class="ttdeci">bool noPerimetro(const coordenadas &amp;p) const override</div><div class="ttdoc">Verifica se um ponto está no perímetro da forma.</div><div class="ttdef"><b>Definição</b> hitbox.cpp:14</div></div>
+<div class="ttc" id="aclassRetanguloHitbox_html_af03af1ab88b636dc46911557e745a0d8"><div class="ttname"><a href="classRetanguloHitbox.html#af03af1ab88b636dc46911557e745a0d8">RetanguloHitbox::noInterior</a></div><div class="ttdeci">bool noInterior(const coordenadas &amp;p) const override</div><div class="ttdoc">Verifica se um ponto está no interior da forma.</div><div class="ttdef"><b>Definição</b> hitbox.cpp:7</div></div>
+<div class="ttc" id="aclassRetanguloHitbox_html_af45d5da59f9d4db75f7b05484830fe4c"><div class="ttname"><a href="classRetanguloHitbox.html#af45d5da59f9d4db75f7b05484830fe4c">RetanguloHitbox::base</a></div><div class="ttdeci">float base</div><div class="ttdoc">Largura do retângulo.</div><div class="ttdef"><b>Definição</b> hitbox.hpp:63</div></div>
+<div class="ttc" id="aclassRetanguloHitbox_html_afdaa91894c7effa4e3f87a71c5750894"><div class="ttname"><a href="classRetanguloHitbox.html#afdaa91894c7effa4e3f87a71c5750894">RetanguloHitbox::RetanguloHitbox</a></div><div class="ttdeci">RetanguloHitbox(coordenadas p1, float b, float a)</div><div class="ttdoc">Construtor que define a posição e dimensões do retângulo.</div><div class="ttdef"><b>Definição</b> hitbox.hpp:73</div></div>
+<div class="ttc" id="astructcoordenadas_html"><div class="ttname"><a href="structcoordenadas.html">coordenadas</a></div><div class="ttdoc">Representa uma posição ou ponto no espaço bidimensional.</div><div class="ttdef"><b>Definição</b> util.hpp:37</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
