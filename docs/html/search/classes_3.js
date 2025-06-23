@@ -1,19 +1,5 @@
 var searchData=
 [
-  ['callcount_0',['CallCount',['../structCallCount.html',1,'']]],
-  ['camadabackground_1',['CamadaBackground',['../classCamadaBackground.html',1,'']]],
-  ['cano_2',['Cano',['../classCano.html',1,'']]],
-  ['cano2_3',['Cano2',['../classCano2.html',1,'']]],
-  ['cellarray_4',['CellArray',['../structCellArray.html',1,'']]],
-  ['cellinfo_5',['CellInfo',['../structCellInfo.html',1,'']]],
-  ['circulo_6',['Circulo',['../classCirculo.html',1,'']]],
-  ['colidivel_7',['Colidivel',['../classColidivel.html',1,'']]],
-  ['collseq_8',['CollSeq',['../structCollSeq.html',1,'']]],
-  ['column_9',['Column',['../structColumn.html',1,'']]],
-  ['compareinfo_10',['compareInfo',['../structcompareInfo.html',1,'']]],
-  ['coordenadas_11',['coordenadas',['../structcoordenadas.html',1,'']]],
-  ['countctx_12',['CountCtx',['../structCountCtx.html',1,'']]],
-  ['coveringindexcheck_13',['CoveringIndexCheck',['../structCoveringIndexCheck.html',1,'']]],
-  ['cte_14',['Cte',['../structCte.html',1,'']]],
-  ['cteuse_15',['CteUse',['../structCteUse.html',1,'']]]
+  ['estado_0',['estado',['../structestado.html',1,'']]],
+  ['estadojogo_1',['EstadoJogo',['../classEstadoJogo.html',1,'']]]
 ];

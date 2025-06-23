@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['hasdb_0',['hasDb',['../classSQLDatabase.html#a45a2849b388fad83c682028d30e909d4',1,'SQLDatabase']]],
-  ['hash_1',['Hash',['../structHash.html',1,'']]],
-  ['hashelem_2',['HashElem',['../structHashElem.html',1,'']]],
-  ['hiddenindexinfo_3',['HiddenIndexInfo',['../structHiddenIndexInfo.html',1,'']]]
+  ['id_0',['id',['../structacao.html#a6e2ea2fd811e296d89951793b3448570',1,'acao']]],
+  ['implementados_1',['Extras implementados',['../md_README.html#autotoc_md4',1,'']]],
+  ['inexistente_2',['inexistente',['../classAcoes.html#a6b98ec1f3ad4c5cfd1d4f16cf09a3f45',1,'Acoes']]],
+  ['introdução_3',['Introdução',['../md_README.html#autotoc_md1',1,'']]]
 ];

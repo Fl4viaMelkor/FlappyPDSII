@@ -1,3 +1,7 @@
 <map id="Gráfico de Hierarquia de Classes" name="Gráfico de Hierarquia de Classes">
-<area shape="rect" id="Node000000" href="$classCamadaBackground.html" title=" " alt="" coords="5,5,159,31"/>
+<area shape="rect" id="Node000000" href="$classLogger.html" title="Classe base para gerenciamento de logs com persistência em banco de dados." alt="" coords="5,31,72,56"/>
+<area shape="rect" id="Node000001" href="$classKeybinder.html" title="Logger especializado para configuração de keybindings." alt="" coords="130,5,217,31"/>
+<area shape="poly" id="edge16_Node000000_Node000001" title=" " alt="" coords="85,32,129,24,130,29,86,37"/>
+<area shape="rect" id="Node000002" href="$classPlayerLogger.html" title="Logger especializado para dados de jogadores." alt="" coords="120,55,227,80"/>
+<area shape="poly" id="edge17_Node000000_Node000002" title=" " alt="" coords="86,49,120,55,120,61,85,54"/>
 </map>

@@ -1,12 +1,15 @@
 var searchData=
 [
-  ['base_0',['base',['../classRetanguloHitbox.html#af45d5da59f9d4db75f7b05484830fe4c',1,'RetanguloHitbox']]],
-  ['bitvec_1',['Bitvec',['../structBitvec.html',1,'']]],
-  ['btcursor_2',['BtCursor',['../structBtCursor.html',1,'']]],
-  ['btlock_3',['BtLock',['../structBtLock.html',1,'']]],
-  ['btree_4',['Btree',['../structBtree.html',1,'']]],
-  ['btreepayload_5',['BtreePayload',['../structBtreePayload.html',1,'']]],
-  ['btshared_6',['BtShared',['../structBtShared.html',1,'']]],
-  ['buscar_7',['buscar',['../classDatabase.html#a1021fb6715521ae34b357124dd5e868c',1,'Database::buscar()'],['../classSQLDatabase.html#a9be225ca7b74136612d7ef9588196606',1,'SQLDatabase::buscar()']]],
-  ['busyhandler_8',['BusyHandler',['../structBusyHandler.html',1,'']]]
+  ['camadabackground_0',['CamadaBackground',['../classCamadaBackground.html',1,'']]],
+  ['cano_1',['Cano',['../classCano.html',1,'']]],
+  ['cano2_2',['Cano2',['../classCano2.html',1,'']]],
+  ['carregar_3',['carregar',['../classLogger.html#adfe596869a168f2fa4d99c6dac88765b',1,'Logger::carregar()'],['../classDado__Jogador.html#aea7adfcd23eed0b401f715d729e337f5',1,'Dado_Jogador::carregar()'],['../classDado.html#a3c491865e9297c1aeda96d617ba1c831',1,'Dado::carregar()']]],
+  ['centro_4',['centro',['../classCirculo.html#ab6b15244ee9ea2d552499190d01de2e9',1,'Circulo']]],
+  ['circulo_5',['circulo',['../classCirculo.html',1,'Circulo'],['../classCirculo.html#ad80b456baa217812b71672457d9c7601',1,'Circulo::Circulo()']]],
+  ['colidivel_6',['Colidivel',['../classColidivel.html',1,'']]],
+  ['colisao_7',['colisao',['../classColidivel.html#ade420f4cdfba30e28136181d270afc0f',1,'Colidivel::colisao()'],['../classTelaJogo.html#a79b93cc3c9d060409c684eb5f8fe60a6',1,'TelaJogo::colisao()'],['../classPlayer.html#a60a87398ca319f6fa372a0c3add47750',1,'Player::colisao()']]],
+  ['colunas_5f_8',['colunas_',['../classSQLDatabase.html#aee3daca194ba7c04ec2a9bf085acd016',1,'SQLDatabase']]],
+  ['compilação_9',['Compilação',['../md_README.html#autotoc_md5',1,'']]],
+  ['contribuidores_10',['Contribuidores',['../md_README.html#autotoc_md6',1,'']]],
+  ['coordenadas_11',['coordenadas',['../structcoordenadas.html',1,'']]]
 ];

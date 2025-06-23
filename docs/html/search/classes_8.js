@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['hash_0',['Hash',['../structHash.html',1,'']]],
-  ['hashelem_1',['HashElem',['../structHashElem.html',1,'']]],
-  ['hiddenindexinfo_2',['HiddenIndexInfo',['../structHiddenIndexInfo.html',1,'']]]
+  ['logger_0',['Logger',['../classLogger.html',1,'']]]
 ];

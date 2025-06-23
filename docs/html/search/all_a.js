@@ -1,11 +1,6 @@
 var searchData=
 [
-  ['jogadorsqldatabase_0',['jogadorsqldatabase',['../classJogadorSQLDatabase.html',1,'JogadorSQLDatabase'],['../classJogadorSQLDatabase.html#a07932fc418abbc25e742120057b09413',1,'JogadorSQLDatabase::JogadorSQLDatabase()']]],
-  ['jsoncache_1',['JsonCache',['../structJsonCache.html',1,'']]],
-  ['jsoneachconnection_2',['JsonEachConnection',['../structJsonEachConnection.html',1,'']]],
-  ['jsoneachcursor_3',['JsonEachCursor',['../structJsonEachCursor.html',1,'']]],
-  ['jsonparent_4',['JsonParent',['../structJsonParent.html',1,'']]],
-  ['jsonparse_5',['JsonParse',['../structJsonParse.html',1,'']]],
-  ['jsonpretty_6',['JsonPretty',['../structJsonPretty.html',1,'']]],
-  ['jsonstring_7',['JsonString',['../structJsonString.html',1,'']]]
+  ['keybind_0',['Keybind',['../classKeybind.html',1,'']]],
+  ['keybinder_1',['keybinder',['../classKeybinder.html',1,'Keybinder'],['../classKeybinder.html#a5fb15b4038bba803306a803574a945d6',1,'Keybinder::Keybinder()']]],
+  ['kill_2',['Kill',['../classPlayer.html#a0c74d6bd430490417bb34e9abc233bb7',1,'Player']]]
 ];
