@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['table_0',['Table',['../structTable.html',1,'']]],
+  ['tablelock_1',['TableLock',['../structTableLock.html',1,'']]],
+  ['tabresult_2',['TabResult',['../structTabResult.html',1,'']]],
+  ['tela_5ffimdejogo_3',['tela_fimdejogo',['../classtela__fimdejogo.html',1,'']]],
+  ['telabase_4',['TelaBase',['../classTelaBase.html',1,'']]],
+  ['telacadastro_5',['TelaCadastro',['../classTelaCadastro.html',1,'']]],
+  ['telahighscores_6',['TelaHighScores',['../classTelaHighScores.html',1,'']]],
+  ['telainicial_7',['TelaInicial',['../classTelaInicial.html',1,'']]],
+  ['telajogo_8',['TelaJogo',['../classTelaJogo.html',1,'']]],
+  ['testcase_9',['TestCase',['../structdoctest_1_1detail_1_1TestCase.html',1,'doctest::detail']]],
+  ['testcasedata_10',['TestCaseData',['../structdoctest_1_1TestCaseData.html',1,'doctest']]],
+  ['testcaseexception_11',['TestCaseException',['../structdoctest_1_1TestCaseException.html',1,'doctest']]],
+  ['testfailureexception_12',['TestFailureException',['../structdoctest_1_1detail_1_1TestFailureException.html',1,'doctest::detail']]],
+  ['testrunstats_13',['TestRunStats',['../structdoctest_1_1TestRunStats.html',1,'doctest']]],
+  ['testsuite_14',['TestSuite',['../structdoctest_1_1detail_1_1TestSuite.html',1,'doctest::detail']]],
+  ['token_15',['Token',['../structToken.html',1,'']]],
+  ['trigevent_16',['TrigEvent',['../structTrigEvent.html',1,'']]],
+  ['trigger_17',['Trigger',['../structTrigger.html',1,'']]],
+  ['triggerprg_18',['TriggerPrg',['../structTriggerPrg.html',1,'']]],
+  ['triggerstep_19',['TriggerStep',['../structTriggerStep.html',1,'']]],
+  ['true_5ftype_20',['true_type',['../structdoctest_1_1detail_1_1types_1_1true__type.html',1,'doctest::detail::types']]],
+  ['tt_20player_20tt_21',['Classe &lt;tt&gt;Player&lt;/tt&gt;',['../md_README.html#autotoc_md1',1,'']]],
+  ['tt_20spriteanimado_20tt_22',['Classe &lt;tt&gt;SpriteAnimado&lt;/tt&gt;',['../md_README.html#autotoc_md6',1,'']]],
+  ['tuple_23',['tuple',['../classstd_1_1tuple.html',1,'std']]]
+];

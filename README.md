@@ -81,3 +81,52 @@
 
     - `~SpriteAnimado()`  
     Libera os recursos alocados pela imagem.
+
+
+
+    ## Classe: `Sprite`
+
+    Representa um sprite 2D com várias imagens (quadros), útil para animações.
+
+    #### Métodos Públicos
+
+    - `Sprite(std::string caminho, int largura, int altura, int espacamento = 0)`
+    - **Construtor**: Carrega uma imagem com múltiplos quadros.
+    - `caminho`: Caminho para o arquivo da imagem.
+    - `largura`: Largura de cada quadro.
+    - `altura`: Altura de cada quadro.
+    - `espacamento`: Espaçamento entre os quadros (opcional).
+
+    - `~Sprite()`
+    - **Destrutor**: Libera os recursos de imagem.
+
+    - `void desenhar(float x, float y, int indice = 0, bool flip = false) const`
+    - Desenha o quadro indicado no ponto (x, y).
+    - `indice`: Índice do quadro.
+    - `flip`: Se verdadeiro, espelha horizontalmente.
+
+    - `int get_num_quadros() const`
+    - Retorna o número total de quadros.
+
+    - `int get_largura() const`
+    - Retorna a largura de um quadro.
+
+    - `int get_altura() const`
+    - Retorna a altura de um quadro.
+
+    ---
+
+    ## `player_exception.hpp`
+
+    ### Classe: `PlayerException : public std::runtime_error`
+
+    Classe de exceção personalizada para erros relacionados ao `Player`.
+
+    #### Métodos Públicos
+
+    - `PlayerException(const std::string& mensagem)`
+    - Construtor que recebe uma mensagem de erro.
+
+    ---
+
+

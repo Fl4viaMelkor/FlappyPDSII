@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>FlappyBirdPDSII: FlappyPDSII</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">FlappyBirdPDSII
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">FlappyPDSII</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md0"></a></p>
+<ul>
+<li>Flávia </li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Classe &lt;tt&gt;Player&lt;/tt&gt;</h1>
+<p>Classe que representa o jogador do jogo.</p>
+<h2><a class="anchor" id="autotoc_md2"></a>
+Construtor</h2>
+<div class="fragment"><div class="line"><a class="code hl_class" href="classPlayer.html">Player</a>(<span class="keyword">const</span> std::string &amp;filename, <span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> speed, <span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height);</div>
+<div class="ttc" id="aclassPlayer_html"><div class="ttname"><a href="classPlayer.html">Player</a></div><div class="ttdef"><b>Definição</b> player.hpp:12</div></div>
+</div><!-- fragment --><ul>
+<li><code>filename</code>: caminho da imagem do sprite sheet do jogador.</li>
+<li><code>x</code>, <code>y</code>: posição inicial do jogador.</li>
+<li><code>speed</code>: velocidade horizontal/vertical.</li>
+<li><code>width</code>, <code>height</code>: dimensões da hitbox do jogador.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Atributos principais</h2>
+<ul>
+<li><code><a class="el" href="classSpriteAnimado.html">SpriteAnimado</a> sprite</code>: classe reponsável pela animação do jogador.</li>
+<li><code>velY</code>: velocidade vertical (afetada pela gravidade).</li>
+<li><code>gravidade</code>: força gravitacional que acelera o jogador para baixo.</li>
+<li><code>IsAlive</code>: booleano que determina se o jogador está vivo.</li>
+<li><code>lastJumpTime</code>: último momento em que o jogador pulou.</li>
+<li><code>jumpCooldown</code>: tempo de espera entre pulos.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Métodos</h2>
+<ul>
+<li><code>void update(const ALLEGRO_KEYBOARD_STATE &amp;key_state)</code> <br  />
+ Atualiza posição e física do jogador com base na gravidade e input do teclado.</li>
+<li><code>void draw()</code> <br  />
+ Desenha o frame atual da animação do jogador na tela.(Guarda a posição)</li>
+<li><code>void Kill()</code> <br  />
+ Seta o estado do jogador para morto, congelando ele.</li>
+<li><code>void onCollision()</code> <br  />
+ Mata o jogador e lança a exceção <code><a class="el" href="classPlayerException.html">PlayerException</a></code>.</li>
+<li><code>bool colisao(coordenadas p)</code> <br  />
+ Verifica se um ponto colide com a hitbox do jogador.</li>
+<li><code>bool getIsAlive() const</code> <br  />
+ Retorna se o jogador está vivo.</li>
+</ul>
+<hr  />
+<h1><a class="anchor" id="autotoc_md6"></a>
+Classe &lt;tt&gt;SpriteAnimado&lt;/tt&gt;</h1>
+<p>Classe responsável por controlar e desenhar uma animação 2D a partir de um spritesheet.</p>
+<h2><a class="anchor" id="autotoc_md7"></a>
+Construtor</h2>
+<div class="fragment"><div class="line"><a class="code hl_class" href="classSpriteAnimado.html">SpriteAnimado</a>(<span class="keyword">const</span> std::string&amp; filename, <span class="keywordtype">int</span> numFrames, <span class="keywordtype">int</span> frameLargura, <span class="keywordtype">int</span> frameAltura, <span class="keywordtype">float</span> fps);</div>
+<div class="ttc" id="aclassSpriteAnimado_html"><div class="ttname"><a href="classSpriteAnimado.html">SpriteAnimado</a></div><div class="ttdef"><b>Definição</b> sprite.hpp:13</div></div>
+</div><!-- fragment --><ul>
+<li><code>filename</code>: caminho para o sprite sheet.</li>
+<li><code>numFrames</code>: número total de quadros no sprite sheet.</li>
+<li><code>frameLargura</code>, <code>frameAltura</code>: dimensões de cada quadro da animação.</li>
+<li><code>fps</code>: quantos quadros por segundo a animação deve exibir.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md8"></a>
+Atributos principais</h2>
+<ul>
+<li><code>bitmap</code>: imagem carregada do sprite sheet.</li>
+<li><code>frameAtual</code>: índice do frame atual da animação.</li>
+<li><code>tempoAcumulado</code>: tempo acumulado para trocar de frame.</li>
+<li><code>tempoPorFrame</code>: tempo que cada frame deve durar.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md9"></a>
+Métodos</h2>
+<ul>
+<li><code>void update(float deltaTime)</code> <br  />
+ Atualiza o frame atual com base no tempo passado(Contador de FPS).</li>
+<li><code>void draw(const coordenadas&amp; pos) const</code> <br  />
+ Desenha o quadro atual na posição <code>pos</code>.</li>
+<li><code>~SpriteAnimado()</code> <br  />
+ Libera os recursos alocados pela imagem.</li>
+</ul>
+<pre class="fragment">## Classe: `Sprite`
+
+Representa um sprite 2D com várias imagens (quadros), útil para animações.
+
+#### Métodos Públicos
+
+- `Sprite(std::string caminho, int largura, int altura, int espacamento = 0)`
+- **Construtor**: Carrega uma imagem com múltiplos quadros.
+- `caminho`: Caminho para o arquivo da imagem.
+- `largura`: Largura de cada quadro.
+- `altura`: Altura de cada quadro.
+- `espacamento`: Espaçamento entre os quadros (opcional).
+
+- `~Sprite()`
+- **Destrutor**: Libera os recursos de imagem.
+
+- `void desenhar(float x, float y, int indice = 0, bool flip = false) const`
+- Desenha o quadro indicado no ponto (x, y).
+- `indice`: Índice do quadro.
+- `flip`: Se verdadeiro, espelha horizontalmente.
+
+- `int get_num_quadros() const`
+- Retorna o número total de quadros.
+
+- `int get_largura() const`
+- Retorna a largura de um quadro.
+
+- `int get_altura() const`
+- Retorna a altura de um quadro.
+
+---
+
+## `player_exception.hpp`
+
+### Classe: `PlayerException : public std::runtime_error`
+
+Classe de exceção personalizada para erros relacionados ao `Player`.
+
+#### Métodos Públicos
+
+- `PlayerException(const std::string&amp; mensagem)`
+- Construtor que recebe uma mensagem de erro.
+
+---
+</pre> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>
