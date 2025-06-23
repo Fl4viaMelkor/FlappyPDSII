@@ -1,0 +1,11 @@
+<map id="Forma_Geometrica_Fechada" name="Forma_Geometrica_Fechada">
+<area shape="rect" id="Node000001" title=" " alt="" coords="25,5,231,31"/>
+<area shape="rect" id="Node000002" href="$classCirculo.html" title=" " alt="" coords="5,79,72,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,41,55,81,52,76,101,37"/>
+<area shape="rect" id="Node000003" href="$classFigura.html" title=" " alt="" coords="97,79,159,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="131,44,131,79,125,79,125,44"/>
+<area shape="rect" id="Node000004" href="$classPoligono.html" title=" " alt="" coords="183,79,262,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="156,37,209,76,206,81,153,41"/>
+<area shape="rect" id="Node000005" href="$classRetangulo.html" title=" " alt="" coords="179,152,267,177"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="225,118,225,152,220,152,220,118"/>
+</map>

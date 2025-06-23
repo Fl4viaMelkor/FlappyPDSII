@@ -1,0 +1,19 @@
+<map id="unixInodeInfo" name="unixInodeInfo">
+<area shape="rect" id="Node000001" title=" " alt="" coords="150,95,261,121"/>
+<area shape="poly" id="edge11_Node000001_Node000001" title=" " alt="" coords="276,99,287,108,279,116,261,119,261,114,277,111,282,108,273,103"/>
+<area shape="rect" id="Node000005" href="$structunixShmNode.html" title=" " alt="" coords="42,185,155,211"/>
+<area shape="poly" id="edge6_Node000005_Node000001" title=" " alt="" coords="198,135,178,163,158,177,137,188,135,183,155,173,174,159,194,132"/>
+<area shape="rect" id="Node000002" href="$structunixFileId.html" title=" " alt="" coords="161,5,247,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,44,208,95,202,95,202,44"/>
+<area shape="rect" id="Node000003" href="$structsqlite3__mutex.html" title=" " alt="" coords="5,5,120,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="84,39,117,67,171,93,169,98,115,72,80,43"/>
+<area shape="poly" id="edge7_Node000005_Node000003" title=" " alt="" coords="59,45,54,82,57,122,73,156,91,184,87,187,68,159,52,123,48,82,53,44"/>
+<area shape="rect" id="Node000004" href="$structUnixUnusedFd.html" title=" " alt="" coords="271,5,388,31"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="304,41,223,97,220,93,300,36"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="403,9,415,18,406,26,388,28,388,23,404,21,409,18,400,14"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="91,172,92,158,98,145,121,125,148,114,150,119,123,130,102,148,97,159,97,172"/>
+<area shape="rect" id="Node000006" href="$structunixShm.html" title=" " alt="" coords="59,273,138,299"/>
+<area shape="poly" id="edge9_Node000006_Node000005" title=" " alt="" coords="59,219,44,233,42,240,44,248,55,261,70,271,67,276,51,265,39,251,36,240,39,230,55,215"/>
+<area shape="poly" id="edge8_Node000005_Node000006" title=" " alt="" coords="114,261,120,249,121,239,118,230,108,212,112,209,123,228,126,239,125,250,119,263"/>
+<area shape="poly" id="edge10_Node000006_Node000006" title=" " alt="" coords="152,277,161,280,165,286,156,294,139,297,138,291,154,290,159,286,158,284,151,282"/>
+</map>

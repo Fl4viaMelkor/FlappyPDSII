@@ -1,0 +1,11 @@
+<map id="MemFile" name="MemFile">
+<area shape="rect" id="Node000001" title=" " alt="" coords="109,181,187,207"/>
+<area shape="rect" id="Node000002" href="$structsqlite3__file.html" title=" " alt="" coords="44,93,137,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,129,142,179,138,182,104,132"/>
+<area shape="rect" id="Node000003" href="$structsqlite3__io__methods.html" title=" " alt="" coords="5,5,155,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="86,44,92,92,87,93,81,45"/>
+<area shape="rect" id="Node000004" href="$structMemStore.html" title=" " alt="" coords="182,93,271,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="209,131,161,183,157,179,205,127"/>
+<area shape="rect" id="Node000005" href="$structsqlite3__mutex.html" title=" " alt="" coords="179,5,293,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="236,45,231,93,225,93,231,44"/>
+</map>

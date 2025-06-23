@@ -1,0 +1,9 @@
+<map id="TelaJogo" name="TelaJogo">
+<area shape="rect" id="Node000001" title=" " alt="" coords="71,152,147,177"/>
+<area shape="rect" id="Node000002" href="$classTelaBase.html" title=" " alt="" coords="5,79,85,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="67,113,101,150,97,154,63,116"/>
+<area shape="rect" id="Node000003" href="$classRetanguloHitbox.html" title=" " alt="" coords="109,79,240,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="157,116,122,154,118,150,153,113"/>
+<area shape="rect" id="Node000004" href="$classColidivel.html" title=" " alt="" coords="135,5,214,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="177,44,177,79,172,79,172,44"/>
+</map>
