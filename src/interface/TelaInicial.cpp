@@ -8,11 +8,11 @@ TelaInicial::TelaInicial(int largura, int altura) :
     fonte_opcoes(nullptr),
     imagem_fundo(nullptr),
     animacao_spritesheet(nullptr),
-    opcao_selecionada_idx(0), 
     anim_frame_largura(0),
     anim_frame_atual(0),
     anim_contador_tempo(0.0f),
     anim_delay_frame(0.2f),
+    opcao_selecionada_idx(0),
     estado_escolhido(EstadoProximaTela::NENHUM),
     largura_tela(largura),
     altura_tela(altura) {
@@ -24,7 +24,7 @@ TelaInicial::TelaInicial(int largura, int altura) :
             throw std::runtime_error("Falha ao carregar o spritesheet da animacao do menu");
         }
 
-        anim_frame_largura = 24; 
+        anim_frame_largura = 24;
 
     } catch (const std::runtime_error& e) {
         std::cerr << "Erro em TelaInicial ao carregar animacao: " << e.what() << std::endl;
@@ -32,7 +32,7 @@ TelaInicial::TelaInicial(int largura, int altura) :
 
     // Carrega fontes
     try {
-        
+
         fonte_titulo = al_load_font("assets/fonts/joystix/joystixmonospace.otf", 64, 0);
         fonte_opcoes = al_load_font("assets/fonts/joystix/joystixmonospace.otf", 40, 0);
         if (!fonte_titulo || !fonte_opcoes) throw std::runtime_error("Falha ao carregar fontes para TelaInicial");
@@ -79,24 +79,24 @@ void TelaInicial::update() {
 }
 
 void TelaInicial::draw() {
-    al_clear_to_color(al_map_rgb(0, 0, 0)); 
-    
+    al_clear_to_color(al_map_rgb(0, 0, 0));
+
     float centro_x = largura_tela / 2.0f;
 
     // Título do Jogo
     al_draw_text(fonte_titulo, cor_titulo, centro_x, altura_tela * 0.15f, ALLEGRO_ALIGN_CENTER, "FLYING CHICKEN");
 
-   
+
 
     // Opções do Menu
     for (size_t i = 0; i < opcoes_menu.size(); ++i) {
         ALLEGRO_COLOR cor_atual = (static_cast<int>(i) == opcao_selecionada_idx) ? cor_opcao_selecionada : cor_opcao_normal;
-        float pos_y_opcao = altura_tela * 0.5f + (i * 60); 
-        
+        float pos_y_opcao = altura_tela * 0.5f + (i * 60);
+
         al_draw_text(fonte_opcoes, cor_atual, centro_x, pos_y_opcao, ALLEGRO_ALIGN_CENTER, opcoes_menu[i].c_str());
 
         if (static_cast<int>(i) == opcao_selecionada_idx) {
-            
+
 
             if (animacao_spritesheet) {
                 // Pega o frame certo para desenhar
