@@ -33,7 +33,7 @@ class Cano {
     
     
     
-    // Verifica se um retângulo do jogador colide com o cano
+    ///implementação da hitbox
     //bool colisao_com_jogador(float jogador_x, float jogador_y, float jogador_largura, float jogador_altura) const;
     
   private:

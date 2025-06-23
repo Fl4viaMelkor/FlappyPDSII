@@ -87,6 +87,28 @@ void Cano::reset_if_out_of_screen(float limite_esquerdo, float posicao_ultimo_ca
     }
 }
 
+//novo método
+/*
+bool Cano::colisao_com_jogador(float jogador_x, float jogador_y, float jogador_largura, float jogador_altura) const {
+    // Retângulo do jogador
+    float jogador_direita = jogador_x + jogador_largura;
+    float jogador_base = jogador_y + jogador_altura;
+
+    // Colisão com cano superior
+    bool colide_cano_superior = jogador_direita > m_x &&
+                                 jogador_x < m_x + m_largura &&
+                                 jogador_y < m_y_topo;
+
+    // Colisão com cano inferior
+    bool colide_cano_inferior = jogador_direita > m_x &&
+                                 jogador_x < m_x + m_largura &&
+                                 jogador_base > m_y_topo + m_espaco;
+
+    return colide_cano_superior || colide_cano_inferior;
+}
+*/
+
+//método antigo para comparação
 /* bool Cano::colisao_com_jogador(float jogador_x, float jogador_y, float jogador_largura, float jogador_altura) const
 {
 
