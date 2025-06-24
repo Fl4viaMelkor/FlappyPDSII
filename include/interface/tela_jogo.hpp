@@ -4,7 +4,7 @@
 #include "../objeto_cano.hpp"
 #include "../player.hpp"
 #include "../util.hpp"
-#include "./fisica/fisica.hpp"
+#include "../fisica/fisica.hpp"
 #include "parallax_background.hpp"
 #include "tela_base.hpp"
 #include <allegro5/allegro5.h>
@@ -38,11 +38,12 @@ class TelaJogo : public TelaBase, public RetanguloHitbox {
 
     //adicionando vector
     std::vector<Cano*> canos;  // substitui MySquare
-    
+
     //Cano *MySquare; *trocado pelo vector
 
     ALLEGRO_KEYBOARD_STATE keyState;
     ParallaxBackground *parallaxBg;
+    void initializeRandomBackgroud();
     bool end; // Possível controlador para fim da tela
 
     Detector_Colisao *detector;

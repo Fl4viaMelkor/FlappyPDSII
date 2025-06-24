@@ -6,7 +6,6 @@
 TelaInicial::TelaInicial(int largura, int altura) :
     fonte_titulo(nullptr),
     fonte_opcoes(nullptr),
-    imagem_fundo(nullptr),
     animacao_spritesheet(nullptr),
     anim_frame_largura(0),
     anim_frame_atual(0),
@@ -54,7 +53,6 @@ TelaInicial::TelaInicial(int largura, int altura) :
 TelaInicial::~TelaInicial() {
     if (fonte_titulo) al_destroy_font(fonte_titulo);
     if (fonte_opcoes) al_destroy_font(fonte_opcoes);
-    if (imagem_fundo) al_destroy_bitmap(imagem_fundo);
     if (animacao_spritesheet) al_destroy_bitmap(animacao_spritesheet);
 }
 
