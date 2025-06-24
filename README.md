@@ -66,6 +66,7 @@ Abra `docs/html/index.html` no navegador para consultar.
 ## Contribuidores
 
 * Flávia Silva ([Fl4viaMelkor](https://github.com/Fl4viaMelkor))
+* Vinícius Augusto ([swords-0](https://github.com/swords-0))
 * \[Demais nomes do grupo aqui]
 
 ## Licença
