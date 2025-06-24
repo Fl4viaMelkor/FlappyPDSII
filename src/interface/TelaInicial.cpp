@@ -6,7 +6,6 @@
 TelaInicial::TelaInicial(int largura, int altura) :
     fonte_titulo(nullptr),
     fonte_opcoes(nullptr),
-    imagem_fundo(nullptr),
     animacao_spritesheet(nullptr),
     anim_frame_largura(0),          
     anim_frame_atual(0),            
