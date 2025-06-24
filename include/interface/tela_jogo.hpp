@@ -8,6 +8,7 @@
 #include "parallax_background.hpp"
 #include "tela_base.hpp"
 #include <allegro5/allegro5.h>
+#include <allegro5/allegro_font.h>
 
 // Caso algum item ou coisa seja adicionado na tela de JOGO deve criar um ponteiro para esse objeto no PRIVATE
 
@@ -30,7 +31,14 @@
 //     bool acabouJogo() const;
 // };
 
-// Exemplo
+//
+
+enum class GameState{
+  PAUSED_FOR_START, // Pausado aguardando o input do jogador para começar
+  PLAYING, //Jogo em andamento
+  GAME_OVER
+};
+
 class TelaJogo : public TelaBase, public RetanguloHitbox {
   private:
     gravidade g{ 2, 3 };
@@ -47,6 +55,9 @@ class TelaJogo : public TelaBase, public RetanguloHitbox {
     bool end; // Possível controlador para fim da tela
 
     Detector_Colisao *detector;
+
+    GameState currentGameState;
+    ALLEGRO_FONT* font;
 
   public:
     TelaJogo();

@@ -16,7 +16,7 @@
 #include "../include/interface/TelaHighScore.hpp"
 #include "../include/dados/dados.hpp"
 #include "../include/dados/logger.hpp"
-#include "../include/dados/config.hpp" 
+#include "../include/dados/config.hpp"
 
 
 void initialize();
@@ -33,9 +33,9 @@ int main()
 
 al_set_window_title(display, "Flying Chicken");
 
-    
+
     //Ponteiro pra tela inicial
-TelaBase *tela_atual = new TelaInicial(LARGURA_NATIVA, ALTURA_NATIVA);
+TelaBase *tela_atual = new TelaInicial(LARGURA_JANELA, ALTURA_JANELA);
 
     ALLEGRO_EVENT event;
     bool rodando = true;
@@ -44,7 +44,7 @@ TelaBase *tela_atual = new TelaInicial(LARGURA_NATIVA, ALTURA_NATIVA);
     al_start_timer(timer);
 
 PlayerLogger logger;
-    
+
     //loop principal
     while (rodando) {
         al_wait_for_event(queue, &event);
@@ -67,7 +67,7 @@ PlayerLogger logger;
             if (tela_atual) {
                 tela_atual->update();
             }
-            
+
             // Lógica de transição
             if (tela_atual) {
                 EstadoProximaTela proxima = tela_atual->getProximaTelaEstado();
@@ -103,7 +103,7 @@ PlayerLogger logger;
             tela_atual = new TelaCadastro(pontuacao, logger, LARGURA_NATIVA, ALTURA_NATIVA);
         }
     }*/
-            
+
             redesenhar = true;
         }
 //desenho
@@ -118,7 +118,7 @@ PlayerLogger logger;
     }
 
     // --- LIMPEZA FINAL ---
-    delete tela_atual; 
+    delete tela_atual;
     cleanup();
     return 0;
 }
@@ -129,8 +129,8 @@ void initialize()
     al_install_keyboard();
     al_init_primitives_addon();
     al_init_image_addon();
-    al_init_font_addon();   
-    al_init_ttf_addon();   
+    al_init_font_addon();
+    al_init_ttf_addon();
 
     display = al_create_display(LARGURA_JANELA, ALTURA_JANELA);
     queue = al_create_event_queue();
@@ -145,13 +145,13 @@ void cleanup()
 {
 
     al_shutdown_image_addon();
-    al_shutdown_font_addon(); 
+    al_shutdown_font_addon();
     al_shutdown_primitives_addon();
     al_destroy_display(display);
     al_destroy_event_queue(queue);
     al_destroy_timer(timer);
-    al_uninstall_keyboard(); 
-    al_uninstall_system();  
+    al_uninstall_keyboard();
+    al_uninstall_system();
 }
 
 /*
