@@ -99,22 +99,20 @@ Diagrama de colaboração para Logger:</div>
 <div class="dyncontent">
 <div class="center"><img src="classLogger__coll__graph.png" border="0" usemap="#aLogger_coll__map" alt="Collaboration graph"/></div>
 <map name="aLogger_coll__map" id="aLogger_coll__map">
-<area shape="rect" title="Classe base para gerenciamento de logs com persistência em banco de dados." alt="" coords="61,93,127,119"/>
+<area shape="rect" title="Classe base para gerenciamento de logs com persistência em banco de dados." alt="" coords="14,93,81,119"/>
 <area shape="rect" href="classDatabase.html" title="Interface genérica para bancos de dados de objetos." alt="" coords="5,5,89,31"/>
-<area shape="poly" title=" " alt="" coords="62,41,90,92,85,94,58,44"/>
-<area shape="rect" href="classDado.html" title="Classe abstrata que define a interface para dados que podem ser carregados e exportados." alt="" coords="114,5,170,31"/>
-<area shape="poly" title=" " alt="" coords="131,44,103,94,98,91,127,41"/>
+<area shape="poly" title=" " alt="" coords="50,45,50,93,45,93,45,45"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
-<tr class="memitem:adfe596869a168f2fa4d99c6dac88765b" id="r_adfe596869a168f2fa4d99c6dac88765b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#adfe596869a168f2fa4d99c6dac88765b">carregar</a> (const string &amp;id)</td></tr>
-<tr class="memdesc:adfe596869a168f2fa4d99c6dac88765b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carrega os dados de uma entidade com base no identificador.  <br /></td></tr>
-<tr class="separator:adfe596869a168f2fa4d99c6dac88765b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95e49eac82d1354ef0cbb0ac8acbb48d" id="r_a95e49eac82d1354ef0cbb0ac8acbb48d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a95e49eac82d1354ef0cbb0ac8acbb48d">salvar</a> () const</td></tr>
-<tr class="memdesc:a95e49eac82d1354ef0cbb0ac8acbb48d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Salva os dados atuais no banco.  <br /></td></tr>
-<tr class="separator:a95e49eac82d1354ef0cbb0ac8acbb48d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfcec721afcc3432c50dc368e0276eea" id="r_acfcec721afcc3432c50dc368e0276eea"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#acfcec721afcc3432c50dc368e0276eea">carregar</a> (const string &amp;id)=0</td></tr>
+<tr class="memdesc:acfcec721afcc3432c50dc368e0276eea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carrega os dados de uma entidade com base no identificador.  <br /></td></tr>
+<tr class="separator:acfcec721afcc3432c50dc368e0276eea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42abdcb3bb6871ccf82a5a6e4260b2c8" id="r_a42abdcb3bb6871ccf82a5a6e4260b2c8"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a42abdcb3bb6871ccf82a5a6e4260b2c8">salvar</a> () const =0</td></tr>
+<tr class="memdesc:a42abdcb3bb6871ccf82a5a6e4260b2c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Salva os dados atuais no banco.  <br /></td></tr>
+<tr class="separator:a42abdcb3bb6871ccf82a5a6e4260b2c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3573b7eb2f743819a25c088aa186a97" id="r_af3573b7eb2f743819a25c088aa186a97"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#af3573b7eb2f743819a25c088aa186a97">deletar</a> (string id) const</td></tr>
 <tr class="memdesc:af3573b7eb2f743819a25c088aa186a97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleta os dados associados ao identificador informado.  <br /></td></tr>
 <tr class="separator:af3573b7eb2f743819a25c088aa186a97"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -141,10 +139,6 @@ Atributos Protegidos</h2></td></tr>
 <a class="el" href="classDatabase.html">Database</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>db_</b> = nullptr</td></tr>
 <tr class="memdesc:ab27c997a7508301c5ef912865d1355f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ponteiro para o banco de dados utilizado. <br /></td></tr>
 <tr class="separator:ab27c997a7508301c5ef912865d1355f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93f43bfdadaef0636ac63e02a14f4bff" id="r_a93f43bfdadaef0636ac63e02a14f4bff"><td class="memItemLeft" align="right" valign="top"><a id="a93f43bfdadaef0636ac63e02a14f4bff" name="a93f43bfdadaef0636ac63e02a14f4bff"></a>
-<a class="el" href="classDado.html">Dado</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>atual_</b> = nullptr</td></tr>
-<tr class="memdesc:a93f43bfdadaef0636ac63e02a14f4bff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instância do dado atual que está sendo manipulado. <br /></td></tr>
-<tr class="separator:a93f43bfdadaef0636ac63e02a14f4bff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
 <div class="textblock"><p>Classe base para gerenciamento de logs com persistência em banco de dados. </p>
@@ -185,20 +179,28 @@ Atributos Protegidos</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Documentação das funções</h2>
-<a id="adfe596869a168f2fa4d99c6dac88765b" name="adfe596869a168f2fa4d99c6dac88765b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adfe596869a168f2fa4d99c6dac88765b">&#9670;&#160;</a></span>carregar()</h2>
+<a id="acfcec721afcc3432c50dc368e0276eea" name="acfcec721afcc3432c50dc368e0276eea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfcec721afcc3432c50dc368e0276eea">&#9670;&#160;</a></span>carregar()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Logger::carregar </td>
+          <td class="memname">virtual bool Logger::carregar </td>
           <td>(</td>
           <td class="paramtype">const string &amp;&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Carrega os dados de uma entidade com base no identificador. </p>
@@ -209,6 +211,8 @@ Atributos Protegidos</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>true se o carregamento foi bem-sucedido. </dd></dl>
+
+<p>Implementado por <a class="el" href="classPlayerLogger.html#abf6939e6e83f9fe122244a2dc6601544">PlayerLogger</a>.</p>
 
 </div>
 </div>
@@ -322,8 +326,8 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
-<a id="a95e49eac82d1354ef0cbb0ac8acbb48d" name="a95e49eac82d1354ef0cbb0ac8acbb48d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a95e49eac82d1354ef0cbb0ac8acbb48d">&#9670;&#160;</a></span>salvar()</h2>
+<a id="a42abdcb3bb6871ccf82a5a6e4260b2c8" name="a42abdcb3bb6871ccf82a5a6e4260b2c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42abdcb3bb6871ccf82a5a6e4260b2c8">&#9670;&#160;</a></span>salvar()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -332,7 +336,7 @@ Atributos Protegidos</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Logger::salvar </td>
+          <td class="memname">virtual bool Logger::salvar </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -340,13 +344,15 @@ Atributos Protegidos</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Salva os dados atuais no banco. </p>
 <dl class="section return"><dt>Retorna</dt><dd>true se a operação foi bem-sucedida. </dd></dl>
+
+<p>Implementado por <a class="el" href="classPlayerLogger.html#a71755dd82de98e5d6f83383c7dd2915d">PlayerLogger</a>.</p>
 
 </div>
 </div>

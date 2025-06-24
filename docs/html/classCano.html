@@ -87,8 +87,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> () const</td
 <tr class="memitem:a2e57763ed91c950574163e8b8595a42d" id="r_a2e57763ed91c950574163e8b8595a42d"><td class="memItemLeft" align="right" valign="top"><a id="a2e57763ed91c950574163e8b8595a42d" name="a2e57763ed91c950574163e8b8595a42d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>move</b> (float dx)</td></tr>
 <tr class="separator:a2e57763ed91c950574163e8b8595a42d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27bd14341da22f63c03673548f59fab6" id="r_a27bd14341da22f63c03673548f59fab6"><td class="memItemLeft" align="right" valign="top"><a id="a27bd14341da22f63c03673548f59fab6" name="a27bd14341da22f63c03673548f59fab6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>reset_if_out_of_screen</b> (float limite_esquerdo, float posicao_ultimo_cano, float espacamento, float altura_tela)</td></tr>
+<tr class="memitem:a27bd14341da22f63c03673548f59fab6" id="r_a27bd14341da22f63c03673548f59fab6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCano.html#a27bd14341da22f63c03673548f59fab6">reset_if_out_of_screen</a> (float limite_esquerdo, float posicao_ultimo_cano, float espacamento, float altura_tela)</td></tr>
+<tr class="memdesc:a27bd14341da22f63c03673548f59fab6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reposiciona o cano se ele sair completamente da tela pela esquerda.  <br /></td></tr>
 <tr class="separator:a27bd14341da22f63c03673548f59fab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67a0b0510ae8b70771089f8a0064fbb0" id="r_a67a0b0510ae8b70771089f8a0064fbb0"><td class="memItemLeft" align="right" valign="top"><a id="a67a0b0510ae8b70771089f8a0064fbb0" name="a67a0b0510ae8b70771089f8a0064fbb0"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>getX</b> () const</td></tr>
@@ -97,6 +97,50 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>getX</b> () const</t
 float&#160;</td><td class="memItemRight" valign="bottom"><b>getLargura</b> () const</td></tr>
 <tr class="separator:ad22db4a1511a3bbd3b467b9639e794a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Documentação das funções</h2>
+<a id="a27bd14341da22f63c03673548f59fab6" name="a27bd14341da22f63c03673548f59fab6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27bd14341da22f63c03673548f59fab6">&#9670;&#160;</a></span>reset_if_out_of_screen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Cano::reset_if_out_of_screen </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>limite_esquerdo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>posicao_ultimo_cano</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>espacamento</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>altura_tela</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reposiciona o cano se ele sair completamente da tela pela esquerda. </p>
+<p>Este método verifica se o cano ultrapassou o limite esquerdo da tela (ou seja, saiu completamente da área visível). Se isso acontecer, ele reposiciona o cano para a direita da tela com base na posição de um cano anterior e aplica uma nova altura aleatória. </p>
+
+</div>
+</div>
 <hr/>A documentação para essa classe foi gerada a partir dos seguintes arquivos:<ul>
 <li>include/<a class="el" href="objeto__cano_8hpp_source.html">objeto_cano.hpp</a></li>
 <li>src/<b>objeto_cano.cpp</b></li>

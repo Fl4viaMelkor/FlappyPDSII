@@ -75,25 +75,201 @@ $(function() {
   <div class="headertitle"><div class="title">Referência da Classe SpriteAnimado</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe responsável por animar sprites usando uma sprite sheet.  
+ <a href="classSpriteAnimado.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="sprite_8hpp_source.html">sprite.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
-<tr class="memitem:a7cc9968a444d444b2458343711bb1988" id="r_a7cc9968a444d444b2458343711bb1988"><td class="memItemLeft" align="right" valign="top"><a id="a7cc9968a444d444b2458343711bb1988" name="a7cc9968a444d444b2458343711bb1988"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SpriteAnimado</b> (const std::string &amp;filename, int numFrames, int frameLargura, int frameAltura, float fps)</td></tr>
+<tr class="memitem:a7cc9968a444d444b2458343711bb1988" id="r_a7cc9968a444d444b2458343711bb1988"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpriteAnimado.html#a7cc9968a444d444b2458343711bb1988">SpriteAnimado</a> (const std::string &amp;filename, int numFrames, int frameLargura, int frameAltura, float fps)</td></tr>
+<tr class="memdesc:a7cc9968a444d444b2458343711bb1988"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da animação.  <br /></td></tr>
 <tr class="separator:a7cc9968a444d444b2458343711bb1988"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e2f6fe74a9915fd9f750a650c26ff00" id="r_a9e2f6fe74a9915fd9f750a650c26ff00"><td class="memItemLeft" align="right" valign="top"><a id="a9e2f6fe74a9915fd9f750a650c26ff00" name="a9e2f6fe74a9915fd9f750a650c26ff00"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (float deltaTime)</td></tr>
+<tr class="memitem:a5f5ddb8d4339dad7a121113c45583b65" id="r_a5f5ddb8d4339dad7a121113c45583b65"><td class="memItemLeft" align="right" valign="top"><a id="a5f5ddb8d4339dad7a121113c45583b65" name="a5f5ddb8d4339dad7a121113c45583b65"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~SpriteAnimado</b> ()</td></tr>
+<tr class="memdesc:a5f5ddb8d4339dad7a121113c45583b65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor que libera a memória da imagem carregada. <br /></td></tr>
+<tr class="separator:a5f5ddb8d4339dad7a121113c45583b65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e2f6fe74a9915fd9f750a650c26ff00" id="r_a9e2f6fe74a9915fd9f750a650c26ff00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpriteAnimado.html#a9e2f6fe74a9915fd9f750a650c26ff00">update</a> (float deltaTime)</td></tr>
+<tr class="memdesc:a9e2f6fe74a9915fd9f750a650c26ff00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza a animação com base no tempo decorrido.  <br /></td></tr>
 <tr class="separator:a9e2f6fe74a9915fd9f750a650c26ff00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ef9b226e5a15eff399c3b16c7d3a1a3" id="r_a1ef9b226e5a15eff399c3b16c7d3a1a3"><td class="memItemLeft" align="right" valign="top"><a id="a1ef9b226e5a15eff399c3b16c7d3a1a3" name="a1ef9b226e5a15eff399c3b16c7d3a1a3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> (const <a class="el" href="structcoordenadas.html">coordenadas</a> &amp;pos, bool flip_vertical=false) const</td></tr>
+<tr class="memitem:a1ef9b226e5a15eff399c3b16c7d3a1a3" id="r_a1ef9b226e5a15eff399c3b16c7d3a1a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpriteAnimado.html#a1ef9b226e5a15eff399c3b16c7d3a1a3">draw</a> (const <a class="el" href="structcoordenadas.html">coordenadas</a> &amp;pos, bool flip_vertical=false) const</td></tr>
+<tr class="memdesc:a1ef9b226e5a15eff399c3b16c7d3a1a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desenha o quadro atual da animação na posição indicada.  <br /></td></tr>
 <tr class="separator:a1ef9b226e5a15eff399c3b16c7d3a1a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8146be650a2ceceb8bba99e89e1c0ff3" id="r_a8146be650a2ceceb8bba99e89e1c0ff3"><td class="memItemLeft" align="right" valign="top"><a id="a8146be650a2ceceb8bba99e89e1c0ff3" name="a8146be650a2ceceb8bba99e89e1c0ff3"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getWidth</b> () const</td></tr>
+<tr class="memitem:a8146be650a2ceceb8bba99e89e1c0ff3" id="r_a8146be650a2ceceb8bba99e89e1c0ff3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpriteAnimado.html#a8146be650a2ceceb8bba99e89e1c0ff3">getWidth</a> () const</td></tr>
+<tr class="memdesc:a8146be650a2ceceb8bba99e89e1c0ff3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna a largura de um quadro individual.  <br /></td></tr>
 <tr class="separator:a8146be650a2ceceb8bba99e89e1c0ff3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ed48adead7f193b1fac925cb526d613" id="r_a1ed48adead7f193b1fac925cb526d613"><td class="memItemLeft" align="right" valign="top"><a id="a1ed48adead7f193b1fac925cb526d613" name="a1ed48adead7f193b1fac925cb526d613"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getHeight</b> () const</td></tr>
+<tr class="memitem:a1ed48adead7f193b1fac925cb526d613" id="r_a1ed48adead7f193b1fac925cb526d613"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpriteAnimado.html#a1ed48adead7f193b1fac925cb526d613">getHeight</a> () const</td></tr>
+<tr class="memdesc:a1ed48adead7f193b1fac925cb526d613"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna a altura de um quadro individual.  <br /></td></tr>
 <tr class="separator:a1ed48adead7f193b1fac925cb526d613"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Classe responsável por animar sprites usando uma sprite sheet. </p>
+<p>Esta classe gerencia a exibição de sprites animados, manipulando os quadros (frames) individuais de uma imagem que contém múltiplos quadros em sequência. Ideal para animações simples de personagens ou objetos.</p>
+<p>A imagem é dividida em <code>numFrames</code> de tamanho igual, com <code>frameLargura</code> x <code>frameAltura</code>, e a animação é exibida a uma taxa de quadros definida por <code>fps</code>. </p>
+</div><h2 class="groupheader">Construtores e Destrutores</h2>
+<a id="a7cc9968a444d444b2458343711bb1988" name="a7cc9968a444d444b2458343711bb1988"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cc9968a444d444b2458343711bb1988">&#9670;&#160;</a></span>SpriteAnimado()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SpriteAnimado::SpriteAnimado </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numFrames</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>frameLargura</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>frameAltura</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>fps</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construtor da animação. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Caminho do arquivo da sprite sheet. </td></tr>
+    <tr><td class="paramname">numFrames</td><td>Número total de quadros. </td></tr>
+    <tr><td class="paramname">frameLargura</td><td>Largura de cada quadro individual. </td></tr>
+    <tr><td class="paramname">frameAltura</td><td>Altura de cada quadro individual. </td></tr>
+    <tr><td class="paramname">fps</td><td>Quadros por segundo da animação. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentação das funções</h2>
+<a id="a1ef9b226e5a15eff399c3b16c7d3a1a3" name="a1ef9b226e5a15eff399c3b16c7d3a1a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ef9b226e5a15eff399c3b16c7d3a1a3">&#9670;&#160;</a></span>draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SpriteAnimado::draw </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structcoordenadas.html">coordenadas</a> &amp;&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>flip_vertical</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Desenha o quadro atual da animação na posição indicada. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td>Posição na tela onde o sprite será desenhado. </td></tr>
+    <tr><td class="paramname">flip_vertical</td><td>Se verdadeiro, espelha o sprite verticalmente. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1ed48adead7f193b1fac925cb526d613" name="a1ed48adead7f193b1fac925cb526d613"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ed48adead7f193b1fac925cb526d613">&#9670;&#160;</a></span>getHeight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SpriteAnimado::getHeight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna a altura de um quadro individual. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Altura do quadro. </dd></dl>
+
+</div>
+</div>
+<a id="a8146be650a2ceceb8bba99e89e1c0ff3" name="a8146be650a2ceceb8bba99e89e1c0ff3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8146be650a2ceceb8bba99e89e1c0ff3">&#9670;&#160;</a></span>getWidth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SpriteAnimado::getWidth </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna a largura de um quadro individual. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Largura do quadro. </dd></dl>
+
+</div>
+</div>
+<a id="a9e2f6fe74a9915fd9f750a650c26ff00" name="a9e2f6fe74a9915fd9f750a650c26ff00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e2f6fe74a9915fd9f750a650c26ff00">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SpriteAnimado::update </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Atualiza a animação com base no tempo decorrido. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">deltaTime</td><td>Tempo decorrido desde a última atualização (em segundos). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>A documentação para essa classe foi gerada a partir dos seguintes arquivos:<ul>
 <li>include/<a class="el" href="sprite_8hpp_source.html">sprite.hpp</a></li>
 <li>src/<b>sprite.cpp</b></li>

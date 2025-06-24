@@ -3,7 +3,7 @@ var searchData=
   ['camadabackground_0',['CamadaBackground',['../classCamadaBackground.html',1,'']]],
   ['cano_1',['Cano',['../classCano.html',1,'']]],
   ['cano2_2',['Cano2',['../classCano2.html',1,'']]],
-  ['carregar_3',['carregar',['../classLogger.html#adfe596869a168f2fa4d99c6dac88765b',1,'Logger::carregar()'],['../classDado__Jogador.html#aea7adfcd23eed0b401f715d729e337f5',1,'Dado_Jogador::carregar()'],['../classDado.html#a3c491865e9297c1aeda96d617ba1c831',1,'Dado::carregar()']]],
+  ['carregar_3',['carregar',['../classPlayerLogger.html#abf6939e6e83f9fe122244a2dc6601544',1,'PlayerLogger::carregar()'],['../classLogger.html#acfcec721afcc3432c50dc368e0276eea',1,'Logger::carregar()'],['../classDado__Jogador.html#aea7adfcd23eed0b401f715d729e337f5',1,'Dado_Jogador::carregar()'],['../classDado.html#a3c491865e9297c1aeda96d617ba1c831',1,'Dado::carregar()']]],
   ['centro_4',['centro',['../classCirculo.html#ab6b15244ee9ea2d552499190d01de2e9',1,'Circulo']]],
   ['circulo_5',['circulo',['../classCirculo.html',1,'Circulo'],['../classCirculo.html#ad80b456baa217812b71672457d9c7601',1,'Circulo::Circulo()']]],
   ['colidivel_6',['Colidivel',['../classColidivel.html',1,'']]],

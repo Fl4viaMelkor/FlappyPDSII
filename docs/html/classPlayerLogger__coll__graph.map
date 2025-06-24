@@ -1,9 +1,7 @@
 <map id="PlayerLogger" name="PlayerLogger">
-<area shape="rect" id="Node000001" title="Logger especializado para dados de jogadores." alt="" coords="41,168,147,193"/>
-<area shape="rect" id="Node000002" href="$classLogger.html" title="Classe base para gerenciamento de logs com persistência em banco de dados." alt="" coords="61,93,127,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,133,97,168,91,168,91,133"/>
-<area shape="rect" id="Node000003" href="$classDatabase.html" title="Interface genérica para bancos de dados de objetos." alt="" coords="5,5,89,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="62,41,90,92,85,94,58,44"/>
-<area shape="rect" id="Node000004" href="$classDado.html" title="Classe abstrata que define a interface para dados que podem ser carregados e exportados." alt="" coords="114,5,170,31"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="131,44,103,94,98,91,127,41"/>
+<area shape="rect" id="Node000001" title="Logger especializado para dados de jogadores." alt="" coords="5,168,112,193"/>
+<area shape="rect" id="Node000002" href="$classLogger.html" title="Classe base para gerenciamento de logs com persistência em banco de dados." alt="" coords="25,93,92,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="61,133,61,168,56,168,56,133"/>
+<area shape="rect" id="Node000003" href="$classDatabase.html" title="Interface genérica para bancos de dados de objetos." alt="" coords="17,5,101,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="61,45,61,93,56,93,56,45"/>
 </map>

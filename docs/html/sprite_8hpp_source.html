@@ -81,52 +81,47 @@ $(document).ready(function() { init_codefold(0); });
   <div class="headertitle"><div class="title">sprite.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef SPRITE_ANIMADO_HPP</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define SPRITE_ANIMADO_HPP</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;allegro5/allegro5.h&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;util.hpp&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// Created by Flávia</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">// No construtor, basta dizer o número de frames da sprite sheet como um todo,</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">// além da altura, largura de UM único frame e quantos frames por segundo deseja que a animação tenha.</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classSpriteAnimado.html">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="classSpriteAnimado.html">SpriteAnimado</a> {</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    ALLEGRO_BITMAP* bitmap;     <span class="comment">// Bitmap contendo a sprite sheet</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">int</span> frameLargura;           <span class="comment">// Largura de um frame individual</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">int</span> frameAltura;            <span class="comment">// Altura de um frame individual</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">int</span> numFrames;              <span class="comment">// Número total de quadros (frames) da animação</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">int</span> frameAtual;             <span class="comment">// Frame atual da animação</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">float</span> tempoPorFrame;        <span class="comment">// Tempo que cada frame deve durar (em segundos)</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">float</span> tempoAcumulado;       <span class="comment">// Tempo acumulado para decidir quando trocar de frame</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="comment">// Construtor: inicializa o sprite animado com a imagem e configurações de animação</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_class" href="classSpriteAnimado.html">SpriteAnimado</a>(<span class="keyword">const</span> std::string&amp; filename, <span class="keywordtype">int</span> numFrames, <span class="keywordtype">int</span> frameLargura, <span class="keywordtype">int</span> frameAltura, <span class="keywordtype">float</span> fps);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="comment">// Destrutor: libera o bitmap</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_class" href="classSpriteAnimado.html">~SpriteAnimado</a>();</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="comment">// Atualiza o frame da animação de acordo com o tempo decorrido</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">void</span> update(<span class="keywordtype">float</span> deltaTime);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="comment">// Desenha o sprite na tela, com opção de espelhamento vertical</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">void</span> draw(<span class="keyword">const</span> <a class="code hl_struct" href="structcoordenadas.html">coordenadas</a>&amp; pos, <span class="keywordtype">bool</span> flip_vertical = <span class="keyword">false</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="comment">// Retorna a largura de um frame</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">int</span> getWidth() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="comment">// Retorna a altura de um frame</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">int</span> getHeight() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>};</div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// Created by Flávia</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#ifndef SPRITE_ANIMADO_HPP</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#define SPRITE_ANIMADO_HPP</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;allegro5/allegro5.h&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;util.hpp&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classSpriteAnimado.html">   18</a></span><span class="keyword">class </span><a class="code hl_class" href="classSpriteAnimado.html">SpriteAnimado</a> {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    ALLEGRO_BITMAP* bitmap;     </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">int</span> frameLargura;           </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">int</span> frameAltura;            </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">int</span> numFrames;              </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">int</span> frameAtual;             </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">float</span> tempoPorFrame;        </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">float</span> tempoAcumulado;       </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_class" href="classSpriteAnimado.html">SpriteAnimado</a>(<span class="keyword">const</span> std::string&amp; filename, <span class="keywordtype">int</span> numFrames, <span class="keywordtype">int</span> frameLargura, <span class="keywordtype">int</span> frameAltura, <span class="keywordtype">float</span> fps);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_function" href="classSpriteAnimado.html#a5f5ddb8d4339dad7a121113c45583b65">~SpriteAnimado</a>();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classSpriteAnimado.html#a9e2f6fe74a9915fd9f750a650c26ff00">update</a>(<span class="keywordtype">float</span> deltaTime);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classSpriteAnimado.html#a1ef9b226e5a15eff399c3b16c7d3a1a3">draw</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structcoordenadas.html">coordenadas</a>&amp; pos, <span class="keywordtype">bool</span> flip_vertical = <span class="keyword">false</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classSpriteAnimado.html#a8146be650a2ceceb8bba99e89e1c0ff3">getWidth</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classSpriteAnimado.html#a1ed48adead7f193b1fac925cb526d613">getHeight</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>};</div>
 </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassSpriteAnimado_html"><div class="ttname"><a href="classSpriteAnimado.html">SpriteAnimado</a></div><div class="ttdef"><b>Definição</b> sprite.hpp:13</div></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">#endif </span><span class="comment">// SPRITE_ANIMADO_HPP</span></div>
+<div class="ttc" id="aclassSpriteAnimado_html"><div class="ttname"><a href="classSpriteAnimado.html">SpriteAnimado</a></div><div class="ttdoc">Classe responsável por animar sprites usando uma sprite sheet.</div><div class="ttdef"><b>Definição</b> sprite.hpp:18</div></div>
+<div class="ttc" id="aclassSpriteAnimado_html_a1ed48adead7f193b1fac925cb526d613"><div class="ttname"><a href="classSpriteAnimado.html#a1ed48adead7f193b1fac925cb526d613">SpriteAnimado::getHeight</a></div><div class="ttdeci">int getHeight() const</div><div class="ttdoc">Retorna a altura de um quadro individual.</div><div class="ttdef"><b>Definição</b> sprite.cpp:56</div></div>
+<div class="ttc" id="aclassSpriteAnimado_html_a1ef9b226e5a15eff399c3b16c7d3a1a3"><div class="ttname"><a href="classSpriteAnimado.html#a1ef9b226e5a15eff399c3b16c7d3a1a3">SpriteAnimado::draw</a></div><div class="ttdeci">void draw(const coordenadas &amp;pos, bool flip_vertical=false) const</div><div class="ttdoc">Desenha o quadro atual da animação na posição indicada.</div><div class="ttdef"><b>Definição</b> sprite.cpp:37</div></div>
+<div class="ttc" id="aclassSpriteAnimado_html_a5f5ddb8d4339dad7a121113c45583b65"><div class="ttname"><a href="classSpriteAnimado.html#a5f5ddb8d4339dad7a121113c45583b65">SpriteAnimado::~SpriteAnimado</a></div><div class="ttdeci">~SpriteAnimado()</div><div class="ttdoc">Destrutor que libera a memória da imagem carregada.</div><div class="ttdef"><b>Definição</b> sprite.cpp:23</div></div>
+<div class="ttc" id="aclassSpriteAnimado_html_a8146be650a2ceceb8bba99e89e1c0ff3"><div class="ttname"><a href="classSpriteAnimado.html#a8146be650a2ceceb8bba99e89e1c0ff3">SpriteAnimado::getWidth</a></div><div class="ttdeci">int getWidth() const</div><div class="ttdoc">Retorna a largura de um quadro individual.</div><div class="ttdef"><b>Definição</b> sprite.cpp:52</div></div>
+<div class="ttc" id="aclassSpriteAnimado_html_a9e2f6fe74a9915fd9f750a650c26ff00"><div class="ttname"><a href="classSpriteAnimado.html#a9e2f6fe74a9915fd9f750a650c26ff00">SpriteAnimado::update</a></div><div class="ttdeci">void update(float deltaTime)</div><div class="ttdoc">Atualiza a animação com base no tempo decorrido.</div><div class="ttdef"><b>Definição</b> sprite.cpp:28</div></div>
 <div class="ttc" id="astructcoordenadas_html"><div class="ttname"><a href="structcoordenadas.html">coordenadas</a></div><div class="ttdoc">Representa uma posição ou ponto no espaço bidimensional.</div><div class="ttdef"><b>Definição</b> util.hpp:37</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

@@ -8,12 +8,12 @@
 <area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="277,52,334,60,333,65,276,57"/>
 <area shape="rect" id="Node000004" href="$classTelaBase.html" title=" " alt="" coords="157,153,237,179"/>
 <area shape="poly" id="edge7_Node000004_Node000003" title=" " alt="" coords="225,143,264,116,309,89,334,78,336,83,312,94,267,120,228,147"/>
-<area shape="rect" id="Node000005" href="$classTelaCadastro.html" title=" " alt="" coords="318,104,425,129"/>
+<area shape="rect" id="Node000005" href="$classTelaCadastro.html" title="Representa a tela que permite ao jogador digitar seu nome após atingir uma alta pontuação." alt="" coords="318,104,425,129"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="250,149,325,127,327,132,251,154"/>
-<area shape="rect" id="Node000006" href="$classTelaHighScores.html" title=" " alt="" coords="311,153,432,179"/>
+<area shape="rect" id="Node000006" href="$classTelaHighScores.html" title="Representa a tela que exibe a lista de maiores pontuações." alt="" coords="311,153,432,179"/>
 <area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="251,163,310,163,310,169,251,169"/>
-<area shape="rect" id="Node000007" href="$classTelaInicial.html" title=" " alt="" coords="328,203,415,228"/>
+<area shape="rect" id="Node000007" href="$classTelaInicial.html" title="Representa o menu principal do jogo, servindo como ponto de partida." alt="" coords="328,203,415,228"/>
 <area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="251,178,328,201,327,206,250,183"/>
-<area shape="rect" id="Node000008" href="$classtela__fimdejogo.html" title=" " alt="" coords="312,252,431,277"/>
+<area shape="rect" id="Node000008" href="$classtela__fimdejogo.html" title="Representa a tela padrão de &quot;Fim de Jogo&quot;." alt="" coords="312,252,431,277"/>
 <area shape="poly" id="edge8_Node000004_Node000008" title=" " alt="" coords="228,185,267,212,312,238,336,249,334,254,309,243,264,216,225,189"/>
 </map>

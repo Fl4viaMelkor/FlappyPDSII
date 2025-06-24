@@ -95,13 +95,11 @@ Diagrama de colaboração para PlayerLogger:</div>
 <div class="dyncontent">
 <div class="center"><img src="classPlayerLogger__coll__graph.png" border="0" usemap="#aPlayerLogger_coll__map" alt="Collaboration graph"/></div>
 <map name="aPlayerLogger_coll__map" id="aPlayerLogger_coll__map">
-<area shape="rect" title="Logger especializado para dados de jogadores." alt="" coords="41,168,147,193"/>
-<area shape="rect" href="classLogger.html" title="Classe base para gerenciamento de logs com persistência em banco de dados." alt="" coords="61,93,127,119"/>
-<area shape="poly" title=" " alt="" coords="97,133,97,168,91,168,91,133"/>
-<area shape="rect" href="classDatabase.html" title="Interface genérica para bancos de dados de objetos." alt="" coords="5,5,89,31"/>
-<area shape="poly" title=" " alt="" coords="62,41,90,92,85,94,58,44"/>
-<area shape="rect" href="classDado.html" title="Classe abstrata que define a interface para dados que podem ser carregados e exportados." alt="" coords="114,5,170,31"/>
-<area shape="poly" title=" " alt="" coords="131,44,103,94,98,91,127,41"/>
+<area shape="rect" title="Logger especializado para dados de jogadores." alt="" coords="5,168,112,193"/>
+<area shape="rect" href="classLogger.html" title="Classe base para gerenciamento de logs com persistência em banco de dados." alt="" coords="25,93,92,119"/>
+<area shape="poly" title=" " alt="" coords="61,133,61,168,56,168,56,133"/>
+<area shape="rect" href="classDatabase.html" title="Interface genérica para bancos de dados de objetos." alt="" coords="17,5,101,31"/>
+<area shape="poly" title=" " alt="" coords="61,45,61,93,56,93,56,45"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
 <table class="memberdecls">
@@ -110,6 +108,9 @@ Membros Públicos</h2></td></tr>
 <tr class="memitem:afaf3b76d425b02a6083d37861c60f6a5" id="r_afaf3b76d425b02a6083d37861c60f6a5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerLogger.html#afaf3b76d425b02a6083d37861c60f6a5">PlayerLogger</a> (<a class="el" href="classDatabase.html">Database</a> *db)</td></tr>
 <tr class="memdesc:afaf3b76d425b02a6083d37861c60f6a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor que associa o <a class="el" href="classPlayerLogger.html" title="Logger especializado para dados de jogadores.">PlayerLogger</a> a um banco de dados.  <br /></td></tr>
 <tr class="separator:afaf3b76d425b02a6083d37861c60f6a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2a9ffc163770b035cad6279788bf87d" id="r_aa2a9ffc163770b035cad6279788bf87d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerLogger.html#aa2a9ffc163770b035cad6279788bf87d">isHighScore</a> (int novo_score)</td></tr>
+<tr class="memdesc:aa2a9ffc163770b035cad6279788bf87d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se uma nova pontuação é alta o suficiente para entrar no ranking.  <br /></td></tr>
+<tr class="separator:aa2a9ffc163770b035cad6279788bf87d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72ef58b0ad452988334d5075aa9117d7" id="r_a72ef58b0ad452988334d5075aa9117d7"><td class="memItemLeft" align="right" valign="top"><a id="a72ef58b0ad452988334d5075aa9117d7" name="a72ef58b0ad452988334d5075aa9117d7"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>PlayerLogger</b> ()</td></tr>
 <tr class="memdesc:a72ef58b0ad452988334d5075aa9117d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor padrão. <br /></td></tr>
@@ -120,13 +121,16 @@ Membros Públicos</h2></td></tr>
 <tr class="memitem:a854ffa7e99cc1f69ad3ea5fabf5260f6" id="r_a854ffa7e99cc1f69ad3ea5fabf5260f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerLogger.html#a854ffa7e99cc1f69ad3ea5fabf5260f6">resetar</a> () override</td></tr>
 <tr class="memdesc:a854ffa7e99cc1f69ad3ea5fabf5260f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reseta os dados do logger de jogador.  <br /></td></tr>
 <tr class="separator:a854ffa7e99cc1f69ad3ea5fabf5260f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9eaade26abe4dbf57473514e1ab087db" id="r_a9eaade26abe4dbf57473514e1ab087db"><td class="memItemLeft" align="right" valign="top"><a id="a9eaade26abe4dbf57473514e1ab087db" name="a9eaade26abe4dbf57473514e1ab087db"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>salvar</b> (int pontuacao_mais_recente)</td></tr>
+<tr class="separator:a9eaade26abe4dbf57473514e1ab087db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71755dd82de98e5d6f83383c7dd2915d" id="r_a71755dd82de98e5d6f83383c7dd2915d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerLogger.html#a71755dd82de98e5d6f83383c7dd2915d">salvar</a> () const override</td></tr>
+<tr class="memdesc:a71755dd82de98e5d6f83383c7dd2915d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Salva os dados atuais no banco.  <br /></td></tr>
+<tr class="separator:a71755dd82de98e5d6f83383c7dd2915d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf6939e6e83f9fe122244a2dc6601544" id="r_abf6939e6e83f9fe122244a2dc6601544"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerLogger.html#abf6939e6e83f9fe122244a2dc6601544">carregar</a> (const string &amp;id) override</td></tr>
+<tr class="memdesc:abf6939e6e83f9fe122244a2dc6601544"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carrega os dados de uma entidade com base no identificador.  <br /></td></tr>
+<tr class="separator:abf6939e6e83f9fe122244a2dc6601544"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classLogger"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classLogger')"><img src="closed.png" alt="-"/>&#160;Membros Públicos herdados de <a class="el" href="classLogger.html">Logger</a></td></tr>
-<tr class="memitem:adfe596869a168f2fa4d99c6dac88765b inherit pub_methods_classLogger" id="r_adfe596869a168f2fa4d99c6dac88765b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#adfe596869a168f2fa4d99c6dac88765b">carregar</a> (const string &amp;id)</td></tr>
-<tr class="memdesc:adfe596869a168f2fa4d99c6dac88765b inherit pub_methods_classLogger"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carrega os dados de uma entidade com base no identificador.  <br /></td></tr>
-<tr class="separator:adfe596869a168f2fa4d99c6dac88765b inherit pub_methods_classLogger"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95e49eac82d1354ef0cbb0ac8acbb48d inherit pub_methods_classLogger" id="r_a95e49eac82d1354ef0cbb0ac8acbb48d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a95e49eac82d1354ef0cbb0ac8acbb48d">salvar</a> () const</td></tr>
-<tr class="memdesc:a95e49eac82d1354ef0cbb0ac8acbb48d inherit pub_methods_classLogger"><td class="mdescLeft">&#160;</td><td class="mdescRight">Salva os dados atuais no banco.  <br /></td></tr>
-<tr class="separator:a95e49eac82d1354ef0cbb0ac8acbb48d inherit pub_methods_classLogger"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3573b7eb2f743819a25c088aa186a97 inherit pub_methods_classLogger" id="r_af3573b7eb2f743819a25c088aa186a97"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#af3573b7eb2f743819a25c088aa186a97">deletar</a> (string id) const</td></tr>
 <tr class="memdesc:af3573b7eb2f743819a25c088aa186a97 inherit pub_methods_classLogger"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleta os dados associados ao identificador informado.  <br /></td></tr>
 <tr class="separator:af3573b7eb2f743819a25c088aa186a97 inherit pub_methods_classLogger"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,10 +153,6 @@ Outros membros herdados</h2></td></tr>
 <a class="el" href="classDatabase.html">Database</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>db_</b> = nullptr</td></tr>
 <tr class="memdesc:ab27c997a7508301c5ef912865d1355f1 inherit pro_attribs_classLogger"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ponteiro para o banco de dados utilizado. <br /></td></tr>
 <tr class="separator:ab27c997a7508301c5ef912865d1355f1 inherit pro_attribs_classLogger"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93f43bfdadaef0636ac63e02a14f4bff inherit pro_attribs_classLogger" id="r_a93f43bfdadaef0636ac63e02a14f4bff"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classDado.html">Dado</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>atual_</b> = nullptr</td></tr>
-<tr class="memdesc:a93f43bfdadaef0636ac63e02a14f4bff inherit pro_attribs_classLogger"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instância do dado atual que está sendo manipulado. <br /></td></tr>
-<tr class="separator:a93f43bfdadaef0636ac63e02a14f4bff inherit pro_attribs_classLogger"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
 <div class="textblock"><p><a class="el" href="classLogger.html" title="Classe base para gerenciamento de logs com persistência em banco de dados.">Logger</a> especializado para dados de jogadores. </p>
@@ -192,6 +192,70 @@ Outros membros herdados</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Documentação das funções</h2>
+<a id="abf6939e6e83f9fe122244a2dc6601544" name="abf6939e6e83f9fe122244a2dc6601544"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf6939e6e83f9fe122244a2dc6601544">&#9670;&#160;</a></span>carregar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PlayerLogger::carregar </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Carrega os dados de uma entidade com base no identificador. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Identificador da entidade. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se o carregamento foi bem-sucedido. </dd></dl>
+
+<p>Implementa <a class="el" href="classLogger.html#acfcec721afcc3432c50dc368e0276eea">Logger</a>.</p>
+
+</div>
+</div>
+<a id="aa2a9ffc163770b035cad6279788bf87d" name="aa2a9ffc163770b035cad6279788bf87d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2a9ffc163770b035cad6279788bf87d">&#9670;&#160;</a></span>isHighScore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PlayerLogger::isHighScore </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>novo_score</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifica se uma nova pontuação é alta o suficiente para entrar no ranking. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">novo_score</td><td>A pontuação a ser verificada. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se for um recorde, false caso contrário. </dd></dl>
+
+</div>
+</div>
 <a id="af0b9b21e7156ea03e34f1ed8bc30ce5b" name="af0b9b21e7156ea03e34f1ed8bc30ce5b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af0b9b21e7156ea03e34f1ed8bc30ce5b">&#9670;&#160;</a></span>listar_dados_ordenados()</h2>
 
@@ -263,6 +327,36 @@ Outros membros herdados</h2></td></tr>
 <p>Reseta os dados do logger de jogador. </p>
 
 <p>Implementa <a class="el" href="classLogger.html#a7db24a7c1e353192dcf4da7795d55571">Logger</a>.</p>
+
+</div>
+</div>
+<a id="a71755dd82de98e5d6f83383c7dd2915d" name="a71755dd82de98e5d6f83383c7dd2915d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71755dd82de98e5d6f83383c7dd2915d">&#9670;&#160;</a></span>salvar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PlayerLogger::salvar </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Salva os dados atuais no banco. </p>
+<dl class="section return"><dt>Retorna</dt><dd>true se a operação foi bem-sucedida. </dd></dl>
+
+<p>Implementa <a class="el" href="classLogger.html#a42abdcb3bb6871ccf82a5a6e4260b2c8">Logger</a>.</p>
 
 </div>
 </div>

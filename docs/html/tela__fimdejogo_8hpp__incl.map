@@ -1,0 +1,20 @@
+<map id="include/interface/tela_fimdejogo.hpp" name="include/interface/tela_fimdejogo.hpp">
+<area shape="rect" id="Node000001" title="Define a interface da tela de &quot;Fim de Jogo&quot;, que aparece quando o jogador perde sem bater um recorde." alt="" coords="511,5,671,45"/>
+<area shape="rect" id="Node000002" href="$tela__base_8hpp_source.html" title=" " alt="" coords="5,93,119,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="511,41,138,96,133,97,132,92,138,91,511,36"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="37,167,181,192"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="511,36,330,58,244,75,210,85,185,96,150,124,125,156,120,153,146,120,182,91,208,80,243,70,329,53,511,31"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="195,93,364,119"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="517,48,339,93,337,87,516,43"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="389,93,573,119"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="566,48,510,87,507,83,563,43"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="597,93,807,119"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="620,43,676,83,673,87,617,48"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="831,93,989,119"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="668,43,851,87,850,93,667,48"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="1013,93,1093,119"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="672,36,1000,91,999,96,671,41"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="1117,93,1175,119"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="672,31,865,52,982,69,1103,91,1102,96,982,75,864,58,671,36"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="72,118,96,154,91,157,67,120"/>
+</map>

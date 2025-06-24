@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jogadorsqldatabase_0',['JogadorSQLDatabase',['../classJogadorSQLDatabase.html#a07932fc418abbc25e742120057b09413',1,'JogadorSQLDatabase']]]
+  ['ishighscore_0',['isHighScore',['../classPlayerLogger.html#aa2a9ffc163770b035cad6279788bf87d',1,'PlayerLogger']]]
 ];
