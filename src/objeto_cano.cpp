@@ -18,6 +18,7 @@ Cano::Cano(float x, float largura, float abertura, float altura_tela, ALLEGRO_CO
   , sprite(sprite_path, 1, 52, 320, 1.0f) // 1 frame, 52 largura, 320 altura, FPS não importa
 {
     m_y_topo = rand() % int(altura_tela - abertura - 100);
+    foiContado = false;
 }
 
 
@@ -90,6 +91,7 @@ void Cano::reset_if_out_of_screen(float limite_esquerdo, float posicao_ultimo_ca
         // dentro do
         // intervalo
         m_y_topo = min_topo + rand() % (max_topo - min_topo + 1);
+        foiContado = false;
     }
 }
 

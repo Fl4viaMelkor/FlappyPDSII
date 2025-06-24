@@ -8,8 +8,8 @@
 //biblioteca padrão
 #include <allegro5/allegro.h>
 
-//modulo para desenhar quadrado 
-#include <allegro5/allegro_primitives.h> 
+//modulo para desenhar quadrado
+#include <allegro5/allegro_primitives.h>
 
 using namespace std;
 
@@ -23,21 +23,21 @@ class Cano {
     void draw() const;                      // Desenha os canos (superior e inferior)
     void move(float dx);                    // Move os canos na horizontal (dx pode ser negativo para mover para esquerda)
 
-    
+
     // Verifica se o cano saiu da tela e reseta a posição e altura aleatória
     void reset_if_out_of_screen(float limite_esquerdo, float posicao_ultimo_cano, float espacamento, float altura_tela);
-    
-    
-        
+
+
+
     // Getters para pegar posição e largura (úteis para cálculo de reposicionamento)
     float getX() const { return m_x; }
     float getLargura() const { return m_largura; }
-    
-    
-    
+
+    bool foiContado;
+
     ///implementação da hitbox
     //bool colisao_com_jogador(float jogador_x, float jogador_y, float jogador_largura, float jogador_altura) const;
-    
+
   private:
     float m_x;            // Posição horizontal do cano (para ambos os blocos)
     float m_largura;      // Largura dos blocos (constante)
@@ -49,14 +49,9 @@ class Cano {
     SpriteAnimado sprite;  // NOVO
 
     //contagem de pontuação no caso em que o player passa pelo cano
-    
+
     //para contar a pontuação
-    //bool foiContado = false;
-
-
 };
-    
-    
-    #endif
 
- 
+
+    #endif
