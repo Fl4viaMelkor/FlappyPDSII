@@ -10,16 +10,15 @@ void TelaJogo::initializeRandomBackgroud() {
     static random_device rd;
     static mt19937 gen(rd());
     static uniform_int_distribution<> distrib(1, 3);
-    // int background = distrib(gen);
-    int background = 2;
+    int background = distrib(gen);
 
     switch (background) {
         case 1: // Desert Background
             parallaxBg->adicionarCamada("assets/background/desert/desert_sky.png", 0.0f);
-            parallaxBg->adicionarCamada("assets/background/desert/desert_cloud.png", 20.0f);
-            parallaxBg->adicionarCamada("assets/background/desert/desert_mountain.png", 35.0f);
-            parallaxBg->adicionarCamada("assets/background/desert/desert_dunemid.png", 50.0f);
-            parallaxBg->adicionarCamada("assets/background/desert/desert_dunefrontt.png", 70.0f);
+            parallaxBg->adicionarCamada("assets/background/desert/desert_cloud.png", 15.0f);
+            parallaxBg->adicionarCamada("assets/background/desert/desert_mountain.png", 30.0f);
+            parallaxBg->adicionarCamada("assets/background/desert/desert_dunemid.png", 45.0f);
+            parallaxBg->adicionarCamada("assets/background/desert/desert_dunefrontt.png", 60.0f);
             break;
 
         case 2: // Forest Background
@@ -27,15 +26,14 @@ void TelaJogo::initializeRandomBackgroud() {
             parallaxBg->adicionarCamada("assets/background/forest/forest_mountain.png", 15.0f);
             parallaxBg->adicionarCamada("assets/background/forest/forest_back.png", 30.0f);
             parallaxBg->adicionarCamada("assets/background/forest/forest_mid.png", 45.0f);
-            parallaxBg->adicionarCamada("assets/background/forest/forest_long.png", 55.0f);
+            parallaxBg->adicionarCamada("assets/background/forest/forest_long.png", 65.0f);
             break;
 
         case 3: // Skies Background
             parallaxBg->adicionarCamada("assets/background/skies/Sky_sky.png", 0.0f);
-            parallaxBg->adicionarCamada("assets/background/skies/sky_clouds.png", 10.0f);
-            parallaxBg->adicionarCamada("assets/background/skies/Sky_cloud_single.png", 15.0f);
-            parallaxBg->adicionarCamada("assets/background/skies/Sky_back_mountain.png", 30.0f);
-            // parallaxBg->adicionarCamada("assets/background/skies/sky_front_mountain.png", 50.0f);
+            parallaxBg->adicionarCamada("assets/background/skies/sky_clouds.png", 30.0f);
+            parallaxBg->adicionarCamada("assets/background/skies/Sky_cloud_single.png", 45.0f);
+            parallaxBg->adicionarCamada("assets/background/skies/Sky_back_mountain.png", 60.0f);
             break;
     default:
         std::cerr << "Opção de Background Inválida: " << background << std::endl;
