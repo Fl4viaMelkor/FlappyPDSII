@@ -30,6 +30,10 @@ TelaJogo::TelaJogo()
     detector = new Detector_Colisao(*player);
     detector->registrar(this);
     // detector->registrar(MySquare);
+
+    //inicializa pontuação
+   // int pontos = 0;
+
 }
 
 TelaJogo::~TelaJogo()
@@ -67,6 +71,16 @@ void TelaJogo::update()
     //MySquare->reset_if_out_of_screen(0.0f, 300.0f, 135.0f,  ALTURA_TELA); // reposiciona o objeto cano se ele sair da tela
     
     detector->detectar();
+
+    /*
+       for (auto& cano : canos) {
+    if (!cano->foiContado && player->getX() > cano->getX() + cano->getLargura()) {
+        pontos++;
+        cano->foiContado = true;
+    }
+}
+    */
+ 
 }
 
 void TelaJogo::draw()

@@ -45,6 +45,13 @@ class Cano {
     float m_espessura;      // Espessura da linha (não usada para preenchidos, mas mantida)
 
     SpriteAnimado sprite;  // NOVO
+
+    //contagem de pontuação no caso em que o player passa pelo cano
+    
+    //para contar a pontuação
+    //bool foiContado = false;
+
+
 };
     
     
