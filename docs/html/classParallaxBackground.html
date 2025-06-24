@@ -75,25 +75,162 @@ $(function() {
   <div class="headertitle"><div class="title">Referência da Classe ParallaxBackground</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe responsável por gerenciar um conjunto de camadas de fundo com efeito de paralaxe.  
+ <a href="classParallaxBackground.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="parallax__background_8hpp_source.html">parallax_background.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
-<tr class="memitem:a266d6996043a0c7edc13b5ab64f8d259" id="r_a266d6996043a0c7edc13b5ab64f8d259"><td class="memItemLeft" align="right" valign="top"><a id="a266d6996043a0c7edc13b5ab64f8d259" name="a266d6996043a0c7edc13b5ab64f8d259"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ParallaxBackground</b> (int larguraTela, int alturaTela)</td></tr>
+<tr class="memitem:a266d6996043a0c7edc13b5ab64f8d259" id="r_a266d6996043a0c7edc13b5ab64f8d259"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParallaxBackground.html#a266d6996043a0c7edc13b5ab64f8d259">ParallaxBackground</a> (int larguraTela, int alturaTela)</td></tr>
+<tr class="memdesc:a266d6996043a0c7edc13b5ab64f8d259"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da classe <a class="el" href="classParallaxBackground.html" title="Classe responsável por gerenciar um conjunto de camadas de fundo com efeito de paralaxe.">ParallaxBackground</a>.  <br /></td></tr>
 <tr class="separator:a266d6996043a0c7edc13b5ab64f8d259"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c593f7615e7a271eeccf5cf0a4cff77" id="r_a2c593f7615e7a271eeccf5cf0a4cff77"><td class="memItemLeft" align="right" valign="top"><a id="a2c593f7615e7a271eeccf5cf0a4cff77" name="a2c593f7615e7a271eeccf5cf0a4cff77"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>adicionarCamada</b> (const string &amp;caminhoTextura, float velocidade)</td></tr>
-<tr class="separator:a2c593f7615e7a271eeccf5cf0a4cff77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade29f52b6ff5d8d6b6978aa6cf928aa0" id="r_ade29f52b6ff5d8d6b6978aa6cf928aa0"><td class="memItemLeft" align="right" valign="top"><a id="ade29f52b6ff5d8d6b6978aa6cf928aa0" name="ade29f52b6ff5d8d6b6978aa6cf928aa0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (float deltaTime)</td></tr>
+<tr class="memitem:a54b8c35509f5c2720b0368eda10f5bd2" id="r_a54b8c35509f5c2720b0368eda10f5bd2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParallaxBackground.html#a54b8c35509f5c2720b0368eda10f5bd2">~ParallaxBackground</a> ()</td></tr>
+<tr class="memdesc:a54b8c35509f5c2720b0368eda10f5bd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor da classe <a class="el" href="classParallaxBackground.html" title="Classe responsável por gerenciar um conjunto de camadas de fundo com efeito de paralaxe.">ParallaxBackground</a>.  <br /></td></tr>
+<tr class="separator:a54b8c35509f5c2720b0368eda10f5bd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e308c9099dbcd284695acd158ada654" id="r_a4e308c9099dbcd284695acd158ada654"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParallaxBackground.html#a4e308c9099dbcd284695acd158ada654">adicionarCamada</a> (const std::string &amp;caminhoTextura, float velocidade)</td></tr>
+<tr class="memdesc:a4e308c9099dbcd284695acd158ada654"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona uma nova camada de fundo ao gerenciador.  <br /></td></tr>
+<tr class="separator:a4e308c9099dbcd284695acd158ada654"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade29f52b6ff5d8d6b6978aa6cf928aa0" id="r_ade29f52b6ff5d8d6b6978aa6cf928aa0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParallaxBackground.html#ade29f52b6ff5d8d6b6978aa6cf928aa0">update</a> (float deltaTime)</td></tr>
+<tr class="memdesc:ade29f52b6ff5d8d6b6978aa6cf928aa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza todas as camadas de fundo com base no tempo decorrido.  <br /></td></tr>
 <tr class="separator:ade29f52b6ff5d8d6b6978aa6cf928aa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c06f9ac7dba602bef3147402f7d6f8f" id="r_a2c06f9ac7dba602bef3147402f7d6f8f"><td class="memItemLeft" align="right" valign="top"><a id="a2c06f9ac7dba602bef3147402f7d6f8f" name="a2c06f9ac7dba602bef3147402f7d6f8f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> ()</td></tr>
+<tr class="memdesc:a2c06f9ac7dba602bef3147402f7d6f8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desenha todas as camadas de fundo na tela. <br /></td></tr>
 <tr class="separator:a2c06f9ac7dba602bef3147402f7d6f8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Classe responsável por gerenciar um conjunto de camadas de fundo com efeito de paralaxe. </p>
+<p>Essa classe permite adicionar, atualizar e desenhar várias camadas de fundo que se movem em velocidades diferentes, criando um efeito visual de profundidade. </p>
+</div><h2 class="groupheader">Construtores e Destrutores</h2>
+<a id="a266d6996043a0c7edc13b5ab64f8d259" name="a266d6996043a0c7edc13b5ab64f8d259"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a266d6996043a0c7edc13b5ab64f8d259">&#9670;&#160;</a></span>ParallaxBackground()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ParallaxBackground::ParallaxBackground </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>larguraTela</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>alturaTela</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construtor da classe <a class="el" href="classParallaxBackground.html" title="Classe responsável por gerenciar um conjunto de camadas de fundo com efeito de paralaxe.">ParallaxBackground</a>. </p>
+<p>Inicializa o gerenciador de camadas de fundo com as dimensões da tela.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">larguraTela</td><td>Largura da tela. </td></tr>
+    <tr><td class="paramname">alturaTela</td><td>Altura da tela. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a54b8c35509f5c2720b0368eda10f5bd2" name="a54b8c35509f5c2720b0368eda10f5bd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54b8c35509f5c2720b0368eda10f5bd2">&#9670;&#160;</a></span>~ParallaxBackground()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ParallaxBackground::~ParallaxBackground </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destrutor da classe <a class="el" href="classParallaxBackground.html" title="Classe responsável por gerenciar um conjunto de camadas de fundo com efeito de paralaxe.">ParallaxBackground</a>. </p>
+<p>Libera a memória alocada para as camadas de fundo.</p>
+<p>Libera a memória alocada para as camadas de fundo e limpa a lista de camadas. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentação das funções</h2>
+<a id="a4e308c9099dbcd284695acd158ada654" name="a4e308c9099dbcd284695acd158ada654"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e308c9099dbcd284695acd158ada654">&#9670;&#160;</a></span>adicionarCamada()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ParallaxBackground::adicionarCamada </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>caminhoTextura</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>velocidade</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adiciona uma nova camada de fundo ao gerenciador. </p>
+<p>Cria uma nova instância de <a class="el" href="classCamadaBackground.html" title="Classe responsável por representar uma camada de fundo animada.">CamadaBackground</a> e a adiciona à lista de camadas.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">caminhoTextura</td><td>Caminho para o arquivo de textura da camada. </td></tr>
+    <tr><td class="paramname">velocidade</td><td>Velocidade de movimento horizontal da camada. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ade29f52b6ff5d8d6b6978aa6cf928aa0" name="ade29f52b6ff5d8d6b6978aa6cf928aa0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade29f52b6ff5d8d6b6978aa6cf928aa0">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ParallaxBackground::update </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Atualiza todas as camadas de fundo com base no tempo decorrido. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">deltaTime</td><td>Tempo decorrido desde a última atualização, em segundos. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>A documentação para essa classe foi gerada a partir dos seguintes arquivos:<ul>
 <li>include/interface/<a class="el" href="parallax__background_8hpp_source.html">parallax_background.hpp</a></li>
-<li>src/interface/<b>parallax_background.cpp</b></li>
+<li>src/interface/<a class="el" href="parallax__background_8cpp.html">parallax_background.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

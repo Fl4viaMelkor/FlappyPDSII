@@ -81,32 +81,40 @@ $(document).ready(function() { init_codefold(0); });
   <div class="headertitle"><div class="title">parallax_background.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PARALLAX_BACKGROUND_HPP</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PARALLAX_BACKGROUND_HPP</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;camada_background.hpp&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="foldopen" id="foldopen00007" data-start="{" data-end="};">
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="classParallaxBackground.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="classParallaxBackground.html">ParallaxBackground</a>{</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <a class="code hl_class" href="classParallaxBackground.html">ParallaxBackground</a>(<span class="keywordtype">int</span> larguraTela, <span class="keywordtype">int</span> alturaTela);</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_class" href="classParallaxBackground.html">~ParallaxBackground</a>();</div>
+<a href="parallax__background_8hpp.html">Ir para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef PARALLAX_BACKGROUND_HPP</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define PARALLAX_BACKGROUND_HPP</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="camada__background_8hpp.html">camada_background.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">void</span> adicionarCamada(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; caminhoTextura, <span class="keywordtype">float</span> velocidade);</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">void</span> update(<span class="keywordtype">float</span> deltaTime);</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">void</span> draw();</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">int</span> larguraTela_;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">int</span> alturaTela_;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    vector&lt;CamadaBackground*&gt; camadas_;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>};</div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classParallaxBackground.html">   18</a></span><span class="keyword">class </span><a class="code hl_class" href="classParallaxBackground.html">ParallaxBackground</a> {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_class" href="classParallaxBackground.html">ParallaxBackground</a>(<span class="keywordtype">int</span> larguraTela, <span class="keywordtype">int</span> alturaTela);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_function" href="classParallaxBackground.html#a54b8c35509f5c2720b0368eda10f5bd2">~ParallaxBackground</a>();</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classParallaxBackground.html#a4e308c9099dbcd284695acd158ada654">adicionarCamada</a>(<span class="keyword">const</span> std::string&amp; caminhoTextura, <span class="keywordtype">float</span> velocidade);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classParallaxBackground.html#ade29f52b6ff5d8d6b6978aa6cf928aa0">update</a>(<span class="keywordtype">float</span> deltaTime);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classParallaxBackground.html#a2c06f9ac7dba602bef3147402f7d6f8f">draw</a>();</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">int</span> larguraTela_; </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">int</span> alturaTela_;  </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    std::vector&lt;CamadaBackground*&gt; camadas_; </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>};</div>
 </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassParallaxBackground_html"><div class="ttname"><a href="classParallaxBackground.html">ParallaxBackground</a></div><div class="ttdef"><b>Definição</b> parallax_background.hpp:7</div></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#endif </span><span class="comment">// PARALLAX_BACKGROUND_HPP</span></div>
+<div class="ttc" id="acamada__background_8hpp_html"><div class="ttname"><a href="camada__background_8hpp.html">camada_background.hpp</a></div><div class="ttdoc">Declaração da classe CamadaBackground para gerenciar camadas de fundo animadas.</div></div>
+<div class="ttc" id="aclassParallaxBackground_html"><div class="ttname"><a href="classParallaxBackground.html">ParallaxBackground</a></div><div class="ttdoc">Classe responsável por gerenciar um conjunto de camadas de fundo com efeito de paralaxe.</div><div class="ttdef"><b>Definição</b> parallax_background.hpp:18</div></div>
+<div class="ttc" id="aclassParallaxBackground_html_a2c06f9ac7dba602bef3147402f7d6f8f"><div class="ttname"><a href="classParallaxBackground.html#a2c06f9ac7dba602bef3147402f7d6f8f">ParallaxBackground::draw</a></div><div class="ttdeci">void draw()</div><div class="ttdoc">Desenha todas as camadas de fundo na tela.</div><div class="ttdef"><b>Definição</b> parallax_background.cpp:58</div></div>
+<div class="ttc" id="aclassParallaxBackground_html_a4e308c9099dbcd284695acd158ada654"><div class="ttname"><a href="classParallaxBackground.html#a4e308c9099dbcd284695acd158ada654">ParallaxBackground::adicionarCamada</a></div><div class="ttdeci">void adicionarCamada(const std::string &amp;caminhoTextura, float velocidade)</div><div class="ttdoc">Adiciona uma nova camada de fundo ao gerenciador.</div><div class="ttdef"><b>Definição</b> parallax_background.cpp:39</div></div>
+<div class="ttc" id="aclassParallaxBackground_html_a54b8c35509f5c2720b0368eda10f5bd2"><div class="ttname"><a href="classParallaxBackground.html#a54b8c35509f5c2720b0368eda10f5bd2">ParallaxBackground::~ParallaxBackground</a></div><div class="ttdeci">~ParallaxBackground()</div><div class="ttdoc">Destrutor da classe ParallaxBackground.</div><div class="ttdef"><b>Definição</b> parallax_background.cpp:24</div></div>
+<div class="ttc" id="aclassParallaxBackground_html_ade29f52b6ff5d8d6b6978aa6cf928aa0"><div class="ttname"><a href="classParallaxBackground.html#ade29f52b6ff5d8d6b6978aa6cf928aa0">ParallaxBackground::update</a></div><div class="ttdeci">void update(float deltaTime)</div><div class="ttdoc">Atualiza todas as camadas de fundo com base no tempo decorrido.</div><div class="ttdef"><b>Definição</b> parallax_background.cpp:49</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
