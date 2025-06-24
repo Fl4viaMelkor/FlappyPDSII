@@ -146,7 +146,7 @@ void TelaJogo::update()
                     ALTURA_JANELA);
             }
 
-            if (!canos[i]->foiContado && player->getY() > canos[i]->getX() + canos[i]->getLargura())
+            if (!canos[i]->foiContado && (player->getX() + 32.0f > canos[i]->getX()))
             {
                 pontos++;
                 canos[i]->foiContado = true;
@@ -158,6 +158,7 @@ void TelaJogo::update()
         if (player->getY() >= ALTURA_JANELA - player->getAltura()) {
             if (!end) {
                 std::cout << "!!! JOGADOR CAIU DA TELA !!!" << std::endl;
+                std::cout << "PONTUAÇÃO FINAL: " << pontos << std::endl;
                 player->onCollision();
                 this->end = true;
             }
