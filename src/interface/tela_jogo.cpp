@@ -78,7 +78,6 @@ TelaJogo::TelaJogo()
     float x = posicaoIncialX + i * espacamentoCanos;  // espaçamento horizontal entre os canos
     canos.push_back(new Cano(x, larguraCanos, 150, ALTURA_JANELA, al_map_rgb(35, 161, 49), 0.4f, "assets/obj/pipe-green.png"));
 }
-    //MySquare = new Cano(300.0f, 52, 150, ALTURA_TELA, al_map_rgb(35, 161, 49), 0.4f, "assets/obj/pipe-green.png");// cano de teste
 
     end = false;
 
