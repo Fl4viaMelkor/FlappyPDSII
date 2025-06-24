@@ -57,6 +57,16 @@ void TelaJogo::update()
     player->update(keyState);
     parallaxBg->update(1.0f / FPS);
 
+    /**
+    * @brief Atualiza todos os canos na tela.
+    *
+    * Este loop percorre o vetor de ponteiros para canos, movendo cada cano
+    * para a esquerda e verificando se saiu da tela. Quando isso acontece,
+    * o cano é reposicionado à direita da tela, mantendo o espaçamento definido.
+    * 
+    * @note O espaçamento entre os canos é mantido com base na posição do cano anterior.
+    */
+
     //novo destrutor para canos
     for (size_t i = 0; i < canos.size(); ++i) {
     canos[i]->move(-2.0f);  // movimento para esquerda
@@ -66,9 +76,6 @@ void TelaJogo::update()
     float posicao_anterior = (i == 0) ? canos.back()->getX() : canos[i - 1]->getX();
     canos[i]->reset_if_out_of_screen(limite_esquerdo, posicao_anterior, 250.0f, ALTURA_JANELA);
 }
-
-    //MySquare->move(-2.0f); // move o cano 2 pixels
-    //MySquare->reset_if_out_of_screen(0.0f, 300.0f, 135.0f,  ALTURA_TELA); // reposiciona o objeto cano se ele sair da tela
     
     detector->detectar();
 

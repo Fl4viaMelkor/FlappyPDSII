@@ -22,6 +22,8 @@ class Cano {
 
     void draw() const;                      // Desenha os canos (superior e inferior)
     void move(float dx);                    // Move os canos na horizontal (dx pode ser negativo para mover para esquerda)
+
+    
     // Verifica se o cano saiu da tela e reseta a posição e altura aleatória
     void reset_if_out_of_screen(float limite_esquerdo, float posicao_ultimo_cano, float espacamento, float altura_tela);
     
