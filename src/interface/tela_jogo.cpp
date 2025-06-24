@@ -102,8 +102,6 @@ TelaJogo::~TelaJogo()
 }
 canos.clear();
 
-   // delete MySquare; não precisa
-
     delete parallaxBg;
 }
 
