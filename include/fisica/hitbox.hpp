@@ -75,6 +75,16 @@ class RetanguloHitbox : public Colidivel {
     {
     }
 
+     /**
+     * @brief Retorna a coordenada Y do ponto de referência do objeto.
+     */
+    float getY() const { return ponto_inferior_esquerdo.y; }
+
+    /**
+     * @brief Retorna a altura da hitbox.
+     */
+    float getAltura() const { return altura; }
+
     bool noInterior(const coordenadas &p) const override;
     bool noPerimetro(const coordenadas &p) const override;
     vector<coordenadas> get_pontos() const override;
@@ -86,4 +96,4 @@ class RetanguloHitbox : public Colidivel {
 // class CurvaHitbox: public Hitbox { ... }
 // class FiguraHitbox: public Hitbox { ... }
 
-#endif // HITBOX_HPP
+#endif

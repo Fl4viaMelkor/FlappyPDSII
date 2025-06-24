@@ -82,10 +82,10 @@ PlayerLogger logger;
                                 proxima_tela = new TelaJogo();
                                 break;
                             case EstadoProximaTela::MENU_PRINCIPAL:
-                                proxima_tela = new TelaInicial(LARGURA_NATIVA, ALTURA_NATIVA);
+                                proxima_tela = new TelaInicial(LARGURA_JANELA, ALTURA_JANELA);
                                 break;
                             case EstadoProximaTela::TELA_HIGHSCORES:
-                                proxima_tela = new TelaHighScores(logger, LARGURA_NATIVA, ALTURA_NATIVA);
+                                proxima_tela = new TelaHighScores(logger, LARGURA_JANELA, ALTURA_JANELA);
                                 break;
                             default: break;
                         }
@@ -95,14 +95,22 @@ PlayerLogger logger;
                 }
             }
 
-          /* if (TelaJogo* jogo_ptr = dynamic_cast<TelaJogo*>(tela_atual)) {
-        if (jogo_ptr->acabouJogo()) {
-            int pontuacao = jogo_ptr->getPontuacaoFinal();
-            delete tela_atual;
+         if (TelaJogo* jogo_ptr = dynamic_cast<TelaJogo*>(tela_atual)) {
+                if (jogo_ptr->acabouJogo()) {
+                    // Pega a pontuação final da partida
+                    int pontuacao = 200;
+                    delete tela_atual;
 
-            tela_atual = new TelaCadastro(pontuacao, logger, LARGURA_NATIVA, ALTURA_NATIVA);
-        }
-    }*/
+                    // Pergunta ao logger se a pontuação é um novo recorde
+                    if (logger.isHighScore(pontuacao)) {
+                        // Se for, vai para a tela de cadastro
+                        tela_atual = new TelaCadastro(pontuacao, logger, LARGURA_JANELA, ALTURA_JANELA);
+                    } else {
+                        // Se não for, vai para a tela de fim de jogo padrão
+                        tela_atual = new tela_fimdejogo(pontuacao, LARGURA_JANELA, ALTURA_JANELA);
+                    }
+                }
+            }
 
             redesenhar = true;
         }

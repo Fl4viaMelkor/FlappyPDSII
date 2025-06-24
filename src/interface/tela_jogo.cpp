@@ -1,6 +1,7 @@
 #include "../../include/interface/tela_jogo.hpp"
 #include "../../include/dados/config.hpp"
 #include "../../include/interface/parallax_background.hpp"
+#include "../../include/interface/tela_jogo.hpp"
 
 #include <random>
 
@@ -95,43 +96,46 @@ canos.clear();
 
 void TelaJogo::update()
 {
+    // O fundo sempre se move
     parallaxBg->update(1.0f / FPS);
 
+    // A lógica principal do jogo só roda se não estiver pausado
     if (currentGameState == GameState::PLAYING){
         player->update(keyState);
 
-        /**
-        * @brief Atualiza todos os canos na tela.
-        *
-        * Este loop percorre o vetor de ponteiros para canos, movendo cada cano
-        * para a esquerda e verificando se saiu da tela. Quando isso acontece,
-        * o cano é reposicionado à direita da tela, mantendo o espaçamento definido.
-        *
-        * @note O espaçamento entre os canos é mantido com base na posição do cano anterior.
-        */
-
-        //novo destrutor para canos
+        // Lógica para mover os canos e contar pontos
         for (size_t i = 0; i < canos.size(); ++i) {
-        canos[i]->move(-2.0f);  // movimento para esquerda
-
-        // reset se sair da tela
-        float limite_esquerdo = 0.0f;
-        float posicao_anterior = (i == 0) ? canos.back()->getX() : canos[i - 1]->getX();
-        canos[i]->reset_if_out_of_screen(limite_esquerdo, posicao_anterior, 250.0f, ALTURA_JANELA);
+            canos[i]->move(-2.0f); 
+            float limite_esquerdo = -canos[i]->getLargura();
+            float espacamento_horizontal = 250.0f;
+            float posicao_anterior = (i == 0) ? canos.back()->getX() : canos[i - 1]->getX();
+            canos[i]->reset_if_out_of_screen(limite_esquerdo, posicao_anterior + espacamento_horizontal, espacamento_horizontal, ALTURA_NATIVA);
+        
+            // Lógica de pontuação (quando você implementar)
+            // if (!canos[i]->foiContado && player->getX() > canos[i]->getX() + canos[i]->getLargura()) {
+            //     pontuacao_atual++;
+            //     canos[i]->foiContado = true;
+            // }
+        }
+        
+        // --- LÓGICA DE FIM DE JOGO ---
+        // Verifica se o jogador caiu para fora da tela
+        if (player->getY() >= ALTURA_JANELA - player->getAltura()) {
+            if (!end) {
+                std::cout << "!!! JOGADOR CAIU DA TELA !!!" << std::endl;
+                player->onCollision();
+                this->end = true;      
+            }
+        }
+        
+        // Quando você reativar o detector de colisão, a lógica dele viria aqui:
+        // else if (detector->detectar()) {
+        //     if (!end) {
+        //         player->onCollision();
+        //         this->end = true;
+        //     }
+        // }
     }
-    detector->detectar();
-}
-
-
-    /*
-       for (auto& cano : canos) {
-    if (!cano->foiContado && player->getX() > cano->getX() + cano->getLargura()) {
-        pontos++;
-        cano->foiContado = true;
-    }
-}
-    */
-
 }
 
 void TelaJogo::draw()

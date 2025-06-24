@@ -25,6 +25,48 @@ Logger::~Logger()
     delete db_;    // Libera a memória do objeto Dado carregado
     db_ = nullptr; // Garante que o ponteiro não aponte para memória inválida
 }
+bool PlayerLogger::isHighScore(int novo_score)
+{
+    // Pega todos os objetos de jogador do banco de dados
+    const std::vector<objeto> todos_os_jogadores_obj = db_->listar();
+    
+    // max recorde
+    const int max_recordes = 10;
+
+    // Se o ranking ainda não está cheio, qualquer pontuação é um recorde.
+    if (todos_os_jogadores_obj.size() < max_recordes) {
+        return true;
+    }
+
+    // Se o ranking está cheio, precisamos encontrar a pontuação mais baixa nele.
+    int menor_score_no_ranking = -1;
+
+    for (const auto& obj : todos_os_jogadores_obj) {
+        Dado_Jogador jogador_temp(obj);
+        
+        // Verificamos se o jogador tem alguma pontuação registrada
+        if (!jogador_temp.pontuacoes().empty()) {
+            // Encontramos a maior pontuação daquele jogador específico
+            int maior_pontuacao_do_jogador = *std::max_element(
+                jogador_temp.pontuacoes().begin(), 
+                jogador_temp.pontuacoes().end()
+            );
+
+            // Comparamos com o menor score encontrado no ranking até agora
+            if (menor_score_no_ranking == -1 || maior_pontuacao_do_jogador < menor_score_no_ranking) {
+                menor_score_no_ranking = maior_pontuacao_do_jogador;
+            }
+        }
+    }
+
+    // Se não houver scores para comparar (pouco provável se a lista está cheia), considera um high score.
+    if (menor_score_no_ranking == -1) {
+        return true;
+    }
+
+    // A nova pontuação é um recorde se for maior que a pontuação mais baixa do ranking.
+    return novo_score > menor_score_no_ranking;
+}
 
 // Função carregar
 // Tenta carregar um objeto Dado do Database usando um ‘ID’.

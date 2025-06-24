@@ -13,9 +13,9 @@ TelaCadastro::TelaCadastro(int pontuacao, PlayerLogger& logger_ref, int largura,
 
     try {
        
-        fonte_titulo = al_load_font("../../assets/fonts/joystix/joystixmonospace.otf", 48, 0);
-        fonte_input = al_load_font("../../assets/fonts/joystix/joystixmonospace.otf", 36, 0);
-        fonte_subtext = al_load_font("../../assets/fonts/joystix/joystixmonospace.otf", 28, 0);
+        fonte_titulo = al_load_font("assets/fonts/joystix/joystixmonospace.otf", 48, 0);
+        fonte_input = al_load_font("assets/fonts/joystix/joystixmonospace.otf", 36, 0);
+        fonte_subtext = al_load_font("assets/fonts/joystix/joystixmonospace.otf", 28, 0);
         if (!fonte_titulo || !fonte_input || !fonte_subtext) throw std::runtime_error("Falha ao carregar fontes para TelaCadastro");
     } catch (const std::runtime_error& e) {
         std::cerr << "Erro em TelaCadastro: " << e.what() << std::endl;
@@ -25,6 +25,7 @@ TelaCadastro::TelaCadastro(int pontuacao, PlayerLogger& logger_ref, int largura,
 TelaCadastro::~TelaCadastro() {
     if (fonte_titulo) al_destroy_font(fonte_titulo);
     if (fonte_input) al_destroy_font(fonte_input);
+    if(fonte_subtext) al_destroy_font(fonte_subtext);
 }
 //piscar o cursor
 void TelaCadastro::update() {

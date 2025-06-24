@@ -68,6 +68,8 @@ class Logger {
                         const string &sep_entidade = "\n");
 };
 
+
+
 /**
  * @brief Logger especializado para dados de jogadores.
  */
@@ -81,6 +83,13 @@ class PlayerLogger final : public Logger {
      * @param db Ponteiro para o banco de dados.
      */
     explicit PlayerLogger(Database *db);
+
+ /**
+     * @brief Verifica se uma nova pontuação é alta o suficiente para entrar no ranking.
+     * @param novo_score A pontuação a ser verificada.
+     * @return true se for um recorde, false caso contrário.
+     */
+    bool isHighScore(int novo_score);
 
     /**
      * @brief Construtor padrão.

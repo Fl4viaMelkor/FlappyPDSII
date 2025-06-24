@@ -87,5 +87,4 @@ bool Player::getIsAlive() const {
 
 void Player::onCollision(){ 
     Kill();
-    throw PlayerException("O jogador morreu.");
 }
