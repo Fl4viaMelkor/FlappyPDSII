@@ -22,6 +22,8 @@ class Cano {
 
     void draw() const;                      // Desenha os canos (superior e inferior)
     void move(float dx);                    // Move os canos na horizontal (dx pode ser negativo para mover para esquerda)
+
+    
     // Verifica se o cano saiu da tela e reseta a posição e altura aleatória
     void reset_if_out_of_screen(float limite_esquerdo, float posicao_ultimo_cano, float espacamento, float altura_tela);
     
@@ -33,7 +35,7 @@ class Cano {
     
     
     
-    // Verifica se um retângulo do jogador colide com o cano
+    ///implementação da hitbox
     //bool colisao_com_jogador(float jogador_x, float jogador_y, float jogador_largura, float jogador_altura) const;
     
   private:
@@ -45,6 +47,13 @@ class Cano {
     float m_espessura;      // Espessura da linha (não usada para preenchidos, mas mantida)
 
     SpriteAnimado sprite;  // NOVO
+
+    //contagem de pontuação no caso em que o player passa pelo cano
+    
+    //para contar a pontuação
+    //bool foiContado = false;
+
+
 };
     
     

@@ -44,10 +44,16 @@ void Cano::draw() const {
 // esquerda)
 void Cano::move(float dx) { m_x += dx; }
 
-// Se o cano saiu
-// completamente da tela
-// à esquerda,
-// reposiciona ele
+
+/**
+ * @brief Reposiciona o cano se ele sair completamente da tela pela esquerda.
+ *
+ * Este método verifica se o cano ultrapassou o limite esquerdo da tela
+ * (ou seja, saiu completamente da área visível). Se isso acontecer,
+ * ele reposiciona o cano para a direita da tela com base na posição
+ * de um cano anterior e aplica uma nova altura aleatória.
+ */
+
 void Cano::reset_if_out_of_screen(float limite_esquerdo, float posicao_ultimo_cano, float espacamento,
                                   float altura_tela)
 {
@@ -86,52 +92,5 @@ void Cano::reset_if_out_of_screen(float limite_esquerdo, float posicao_ultimo_ca
         m_y_topo = min_topo + rand() % (max_topo - min_topo + 1);
     }
 }
-
-/* bool Cano::colisao_com_jogador(float jogador_x, float jogador_y, float jogador_largura, float jogador_altura) const
-{
-
-    // Define retângulos
-    // dos dois blocos do
-    // cano
-    float cano_sup_x1 = m_x;
-    float cano_sup_y1 = 0;
-    float cano_sup_x2 = m_x + m_largura;
-    float cano_sup_y2 = m_y_topo;
-
-    float cano_inf_x1 = m_x;
-    float cano_inf_y1 = m_y_topo + m_espaco;
-    float cano_inf_x2 = m_x + m_largura;
-    float cano_inf_y2 = ALTURA_TELA; // altura da
-                             // tela, pode
-                             // ser passado
-                             // como
-                             // parâmetro
-
-    // Define retângulo do jogador
-    float jog_x1 = jogador_x;
-    float jog_y1 = jogador_y;
-    float jog_x2 = jogador_x + jogador_largura;
-    float jog_y2 = jogador_y + jogador_altura;
-
-    // Função auxiliar
-    // para detectar    // interseção entre
-    // retângulos
-    auto retangulos_intersectam = [](float ax1, float ay1, float ax2, float ay2, float bx1, float by1, float bx2,
-                                     float by2) { return (ax1 < bx2 && ax2 > bx1 && ay1 < by2 && ay2 > by1); };
-
-    // Verifica colisão
-    // com bloco superior
-    if (retangulos_intersectam(cano_sup_x1, cano_sup_y1, cano_sup_x2, cano_sup_y2, jog_x1, jog_y1, jog_x2, jog_y2))
-        return true;
-
-    // Verifica colisão
-    // com bloco inferior
-    if (retangulos_intersectam(cano_inf_x1, cano_inf_y1, cano_inf_x2, cano_inf_y2, jog_x1, jog_y1, jog_x2, jog_y2))
-
-        return true;
-
-    // Sem colisão
-    return false;
-} */
 
 
