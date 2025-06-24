@@ -48,12 +48,17 @@ TelaJogo::TelaJogo()
   , keyState()
   , currentGameState(GameState::PAUSED_FOR_START)
 {
+    float	playerStartX;
+	float	playerStartY;
+	float	espacamentoCanos;
+	float	larguraCanos;
+
     parallaxBg = new ParallaxBackground(LARGURA_JANELA, ALTURA_JANELA);
     initializeRandomBackgroud();
     // Criando objetos que vão estar no
 
-    float playerStartX = LARGURA_JANELA / 8.0f;
-    float playerStartY = ALTURA_JANELA / 2.0f - (32/ 2.0f);
+    playerStartX = LARGURA_JANELA / 8.0f;
+    playerStartY = ALTURA_JANELA / 2.0f - (32/ 2.0f);
     player = new Player("assets/player/galinha_spritesheet.png", playerStartX, playerStartY, 0.0f, 32, 32); //blue_bird_spritesheet.png  galinha_spritesheet.png
 
     font = al_load_font("assets/fonts/joystix/joystixmonospace.otf", 20, 0);
@@ -61,9 +66,16 @@ TelaJogo::TelaJogo()
         cerr << "Falha ao carregar a fonte. Verifique o caminho";
     }
     //nova implementação: substituindo MySquare por vector de canos
-    for (int i = 0; i < 4; ++i) {
-    float x = 400.0f + i * 250.0f;  // espaçamento horizontal entre os canos
-    canos.push_back(new Cano(x, 52, 150, ALTURA_NATIVA, al_map_rgb(35, 161, 49), 0.4f, "assets/obj/pipe-green.png"));
+
+	float posicaoIncialX = static_cast<float>(LARGURA_JANELA) + 100.0f;
+
+	espacamentoCanos = 250.0f;
+	larguraCanos = 52.0f;
+    int quantidadeDeCanos = LARGURA_JANELA / espacamentoCanos + 1;
+
+    for (int i = 0; i < quantidadeDeCanos; ++i) {
+    float x = posicaoIncialX + i * espacamentoCanos;  // espaçamento horizontal entre os canos
+    canos.push_back(new Cano(x, larguraCanos, 150, ALTURA_JANELA, al_map_rgb(35, 161, 49), 0.4f, "assets/obj/pipe-green.png"));
 }
     //MySquare = new Cano(300.0f, 52, 150, ALTURA_TELA, al_map_rgb(35, 161, 49), 0.4f, "assets/obj/pipe-green.png");// cano de teste
 
@@ -105,29 +117,29 @@ void TelaJogo::update()
 
         // Lógica para mover os canos e contar pontos
         for (size_t i = 0; i < canos.size(); ++i) {
-            canos[i]->move(-2.0f); 
+            canos[i]->move(-2.0f);
             float limite_esquerdo = -canos[i]->getLargura();
             float espacamento_horizontal = 250.0f;
             float posicao_anterior = (i == 0) ? canos.back()->getX() : canos[i - 1]->getX();
             canos[i]->reset_if_out_of_screen(limite_esquerdo, posicao_anterior + espacamento_horizontal, espacamento_horizontal, ALTURA_NATIVA);
-        
+
             // Lógica de pontuação (quando você implementar)
             // if (!canos[i]->foiContado && player->getX() > canos[i]->getX() + canos[i]->getLargura()) {
             //     pontuacao_atual++;
             //     canos[i]->foiContado = true;
             // }
         }
-        
+
         // --- LÓGICA DE FIM DE JOGO ---
         // Verifica se o jogador caiu para fora da tela
         if (player->getY() >= ALTURA_JANELA - player->getAltura()) {
             if (!end) {
                 std::cout << "!!! JOGADOR CAIU DA TELA !!!" << std::endl;
                 player->onCollision();
-                this->end = true;      
+                this->end = true;
             }
         }
-        
+
         // Quando você reativar o detector de colisão, a lógica dele viria aqui:
         // else if (detector->detectar()) {
         //     if (!end) {
