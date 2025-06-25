@@ -97,7 +97,7 @@ void TelaCadastro::step(ALLEGRO_EVENT &evento)
                 std::cout << "Score salvo com sucesso via Logger para o jogador: " << nome_jogador << std::endl;
             else
                 std::cerr << "Falha ao salvar o score via Logger." << std::endl;
-
+            cout << logger.listar_dados_ordenados();
             // Define o estado para voltar ao menu principal
             proxima_tela_estado = EstadoProximaTela::MENU_PRINCIPAL;
         }

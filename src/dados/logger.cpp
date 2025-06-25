@@ -29,40 +29,35 @@ bool PlayerLogger::isHighScore(int novo_score)
 {
     // Pega todos os objetos de jogador do banco de dados
     const std::vector<objeto> todos_os_jogadores_obj = db_->listar();
-    
+
     // max recorde
     const int max_recordes = 10;
 
     // Se o ranking ainda não está cheio, qualquer pontuação é um recorde.
-    if (todos_os_jogadores_obj.size() < max_recordes) {
+    if (todos_os_jogadores_obj.size() < max_recordes)
         return true;
-    }
 
     // Se o ranking está cheio, precisamos encontrar a pontuação mais baixa nele.
     int menor_score_no_ranking = -1;
 
-    for (const auto& obj : todos_os_jogadores_obj) {
+    for (const auto &obj : todos_os_jogadores_obj) {
         Dado_Jogador jogador_temp(obj);
-        
+
         // Verificamos se o jogador tem alguma pontuação registrada
         if (!jogador_temp.pontuacoes().empty()) {
             // Encontramos a maior pontuação daquele jogador específico
-            int maior_pontuacao_do_jogador = *std::max_element(
-                jogador_temp.pontuacoes().begin(), 
-                jogador_temp.pontuacoes().end()
-            );
+            int maior_pontuacao_do_jogador =
+              *std::max_element(jogador_temp.pontuacoes().begin(), jogador_temp.pontuacoes().end());
 
             // Comparamos com o menor score encontrado no ranking até agora
-            if (menor_score_no_ranking == -1 || maior_pontuacao_do_jogador < menor_score_no_ranking) {
+            if (menor_score_no_ranking == -1 || maior_pontuacao_do_jogador < menor_score_no_ranking)
                 menor_score_no_ranking = maior_pontuacao_do_jogador;
-            }
         }
     }
 
     // Se não houver scores para comparar (pouco provável se a lista está cheia), considera um high score.
-    if (menor_score_no_ranking == -1) {
+    if (menor_score_no_ranking == -1)
         return true;
-    }
 
     // A nova pontuação é um recorde se for maior que a pontuação mais baixa do ranking.
     return novo_score > menor_score_no_ranking;
@@ -193,8 +188,9 @@ bool PlayerLogger::salvar(int pontuacao_mais_recente)
 string PlayerLogger::listar_dados_ordenados(const string &sep_chave_valor, const string &sep_dados,
                                             const string &sep_entidade) const
 {
-    const vector<objeto> results = db_->listar_ordenado("vitorias", false);
+    const vector<objeto> results = db_->listar_ordenado("MAIOR PONTUACAO", false);
     string dados = "";
+
     for (objeto obj : results) {
         for (const auto &pair : obj.dados)
             dados += pair.first + sep_chave_valor + pair.second + sep_dados;
