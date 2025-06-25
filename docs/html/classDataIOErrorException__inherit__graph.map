@@ -1,0 +1,7 @@
+<map id="DataIOErrorException" name="DataIOErrorException">
+<area shape="rect" id="Node000001" title="Exceção específica para falha na operação de E/S de dados (carregar/salvar). Ex: Erro ao ler/escrever..." alt="" coords="5,152,168,177"/>
+<area shape="rect" id="Node000002" href="$classDataException.html" title="Classe base para todas as exceções relacionadas a erros nos dados. Herda de std::runtime_error para s..." alt="" coords="28,79,145,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,118,89,152,84,152,84,118"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="31,5,142,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="89,44,89,79,84,79,84,44"/>
+</map>

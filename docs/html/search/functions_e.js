@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['parallaxbackground_0',['ParallaxBackground',['../classParallaxBackground.html#a266d6996043a0c7edc13b5ab64f8d259',1,'ParallaxBackground']]],
-  ['player_1',['Player',['../classPlayer.html#a4fbb911b93bdf4e48750416b1fa73a48',1,'Player']]],
-  ['playerexception_2',['PlayerException',['../classPlayerException.html#a087b26a808c263c9b253002e7d29911b',1,'PlayerException']]],
-  ['playerlogger_3',['playerlogger',['../classPlayerLogger.html#afaf3b76d425b02a6083d37861c60f6a5',1,'PlayerLogger::PlayerLogger(Database *db)'],['../classPlayerLogger.html#a72ef58b0ad452988334d5075aa9117d7',1,'PlayerLogger::PlayerLogger()']]],
-  ['poligono_4',['Poligono',['../classPoligono.html#abf337978fcd128c247b35852c9ce0f41',1,'Poligono']]],
-  ['pontuacoes_5',['pontuacoes',['../classDado__Jogador.html#a888c97b73240cbdd05d693d763d551ec',1,'Dado_Jogador::pontuacoes() const'],['../classDado__Jogador.html#ad652b2077ddcfee9fcb2802983a85577',1,'Dado_Jogador::pontuacoes(const vector&lt; int &gt; &amp;pontuacoes)']]]
+  ['oncollision_0',['oncollision',['../classColidivel.html#a014956b8261e186b2345108627e03566',1,'Colidivel::onCollision()'],['../classRetanguloHitbox.html#a749d7becd826b1f8a165e79d9aad7fd5',1,'RetanguloHitbox::onCollision()'],['../classTelaJogo.html#ac781076a724e80d17a0657732affb037',1,'TelaJogo::onCollision()'],['../classCano.html#a9b9da63ab6d9866e52ca5d9cba96a807',1,'Cano::onCollision()'],['../classPlayer.html#ab4ac6aa46f8aa40a9cd1926eccae0e6c',1,'Player::onCollision()']]],
+  ['operator_21_3d_1',['operator!=',['../structobjeto.html#a90d47a950a0c2a836af3d25f3e77da09',1,'objeto::operator!=()'],['../classDado.html#a36621de6a86df1a9517302b6eda40563',1,'Dado::operator!=()'],['../classDado__Jogador.html#a5c99d79f832dc305d638ba6dd63b7d49',1,'Dado_Jogador::operator!=()']]],
+  ['operator_3d_3d_2',['operator==',['../structobjeto.html#af1ace35c089baa21692e37594709bea9',1,'objeto::operator==()'],['../classDado.html#a3bac1508f25f5d28ea1c6e71b883a51e',1,'Dado::operator==()'],['../classDado__Jogador.html#af0e607898dcdebc2ee6101c0b4588bbd',1,'Dado_Jogador::operator==()']]]
 ];

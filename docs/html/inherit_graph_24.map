@@ -1,3 +1,5 @@
 <map id="Gráfico de Hierarquia de Classes" name="Gráfico de Hierarquia de Classes">
-<area shape="rect" id="Node000000" href="$classPontuadorStrategy.html" title=" " alt="" coords="5,5,148,31"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,5,144,31"/>
+<area shape="rect" id="Node000001" href="$classPlayerException.html" title="Exceção personalizada para erros relacionados ao jogador." alt="" coords="192,5,319,31"/>
+<area shape="poly" id="edge24_Node000000_Node000001" title=" " alt="" coords="158,15,192,15,192,21,158,21"/>
 </map>

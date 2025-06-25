@@ -101,24 +101,28 @@ Compilação</h1>
 <li>CMake</li>
 <li>Allegro 5</li>
 <li>g++</li>
+<li>SQLite (para salvar pontuações)</li>
 </ul>
-<p>Para compilar:</p>
-<div class="fragment"><div class="line">mkdir build</div>
-<div class="line">cd build</div>
-<div class="line">cmake ..</div>
-<div class="line">make</div>
-<div class="line">./bin/FlappyPDSII</div>
+<p>Instalando SQLite no Ubuntu/Debian:</p>
+<div class="fragment"><div class="line">sudo apt update</div>
+<div class="line">sudo apt install sqlite3 libsqlite3-dev</div>
 <div class="line">````</div>
 <div class="line"> </div>
-<div class="line">## Testes</div>
 <div class="line"> </div>
-<div class="line">Os testes usam a biblioteca [doctest](https://github.com/doctest/doctest). Para executar:</div>
-</div><!-- fragment --><p> bash cd tests/build make ./run_tests </p><div class="fragment"><div class="line">## Documentação</div>
-<div class="line"> </div>
-<div class="line">A documentação pode ser gerada com [Doxygen](https://www.doxygen.nl/):</div>
-</div><!-- fragment --><p> bash doxygen Doxyfile ```</p>
-<p>Abra <code>docs/html/index.html</code> no navegador para consultar.</p>
+<div class="line">Para compilar:</div>
+</div><!-- fragment --><p> bash mkdir build cd build cmake .. make ./bin/FlappyPDSII ````</p>
 <h1><a class="anchor" id="autotoc_md6"></a>
+Testes</h1>
+<p>Os testes usam a biblioteca <a href="https://github.com/doctest/doctest">doctest</a>. Para executar:</p>
+<div class="fragment"><div class="line">cd tests/build</div>
+<div class="line">make</div>
+<div class="line">./run_tests</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md7"></a>
+Documentação</h1>
+<p>A documentação pode ser gerada com <a href="https://www.doxygen.nl/">Doxygen</a>:</p>
+<div class="fragment"><div class="line">doxygen Doxyfile</div>
+</div><!-- fragment --><p>Abra <code>docs/html/index.html</code> no navegador para consultar.</p>
+<h1><a class="anchor" id="autotoc_md8"></a>
 Contribuidores</h1>
 <ul>
 <li>Flávia Silva (<a href="https://github.com/Fl4viaMelkor">Fl4viaMelkor</a>)</li>
@@ -126,7 +130,7 @@ Contribuidores</h1>
 <li>Vinícius Augusto (<a href="https://github.com/swords-0">swords-0</a>)</li>
 <li>[Demais nomes do grupo aqui]</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md7"></a>
+<h1><a class="anchor" id="autotoc_md9"></a>
 Licença</h1>
 <p>Projeto acadêmico desenvolvido exclusivamente para fins educacionais. </p>
 </div></div><!-- contents -->

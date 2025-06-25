@@ -1,0 +1,7 @@
+<map id="DataNotFoundException" name="DataNotFoundException">
+<area shape="rect" id="Node000001" title="Exceção específica para dados ausentes ou não encontrados. Ex: Uma chave esperada em um mapa de dados..." alt="" coords="5,152,184,177"/>
+<area shape="rect" id="Node000002" href="$classDataException.html" title="Classe base para todas as exceções relacionadas a erros nos dados. Herda de std::runtime_error para s..." alt="" coords="36,79,153,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,118,97,152,92,152,92,118"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="39,5,150,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="97,44,97,79,92,79,92,44"/>
+</map>

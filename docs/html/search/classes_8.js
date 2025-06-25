@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['logger_0',['Logger',['../classLogger.html',1,'']]]
+  ['keybind_0',['Keybind',['../classKeybind.html',1,'']]],
+  ['keybinder_1',['Keybinder',['../classKeybinder.html',1,'']]]
 ];

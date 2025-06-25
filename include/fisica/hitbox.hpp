@@ -13,7 +13,8 @@
 /**
  * @brief Interface para elementos colidíveis no jogo.
  *
- * Define a estrutura comum para classes que possuem detecção de colisão.
+ * Define a estrutura comum para classes que possuem detecção de colisão com pontos.
+ * Serve como base para diferentes tipos de hitboxes, como retângulos, polígonos, curvas, etc.
  */
 class Colidivel {
   public:
@@ -46,22 +47,24 @@ class Colidivel {
     virtual bool noPerimetro(const coordenadas &p) const = 0;
 
     /**
-     * @brief Retorna os pontos que definem a forma geométrica.
+     * @brief Retorna os pontos que definem a forma geométrica da hitbox.
      * @return Vetor de coordenadas da forma.
      */
-    virtual vector<coordenadas> get_pontos() const = 0;
+    virtual std::vector<coordenadas> get_pontos() const = 0;
 };
 
 /**
  * @brief Implementa uma hitbox retangular.
  *
- * Baseada em um ponto inferior esquerdo, com altura e base definidas.
+ * A posição do retângulo é definida a partir de seu canto inferior esquerdo,
+ * e ele possui uma largura (base) e altura fixas. Pode ser utilizado para colisões
+ * com obstáculos, personagens ou áreas de interação.
  */
 class RetanguloHitbox : public Colidivel {
   protected:
     coordenadas ponto_inferior_esquerdo; ///< Canto inferior esquerdo do retângulo.
-    float base;   ///< Largura do retângulo.
-    float altura; ///< Altura do retângulo.
+    float base;                          ///< Largura do retângulo.
+    float altura;                        ///< Altura do retângulo.
 
   public:
     /**
@@ -71,46 +74,68 @@ class RetanguloHitbox : public Colidivel {
      * @param a Altura.
      */
     RetanguloHitbox(coordenadas p1, float b, float a)
-      : ponto_inferior_esquerdo(p1), base(b), altura(a)
-    {
-    }
+      : ponto_inferior_esquerdo(p1), base(b), altura(a) {}
 
-     /**
-     * @brief Retorna a coordenada Y do ponto de referência do objeto.
-     */
-    float getY() const { return ponto_inferior_esquerdo.y; }
-
-
-     /**
-     * @brief Retorna a coordenada Y do ponto de referência do objeto.
+    /**
+     * @brief Retorna a coordenada X do ponto de referência da hitbox.
+     * @return Valor da posição X.
      */
     float getX() const { return ponto_inferior_esquerdo.x; }
 
     /**
+     * @brief Retorna a coordenada Y do ponto de referência da hitbox.
+     * @return Valor da posição Y.
+     */
+    float getY() const { return ponto_inferior_esquerdo.y; }
+
+    /**
      * @brief Retorna a altura da hitbox.
+     * @return Valor da altura.
      */
     float getAltura() const { return altura; }
 
-
+    /**
+     * @brief Comportamento padrão ao ocorrer colisão.
+     *
+     * Pode ser sobrescrito em classes derivadas. Aqui, não faz nada por padrão.
+     */
     void onCollision() override {
         // comportamento padrão ou vazio
     }
 
+    /**
+     * @brief Verifica se o ponto colide com a hitbox.
+     * @param p Ponto a ser testado.
+     * @return true se estiver no interior ou perímetro.
+     */
     bool colisao(coordenadas p) override {
-        // comportamento padrão - por exemplo, colisão se estiver no interior ou perímetro
         return noInterior(p) || noPerimetro(p);
     }
-    
-    bool noInterior(const coordenadas &p) const override;
-    bool noPerimetro(const coordenadas &p) const override;
-    vector<coordenadas> get_pontos() const override;
 
+    /**
+     * @brief Verifica se o ponto está dentro da área do retângulo.
+     * @param p Coordenadas a verificar.
+     * @return true se estiver no interior.
+     */
+    bool noInterior(const coordenadas &p) const override;
+
+    /**
+     * @brief Verifica se o ponto está exatamente no contorno do retângulo.
+     * @param p Coordenadas a verificar.
+     * @return true se estiver no perímetro.
+     */
+    bool noPerimetro(const coordenadas &p) const override;
+
+    /**
+     * @brief Retorna os quatro cantos do retângulo.
+     * @return Vetor com as coordenadas dos vértices.
+     */
+    std::vector<coordenadas> get_pontos() const override;
 };
 
-// Comentários futuros para as classes abaixo, se forem implementadas:
-//
-// class PoligonoHitbox: public Hitbox { ... }
-// class CurvaHitbox: public Hitbox { ... }
-// class FiguraHitbox: public Hitbox { ... }
+// Futuras extensões:
+// class PoligonoHitbox : public Colidivel { ... }
+// class CurvaHitbox   : public Colidivel { ... }
+// class FiguraHitbox  : public Colidivel { ... }
 
 #endif

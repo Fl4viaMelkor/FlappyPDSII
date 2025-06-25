@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['licença_0',['Licença',['../md_README.html#autotoc_md7',1,'']]],
+  ['licença_0',['Licença',['../md_README.html#autotoc_md9',1,'']]],
   ['limpar_1',['limpar',['../classDatabase.html#a4e27e1c6ecf2fb29e0519b06fb95deaa',1,'Database::limpar()'],['../classSQLDatabase.html#a02157d89b6d6740c0e28c977d66b52ee',1,'SQLDatabase::limpar()']]],
   ['listar_2',['listar',['../classDatabase.html#acf82c2cd3e8f62a29e8b2957a910fc50',1,'Database::listar()'],['../classSQLDatabase.html#a0f202c7d632db33565d96e1115a29990',1,'SQLDatabase::listar()']]],
   ['listar_5fdados_3',['listar_dados',['../classLogger.html#a6ac39995a50373c260bbeecbe55fe1ef',1,'Logger']]],

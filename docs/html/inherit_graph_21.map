@@ -1,3 +1,11 @@
 <map id="Gráfico de Hierarquia de Classes" name="Gráfico de Hierarquia de Classes">
-<area shape="rect" id="Node000000" href="$classParallaxBackground.html" title="Classe responsável por gerenciar um conjunto de camadas de fundo com efeito de paralaxe." alt="" coords="5,5,156,31"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,55,116,80"/>
+<area shape="rect" id="Node000001" href="$classDataException.html" title="Classe base para todas as exceções relacionadas a erros nos dados. Herda de std::runtime_error para s..." alt="" coords="164,55,281,80"/>
+<area shape="poly" id="edge19_Node000000_Node000001" title=" " alt="" coords="130,65,164,65,164,70,130,70"/>
+<area shape="rect" id="Node000002" href="$classDataIOErrorException.html" title="Exceção específica para falha na operação de E/S de dados (carregar/salvar). Ex: Erro ao ler/escrever..." alt="" coords="351,5,514,31"/>
+<area shape="poly" id="edge20_Node000001_Node000002" title=" " alt="" coords="289,49,329,39,376,28,377,33,330,45,290,54"/>
+<area shape="rect" id="Node000003" href="$classDataNotFoundException.html" title="Exceção específica para dados ausentes ou não encontrados. Ex: Uma chave esperada em um mapa de dados..." alt="" coords="343,55,522,80"/>
+<area shape="poly" id="edge21_Node000001_Node000003" title=" " alt="" coords="296,65,343,65,343,70,296,70"/>
+<area shape="rect" id="Node000004" href="$classInvalidDataFormatException.html" title="Exceção específica para dados em formato inválido. Ex: Tentativa de converter uma string nao numerica..." alt="" coords="329,104,536,129"/>
+<area shape="poly" id="edge22_Node000001_Node000004" title=" " alt="" coords="291,81,378,101,377,107,290,86"/>
 </map>

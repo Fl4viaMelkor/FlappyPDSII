@@ -94,10 +94,11 @@ $(function() {
 
 <h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
 <li>CamadaBackground()&#160;:&#160;<a class="el" href="classCamadaBackground.html#a22ff91e879d7594b2de04c6b5bfcc14f">CamadaBackground</a></li>
+<li>Cano()&#160;:&#160;<a class="el" href="classCano.html#addbe57c6d2f617a4e9d8c088619aabd4">Cano</a></li>
 <li>carregar()&#160;:&#160;<a class="el" href="classDado.html#a3c491865e9297c1aeda96d617ba1c831">Dado</a>, <a class="el" href="classDado__Jogador.html#aea7adfcd23eed0b401f715d729e337f5">Dado_Jogador</a>, <a class="el" href="classLogger.html#acfcec721afcc3432c50dc368e0276eea">Logger</a>, <a class="el" href="classPlayerLogger.html#abf6939e6e83f9fe122244a2dc6601544">PlayerLogger</a></li>
 <li>centro&#160;:&#160;<a class="el" href="classCirculo.html#ab6b15244ee9ea2d552499190d01de2e9">Circulo</a></li>
 <li>Circulo()&#160;:&#160;<a class="el" href="classCirculo.html#ad80b456baa217812b71672457d9c7601">Circulo</a></li>
-<li>colisao()&#160;:&#160;<a class="el" href="classColidivel.html#ade420f4cdfba30e28136181d270afc0f">Colidivel</a>, <a class="el" href="classPlayer.html#a60a87398ca319f6fa372a0c3add47750">Player</a>, <a class="el" href="classTelaJogo.html#a79b93cc3c9d060409c684eb5f8fe60a6">TelaJogo</a></li>
+<li>colisao()&#160;:&#160;<a class="el" href="classCano.html#a2b4f2d7949f6952367e0f84bd8fb148a">Cano</a>, <a class="el" href="classColidivel.html#ade420f4cdfba30e28136181d270afc0f">Colidivel</a>, <a class="el" href="classPlayer.html#a60a87398ca319f6fa372a0c3add47750">Player</a>, <a class="el" href="classRetanguloHitbox.html#aeae15cd2d1a8ab960b844485c3cfab00">RetanguloHitbox</a>, <a class="el" href="classTelaJogo.html#a79b93cc3c9d060409c684eb5f8fe60a6">TelaJogo</a></li>
 <li>colunas_&#160;:&#160;<a class="el" href="classSQLDatabase.html#aee3daca194ba7c04ec2a9bf085acd016">SQLDatabase</a></li>
 </ul>
 
@@ -110,7 +111,7 @@ $(function() {
 <li>deletar()&#160;:&#160;<a class="el" href="classLogger.html#af3573b7eb2f743819a25c088aa186a97">Logger</a></li>
 <li>detectar()&#160;:&#160;<a class="el" href="classDetector__Colisao.html#a23ab92801c27afae2fb561791561e926">Detector_Colisao</a></li>
 <li>Detector_Colisao()&#160;:&#160;<a class="el" href="classDetector__Colisao.html#a67619c1c2a9c8d02b925a009adf7d590">Detector_Colisao</a></li>
-<li>draw()&#160;:&#160;<a class="el" href="classCamadaBackground.html#a9ba7589b52527305cd6119857720b618">CamadaBackground</a>, <a class="el" href="classParallaxBackground.html#a2c06f9ac7dba602bef3147402f7d6f8f">ParallaxBackground</a>, <a class="el" href="classPlayer.html#ac18c9d30d2997765321c62030a4b20b7">Player</a>, <a class="el" href="classSpriteAnimado.html#a1ef9b226e5a15eff399c3b16c7d3a1a3">SpriteAnimado</a>, <a class="el" href="classtela__fimdejogo.html#af3edf0855c2c320b5f3ac8dcbffee70e">tela_fimdejogo</a>, <a class="el" href="classTelaCadastro.html#a412f4b53bf995cd2ec21932b3418bcaa">TelaCadastro</a>, <a class="el" href="classTelaHighScores.html#a4545329cb928e0a9329476991ec4a55d">TelaHighScores</a>, <a class="el" href="classTelaInicial.html#af58cb64c52e93dece80d738cfdc39a49">TelaInicial</a></li>
+<li>draw()&#160;:&#160;<a class="el" href="classCamadaBackground.html#a9ba7589b52527305cd6119857720b618">CamadaBackground</a>, <a class="el" href="classCano.html#ad27f62c9dbbbf82173ceb62de5228a3e">Cano</a>, <a class="el" href="classParallaxBackground.html#a2c06f9ac7dba602bef3147402f7d6f8f">ParallaxBackground</a>, <a class="el" href="classPlayer.html#ac18c9d30d2997765321c62030a4b20b7">Player</a>, <a class="el" href="classSpriteAnimado.html#a1ef9b226e5a15eff399c3b16c7d3a1a3">SpriteAnimado</a>, <a class="el" href="classtela__fimdejogo.html#af3edf0855c2c320b5f3ac8dcbffee70e">tela_fimdejogo</a>, <a class="el" href="classTelaCadastro.html#a412f4b53bf995cd2ec21932b3418bcaa">TelaCadastro</a>, <a class="el" href="classTelaHighScores.html#a4545329cb928e0a9329476991ec4a55d">TelaHighScores</a>, <a class="el" href="classTelaInicial.html#af58cb64c52e93dece80d738cfdc39a49">TelaInicial</a></li>
 </ul>
 
 
@@ -131,16 +132,18 @@ $(function() {
 <li>GameEndException()&#160;:&#160;<a class="el" href="classGameEndException.html#a3a772641ff65d4ef5de082165732631d">GameEndException</a></li>
 <li>get_colunas()&#160;:&#160;<a class="el" href="classDado__Jogador.html#a0f44f12cb5436a35fd6d1f4f371b6450">Dado_Jogador</a></li>
 <li>get_poligono()&#160;:&#160;<a class="el" href="classPoligono.html#aba58f8e4d462e28644d7f8c9d90908bb">Poligono</a></li>
-<li>get_pontos()&#160;:&#160;<a class="el" href="classColidivel.html#a6bd5a3950acd160e5d1424bc341a08f4">Colidivel</a>, <a class="el" href="classRetanguloHitbox.html#a681084b16cdbdbde14b355f5ac342572">RetanguloHitbox</a></li>
+<li>get_pontos()&#160;:&#160;<a class="el" href="classColidivel.html#a9f3b3cb3ec014502dd0cd1295fe6c80f">Colidivel</a>, <a class="el" href="classRetanguloHitbox.html#a681084b16cdbdbde14b355f5ac342572">RetanguloHitbox</a></li>
 <li>get_primary_key()&#160;:&#160;<a class="el" href="classDado__Jogador.html#a232f329700de1145bdce16d0c960bd14">Dado_Jogador</a></li>
 <li>get_sql_columns()&#160;:&#160;<a class="el" href="classDado__Jogador.html#aad743bbbe191718fda670e1aefd5c68e">Dado_Jogador</a></li>
 <li>get_sql_type_from_schema()&#160;:&#160;<a class="el" href="classSQLDatabase.html#ab323c7aaba7f368c69edba9c5d39b108">SQLDatabase</a></li>
 <li>getAltura()&#160;:&#160;<a class="el" href="classRetanguloHitbox.html#a596a143def804fba60ceeb18ad510928">RetanguloHitbox</a></li>
 <li>getHeight()&#160;:&#160;<a class="el" href="classSpriteAnimado.html#a1ed48adead7f193b1fac925cb526d613">SpriteAnimado</a></li>
 <li>getIsAlive()&#160;:&#160;<a class="el" href="classPlayer.html#a180f2bcd9d370dd3dd8839f06fb1bb77">Player</a></li>
+<li>getLargura()&#160;:&#160;<a class="el" href="classCano.html#ad22db4a1511a3bbd3b467b9639e794a1">Cano</a></li>
+<li>getNomeJogador()&#160;:&#160;<a class="el" href="classTelaCadastro.html#af3cb87752aa0394a4e16aad94d6ec237">TelaCadastro</a></li>
 <li>getProximaTelaEstado()&#160;:&#160;<a class="el" href="classtela__fimdejogo.html#ad2bfb076013164fa1eabedf95f9b8277">tela_fimdejogo</a>, <a class="el" href="classTelaCadastro.html#af243cb6983425ccebde400164a2454f3">TelaCadastro</a>, <a class="el" href="classTelaHighScores.html#a30449e625ca53632082602940f57aa56">TelaHighScores</a>, <a class="el" href="classTelaInicial.html#ace95840006d00a008b2ad43a2d21c00b">TelaInicial</a></li>
 <li>getWidth()&#160;:&#160;<a class="el" href="classSpriteAnimado.html#a8146be650a2ceceb8bba99e89e1c0ff3">SpriteAnimado</a></li>
-<li>getX()&#160;:&#160;<a class="el" href="classRetanguloHitbox.html#a3719ebc3b6a6a7ef41ee022c740a66d4">RetanguloHitbox</a></li>
+<li>getX()&#160;:&#160;<a class="el" href="classCano.html#a67a0b0510ae8b70771089f8a0064fbb0">Cano</a>, <a class="el" href="classRetanguloHitbox.html#a3719ebc3b6a6a7ef41ee022c740a66d4">RetanguloHitbox</a></li>
 <li>getY()&#160;:&#160;<a class="el" href="classRetanguloHitbox.html#add350299840facde26c8df50b243ea9a">RetanguloHitbox</a></li>
 </ul>
 
@@ -179,6 +182,8 @@ $(function() {
 
 
 <h3><a id="index_m" name="index_m"></a>- m -</h3><ul>
+<li>maior_pontuacao()&#160;:&#160;<a class="el" href="classDado__Jogador.html#a24e837ec45e658519bfea70f99343181">Dado_Jogador</a></li>
+<li>move()&#160;:&#160;<a class="el" href="classCano.html#a2e57763ed91c950574163e8b8595a42d">Cano</a></li>
 <li>mover_esquerda_devagar&#160;:&#160;<a class="el" href="classAcoes.html#a8892b6a0256520f7f60abfa19db5712b">Acoes</a></li>
 </ul>
 
@@ -193,7 +198,7 @@ $(function() {
 
 
 <h3><a id="index_o" name="index_o"></a>- o -</h3><ul>
-<li>onCollision()&#160;:&#160;<a class="el" href="classColidivel.html#a014956b8261e186b2345108627e03566">Colidivel</a>, <a class="el" href="classPlayer.html#ab4ac6aa46f8aa40a9cd1926eccae0e6c">Player</a>, <a class="el" href="classTelaJogo.html#ac781076a724e80d17a0657732affb037">TelaJogo</a></li>
+<li>onCollision()&#160;:&#160;<a class="el" href="classCano.html#a9b9da63ab6d9866e52ca5d9cba96a807">Cano</a>, <a class="el" href="classColidivel.html#a014956b8261e186b2345108627e03566">Colidivel</a>, <a class="el" href="classPlayer.html#ab4ac6aa46f8aa40a9cd1926eccae0e6c">Player</a>, <a class="el" href="classRetanguloHitbox.html#a749d7becd826b1f8a165e79d9aad7fd5">RetanguloHitbox</a>, <a class="el" href="classTelaJogo.html#ac781076a724e80d17a0657732affb037">TelaJogo</a></li>
 <li>operator!=()&#160;:&#160;<a class="el" href="classDado.html#a36621de6a86df1a9517302b6eda40563">Dado</a>, <a class="el" href="classDado__Jogador.html#a5c99d79f832dc305d638ba6dd63b7d49">Dado_Jogador</a>, <a class="el" href="structobjeto.html#a90d47a950a0c2a836af3d25f3e77da09">objeto</a></li>
 <li>operator==()&#160;:&#160;<a class="el" href="classDado.html#a3bac1508f25f5d28ea1c6e71b883a51e">Dado</a>, <a class="el" href="classDado__Jogador.html#af0e607898dcdebc2ee6101c0b4588bbd">Dado_Jogador</a>, <a class="el" href="structobjeto.html#af1ace35c089baa21692e37594709bea9">objeto</a></li>
 </ul>
@@ -238,7 +243,7 @@ $(function() {
 <li>setPerimetro()&#160;:&#160;<a class="el" href="classPoligono.html#aaf2daa02668bfb1607b7b7294de69178">Poligono</a></li>
 <li>SpriteAnimado()&#160;:&#160;<a class="el" href="classSpriteAnimado.html#a7cc9968a444d444b2458343711bb1988">SpriteAnimado</a></li>
 <li>sql_query_str_&#160;:&#160;<a class="el" href="classSQLDatabase.html#a9141fbf47d383e4fb04909b3f6e89050">SQLDatabase</a></li>
-<li>SQLDatabase()&#160;:&#160;<a class="el" href="classSQLDatabase.html#a84dad1b6812df29e166c832c660c7e26">SQLDatabase</a></li>
+<li>SQLDatabase()&#160;:&#160;<a class="el" href="classSQLDatabase.html#a8bc29ff1b9ec9645e2bb6db42a61d154">SQLDatabase</a></li>
 <li>step()&#160;:&#160;<a class="el" href="classtela__fimdejogo.html#add40f183b64fde90d83aa6f9138c842b">tela_fimdejogo</a>, <a class="el" href="classTelaCadastro.html#aa887c2e4e72f7f389ffb7cd64686117b">TelaCadastro</a>, <a class="el" href="classTelaHighScores.html#afe58a1711126110d346c0ca66973022c">TelaHighScores</a>, <a class="el" href="classTelaInicial.html#aa984c8e917f31bc24d8a1eb8325aeaf9">TelaInicial</a></li>
 </ul>
 

@@ -1,3 +1,21 @@
 <map id="Gráfico de Hierarquia de Classes" name="Gráfico de Hierarquia de Classes">
-<area shape="rect" id="Node000000" href="$classCano2.html" title=" " alt="" coords="5,5,68,31"/>
+<area shape="rect" id="Node000000" href="$classColidivel.html" title="Interface para elementos colidíveis no jogo." alt="" coords="5,55,84,80"/>
+<area shape="rect" id="Node000001" href="$classRetanguloHitbox.html" title="Implementa uma hitbox retangular." alt="" coords="132,55,263,80"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="98,65,132,65,132,70,98,70"/>
+<area shape="rect" id="Node000002" href="$classCano.html" title="Representa um par de canos (superior e inferior) como obstáculo no jogo." alt="" coords="344,5,399,31"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="255,48,343,23,344,28,257,53"/>
+<area shape="rect" id="Node000003" href="$classPlayer.html" title="Classe que representa o jogador no jogo." alt="" coords="340,55,403,80"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="277,65,340,65,340,70,277,70"/>
+<area shape="rect" id="Node000004" href="$classTelaJogo.html" title=" " alt="" coords="333,104,409,129"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="256,81,334,103,332,109,255,86"/>
+<area shape="rect" id="Node000005" href="$classTelaBase.html" title=" " alt="" coords="157,203,237,228"/>
+<area shape="poly" id="edge8_Node000005_Node000004" title=" " alt="" coords="225,192,264,165,309,138,334,127,336,132,312,143,267,170,228,197"/>
+<area shape="rect" id="Node000006" href="$classTelaCadastro.html" title="Representa a tela que permite ao jogador digitar seu nome após atingir uma alta pontuação." alt="" coords="318,153,425,179"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="250,198,325,176,327,181,251,203"/>
+<area shape="rect" id="Node000007" href="$classTelaHighScores.html" title="Representa a tela que exibe a lista de maiores pontuações." alt="" coords="311,203,432,228"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="251,213,310,213,310,218,251,218"/>
+<area shape="rect" id="Node000008" href="$classTelaInicial.html" title="Representa o menu principal do jogo, servindo como ponto de partida." alt="" coords="328,252,415,277"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="251,228,328,250,327,255,250,233"/>
+<area shape="rect" id="Node000009" href="$classtela__fimdejogo.html" title="Representa a tela padrão de &quot;Fim de Jogo&quot;." alt="" coords="312,301,431,327"/>
+<area shape="poly" id="edge9_Node000005_Node000009" title=" " alt="" coords="228,234,267,261,312,288,336,299,334,304,309,292,264,265,225,238"/>
 </map>
