@@ -4,6 +4,8 @@
 
 #include "../../include/fisica/hitbox.hpp"
 
+#include <iostream>
+
 bool RetanguloHitbox::noInterior(const coordenadas &p) const
 {
     if (p.x < ponto_inferior_esquerdo.x || p.y > ponto_inferior_esquerdo.y + altura ||
