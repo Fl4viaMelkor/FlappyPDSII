@@ -21,9 +21,7 @@ A lógica do jogo é dividida em camadas (como interface, controle e física) e 
 
 As principais dificuldades estiveram relacionadas à divisão de tarefas entre membros do grupo, garantindo integração adequada entre os módulos desenvolvidos separadamente. Além disso, mesmo sendo bastante útil, a biblioteca Allegro 5 exige certo improviso para suprir funcionalidades que seriam mais diretas com o uso de uma engine dedicada para jogos. Também surgiram desafios na correção de bugs lógicos relacionados à movimentação, detecção de colisão e sincronização dos estados do jogo.
 
-## Extras implementados
 
-- (espaço reservado para listar os extras do grupo)
 
 ## Compilação
 
@@ -77,7 +75,7 @@ Abra `docs/html/index.html` no navegador para consultar.
 * Flávia Silva ([Fl4viaMelkor](https://github.com/Fl4viaMelkor))
 * Guilherme Ferreira Gomes ([guifgomes47](https://github.com/guifgomes47))
 * Vinícius Augusto ([swords-0](https://github.com/swords-0))
-* \[Demais nomes do grupo aqui]
+
 
 ## Licença
 
