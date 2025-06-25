@@ -5,7 +5,6 @@
 #include "fisica/hitbox.hpp"
 
 #include <allegro5/allegro.h>
-#include <allegro5/allegro_primitives.h>
 #include <string>
 
 class Cano : public RetanguloHitbox {
@@ -22,17 +21,26 @@ public:
     float getX() const { return m_x; }
     float getLargura() const { return m_largura; }
 
-    bool foiContado;
-
 private:
     float m_x;
     float m_largura;
     float m_espaco;
     float m_y_topo;
-    ALLEGRO_COLOR m_color;
+    float altura_tela;
     float m_espessura;
+    ALLEGRO_COLOR m_color;
 
     SpriteAnimado sprite;
+    RetanguloHitbox hitboxTopo;
+    RetanguloHitbox hitboxBaixo;
+    bool foiContado;
+
+    void atualizarHitboxes();
+
+    // Implementações herdadas de RetanguloHitbox
+    bool noInterior(const coordenadas &p) const override;
+    bool noPerimetro(const coordenadas &p) const override;
+    std::vector<coordenadas> get_pontos() const override;
 };
 
 #endif

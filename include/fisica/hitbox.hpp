@@ -91,9 +91,20 @@ class RetanguloHitbox : public Colidivel {
      */
     float getAltura() const { return altura; }
 
+
+    void onCollision() override {
+        // comportamento padrão ou vazio
+    }
+
+    bool colisao(coordenadas p) override {
+        // comportamento padrão - por exemplo, colisão se estiver no interior ou perímetro
+        return noInterior(p) || noPerimetro(p);
+    }
+    
     bool noInterior(const coordenadas &p) const override;
     bool noPerimetro(const coordenadas &p) const override;
     vector<coordenadas> get_pontos() const override;
+
 };
 
 // Comentários futuros para as classes abaixo, se forem implementadas:
