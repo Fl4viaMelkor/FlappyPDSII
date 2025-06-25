@@ -5,18 +5,18 @@
 #ifndef DATABASE_HPP
 #define DATABASE_HPP
 
+#include <string>
 #include <unordered_map>
 #include <vector>
-#include <string>
 
-#include "sqlite3.h"
 #include "dados.hpp"
+#include "sqlite3.h"
 
 using namespace std;
 
 /**
  * @brief Interface genérica para bancos de dados de objetos.
- * 
+ *
  * Define métodos abstratos para inserção, exclusão, busca e atualização.
  */
 class Database {
@@ -82,20 +82,20 @@ class Database {
 
 /**
  * @brief Implementação de banco de dados usando SQLite.
- * 
+ *
  * Armazena e manipula objetos em um arquivo `.db` via SQL.
  */
 class SQLDatabase : public Database {
   protected:
-    sqlite3 *db_ = nullptr; ///< Ponteiro para o banco de dados SQLite.
-    string fileName_;       ///< Caminho do arquivo de banco.
-    string table_name_;     ///< Nome da tabela.
-    string primary_key_name_; ///< Nome da chave primária.
-    string sql_query_str_;  ///< Consulta SQL atual (pode ser reutilizada).
-    bool pkAutoIncrement_ = false; ///< Indica se a chave primária é autoincrementada.
+    sqlite3 *db_ = nullptr;                 ///< Ponteiro para o banco de dados SQLite.
+    string fileName_;                       ///< Caminho do arquivo de banco.
+    string table_name_;                     ///< Nome da tabela.
+    string primary_key_name_;               ///< Nome da chave primária.
+    string sql_query_str_;                  ///< Consulta SQL atual (pode ser reutilizada).
+    bool pkAutoIncrement_ = false;          ///< Indica se a chave primária é autoincrementada.
     unordered_map<string, string> colunas_; ///< Mapeamento de colunas SQL.
-    char *zErrMsg_ = nullptr; ///< Armazena mensagens de erro da execução.
-    int rc_ = 0; ///< Código de retorno das operações SQLite.
+    char *zErrMsg_ = nullptr;               ///< Armazena mensagens de erro da execução.
+    int rc_ = 0;                            ///< Código de retorno das operações SQLite.
 
     /**
      * @brief Retorna o tipo SQL da coluna conforme o esquema fornecido.
@@ -112,8 +112,8 @@ class SQLDatabase : public Database {
      * @param primaryKeyName Nome da chave primária.
      * @param pkAutoIncrement Se a chave primária é autoincrementada.
      */
-    SQLDatabase(const string &fileName, const string &tableName, const unordered_map<string, string> &columns,
-                const string &primaryKeyName, bool pkAutoIncrement);
+    SQLDatabase(string fileName, string tableName, const unordered_map<string, string> &columns, string primaryKeyName,
+                bool pkAutoIncrement);
 
   public:
     ~SQLDatabase() override;
