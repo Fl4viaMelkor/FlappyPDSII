@@ -86,8 +86,8 @@ TelaJogo::TelaJogo()
 
     detector = new Detector_Colisao(*player);
     detector->registrar(this);
-    
-    
+
+
    // if (jogador.colideCom(cano)) {
     // colisão detectada
 //}
@@ -141,7 +141,7 @@ void TelaJogo::update()
                 canos[i]->reset_if_out_of_screen(limite_esquerdo, max_x_cano, espacamento_horizontal, ALTURA_JANELA);
             }
 
-            if (!canos[i]->foiContado && player->getY() > canos[i]->getX() + canos[i]->getLargura()) {
+            if (!canos[i]->foiContado && (player->getX() + 32.0f > canos[i]->getX())) {
                 pontos++;
                 canos[i]->foiContado = true;
             }
