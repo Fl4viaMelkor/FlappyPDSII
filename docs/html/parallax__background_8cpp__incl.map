@@ -1,0 +1,15 @@
+<map id="src/interface/parallax_background.cpp" name="src/interface/parallax_background.cpp">
+<area shape="rect" id="Node000001" title="Implementação da classe ParallaxBackground para gerenciar múltiplas camadas de fundo." alt="" coords="149,5,309,45"/>
+<area shape="rect" id="Node000002" href="$parallax__background_8hpp.html" title="Declaração da classe ParallaxBackground para gerenciar múltiplas camadas de fundo com efeito de paral..." alt="" coords="134,93,325,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="232,46,232,79,227,79,227,46"/>
+<area shape="rect" id="Node000003" href="$camada__background_8hpp.html" title="Declaração da classe CamadaBackground para gerenciar camadas de fundo animadas." alt="" coords="63,181,249,207"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="214,135,178,173,174,169,210,132"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="273,181,335,207"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="249,132,285,169,281,173,245,135"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,255,64,280"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="138,209,67,250,65,245,135,204"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="88,255,224,280"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="159,207,159,241,153,241,153,207"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="248,255,432,280"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="187,204,298,247,296,252,185,209"/>
+</map>

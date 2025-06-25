@@ -7,9 +7,9 @@ TelaHighScores::TelaHighScores(PlayerLogger& logger_ref, int largura, int altura
     logger(logger_ref),
     proxima_tela_estado(EstadoProximaTela::NENHUM),
     largura_tela(largura), altura_tela(altura) {
-        
+
     fonte_titulo = al_load_font("assets/fonts/joystix/joystixmonospace.otf", 48, 0);
-    fonte_scores = al_load_font("assets/fonts/joystix/joystixmonospace.otf", 32, 0);
+    fonte_scores = al_load_font("assets/fonts/joystix/joystixmonospace.otf", 16, 0);
     if (!fonte_titulo || !fonte_scores) throw std::runtime_error("Falha ao carregar fontes para TelaHighScore");
 }
 
@@ -24,14 +24,14 @@ void TelaHighScores::draw() {
     al_clear_to_color(al_map_rgb(0, 0, 0));
     float centro_x = largura_tela / 2.0f;
     //texto
-    al_draw_text(fonte_titulo, al_map_rgb(255, 215, 0), centro_x, altura_tela * 0.1f, ALLEGRO_ALIGN_CENTER, "RECORDES");
+    al_draw_text(fonte_titulo, al_map_rgb(255, 215, 0), centro_x, altura_tela * 0.05f, ALLEGRO_ALIGN_CENTER, "RECORDES");
 
-    std::string scores_formatados = logger.listar_dados_ordenados(": ", "\n", "\n\n");
-    
+    std::string scores_formatados = logger.listar_dados_ordenados(": ", "\n", "\t");
+
     if (scores_formatados.empty()) {
         al_draw_text(fonte_scores, al_map_rgb(255,255,255), centro_x, altura_tela * 0.5f, ALLEGRO_ALIGN_CENTER, "Nenhum recorde ainda!");
     } else {
-        
+
         al_draw_multiline_text(
             fonte_scores,
             al_map_rgb(255, 255, 255),
@@ -41,7 +41,7 @@ void TelaHighScores::draw() {
             scores_formatados.c_str()
         );
     }
-    
+
     al_draw_text(fonte_scores, al_map_rgb(200, 200, 200), centro_x, altura_tela * 0.9f, ALLEGRO_ALIGN_CENTER, "Pressione ESC para voltar");
 }
 //vai pra proxima tela

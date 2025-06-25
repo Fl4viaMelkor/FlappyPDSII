@@ -17,14 +17,34 @@ using namespace std;
 
 class Cano {
   public:
-  // Construtor recebe posição x, largura do cano, espaço entre os blocos, altura da tela, cor e espessura da linha
+
+  /**
+     * @brief Construtor do cano.
+     * @param x Posição horizontal do cano.
+     * @param largura Largura dos blocos dos canos.
+     * @param abertura Espaço vertical entre os canos.
+     * @param altura_tela Altura total da janela/tela.
+     * @param cor Cor dos blocos dos canos.
+     * @param espessura Espessura do contorno (linha) do cano.
+     * @param sprite_path Caminho para o arquivo de imagem do sprite.
+     */
+
+   
     Cano(float x, float largura, float abertura, float altura_tela, ALLEGRO_COLOR cor, float espessura, const std::string& sprite_path);
 
     void draw() const;                      // Desenha os canos (superior e inferior)
     void move(float dx);                    // Move os canos na horizontal (dx pode ser negativo para mover para esquerda)
 
 
-    // Verifica se o cano saiu da tela e reseta a posição e altura aleatória
+    
+    /**
+     * @brief Verifica se o cano saiu totalmente da tela pela esquerda e o reposiciona.
+     * @param limite_esquerdo Posição do limite esquerdo da tela.
+     * @param posicao_ultimo_cano Posição x do último cano (para reposicionar após ele).
+     * @param espacamento Espaço entre os canos.
+     * @param altura_tela Altura da janela do jogo.
+     */
+    
     void reset_if_out_of_screen(float limite_esquerdo, float posicao_ultimo_cano, float espacamento, float altura_tela);
 
 

@@ -3,30 +3,27 @@
 //
 #include "../../include/dados/database.hpp"
 
+#include "../../include/dados/dados.hpp" // Para a struct 'objeto' (se não estiver em um cabeçalho separado)
 
-#include "../../include/dados/dados.hpp"        // Para a struct 'objeto' (se não estiver em um cabeçalho separado)
-
-#include <iostream>        // Para // cerr, endl
-#include <sstream>         // Para ostringstream
-#include <stdexcept>       // Para runtime_error, invalid_argument
-#include <algorithm>       // Para transform
-#include <iomanip>         // Para quoted (C++14+) ou formatação manual
-#include <map>             // Para map (usado para ordenar colunas em listar_dados)
-#include "../../include/util.hpp"        // Para a struct 'objeto' (se não estiver em um cabeçalho separado)"
-
+#include "../../include/util.hpp" // Para a struct 'objeto' (se n├úo estiver em um cabe├ºalho separado)"
+#include <algorithm>              // Para transform
+#include <iomanip>                // Para quoted (C++14+) ou formata├º├úo manual
+#include <iostream>               // Para // cerr, endl
+#include <map>                    // Para map (usado para ordenar colunas em listar_dados)
+#include <sstream>                // Para ostringstream
+#include <stdexcept>              // Para runtime_error, invalid_argument
 
 #include "../../include/dados/sqlite3.h"
 
-
-// Converts a C++ string to the appropriate SQL type and binds it to the statement.
-// Assumes basic type mapping (INTEGER, REAL, TEXT).
-static void bind_value(sqlite3_stmt *stmt, int index, const string &value_str, const string &sql_type) {
+static void bind_value(sqlite3_stmt *stmt, int index, const string &value_str, const string &sql_type)
+{
     if (sql_type == "INTEGER") {
         try {
             sqlite3_bind_int(stmt, index, stoi(value_str));
         }
         catch (const exception &e) {
-            // cerr << "Aviso: Falha ao converter '" << value_str << "' para INTEGER. Bind como NULL. Erro: " << e.what() << endl;
+            // cerr << "Aviso: Falha ao converter '" << value_str << "' para INTEGER. Bind como NULL. Erro: " <<
+            // e.what() << endl;
             sqlite3_bind_null(stmt, index);
         }
     }
@@ -35,18 +32,18 @@ static void bind_value(sqlite3_stmt *stmt, int index, const string &value_str, c
             sqlite3_bind_double(stmt, index, stod(value_str));
         }
         catch (const exception &e) {
-            // cerr << "Aviso: Falha ao converter '" << value_str << "' para REAL. Bind como NULL. Erro: " << e.what()  <<         endl;
+            // cerr << "Aviso: Falha ao converter '" << value_str << "' para REAL. Bind como NULL. Erro: " << e.what()
+            // <<         endl;
             sqlite3_bind_null(stmt, index);
         }
     }
     else {
-        // Default to TEXT (includes other non-numeric types or NULL)
         sqlite3_bind_text(stmt, index, value_str.c_str(), -1, SQLITE_TRANSIENT);
     }
 }
 
-// Converts a column value read from SQLite to a C++ string.
-static string column_to_string(sqlite3_stmt *stmt, int col_index, int col_type) {
+static string column_to_string(sqlite3_stmt *stmt, int col_index, int col_type)
+{
     if (col_type == SQLITE_INTEGER) {
         return to_string(sqlite3_column_int(stmt, col_index));
     }
@@ -60,22 +57,15 @@ static string column_to_string(sqlite3_stmt *stmt, int col_index, int col_type) 
         return text_val ? reinterpret_cast<const char *>(text_val) : "";
     }
     else {
-        // SQLITE_NULL or SQLITE_BLOB (if not explicitly handled)
-        return ""; // Represents NULL or unhandled BLOB data as an empty string
+        return "";
     }
 }
 
-// =============================================================================
-//                          SQLDatabase
-// =============================================================================
-
-// Helper method to get the SQL type definition from a column name based on 'colunas_'.
-// This is a member function as it accesses 'colunas_'.
-string SQLDatabase::get_sql_type_from_schema(const string &col_name) const {
-    auto it = colunas_.find(toUpper(col_name)); // Normalize search key to uppercase
+string SQLDatabase::get_sql_type_from_schema(const string &col_name) const
+{
+    auto it = colunas_.find(toUpper(col_name));
     if (it != colunas_.end()) {
-        string type_def = it->second; // e.g., "INTEGER PRIMARY KEY AUTOINCREMENT"
-        // Extract basic type (INTEGER, REAL, TEXT, BLOB) from the definition
+        string type_def = it->second;
         transform(type_def.begin(), type_def.end(), type_def.begin(), ::toupper);
         if (type_def.find("INTEGER") != string::npos)
             return "INTEGER";
@@ -83,26 +73,23 @@ string SQLDatabase::get_sql_type_from_schema(const string &col_name) const {
             return "REAL";
         if (type_def.find("TEXT") != string::npos)
             return "TEXT";
-        // Default to TEXT if a complex type definition is provided without a clear basic type match
         return "";
     }
-    return ""; // Default if column not found in schema (error condition)
+    return "";
 }
 
-
-// Protected constructor (called by derived classes)
-// Opens the database connection and creates the table with the specified schema.
-SQLDatabase::SQLDatabase(const string &fileName, const string &tableName,
-                         const unordered_map<string, string> &columns,
-                         const string &primaryKeyName, bool pkAutoIncrement) : fileName_(fileName),
-                                                                               table_name_(tableName),
-                                                                               primary_key_name_(primaryKeyName),
-                                                                               pkAutoIncrement_(pkAutoIncrement),
-                                                                               colunas_(columns) {
-    // Open the database connection
+SQLDatabase::SQLDatabase(const string &fileName, const string &tableName, const unordered_map<string, string> &columns,
+                         const string &primaryKeyName, bool pkAutoIncrement)
+  : fileName_(fileName)
+  , table_name_(tableName)
+  , primary_key_name_(primaryKeyName)
+  , pkAutoIncrement_(pkAutoIncrement)
+  , colunas_(columns)
+{
     rc_ = sqlite3_open(fileName_.c_str(), &db_);
     if (rc_ != SQLITE_OK) {
-        // cerr << "SQLDatabase ERROR: Nao foi possivel abrir o banco de dados " << fileName_ << ": " <<        sqlite3_errmsg(db_) << endl;
+        // cerr << "SQLDatabase ERROR: Nao foi possivel abrir o banco de dados " << fileName_ << ": " <<
+        // sqlite3_errmsg(db_) << endl;
         if (db_)
             sqlite3_close(db_);
         db_ = nullptr;
@@ -110,27 +97,24 @@ SQLDatabase::SQLDatabase(const string &fileName, const string &tableName,
     }
     // cout << "SQLDatabase: Banco de dados '" << fileName_ << "' aberto com sucesso." << endl;
 
-    // Build the CREATE TABLE statement
     ostringstream create_table_sql_oss;
     create_table_sql_oss << "CREATE TABLE IF NOT EXISTS " << table_name_ << " (";
     bool first_col = true;
-    for (const auto &col_pair: colunas_) {
-        if (!first_col) {
+    for (const auto &col_pair : colunas_) {
+        if (!first_col)
             create_table_sql_oss << ", ";
-        }
         create_table_sql_oss << col_pair.first << " " << col_pair.second;
         first_col = false;
     }
     create_table_sql_oss << ");";
 
-    sql_query_str_ = create_table_sql_oss.str(); // Store the query string in the member variable
+    sql_query_str_ = create_table_sql_oss.str();
 
     // cout << "SQLDatabase: Criando tabela '" << table_name_ << "' com o esquema: " << sql_query_str_ << endl;
 
-    // Execute table creation
     rc_ = sqlite3_exec(db_, sql_query_str_.c_str(), 0, 0, &zErrMsg_);
     if (rc_ != SQLITE_OK) {
-        // cerr << "SQLDatabase ERROR: Nao foi possivel criar a tabela " << table_name_ << ": " << zErrMsg_ <<        endl;
+        // cerr << "SQLDatabase ERROR: Nao foi possivel criar a tabela " << table_name_ << ": " << zErrMsg_ << endl;
         sqlite3_free(zErrMsg_);
         sqlite3_close(db_);
         db_ = nullptr;
@@ -140,7 +124,8 @@ SQLDatabase::SQLDatabase(const string &fileName, const string &tableName,
 }
 
 // Destructor
-SQLDatabase::~SQLDatabase() {
+SQLDatabase::~SQLDatabase()
+{
     if (db_) {
         // cout << "SQLDatabase: Fechando banco de dados '" << fileName_ << "'." << endl;
         sqlite3_close(db_);
@@ -152,40 +137,36 @@ SQLDatabase::~SQLDatabase() {
     }
 }
 
-// Add an object to the database.
-bool SQLDatabase::adicionar(objeto o) {
+bool SQLDatabase::adicionar(objeto o)
+{
     if (!db_) {
         // cerr << "SQLDatabase ERROR: Conexao com o banco de dados nao estabelecida para adicionar." << endl;
         return false;
     }
 
-    // Normalize keys in the input object to uppercase to match schema (if DB is case-insensitive)
     objeto normalized_o;
-    for (const auto &pair: o.dados)
+    for (const auto &pair : o.dados)
         normalized_o.dados[toUpper(pair.first)] = pair.second;
     ostringstream cols_oss, placeholders_oss;
 
     bool first = true;
-    for (const auto &col_pair: colunas_) {
-        // Iterate through DB schema columns
-        if (pkAutoIncrement_ && col_pair.first == primary_key_name_) {
+    for (const auto &col_pair : colunas_) {
+        if (pkAutoIncrement_ && col_pair.first == primary_key_name_)
             continue; // Skip PK for AUTOINCREMENT columns
-        }
         if (normalized_o.dados.count(col_pair.first)) {
-            // Only include columns present in the object
             if (!first) {
                 cols_oss << ", ";
                 placeholders_oss << ", ";
             }
             cols_oss << col_pair.first;
-            placeholders_oss << "?"; // Use placeholders for prepared statements
+            placeholders_oss << "?";
             first = false;
         }
     }
 
     ostringstream sql_oss;
-    sql_oss << "INSERT INTO " << table_name_ << " (" << cols_oss.str() << ") VALUES (" << placeholders_oss.str() <<
-            ");";
+    sql_oss << "INSERT INTO " << table_name_ << " (" << cols_oss.str() << ") VALUES (" << placeholders_oss.str()
+            << ");";
 
     sql_query_str_ = sql_oss.str(); // Store the query string
 
@@ -194,16 +175,16 @@ bool SQLDatabase::adicionar(objeto o) {
     sqlite3_stmt *stmt;
     rc_ = sqlite3_prepare_v2(db_, sql_query_str_.c_str(), -1, &stmt, 0); // Prepare query
     if (rc_ != SQLITE_OK) {
-        // cerr << "SQLDatabase ERROR (adicionar prepare): " << sqlite3_errmsg(db_) << " SQL: " << sql_query_str_ <<        endl;
+        // cerr << "SQLDatabase ERROR (adicionar prepare): " << sqlite3_errmsg(db_) << " SQL: " << sql_query_str_ <<
+        // endl;
         return false;
     }
 
     int bind_index = 1;
-    for (const auto &col_pair: colunas_) {
+    for (const auto &col_pair : colunas_) {
         // Iterate through DB schema for correct binding order
-        if (pkAutoIncrement_ && col_pair.first == primary_key_name_) {
+        if (pkAutoIncrement_ && col_pair.first == primary_key_name_)
             continue;
-        }
         if (normalized_o.dados.count(col_pair.first)) {
             // Bind only if column is present in normalized object
             bind_value(stmt, bind_index++, normalized_o.dados.at(col_pair.first),
@@ -219,19 +200,20 @@ bool SQLDatabase::adicionar(objeto o) {
     return success;
 }
 
-// Delete an object from the database based on its primary key.
-bool SQLDatabase::excluir(const objeto &o) {
+bool SQLDatabase::excluir(const objeto &o)
+{
     if (!db_) {
         // cerr << "SQLDatabase ERROR: Conexao com o banco de dados nao estabelecida para excluir." << endl;
         return false;
     }
 
     objeto normalized_o;
-    for (const auto &pair: o.dados)
+    for (const auto &pair : o.dados)
         normalized_o.dados[toUpper(pair.first)] = pair.second;
 
     if (!normalized_o.dados.count(primary_key_name_)) {
-        // cerr << "SQLDatabase ERROR: Chave primaria '" << primary_key_name_ <<        "' nao encontrada no objeto normalizado para exclusao." << endl;
+        // cerr << "SQLDatabase ERROR: Chave primaria '" << primary_key_name_ <<        "' nao encontrada no objeto
+        // normalizado para exclusao." << endl;
         return false;
     }
 
@@ -248,7 +230,7 @@ bool SQLDatabase::excluir(const objeto &o) {
     sqlite3_stmt *stmt;
     rc_ = sqlite3_prepare_v2(db_, sql_query_str_.c_str(), -1, &stmt, 0);
     if (rc_ != SQLITE_OK) {
-        // cerr << "SQLDatabase ERROR (excluir prepare): " << sqlite3_errmsg(db_) << " SQL: " << sql_query_str_ <<        endl;
+        // cerr << "SQLDatabase ERROR (excluir prepare): " << sqlite3_errmsg(db_) << " SQL: " << sql_query_str_ << endl;
         return false;
     }
 
@@ -263,8 +245,8 @@ bool SQLDatabase::excluir(const objeto &o) {
     return success;
 }
 
-// Search for objects in the database by a specific key and value.
-vector<objeto> SQLDatabase::buscar(const string &chave, const string &valor) {
+vector<objeto> SQLDatabase::buscar(const string &chave, const string &valor)
+{
     vector<objeto> results;
     if (!db_) {
         // cerr << "SQLDatabase ERROR: Conexao com o banco de dados nao estabelecida para buscar." << endl;
@@ -274,7 +256,8 @@ vector<objeto> SQLDatabase::buscar(const string &chave, const string &valor) {
     const string normalized_chave = toUpper(chave);
 
     if (colunas_.find(normalized_chave) == colunas_.end()) {
-        // cerr << "SQLDatabase ERROR: Chave '" << chave << "' (normalizada para '" << normalized_chave <<        "') nao e uma coluna valida para busca." << endl;
+        // cerr << "SQLDatabase ERROR: Chave '" << chave << "' (normalizada para '" << normalized_chave <<        "')
+        // nao e uma coluna valida para busca." << endl;
         return results;
     }
 
@@ -287,7 +270,7 @@ vector<objeto> SQLDatabase::buscar(const string &chave, const string &valor) {
     sqlite3_stmt *stmt;
     rc_ = sqlite3_prepare_v2(db_, sql_query_str_.c_str(), -1, &stmt, 0);
     if (rc_ != SQLITE_OK) {
-        // cerr << "SQLDatabase ERROR (buscar prepare): " << sqlite3_errmsg(db_) << " SQL: " << sql_query_str_ <<        endl;
+        // cerr << "SQLDatabase ERROR (buscar prepare): " << sqlite3_errmsg(db_) << " SQL: " << sql_query_str_ << endl;
         return results;
     }
 
@@ -311,8 +294,8 @@ vector<objeto> SQLDatabase::buscar(const string &chave, const string &valor) {
     return results;
 }
 
-// List all objects from a table.
-vector<objeto> SQLDatabase::listar() {
+vector<objeto> SQLDatabase::listar()
+{
     vector<objeto> results;
     if (!db_) {
         // cerr << "SQLDatabase ERROR: Conexao com o banco de dados nao estabelecida para listar." << endl;
@@ -328,7 +311,7 @@ vector<objeto> SQLDatabase::listar() {
     sqlite3_stmt *stmt;
     rc_ = sqlite3_prepare_v2(db_, sql_query_str_.c_str(), -1, &stmt, 0);
     if (rc_ != SQLITE_OK) {
-        // cerr << "SQLDatabase ERROR (listar prepare): " << sqlite3_errmsg(db_) << " SQL: " << sql_query_str_ <<    endl;
+        // cerr << "SQLDatabase ERROR (listar prepare): " << sqlite3_errmsg(db_) << " SQL: " << sql_query_str_ << endl;
         return results;
     }
 
@@ -350,8 +333,8 @@ vector<objeto> SQLDatabase::listar() {
     return results;
 }
 
-// List objects from a table ordered by a specific key.
-vector<objeto> SQLDatabase::listar_ordenado(string chave, bool crescente) {
+vector<objeto> SQLDatabase::listar_ordenado(string chave, bool crescente)
+{
     vector<objeto> results;
     if (!db_) {
         // cerr << "SQLDatabase ERROR: Conexao com o banco de dados nao estabelecida para listar_ordenado." << endl;
@@ -361,13 +344,14 @@ vector<objeto> SQLDatabase::listar_ordenado(string chave, bool crescente) {
     string normalized_chave = toUpper(chave);
 
     if (colunas_.find(normalized_chave) == colunas_.end()) {
-        // cerr << "SQLDatabase ERROR: Chave '" << chave << "' (normalizada para '" << normalized_chave << "') nao e uma coluna valida para ordenacao." << endl;
+        // cerr << "SQLDatabase ERROR: Chave '" << chave << "' (normalizada para '" << normalized_chave << "') nao e uma
+        // coluna valida para ordenacao." << endl;
         return results;
     }
 
     ostringstream sql_oss;
-    sql_oss << "SELECT * FROM " << table_name_ << " ORDER BY " << normalized_chave << (crescente ? " ASC" : " DESC") <<
-            ";";
+    sql_oss << "SELECT * FROM " << table_name_ << " ORDER BY " << normalized_chave << (crescente ? " ASC" : " DESC")
+            << ";";
 
     sql_query_str_ = sql_oss.str();
     // cout << "SQLDatabase: Listando objetos ordenados. Query: '" << sql_query_str_ << "'." << endl;
@@ -375,7 +359,8 @@ vector<objeto> SQLDatabase::listar_ordenado(string chave, bool crescente) {
     sqlite3_stmt *stmt;
     rc_ = sqlite3_prepare_v2(db_, sql_query_str_.c_str(), -1, &stmt, 0);
     if (rc_ != SQLITE_OK) {
-        // cerr << "SQLDatabase ERROR (listar_ordenado prepare): " << sqlite3_errmsg(db_) << " SQL: " <<  sql_query_str_ << endl;
+        // cerr << "SQLDatabase ERROR (listar_ordenado prepare): " << sqlite3_errmsg(db_) << " SQL: " <<  sql_query_str_
+        // << endl;
         return results;
     }
 
@@ -397,8 +382,8 @@ vector<objeto> SQLDatabase::listar_ordenado(string chave, bool crescente) {
     return results;
 }
 
-// Clear (delete all records) from a table.
-bool SQLDatabase::limpar() {
+bool SQLDatabase::limpar()
+{
     if (!db_) {
         // cerr << "SQLDatabase ERROR: Conexao com o banco de dados nao estabelecida para limpar." << endl;
         return false;
@@ -419,8 +404,8 @@ bool SQLDatabase::limpar() {
     return true;
 }
 
-// Update an existing object in the database.
-bool SQLDatabase::atualizar(objeto o) {
+bool SQLDatabase::atualizar(objeto o)
+{
     if (!db_) {
         // cerr << "SQLDatabase ERROR: Conexao com o banco de dados nao estabelecida para atualizar." << endl;
         return false;
@@ -430,25 +415,25 @@ bool SQLDatabase::atualizar(objeto o) {
         return false;
 
     objeto normalized_o;
-    for (const auto &pair: o.dados)
+    for (const auto &pair : o.dados)
         normalized_o.dados[toUpper(pair.first)] = pair.second;
 
     if (!normalized_o.dados.count(primary_key_name_)) {
-        // cerr << "SQLDatabase ERROR: Chave primaria '" << primary_key_name_ << "' nao encontrada no objeto normalizado para atualizacao." << endl;
+        // cerr << "SQLDatabase ERROR: Chave primaria '" << primary_key_name_ << "' nao encontrada no objeto normalizado
+        // para atualizacao." << endl;
         return false;
     }
 
     ostringstream set_clause_oss;
     bool first = true;
-    for (const auto &col_pair: colunas_) {
+    for (const auto &col_pair : colunas_) {
         // Iterate through DB schema to build SET clause
         if (col_pair.first == primary_key_name_)
             continue; // Skip PK in SET clause
         if (normalized_o.dados.count(col_pair.first)) {
             // Only include columns present in normalized object
-            if (!first) {
+            if (!first)
                 set_clause_oss << ", ";
-            }
             set_clause_oss << col_pair.first << " = ?";
             first = false;
         }
@@ -463,12 +448,13 @@ bool SQLDatabase::atualizar(objeto o) {
     sqlite3_stmt *stmt;
     rc_ = sqlite3_prepare_v2(db_, sql_query_str_.c_str(), -1, &stmt, 0);
     if (rc_ != SQLITE_OK) {
-        // cerr << "SQLDatabase ERROR (atualizar prepare): " << sqlite3_errmsg(db_) << " SQL: " << sql_query_str_ <<     endl;
+        // cerr << "SQLDatabase ERROR (atualizar prepare): " << sqlite3_errmsg(db_) << " SQL: " << sql_query_str_ <<
+        // endl;
         return false;
     }
 
     int bind_index = 1;
-    for (const auto &col_pair: colunas_) {
+    for (const auto &col_pair : colunas_) {
         // Iterate through DB schema for correct binding order
         if (col_pair.first == primary_key_name_)
             continue;
@@ -488,41 +474,32 @@ bool SQLDatabase::atualizar(objeto o) {
     return success;
 }
 
-// Update or add an object.
-bool SQLDatabase::atualizar_ou_adicionar(const objeto o) {
+bool SQLDatabase::atualizar_ou_adicionar(const objeto o)
+{
     objeto normalized_o;
-    for (const auto &pair: o.dados)
+    for (const auto &pair : o.dados)
         normalized_o.dados[toUpper(pair.first)] = pair.second;
 
     const vector<objeto> existing_objects = buscar(primary_key_name_, normalized_o.dados.at(primary_key_name_));
-    if (!existing_objects.empty()) {
+    if (!existing_objects.empty())
         return atualizar(normalized_o);
-    }
-    else {
+    else
         return adicionar(normalized_o);
-    }
 }
 
 bool SQLDatabase::hasDb() const { return db_ != nullptr; }
 
-
-// =============================================================================
-//                              JogadorSQLDatabase
-// =============================================================================
-
-// Constructor
-// Initializes JogadorSQLDatabase by calling the protected SQLDatabase constructor
-// with the database file name and the player table schema.
-JogadorSQLDatabase::JogadorSQLDatabase(const string &fileName) : SQLDatabase(fileName, "JOGADOR", // Table name
-                                                                             // Column schema for the JOGADOR table
-                                                                             Dado_Jogador::get_sql_columns(),
-                                                                             toUpper(Dado_Jogador::get_primary_key()),
-                                                                             // Primary key name
-                                                                             false // pkAutoIncrement_ is true for ID
-) {
-    // Check if the base SQLDatabase failed to initialize the database
+JogadorSQLDatabase::JogadorSQLDatabase(const string &fileName)
+  : SQLDatabase(fileName, "JOGADOR", // Table name
+                                     // Column schema for the JOGADOR table
+                Dado_Jogador::get_sql_columns(), toUpper(Dado_Jogador::get_primary_key()),
+                // Primary key name
+                false // pkAutoIncrement_ is true for ID
+    )
+{
     if (db_ == nullptr) {
-        // cerr << "JogadorSQLDatabase ERROR: A classe base SQLDatabase falhou ao inicializar o banco de dados." << endl;
+        // cerr << "JogadorSQLDatabase ERROR: A classe base SQLDatabase falhou ao inicializar o banco de dados." <<
+        // endl;
     }
 }
 

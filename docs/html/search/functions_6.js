@@ -12,5 +12,6 @@ var searchData=
   ['getisalive_9',['getIsAlive',['../classPlayer.html#a180f2bcd9d370dd3dd8839f06fb1bb77',1,'Player']]],
   ['getproximatelaestado_10',['getproximatelaestado',['../classtela__fimdejogo.html#ad2bfb076013164fa1eabedf95f9b8277',1,'tela_fimdejogo::getProximaTelaEstado()'],['../classTelaCadastro.html#af243cb6983425ccebde400164a2454f3',1,'TelaCadastro::getProximaTelaEstado()'],['../classTelaHighScores.html#a30449e625ca53632082602940f57aa56',1,'TelaHighScores::getProximaTelaEstado()'],['../classTelaInicial.html#ace95840006d00a008b2ad43a2d21c00b',1,'TelaInicial::getProximaTelaEstado()']]],
   ['getwidth_11',['getWidth',['../classSpriteAnimado.html#a8146be650a2ceceb8bba99e89e1c0ff3',1,'SpriteAnimado']]],
-  ['gety_12',['getY',['../classRetanguloHitbox.html#add350299840facde26c8df50b243ea9a',1,'RetanguloHitbox']]]
+  ['getx_12',['getX',['../classRetanguloHitbox.html#a3719ebc3b6a6a7ef41ee022c740a66d4',1,'RetanguloHitbox']]],
+  ['gety_13',['getY',['../classRetanguloHitbox.html#add350299840facde26c8df50b243ea9a',1,'RetanguloHitbox']]]
 ];

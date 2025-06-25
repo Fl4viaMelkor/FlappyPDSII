@@ -98,7 +98,7 @@ PlayerLogger logger;
          if (TelaJogo* jogo_ptr = dynamic_cast<TelaJogo*>(tela_atual)) {
                 if (jogo_ptr->acabouJogo()) {
                     // Pega a pontuação final da partida
-                    int pontuacao = 200;
+                    int pontuacao = jogo_ptr->pontos;
                     delete tela_atual;
 
                     // Pergunta ao logger se a pontuação é um novo recorde
@@ -184,8 +184,6 @@ int main() {
     al_install_keyboard();        // Inicializa entrada do teclado
 
 
-    const int LARGURA = LARGURA_TELA;      // largura das janela
-    const int ALTURA = ALTURA_TELA;       // altura da janela
 
 
     ALLEGRO_DISPLAY* display = al_create_display(LARGURA, ALTURA);

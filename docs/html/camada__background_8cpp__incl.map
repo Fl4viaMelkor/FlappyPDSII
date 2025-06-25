@@ -1,0 +1,13 @@
+<map id="src/interface/camada_background.cpp" name="src/interface/camada_background.cpp">
+<area shape="rect" id="Node000001" title="Implementação da classe CamadaBackground para controle de camadas de fundo." alt="" coords="155,5,314,45"/>
+<area shape="rect" id="Node000002" href="$camada__background_8hpp.html" title="Declaração da classe CamadaBackground para gerenciar camadas de fundo animadas." alt="" coords="61,93,251,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="219,47,184,85,181,81,215,44"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="275,101,355,126"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="254,44,296,88,292,92,250,47"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,181,64,207"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="128,136,65,176,63,172,125,131"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="88,181,224,207"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="159,134,159,167,153,167,153,134"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="248,181,432,207"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="201,131,302,173,299,178,199,136"/>
+</map>

@@ -12,7 +12,7 @@
 
 /**
  * @brief Interface para elementos colidíveis no jogo.
- * 
+ *
  * Define a estrutura comum para classes que possuem detecção de colisão.
  */
 class Colidivel {
@@ -54,7 +54,7 @@ class Colidivel {
 
 /**
  * @brief Implementa uma hitbox retangular.
- * 
+ *
  * Baseada em um ponto inferior esquerdo, com altura e base definidas.
  */
 class RetanguloHitbox : public Colidivel {
@@ -79,6 +79,12 @@ class RetanguloHitbox : public Colidivel {
      * @brief Retorna a coordenada Y do ponto de referência do objeto.
      */
     float getY() const { return ponto_inferior_esquerdo.y; }
+
+
+     /**
+     * @brief Retorna a coordenada Y do ponto de referência do objeto.
+     */
+    float getX() const { return ponto_inferior_esquerdo.x; }
 
     /**
      * @brief Retorna a altura da hitbox.
