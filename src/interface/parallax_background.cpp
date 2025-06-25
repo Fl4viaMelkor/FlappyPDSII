@@ -4,6 +4,7 @@
  */
 
 #include "../../include/interface/parallax_background.hpp"
+#include "../../include/interface/camada_background.hpp"
 
 /**
  * @brief Construtor da classe ParallaxBackground.
@@ -14,17 +15,20 @@
  * @param alturaTela Altura da tela.
  */
 ParallaxBackground::ParallaxBackground(int larguraTela, int alturaTela)
-    : larguraTela_(larguraTela), alturaTela_(alturaTela) {}
+  : larguraTela_(larguraTela)
+  , alturaTela_(alturaTela)
+{
+}
 
 /**
  * @brief Destrutor da classe ParallaxBackground.
  *
  * Libera a memória alocada para as camadas de fundo e limpa a lista de camadas.
  */
-ParallaxBackground::~ParallaxBackground() {
-    for (CamadaBackground* camada : camadas_) {
+ParallaxBackground::~ParallaxBackground()
+{
+    for (CamadaBackground *camada : camadas_)
         delete camada;
-    }
     camadas_.clear();
 }
 
@@ -36,8 +40,9 @@ ParallaxBackground::~ParallaxBackground() {
  * @param caminhoTextura Caminho para o arquivo de textura da camada.
  * @param velocidade Velocidade de movimento horizontal da camada.
  */
-void ParallaxBackground::adicionarCamada(const string& caminhoTextura, float velocidade) {
-    CamadaBackground* novaCamada = new CamadaBackground(caminhoTextura, velocidade, larguraTela_, alturaTela_);
+void ParallaxBackground::adicionarCamada(const string &caminhoTextura, float velocidade)
+{
+    CamadaBackground *novaCamada = new CamadaBackground(caminhoTextura, velocidade, larguraTela_, alturaTela_);
     camadas_.push_back(novaCamada);
 }
 
@@ -46,17 +51,17 @@ void ParallaxBackground::adicionarCamada(const string& caminhoTextura, float vel
  *
  * @param deltaTime Tempo decorrido desde a última atualização, em segundos.
  */
-void ParallaxBackground::update(float deltaTime) {
-    for (CamadaBackground* camada : camadas_) {
+void ParallaxBackground::update(float deltaTime)
+{
+    for (CamadaBackground *camada : camadas_)
         camada->update(deltaTime);
-    }
 }
 
 /**
  * @brief Desenha todas as camadas de fundo na tela.
  */
-void ParallaxBackground::draw() {
-    for (CamadaBackground* camada : camadas_) {
+void ParallaxBackground::draw()
+{
+    for (CamadaBackground *camada : camadas_)
         camada->draw();
-    }
 }
