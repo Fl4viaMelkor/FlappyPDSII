@@ -121,7 +121,10 @@ bool Dado_Jogador::operator==(const Dado &outro) const
 
 unordered_map<string, string> Dado_Jogador::get_sql_columns()
 {
-    return { { "NOME", "TEXT NOT NULL" }, { "APELIDO", "TEXT PRIMARY KEY" }, { "PONTUACOES", "TEXT" } };
+    return { { "NOME", "TEXT NOT NULL" },
+             { "APELIDO", "TEXT PRIMARY KEY" },
+             { "PARTIDAS", "TEXT" },
+             { "PONTUACOES", "TEXT" } };
 }
 
 vector<string> Dado_Jogador::get_colunas()
