@@ -11,11 +11,15 @@ void Detector_Colisao::detectar() const
     for (const auto colidivel : elementos) {
         vector<coordenadas> pontos = colidivel->get_pontos();
         for (const auto p : pontos)
-            if (player.colisao(p))
+            if (player.colisao(p)) {
                 player.onCollision();
+                colidivel->onCollision();
+            }
         for (const auto p : pontos_player)
-            if (colidivel->colisao(p))
+            if (colidivel->colisao(p)) {
                 player.onCollision();
+                colidivel->onCollision();
+            }
         cout << endl;
     }
     cout << endl;
