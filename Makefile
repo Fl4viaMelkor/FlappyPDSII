@@ -7,7 +7,7 @@ FILES		= main.cpp player.cpp objeto_cano.cpp util.cpp sprite.cpp\
 			interface/tela_jogo.cpp interface/tela_fimdejogo.cpp \
 			interface/camada_background.cpp  interface/parallax_background.cpp  \
 			interface/TelaInicial.cpp interface/GerenciadorHighScores.cpp interface/TelaHighScore.cpp \
-			interface/TelaCadastro.cpp 
+			interface/TelaCadastro.cpp
 
 
 SRC_PATH	= src/
@@ -25,6 +25,8 @@ RM			= rm -rf
 
 SRC			= $(addprefix $(SRC_PATH), $(FILES))
 OBJ			= $(addprefix $(OBJ_PATH), $(FILES:.cpp=.o))
+
+DB_FILE		= jogadores.db
 
 COLOR_W			= \e[00m
 COLOR_R			= \e[31m
@@ -48,6 +50,7 @@ clean :
 	@printf "$(COLOR_R)Cleaning $(NAME) objects...\n$(COLOR_W)"
 	$(RM) $(OBJ)
 	$(RM) $(OBJ_DIRS)
+	$(RM) $(DB_FILE)
 	@printf "$(COLOR_G)Done\n$(COLOR_W)"
 
 fclean : clean
