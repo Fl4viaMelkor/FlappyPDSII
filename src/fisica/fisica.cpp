@@ -20,7 +20,5 @@ void Detector_Colisao::detectar() const
                 colidivel->onCollision();
                 player.onCollision();
             }
-        cout << endl;
     }
-    cout << endl;
 }
