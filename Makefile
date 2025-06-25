@@ -6,7 +6,7 @@ FILES		= main.cpp player.cpp objeto_cano.cpp util.cpp sprite.cpp\
 			fisica/fisica.cpp fisica/hitbox.cpp  \
 			interface/tela_jogo.cpp interface/tela_fimdejogo.cpp \
 			interface/camada_background.cpp  interface/parallax_background.cpp  \
-			interface/TelaInicial.cpp interface/GerenciadorHighScores.cpp interface/TelaHighScore.cpp \
+			interface/TelaInicial.cpp interface/TelaHighScore.cpp \
 			interface/TelaCadastro.cpp
 
 
