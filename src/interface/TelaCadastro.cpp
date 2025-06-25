@@ -53,6 +53,7 @@ void TelaCadastro::draw()
 {
     al_clear_to_color(al_map_rgb(0, 0, 0));
     float centro_x = largura_tela / 2.0f;
+
     // texto
     al_draw_text(fonte_titulo, al_map_rgb(255, 215, 0), centro_x, altura_tela * 0.2f, ALLEGRO_ALIGN_CENTER,
                  "NOVO RECORDE!");

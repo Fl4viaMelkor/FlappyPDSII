@@ -75,7 +75,7 @@ class TelaJogo : public TelaBase, public RetanguloHitbox {
     bool colisao(coordenadas p) override { return !noInterior(p); }
     void onCollision() override
     {
-        std::cout << "!!! COLISÃO COM O CANO !!!" << std::endl;
+        std::cout << "!!! COLISÃO COM A TELA !!!" << std::endl;
         this->end = true;
     }
     int pontos;
