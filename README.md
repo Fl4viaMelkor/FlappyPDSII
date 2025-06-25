@@ -32,6 +32,15 @@ Pré-requisitos:
 - CMake
 - Allegro 5
 - g++
+- SQLite (para salvar pontuações)
+
+Instalando SQLite no Ubuntu/Debian:
+
+```bash
+sudo apt update
+sudo apt install sqlite3 libsqlite3-dev
+````
+
 
 Para compilar:
 
