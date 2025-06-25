@@ -26,7 +26,7 @@ void TelaHighScores::draw() {
     //texto
     al_draw_text(fonte_titulo, al_map_rgb(255, 215, 0), centro_x, altura_tela * 0.05f, ALLEGRO_ALIGN_CENTER, "RECORDES");
 
-    std::string scores_formatados = logger.listar_dados_ordenados(": ", "\n", "\n");
+    std::string scores_formatados = logger.listar_dados_ordenados(": ", "\n", "\t");
 
     if (scores_formatados.empty()) {
         al_draw_text(fonte_scores, al_map_rgb(255,255,255), centro_x, altura_tela * 0.5f, ALLEGRO_ALIGN_CENTER, "Nenhum recorde ainda!");
