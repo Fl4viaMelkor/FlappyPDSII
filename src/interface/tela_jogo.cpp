@@ -86,10 +86,12 @@ TelaJogo::TelaJogo()
 
     detector = new Detector_Colisao(*player);
     detector->registrar(this);
-    // detector->registrar(MySquare);
+    
+    
+   // if (jogador.colideCom(cano)) {
+    // colisão detectada
+//}
 
-    // inicializa pontuação
-    // int pontos = 0;
 }
 
 TelaJogo::~TelaJogo()
@@ -173,7 +175,7 @@ void TelaJogo::draw()
                      "Pressione ESPAÇO para comecar!"); // Texto branco por cima
     }
 }
-// MySquare->draw(); não precisa mais
+
 
 void TelaJogo::step(ALLEGRO_EVENT &evento)
 {

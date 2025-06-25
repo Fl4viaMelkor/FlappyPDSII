@@ -20,6 +20,11 @@ Cano::Cano(float x, float largura, float abertura, float altura_tela, ALLEGRO_CO
     foiContado = false;
 }
 
+//para implementação da colisão
+// Cano::Cano(float x, float largura, float abertura, float altura_tela, ...)
+//   : RetanguloHitbox(x, 0, largura, altura_tela), // altura provisória
+//     m_x(x), m_largura(largura), m_espaco(abertura)
+
 
 
 // Desenha o par de canos
