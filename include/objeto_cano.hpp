@@ -15,6 +15,12 @@ using namespace std;
 
 #include <vector>
 
+//para detecção de colisão
+#include "fisica/hitbox.hpp"
+
+//herdar RetanguloHitbox 
+//class Cano : public RetanguloHitbox { 
+
 class Cano {
   public:
 
@@ -44,7 +50,7 @@ class Cano {
      * @param espacamento Espaço entre os canos.
      * @param altura_tela Altura da janela do jogo.
      */
-    
+
     void reset_if_out_of_screen(float limite_esquerdo, float posicao_ultimo_cano, float espacamento, float altura_tela);
 
 
