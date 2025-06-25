@@ -16,10 +16,7 @@ bool objeto::operator==(const objeto &outro) const { return dados == outro.dados
 bool objeto::operator!=(const objeto &outro) const { return !(*this == outro); }
 
 // Inicializa um objeto Dado_Jogador com valores padrão.
-Dado_Jogador::Dado_Jogador()
-{
-    // cout << "Construtor padrão de Dado_Jogador chamado." << endl;
-}
+Dado_Jogador::Dado_Jogador() = default;
 
 // Construtor Parametrizado
 // Inicializa um objeto Dado_Jogador com valores fornecidos.
@@ -121,10 +118,7 @@ bool Dado_Jogador::operator==(const Dado &outro) const
 
 unordered_map<string, string> Dado_Jogador::get_sql_columns()
 {
-    return { { "NOME", "TEXT NOT NULL" },
-             { "APELIDO", "TEXT PRIMARY KEY" },
-             { "PARTIDAS", "TEXT" },
-             { "PONTUACOES", "TEXT" } };
+    return { { "NOME", "TEXT NOT NULL" }, { "APELIDO", "TEXT PRIMARY KEY" }, { "PONTUACOES", "TEXT" } };
 }
 
 vector<string> Dado_Jogador::get_colunas()
@@ -147,5 +141,12 @@ void Dado_Jogador::nome(const string &nome) { this->nome_ = nome; }
 string Dado_Jogador::apelido() const { return apelido_; }
 void Dado_Jogador::apelido(const string &apelido) { this->apelido_ = apelido; }
 vector<int> Dado_Jogador::pontuacoes() const { return pontuacoes_; }
+int Dado_Jogador::maior_pontuacao() const
+{
+    if (pontuacoes_.empty())
+        return -1;
+    return *max_element(pontuacoes_.begin(), pontuacoes_.end());
+}
+int Dado_Jogador::partidas_disputadas() const { return pontuacoes_.size(); }
 void Dado_Jogador::add_pontuacao(const int pontuacao) { this->pontuacoes_.push_back(pontuacao); }
 void Dado_Jogador::pontuacoes(const vector<int> &pontuacoes) { this->pontuacoes_ = pontuacoes; }

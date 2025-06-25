@@ -5,6 +5,8 @@
 #ifndef DADOS_HPP
 #define DADOS_HPP
 
+#include "data_exception.hpp"
+#include <algorithm>
 #include <any>
 #include <iterator>
 #include <map>
@@ -81,7 +83,6 @@ class Dado_Jogador : public Dado {
     string nome_;            ///< Nome do jogador.
     string apelido_;         ///< Apelido do jogador.
     vector<int> pontuacoes_; ///< Histórico de pontuações do jogador.
-
   public:
     /**
      * @brief Construtor padrão do jogador.
@@ -125,6 +126,12 @@ class Dado_Jogador : public Dado {
      */
     vector<int> pontuacoes() const;
 
+    /**
+     * @brief Retorna a maior pontuação do jogador.
+     * @return Valor inteiro com pontuação.
+     */
+    int maior_pontuacao() const;
+    int partidas_disputadas() const;
     /**
      * @brief Adiciona uma pontuação ao vetor de pontuações.
      */

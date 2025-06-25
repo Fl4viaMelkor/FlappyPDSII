@@ -61,9 +61,10 @@ target_sources(run_tests PRIVATE
         ../src/interface/TelaInicial.cpp # Implementação da tela inicial
         ../src/interface/TelaHighScore.cpp # Implementação da tela de high score
         ../src/interface/tela_fimdejogo.cpp # Implementação da tela de fim de jogo
-           ../src/interface/ParallaxBackground.cpp
-    ../src/interface/TelaHighScores.cpp
-    ../src/interface/TelaCadastro.cpp
+        ../src/interface/parallax_background.cpp
+        ../src/interface/camada_background.cpp
+        ../src/interface/TelaHighScore.cpp
+        ../src/interface/TelaCadastro.cpp
 )
 
 # Adicione condicionalmente os arquivos de teste específicos do SO
@@ -83,4 +84,13 @@ target_sources(run_tests PRIVATE
 # include_directories(path/to/doctest/include) # Se você tiver os cabeçalhos diretamente
 
 #target_link_libraries(run_tests doctest_with_main) # ou `doctest::doctest` se usar find_package
-target_link_libraries(run_tests sqlite3) # Se precisar linkar com sua lib
+target_link_libraries(run_tests
+        sqlite3
+        allegro_image
+        allegro_primitives
+        allegro_acodec
+        allegro_audio
+        allegro_ttf
+        allegro_font
+        allegro
+        allegro_main) # Se precisar linkar com sua lib
