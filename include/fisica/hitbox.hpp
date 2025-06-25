@@ -7,6 +7,7 @@
 
 #include "../interface/figuras_basicas.hpp"
 #include "../util.hpp"
+#include "player_exception.hpp"
 #include <cmath>
 #include <vector>
 
@@ -57,11 +58,11 @@ class Colidivel {
  *
  * Baseada em um ponto inferior esquerdo, com altura e base definidas.
  */
-class RetanguloHitbox : public Colidivel {
+class RetanguloHitboxAbstract : public Colidivel {
   protected:
     coordenadas ponto_inferior_esquerdo; ///< Canto inferior esquerdo do retângulo.
-    float base;   ///< Largura do retângulo.
-    float altura; ///< Altura do retângulo.
+    float base;                          ///< Largura do retângulo.
+    float altura;                        ///< Altura do retângulo.
 
   public:
     /**
@@ -70,18 +71,19 @@ class RetanguloHitbox : public Colidivel {
      * @param b Largura (base).
      * @param a Altura.
      */
-    RetanguloHitbox(coordenadas p1, float b, float a)
-      : ponto_inferior_esquerdo(p1), base(b), altura(a)
+    RetanguloHitboxAbstract(coordenadas p1, float b, float a)
+      : ponto_inferior_esquerdo(p1)
+      , base(b)
+      , altura(a)
     {
     }
 
-     /**
+    /**
      * @brief Retorna a coordenada Y do ponto de referência do objeto.
      */
     float getY() const { return ponto_inferior_esquerdo.y; }
 
-
-     /**
+    /**
      * @brief Retorna a coordenada Y do ponto de referência do objeto.
      */
     float getX() const { return ponto_inferior_esquerdo.x; }
@@ -94,6 +96,19 @@ class RetanguloHitbox : public Colidivel {
     bool noInterior(const coordenadas &p) const override;
     bool noPerimetro(const coordenadas &p) const override;
     vector<coordenadas> get_pontos() const override;
+};
+
+class RetanguloHitboxConcrete : public RetanguloHitboxAbstract {
+  public:
+    RetanguloHitboxConcrete(const coordenadas &p1, float b, float a)
+      : RetanguloHitboxAbstract(p1, b, a)
+    {
+    }
+    void onCollision() override { throw ColisaoException("Aconteceu uma colisao"); }
+    bool colisao(coordenadas p) override { return noInterior(p) || noPerimetro(p); }
+    void update_coordenadas(const coordenadas &p1) { ponto_inferior_esquerdo = p1; }
+    void update_base(const float b) { base = b; }
+    void update_altura(const float a) { altura = a; }
 };
 
 // Comentários futuros para as classes abaixo, se forem implementadas:
