@@ -98,7 +98,7 @@ PlayerLogger logger;
          if (TelaJogo* jogo_ptr = dynamic_cast<TelaJogo*>(tela_atual)) {
                 if (jogo_ptr->acabouJogo()) {
                     // Pega a pontuação final da partida
-                    int pontuacao = 200;
+                    int pontuacao = jogo_ptr->pontos;
                     delete tela_atual;
 
                     // Pergunta ao logger se a pontuação é um novo recorde
