@@ -1,6 +1,6 @@
 #include "../include/player.hpp"
 #include "../include/sprite.hpp"
-#include "player_exception.hpp"
+#include "../include/player_exception.hpp"
 #include <allegro5/allegro5.h>
 #include <allegro5/allegro_font.h>
 #include <allegro5/allegro_primitives.h>
