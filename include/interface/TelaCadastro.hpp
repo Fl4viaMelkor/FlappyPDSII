@@ -55,6 +55,7 @@ public:
      */
     ~TelaCadastro() override;
 
+    
     /**
      * @brief Atualiza a lógica da tela.
      * @details Neste caso, controla a animação do cursor piscando.
@@ -84,5 +85,11 @@ public:
      * @details Chamado pelo gerenciador de telas após a transição ser processada.
      */
     void resetProximaTelaEstado() override;
+
+    /**
+     * @brief Retorna o nome do jogador que está sendo digitado. (Para Testes)
+     * @return std::string O nome atual.
+     */
+    std::string getNomeJogador() const { return nome_jogador; }
 };
 #endif

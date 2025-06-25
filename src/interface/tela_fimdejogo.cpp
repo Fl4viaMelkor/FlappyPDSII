@@ -10,10 +10,6 @@ tela_fimdejogo::tela_fimdejogo(int pontuacao, int largura_tela_jogo, int altura_
   , largura_tela(largura_tela_jogo)
   , altura_tela(altura_tela_jogo)
 {
-    al_init();
-    al_init_font_addon();
-    al_init_ttf_addon();
-    al_init_image_addon();
 
     fonte_titulo = al_load_ttf_font("assets/fonts/joystix/joystixmonospace.otf", 72, 0);
 

@@ -23,7 +23,23 @@ target_sources(run_tests PRIVATE
 )
 
 target_sources(run_tests PRIVATE
-        dados/test_database_sql.cpp # Inclui o arquivo de teste para Dado_Jogador
+        dados/test_database_sql.cpp # Inclui o arquivo de teste para Database
+)
+
+target_sources(run_tests PRIVATE
+        interface/test_tela_inicial.cpp # Inclui o arquivo de teste para TelaInicial
+)
+
+target_sources(run_tests PRIVATE
+        interface/test_tela_highscore.cpp # Inclui o arquivo de teste para TelaHighScore
+)
+
+target_sources(run_tests PRIVATE
+        interface/test_tela_fimdejogo.cpp # Inclui o arquivo de teste para TelaFimDeJogo
+)
+
+target_sources(run_tests PRIVATE
+        interface/test_tela_cadastro.cpp # Inclui o arquivo de teste para TelaCadastro
 )
 
 # -------------------------------------------------------------
@@ -32,13 +48,22 @@ target_sources(run_tests PRIVATE
 # Por exemplo, test_dados_jogador.cpp testa a implementação em dados.cpp.
 target_sources(run_tests PRIVATE
         ../src/dados/dados.cpp # Adiciona o arquivo de implementação de Dado_Jogador
-        # ../src/common_code.cpp # Se 'common_tests.cpp' ou outros testes dependem de common_code
 )
+
 target_sources(run_tests PRIVATE
-        ../src/dados/sqlite3.c # Adiciona o arquivo de implementação de Dado_Jogador
-        ../src/dados/database.cpp # Adiciona o arquivo de implementação de Dado_Jogador
-        ../src/util.cpp
-        # ../src/common_code.cpp # Se 'common_tests.cpp' ou outros testes dependem de common_code
+        ../src/dados/sqlite3.c # Adiciona a biblioteca SQLite embutida
+        ../src/dados/database.cpp # Adiciona a implementação da classe Database
+        ../src/dados/logger.cpp # Adiciona a implementação do logger
+        ../src/util.cpp # Utilitários diversos usados nos testes
+)
+
+target_sources(run_tests PRIVATE
+        ../src/interface/TelaInicial.cpp # Implementação da tela inicial
+        ../src/interface/TelaHighScore.cpp # Implementação da tela de high score
+        ../src/interface/tela_fimdejogo.cpp # Implementação da tela de fim de jogo
+           ../src/interface/ParallaxBackground.cpp
+    ../src/interface/TelaHighScores.cpp
+    ../src/interface/TelaCadastro.cpp
 )
 
 # Adicione condicionalmente os arquivos de teste específicos do SO

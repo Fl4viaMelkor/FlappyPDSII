@@ -81,6 +81,8 @@ public:
      * @brief Reseta o estado de transição para NENHUM após a transição ser processada.
      */
     void resetProximaTelaEstado() override;
+
+    int getOpcaoSelecionadaIdx() const { return opcao_selecionada_idx; }
 };
 
 #endif
