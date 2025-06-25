@@ -2,19 +2,32 @@
 #include <allegro5/allegro_primitives.h>
 #include <stdexcept>
 #include <iostream>
+#include <allegro5/allegro_audio.h>   
+#include <allegro5/allegro_acodec.h> 
 
 TelaInicial::TelaInicial(int largura, int altura) :
     fonte_titulo(nullptr),
     fonte_opcoes(nullptr),
+    musica_menu(nullptr),
     animacao_spritesheet(nullptr),
-    anim_frame_largura(0),          
-    anim_frame_atual(0),            
-    anim_contador_tempo(0.0f),      
-    anim_delay_frame(0.2f),         
+    anim_frame_largura(0),
+    anim_frame_atual(0),
+    anim_contador_tempo(0.0f),
+    anim_delay_frame(0.2f),
     opcao_selecionada_idx(0),
     estado_escolhido(EstadoProximaTela::NENHUM),
     largura_tela(largura),
-    altura_tela(altura) {
+    altura_tela(altura)  {
+
+
+    // ... seu código que carrega fontes, etc. ...
+
+    // --- Carrega e toca a música do menu ---
+    musica_menu = al_load_audio_stream("assets/audio/query.wav", 4, 2048); // Use um arquivo de música diferente aqui!
+    if (musica_menu) {
+        al_attach_audio_stream_to_mixer(musica_menu, al_get_default_mixer());
+        al_set_audio_stream_playmode(musica_menu, ALLEGRO_PLAYMODE_LOOP);
+    }
 
 //carregar animação
          try {
@@ -54,6 +67,7 @@ TelaInicial::~TelaInicial() {
     if (fonte_titulo) al_destroy_font(fonte_titulo);
     if (fonte_opcoes) al_destroy_font(fonte_opcoes);
     if (animacao_spritesheet) al_destroy_bitmap(animacao_spritesheet);
+     if (musica_menu) al_destroy_audio_stream(musica_menu); 
 }
 
 void TelaInicial::update() {

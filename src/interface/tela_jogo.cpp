@@ -2,6 +2,8 @@
 #include "../../include/dados/config.hpp"
 #include "../../include/interface/parallax_background.hpp"
 #include "../../include/interface/tela_jogo.hpp"
+#include <allegro5/allegro_audio.h>   
+#include <allegro5/allegro_acodec.h> 
 
 #include <random>
 
@@ -48,6 +50,15 @@ TelaJogo::TelaJogo()
   , keyState()
   , currentGameState(GameState::PAUSED_FOR_START)
 {
+
+    musica_jogo = nullptr;
+
+    // --- Carrega e toca a música do jogo ---
+    musica_jogo = al_load_audio_stream("assets/audio/kor.wav", 4, 2048); // Outro arquivo de música!
+    if (musica_jogo) {
+        al_attach_audio_stream_to_mixer(musica_jogo, al_get_default_mixer());
+        al_set_audio_stream_playmode(musica_jogo, ALLEGRO_PLAYMODE_LOOP);
+    }
     float playerStartX;
     float playerStartY;
     float espacamentoCanos;
