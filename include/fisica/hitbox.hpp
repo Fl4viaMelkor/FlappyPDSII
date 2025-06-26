@@ -61,7 +61,7 @@ class Colidivel {
  * e ele possui uma largura (base) e altura fixas. Pode ser utilizado para colisões
  * com obstáculos, personagens ou áreas de interação.
  */
-class RetanguloHitboxAbstract : public Colidivel {
+class RetanguloHitbox : public Colidivel {
   protected:
     coordenadas ponto_inferior_esquerdo; ///< Canto inferior esquerdo do retângulo.
     float base;                          ///< Largura do retângulo.
@@ -75,7 +75,11 @@ class RetanguloHitboxAbstract : public Colidivel {
      * @param a Altura.
      */
     RetanguloHitbox(coordenadas p1, float b, float a)
-      : ponto_inferior_esquerdo(p1), base(b), altura(a) {}
+      : ponto_inferior_esquerdo(p1)
+      , base(b)
+      , altura(a)
+    {
+    }
 
     /**
      * @brief Retorna a coordenada X do ponto de referência da hitbox.
@@ -101,7 +105,8 @@ class RetanguloHitboxAbstract : public Colidivel {
      *
      * Pode ser sobrescrito em classes derivadas. Aqui, não faz nada por padrão.
      */
-    void onCollision() override {
+    void onCollision() override
+    {
         // comportamento padrão ou vazio
     }
 
@@ -110,9 +115,7 @@ class RetanguloHitboxAbstract : public Colidivel {
      * @param p Ponto a ser testado.
      * @return true se estiver no interior ou perímetro.
      */
-    bool colisao(coordenadas p) override {
-        return noInterior(p) || noPerimetro(p);
-    }
+    bool colisao(coordenadas p) override { return noInterior(p) || noPerimetro(p); }
 
     /**
      * @brief Verifica se o ponto está dentro da área do retângulo.

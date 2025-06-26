@@ -46,7 +46,7 @@ void TelaJogo::initializeRandomBackgroud()
 }
 
 TelaJogo::TelaJogo()
-  : RetanguloHitboxAbstract({ 0, 0 }, static_cast<float>(LARGURA_JANELA), static_cast<float>(ALTURA_JANELA))
+  : RetanguloHitbox({ 0, 0 }, static_cast<float>(LARGURA_JANELA), static_cast<float>(ALTURA_JANELA))
   , keyState()
   , currentGameState(GameState::PAUSED_FOR_START)
   , pontos(0)
@@ -161,7 +161,6 @@ void TelaJogo::update()
                 pontos++;
                 canos[i]->foiContado = true;
             }
-
         }
 
         // --- LÓGICA DE FIM DE JOGO ---
@@ -174,13 +173,8 @@ void TelaJogo::update()
             }
         }
 
-
-
-        if (!player->getIsAlive()){
+        if (!player->getIsAlive())
             this->end = true;
-        }
-
-
 
         detector->detectar();
     }
@@ -191,28 +185,23 @@ void TelaJogo::draw()
     parallaxBg->draw();
     player->draw();
 
-    for (auto cano : canos) {
-    cano->draw();
-    }
-
+    for (auto cano : canos)
+        cano->draw();
 
     if (font) {
         string pontos_str = "Score: " + to_string(pontos);
         al_draw_text(font, al_map_rgb(0, 0, 0), LARGURA_JANELA / 2 + 2, 25 + 2, ALLEGRO_ALIGN_CENTER,
                      pontos_str.c_str());
         al_draw_text(font, al_map_rgb(255, 255, 255), LARGURA_JANELA / 2, 25, ALLEGRO_ALIGN_CENTER, pontos_str.c_str());
-
     }
 
     if (currentGameState == GameState::PAUSED_FOR_START && font) {
-            // Mude al_map_rgb(255, 255, 255) para uma cor mais contrastante, como preto (0, 0, 0)
-            al_draw_text(font, al_map_rgb(0, 0, 0),
-            LARGURA_JANELA / 2 + 2, ALTURA_JANELA / 2 - 50 + 2,
-            ALLEGRO_ALIGN_CENTER, "Pressione ESPAÇO para comecar!"); // Uma pequena sombra preta
-            al_draw_text(font, al_map_rgb(255, 255, 255),
-            LARGURA_JANELA / 2, ALTURA_JANELA / 2 - 50,
-            ALLEGRO_ALIGN_CENTER, "Pressione ESPAÇO para comecar!"); // Texto branco por cima
-        }
+        // Mude al_map_rgb(255, 255, 255) para uma cor mais contrastante, como preto (0, 0, 0)
+        al_draw_text(font, al_map_rgb(0, 0, 0), LARGURA_JANELA / 2 + 2, ALTURA_JANELA / 2 - 50 + 2,
+                     ALLEGRO_ALIGN_CENTER, "Pressione ESPAÇO para comecar!"); // Uma pequena sombra preta
+        al_draw_text(font, al_map_rgb(255, 255, 255), LARGURA_JANELA / 2, ALTURA_JANELA / 2 - 50, ALLEGRO_ALIGN_CENTER,
+                     "Pressione ESPAÇO para comecar!"); // Texto branco por cima
+    }
 }
 // MySquare->draw(); não precisa mais
 

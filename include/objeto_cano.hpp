@@ -5,6 +5,8 @@
 #include "sprite.hpp"
 
 // biblioteca padrão
+#include "./fisica/hitbox.hpp"
+
 #include <allegro5/allegro.h>
 #include <string>
 
@@ -12,12 +14,11 @@
  * @class Cano
  * @brief Representa um par de canos (superior e inferior) como obstáculo no jogo.
  *
- * A classe Cano herda de RetanguloHitbox e possui duas hitboxes internas: uma para o cano superior e outra para o inferior.
- * Ela também gerencia a renderização, movimentação e reposicionamento dos canos na tela.
+ * A classe Cano herda de RetanguloHitbox e possui duas hitboxes internas: uma para o cano superior e outra para o
+ * inferior. Ela também gerencia a renderização, movimentação e reposicionamento dos canos na tela.
  */
 class Cano : public RetanguloHitbox {
-public:
-
+  public:
     /**
      * @brief Construtor do cano.
      * @param x Posição X inicial do cano.
@@ -28,7 +29,8 @@ public:
      * @param espessura Espessura da borda (caso desenhado com primitivas).
      * @param sprite_path Caminho para o sprite do cano.
      */
-    Cano(float x, float largura, float abertura, float altura_tela, ALLEGRO_COLOR cor, float espessura, const std::string& sprite_path);
+    Cano(float x, float largura, float abertura, float altura_tela, ALLEGRO_COLOR cor, float espessura,
+         const std::string &sprite_path);
 
     /**
      * @brief Desenha os dois canos na tela.
@@ -74,13 +76,11 @@ public:
      * @return Largura do cano.
      */
     float getLargura() const { return m_largura; }
-    void onCollision() override;
-    bool colisao(coordenadas p) override;
 
     /// Indica se esse cano já contou ponto para o jogador.
     bool foiContado;
 
-private:
+  private:
     /// Posição X do cano.
     float m_x;
 
@@ -132,7 +132,6 @@ private:
      * @brief Retorna os pontos que definem as duas hitboxes do cano.
      */
     std::vector<coordenadas> get_pontos() const override;
-
 };
 
 #endif

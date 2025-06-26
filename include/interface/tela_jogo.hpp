@@ -40,7 +40,7 @@ enum class GameState {
     GAME_OVER
 };
 
-class TelaJogo : public TelaBase, public RetanguloHitboxAbstract {
+class TelaJogo : public TelaBase, public RetanguloHitbox {
   private:
     gravidade g{ 2, 3 };
     Player *player;
