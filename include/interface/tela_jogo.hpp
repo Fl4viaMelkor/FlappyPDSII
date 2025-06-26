@@ -8,8 +8,8 @@
 #include "parallax_background.hpp"
 #include "tela_base.hpp"
 #include <allegro5/allegro5.h>
-#include <allegro5/allegro_font.h>
 #include <allegro5/allegro_audio.h>
+#include <allegro5/allegro_font.h>
 
 // Caso algum item ou coisa seja adicionado na tela de JOGO deve criar um ponteiro para esse objeto no PRIVATE
 
@@ -40,7 +40,7 @@ enum class GameState {
     GAME_OVER
 };
 
-class TelaJogo : public TelaBase, public RetanguloHitbox {
+class TelaJogo : public TelaBase, public RetanguloHitboxAbstract {
   private:
     gravidade g{ 2, 3 };
     Player *player;
@@ -60,7 +60,7 @@ class TelaJogo : public TelaBase, public RetanguloHitbox {
     GameState currentGameState;
     ALLEGRO_FONT *font;
 
-    ALLEGRO_AUDIO_STREAM* musica_jogo;
+    ALLEGRO_AUDIO_STREAM *musica_jogo;
 
   public:
     TelaJogo();
