@@ -99,6 +99,7 @@ PlayerLogger logger;
                 if (jogo_ptr->acabouJogo()) {
                     // Pega a pontuação final da partida
                     int pontuacao = jogo_ptr->pontos;
+                    cout << "Pontuação: " << pontuacao << endl;
                     delete tela_atual;
 
                     // Pergunta ao logger se a pontuação é um novo recorde

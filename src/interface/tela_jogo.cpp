@@ -122,13 +122,30 @@ void TelaJogo::update()
     if (currentGameState == GameState::PLAYING){
         player->update(keyState);
 
+        float max_x_cano = 0.0f;
+
+        if (!canos.empty())
+            max_x_cano = canos[0]->getX();
+        // Encontrar a posição do cano mais à direita no vetor
+        for (const auto &cano : canos)
+            if (cano->getX() > max_x_cano)
+                max_x_cano = cano->getX();
+
+        float velocidade_base_canos = -3.0f;
+        float aumento_por_ponto = pontos / 8.0f;
+        float velocidade_maxima = 10.0f;
+        float velocidade_atual_canos = velocidade_base_canos - min(aumento_por_ponto, velocidade_maxima);
+
         // Lógica para mover os canos e contar pontos
         for (size_t i = 0; i < canos.size(); ++i) {
-            canos[i]->move(-2.0f);
-            float limite_esquerdo = -canos[i]->getLargura();
-            float espacamento_horizontal = 250.0f;
-            float posicao_anterior = (i == 0) ? canos.back()->getX() : canos[i - 1]->getX();
-            canos[i]->reset_if_out_of_screen(limite_esquerdo, posicao_anterior + espacamento_horizontal, espacamento_horizontal, ALTURA_NATIVA);
+            canos[i]->move(velocidade_atual_canos);
+
+            if (canos[i]->getX() + canos[i]->getLargura() < 0) {
+                float espacamento_horizontal = 250.0f;
+                float limite_esquerdo = -canos[i]->getLargura();
+
+                canos[i]->reset_if_out_of_screen(limite_esquerdo, max_x_cano, espacamento_horizontal, ALTURA_JANELA);
+            }
 
             if (!canos[i]->foiContado && (player->getX() + 32.0f > canos[i]->getX())) {
                 pontos++;
