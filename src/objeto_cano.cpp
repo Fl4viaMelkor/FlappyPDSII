@@ -18,6 +18,7 @@ Cano::Cano(float x, float largura, float abertura, float altura_tela,
       hitboxTopo({0, 0}, 0, 0), // inicia vazio
       hitboxBaixo({0, 0}, 0, 0) // inicia vazio
 
+
 {
     std::srand(static_cast<unsigned>(time(nullptr)));
     int min_topo = 50;
@@ -38,13 +39,15 @@ void Cano::draw() const {
     sprite.draw({ m_x, m_y_topo + m_espaco });
 }
 
-void Cano::move(float dx) {
+void Cano::move(float dx)
+{
     m_x += dx;
     atualizarHitboxes();
 }
 
 void Cano::reset_if_out_of_screen(float limite_esquerdo, float posicao_ultimo_cano,
                                   float espacamento, float altura_tela) {
+
     if (m_x + m_largura < limite_esquerdo) {
         m_x = posicao_ultimo_cano + espacamento;
 
@@ -80,3 +83,4 @@ std::vector<coordenadas> Cano::get_pontos() const {
     pontosTopo.insert(pontosTopo.end(), pontosBaixo.begin(), pontosBaixo.end());
     return pontosTopo;
 }
+

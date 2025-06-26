@@ -6,14 +6,14 @@
 
 #include <iostream>
 
-bool RetanguloHitbox::noInterior(const coordenadas &p) const
+bool RetanguloHitboxAbstract::noInterior(const coordenadas &p) const
 {
     if (p.x < ponto_inferior_esquerdo.x || p.y > ponto_inferior_esquerdo.y + altura ||
         p.y < ponto_inferior_esquerdo.y || p.x > ponto_inferior_esquerdo.x + base)
         return false;
     return true;
 }
-bool RetanguloHitbox::noPerimetro(const coordenadas &p) const
+bool RetanguloHitboxAbstract::noPerimetro(const coordenadas &p) const
 {
 
     if (p.x == ponto_inferior_esquerdo.x && p.y >= ponto_inferior_esquerdo.y &&
@@ -33,7 +33,7 @@ bool RetanguloHitbox::noPerimetro(const coordenadas &p) const
 
     return false;
 }
-vector<coordenadas> RetanguloHitbox::get_pontos() const
+vector<coordenadas> RetanguloHitboxAbstract::get_pontos() const
 {
     vector<coordenadas> ret;
     ret.push_back({ ponto_inferior_esquerdo.x, ponto_inferior_esquerdo.y });

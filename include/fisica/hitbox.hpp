@@ -7,6 +7,7 @@
 
 #include "../interface/figuras_basicas.hpp"
 #include "../util.hpp"
+#include "player_exception.hpp"
 #include <cmath>
 #include <vector>
 
@@ -60,7 +61,7 @@ class Colidivel {
  * e ele possui uma largura (base) e altura fixas. Pode ser utilizado para colisões
  * com obstáculos, personagens ou áreas de interação.
  */
-class RetanguloHitbox : public Colidivel {
+class RetanguloHitboxAbstract : public Colidivel {
   protected:
     coordenadas ponto_inferior_esquerdo; ///< Canto inferior esquerdo do retângulo.
     float base;                          ///< Largura do retângulo.
@@ -85,6 +86,7 @@ class RetanguloHitbox : public Colidivel {
     /**
      * @brief Retorna a coordenada Y do ponto de referência da hitbox.
      * @return Valor da posição Y.
+
      */
     float getY() const { return ponto_inferior_esquerdo.y; }
 
@@ -132,10 +134,4 @@ class RetanguloHitbox : public Colidivel {
      */
     std::vector<coordenadas> get_pontos() const override;
 };
-
-// Futuras extensões:
-// class PoligonoHitbox : public Colidivel { ... }
-// class CurvaHitbox   : public Colidivel { ... }
-// class FiguraHitbox  : public Colidivel { ... }
-
 #endif

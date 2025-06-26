@@ -1,6 +1,6 @@
 #include "../include/player.hpp"
-#include "../include/sprite.hpp"
 #include "../include/player_exception.hpp"
+#include "../include/sprite.hpp"
 #include <allegro5/allegro5.h>
 #include <allegro5/allegro_font.h>
 #include <allegro5/allegro_primitives.h>
@@ -10,7 +10,7 @@
 // Created By Flávia
 
 Player::Player(const std::string &filename, float x, float y, float speed, float width, float height)
-  : RetanguloHitbox({ x, y }, width, height)
+  : RetanguloHitboxAbstract({ x, y }, width, height)
   , sprite(nullptr)
   , velY(0)
   , speed(speed)

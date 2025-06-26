@@ -10,6 +10,7 @@
 #include <allegro5/allegro_image.h>
 #include <vector>
 #include <string>
+#include <allegro5/allegro_audio.h>
 
 /**
  * @class TelaInicial
@@ -22,6 +23,7 @@ private:
     // --- Recursos Gráficos ---
     ALLEGRO_FONT* fonte_titulo;         ///< Ponteiro para a fonte do título principal.
     ALLEGRO_FONT* fonte_opcoes;         ///< Ponteiro para a fonte das opções do menu.
+    ALLEGRO_AUDIO_STREAM* musica_menu;
     
     // --- Animação do Cursor ---
     ALLEGRO_BITMAP* animacao_spritesheet; ///< Ponteiro para o bitmap do sprite sheet da animação.

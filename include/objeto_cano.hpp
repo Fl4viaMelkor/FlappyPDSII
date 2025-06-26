@@ -1,9 +1,10 @@
 #ifndef CANO_H
 #define CANO_H
 
+//
 #include "sprite.hpp"
-#include "fisica/hitbox.hpp"
 
+// biblioteca padrão
 #include <allegro5/allegro.h>
 #include <string>
 
@@ -65,6 +66,7 @@ public:
      * @brief Retorna a posição X atual do cano.
      * @return Valor de X.
      */
+
     float getX() const { return m_x; }
 
     /**
@@ -72,6 +74,8 @@ public:
      * @return Largura do cano.
      */
     float getLargura() const { return m_largura; }
+    void onCollision() override;
+    bool colisao(coordenadas p) override;
 
     /// Indica se esse cano já contou ponto para o jogador.
     bool foiContado;
@@ -128,6 +132,7 @@ private:
      * @brief Retorna os pontos que definem as duas hitboxes do cano.
      */
     std::vector<coordenadas> get_pontos() const override;
+
 };
 
 #endif

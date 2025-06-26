@@ -2,12 +2,15 @@
 #include "../../include/dados/config.hpp"
 #include "../../include/interface/parallax_background.hpp"
 #include "../../include/interface/tela_jogo.hpp"
+#include <allegro5/allegro_acodec.h>
+#include <allegro5/allegro_audio.h>
 
 #include <random>
 
 // Caso algo seja adicionado, lembrese de criar o objeto e de implementar seus métodos, bem como destructors
 
-void TelaJogo::initializeRandomBackgroud() {
+void TelaJogo::initializeRandomBackgroud()
+{
     static random_device rd;
     static mt19937 gen(rd());
     static uniform_int_distribution<> distrib(1, 3);
@@ -36,65 +39,73 @@ void TelaJogo::initializeRandomBackgroud() {
             parallaxBg->adicionarCamada("assets/background/skies/Sky_cloud_single.png", 45.0f);
             parallaxBg->adicionarCamada("assets/background/skies/Sky_back_mountain.png", 60.0f);
             break;
-    default:
-        std::cerr << "Opção de Background Inválida: " << background << std::endl;
-        break;
+        default:
+            std::cerr << "Opção de Background Inválida: " << background << std::endl;
+            break;
+    }
 }
-}
-
 
 TelaJogo::TelaJogo()
-  : RetanguloHitbox({ 0, 0 }, static_cast<float>(LARGURA_JANELA), static_cast<float>(ALTURA_JANELA))
+  : RetanguloHitboxAbstract({ 0, 0 }, static_cast<float>(LARGURA_JANELA), static_cast<float>(ALTURA_JANELA))
   , keyState()
   , currentGameState(GameState::PAUSED_FOR_START)
   , pontos(0)
 {
-    float	playerStartX;
-	float	playerStartY;
-	float	espacamentoCanos;
-	float	larguraCanos;
+
+    musica_jogo = nullptr;
+
+    // --- Carrega e toca a música do jogo ---
+    musica_jogo = al_load_audio_stream("assets/audio/kor.wav", 4, 2048); // Outro arquivo de música!
+    if (musica_jogo) {
+        al_attach_audio_stream_to_mixer(musica_jogo, al_get_default_mixer());
+        al_set_audio_stream_playmode(musica_jogo, ALLEGRO_PLAYMODE_LOOP);
+    }
+    float playerStartX;
+    float playerStartY;
+    float espacamentoCanos;
+    float larguraCanos;
 
     parallaxBg = new ParallaxBackground(LARGURA_JANELA, ALTURA_JANELA);
     initializeRandomBackgroud();
     // Criando objetos que vão estar no
 
     playerStartX = LARGURA_JANELA / 8.0f;
-    playerStartY = ALTURA_JANELA / 2.0f - (32/ 2.0f);
-    player = new Player("assets/player/galinha_spritesheet.png", playerStartX, playerStartY, 0.0f, 32, 32); //blue_bird_spritesheet.png  galinha_spritesheet.png
+    playerStartY = ALTURA_JANELA / 2.0f - (32 / 2.0f);
+    player = new Player("assets/player/galinha_spritesheet.png", playerStartX, playerStartY, 0.0f, 32,
+                        32); // blue_bird_spritesheet.png  galinha_spritesheet.png
 
     font = al_load_font("assets/fonts/joystix/joystixmonospace.otf", 20, 0);
-    if (!font){
+    if (!font)
         cerr << "Falha ao carregar a fonte. Verifique o caminho";
-    }
-    //nova implementação: substituindo MySquare por vector de canos
+    // nova implementação: substituindo MySquare por vector de canos
 
-	float posicaoIncialX = static_cast<float>(LARGURA_JANELA) + 100.0f;
+    float posicaoIncialX = static_cast<float>(LARGURA_JANELA) + 100.0f;
 
-	espacamentoCanos = 250.0f;
-	larguraCanos = 52.0f;
+    espacamentoCanos = 250.0f;
+    larguraCanos = 52.0f;
     int quantidadeDeCanos = LARGURA_JANELA / espacamentoCanos + 1;
 
-detector = new Detector_Colisao(*player);  // Cria primeiro
+    detector = new Detector_Colisao(*player); // Cria primeiro
 
-for (int i = 0; i < quantidadeDeCanos; ++i) {
-    float x = posicaoIncialX + i * espacamentoCanos;
-    Cano* cano = new Cano(x, larguraCanos, 150, ALTURA_JANELA, al_map_rgb(35, 161, 49), 0.4f, "assets/obj/pipe-green.png");
-    canos.push_back(cano);
+    for (int i = 0; i < quantidadeDeCanos; ++i) {
+        float x = posicaoIncialX + i * espacamentoCanos;
+        Cano *cano =
+          new Cano(x, larguraCanos, 150, ALTURA_JANELA, al_map_rgb(35, 161, 49), 0.4f, "assets/obj/pipe-green.png");
+        canos.push_back(cano);
 
-    detector->registrar(cano);  // Agora detector existe!
-}
+        //  detector->registrar(cano); // Agora detector existe!
+    }
 
-
-    //MySquare = new Cano(300.0f, 52, 150, ALTURA_TELA, al_map_rgb(35, 161, 49), 0.4f, "assets/obj/pipe-green.png");// cano de teste
+    // MySquare = new Cano(300.0f, 52, 150, ALTURA_TELA, al_map_rgb(35, 161, 49), 0.4f, "assets/obj/pipe-green.png");//
+    // cano de teste
 
     end = false;
 
     detector->registrar(this);
     // detector->registrar(MySquare);
 
-    //inicializa pontuação
-   // int pontos = 0;
-
+    // inicializa pontuação
+    // int pontos = 0;
 }
 
 TelaJogo::~TelaJogo()
@@ -102,13 +113,12 @@ TelaJogo::~TelaJogo()
     // Destrutores
     delete player;
 
-    //novo destrutor para canos: vector
-    for (auto cano : canos) {
-    delete cano;
-}
-canos.clear();
+    // novo destrutor para canos: vector
+    for (auto cano : canos)
+        delete cano;
+    canos.clear();
 
-   // delete MySquare; não precisa
+    // delete MySquare; não precisa
 
     delete parallaxBg;
 }
@@ -119,7 +129,7 @@ void TelaJogo::update()
     parallaxBg->update(1.0f / FPS);
 
     // A lógica principal do jogo só roda se não estiver pausado
-    if (currentGameState == GameState::PLAYING){
+    if (currentGameState == GameState::PLAYING) {
         player->update(keyState);
 
         float max_x_cano = 0.0f;
@@ -151,6 +161,7 @@ void TelaJogo::update()
                 pontos++;
                 canos[i]->foiContado = true;
             }
+
         }
 
         // --- LÓGICA DE FIM DE JOGO ---
@@ -170,8 +181,8 @@ void TelaJogo::update()
         }
 
 
-        detector->detectar();
 
+        detector->detectar();
     }
 }
 
@@ -190,6 +201,7 @@ void TelaJogo::draw()
         al_draw_text(font, al_map_rgb(0, 0, 0), LARGURA_JANELA / 2 + 2, 25 + 2, ALLEGRO_ALIGN_CENTER,
                      pontos_str.c_str());
         al_draw_text(font, al_map_rgb(255, 255, 255), LARGURA_JANELA / 2, 25, ALLEGRO_ALIGN_CENTER, pontos_str.c_str());
+
     }
 
     if (currentGameState == GameState::PAUSED_FOR_START && font) {
@@ -202,18 +214,18 @@ void TelaJogo::draw()
             ALLEGRO_ALIGN_CENTER, "Pressione ESPAÇO para comecar!"); // Texto branco por cima
         }
 }
-    //MySquare->draw(); não precisa mais
+// MySquare->draw(); não precisa mais
 
 void TelaJogo::step(ALLEGRO_EVENT &evento)
 {
     if (evento.type == ALLEGRO_EVENT_KEY_DOWN) {
         al_get_keyboard_state(&keyState);
         if (currentGameState == GameState::PAUSED_FOR_START) {
-            if (al_key_down(&keyState, ALLEGRO_KEY_SPACE)) {
+            if (al_key_down(&keyState, ALLEGRO_KEY_SPACE))
                 currentGameState = GameState::PLAYING;
-            }
         }
-    } else if (evento.type == ALLEGRO_EVENT_KEY_UP) {
+    }
+    else if (evento.type == ALLEGRO_EVENT_KEY_UP) {
         al_get_keyboard_state(&keyState);
     }
 }

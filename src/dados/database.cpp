@@ -472,6 +472,7 @@ bool SQLDatabase::atualizar_ou_adicionar(const objeto o)
                                          "' ausente no objeto para operacao de upsert.");
 
     const vector<objeto> existing_objects = buscar(primary_key_name_, normalized_o.dados.at(primary_key_name_));
+    cout << "Verificação realizada" << endl;
     if (!existing_objects.empty())
         return atualizar(normalized_o);
     else

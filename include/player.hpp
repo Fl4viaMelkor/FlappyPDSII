@@ -11,7 +11,7 @@
  *
  * Herda RetanguloHitbox para permitir detecção de colisão.
  */
-class Player : public RetanguloHitbox {
+class Player : public RetanguloHitboxAbstract {
   private:
     SpriteAnimado *sprite;     /**< Ponteiro para o sprite animado do jogador */
     float velY;                /**< Velocidade vertical do jogador */
