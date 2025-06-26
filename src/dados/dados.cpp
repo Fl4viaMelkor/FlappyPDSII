@@ -5,6 +5,9 @@
 
 // Este arquivo fornece as definições para as classes declaradas em dados.hpp.
 #include "../../include/dados/dados.hpp"
+
+#include "../../include/util.hpp"
+
 #include <iostream> // Para saída de depuração potencial (ex.: em carregar/exportar)
 #include <unordered_map>
 #include <vector>
@@ -40,28 +43,28 @@ Dado_Jogador::Dado_Jogador(objeto obj)
 // Esta função precisa de tratamento robusto de erros para chaves ausentes ou tipos de dados inválidos.
 void Dado_Jogador::carregar(objeto obj)
 {
+    objeto normalized_o;
+    for (const auto &pair : obj.dados)
+        normalized_o.dados[toLower(pair.first)] = pair.second;
+
     // cout << "Desserializando Dado_Jogador..." << endl;
 
     // Recupera 'nome'
-    if (obj.dados.count("nome")) {
-        nome_ = obj.dados["nome"];
-    }
-    else {
-        // Erro
-        nome_ = ""; // Padrão para string vazia se ausente
-        // throw runtime_error("Chave 'nome' ausente durante desserialização.");
-    }
+    if (normalized_o.dados.count("nome"))
+        nome_ = normalized_o.dados["nome"];
+    else
+        nome_ = "";
 
     // Recupera 'apelido'
-    if (obj.dados.count("apelido"))
-        apelido_ = obj.dados["apelido"];
+    if (normalized_o.dados.count("apelido"))
+        apelido_ = normalized_o.dados["apelido"];
     else
         apelido_ = ""; // Padrão para string vazia
 
     // Recupera 'pontuacoes' - requer análise de string (ex.: "10,20,30") em vetor de ints
     pontuacoes_.clear(); // Limpa pontuações existentes
-    if (obj.dados.count("pontuacoes") && !obj.dados["pontuacoes"].empty()) {
-        const string scores_str = obj.dados["pontuacoes"];
+    if (normalized_o.dados.count("pontuacoes") && !normalized_o.dados["pontuacoes"].empty()) {
+        const string scores_str = normalized_o.dados["pontuacoes"];
         string current_score_str;
         for (const char c : scores_str) {
             if (c == ',') {
@@ -144,7 +147,7 @@ vector<int> Dado_Jogador::pontuacoes() const { return pontuacoes_; }
 int Dado_Jogador::maior_pontuacao() const
 {
     if (pontuacoes_.empty())
-        return -1;
+        throw DataNotFoundException("Nenhuma Pontuação cadastrada");
     return *max_element(pontuacoes_.begin(), pontuacoes_.end());
 }
 int Dado_Jogador::partidas_disputadas() const { return pontuacoes_.size(); }

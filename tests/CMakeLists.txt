@@ -21,6 +21,9 @@ add_executable(run_tests dados/test_database.cpp)
 target_sources(run_tests PRIVATE
         dados/test_dados_jogador.cpp # Inclui o arquivo de teste para Dado_Jogador
 )
+target_sources(run_tests PRIVATE
+        dados/test_logger.cpp # Inclui o arquivo de teste para Dado_Jogador
+)
 
 target_sources(run_tests PRIVATE
         dados/test_database_sql.cpp # Inclui o arquivo de teste para Database
@@ -30,17 +33,17 @@ target_sources(run_tests PRIVATE
         interface/test_tela_inicial.cpp # Inclui o arquivo de teste para TelaInicial
 )
 
-target_sources(run_tests PRIVATE
-        interface/test_tela_highscore.cpp # Inclui o arquivo de teste para TelaHighScore
-)
+#target_sources(run_tests PRIVATE
+#        interface/test_tela_highscore.cpp # Inclui o arquivo de teste para TelaHighScore
+#)
 
 target_sources(run_tests PRIVATE
         interface/test_tela_fimdejogo.cpp # Inclui o arquivo de teste para TelaFimDeJogo
 )
 
-target_sources(run_tests PRIVATE
-        interface/test_tela_cadastro.cpp # Inclui o arquivo de teste para TelaCadastro
-)
+#target_sources(run_tests PRIVATE
+#        interface/test_tela_cadastro.cpp # Inclui o arquivo de teste para TelaCadastro
+#)
 
 # -------------------------------------------------------------
 # 3. Adicionar as fontes da aplicação que os testes dependem

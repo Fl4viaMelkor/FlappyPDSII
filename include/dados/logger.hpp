@@ -35,20 +35,20 @@ class Logger {
      * @param id Identificador da entidade.
      * @return true se o carregamento foi bem-sucedido.
      */
-    virtual bool carregar(const string &id) = 0;
+    virtual void carregar(const string &id) = 0;
 
     /**
      * @brief Salva os dados atuais no banco.
      * @return true se a operação foi bem-sucedida.
      */
-    virtual bool salvar() const = 0;
+    virtual void salvar() const = 0;
 
     /**
      * @brief Deleta os dados associados ao identificador informado.
-     * @param id Identificador da entidade.
+     * @param apelido
      * @return true se a operação foi bem-sucedida.
      */
-    virtual bool deletar(string id) const;
+    virtual bool deletar(string &apelido) const;
 
     /**
      * @brief Reseta ou limpa os dados associados ao Logger.
@@ -65,10 +65,8 @@ class Logger {
      * @return String formatada contendo os dados.
      */
     string listar_dados(const string &sep_chave_valor = ": ", const string &sep_dados = "\t",
-                        const string &sep_entidade = "\n");
+                        const string &sep_entidade = "\n") const;
 };
-
-
 
 /**
  * @brief Logger especializado para dados de jogadores.
@@ -84,13 +82,11 @@ class PlayerLogger final : public Logger {
      */
     explicit PlayerLogger(Database *db);
 
- /**
-     * @brief Verifica se uma nova pontuação é alta o suficiente para entrar no ranking.
-     * @param novo_score A pontuação a ser verificada.
-     * @return true se for um recorde, false caso contrário.
-     */
-    bool isHighScore(int novo_score);
-
+    bool isHighScorePlayer(int novo_score) const;
+    bool isHighScoreAll(int novo_score) const;
+    int getHighScorePlayer() const;
+    int getHighScoreAll() const;
+    int getPartidasDisputadas() const;
     /**
      * @brief Construtor padrão.
      */
@@ -110,10 +106,10 @@ class PlayerLogger final : public Logger {
      * @brief Reseta os dados do logger de jogador.
      */
     void resetar() override;
-    bool salvar(int pontuacao_mais_recente);
-    bool salvar() const override;
+    void salvar(int pontuacao_mais_recente) const;
+    void salvar() const override;
     ~PlayerLogger() override;
-    bool carregar(const string &id) override;
+    void carregar(const string &id) override;
 };
 
 /**

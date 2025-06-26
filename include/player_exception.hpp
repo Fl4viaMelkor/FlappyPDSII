@@ -30,7 +30,7 @@ class ColisaoException : public PlayerException {
      * @param message Texto explicativo sobre o erro ocorrido.
      */
     ColisaoException(const std::string &message)
-      : std::runtime_error(message)
+      : PlayerException(message)
     {
     }
 };

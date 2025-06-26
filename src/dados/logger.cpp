@@ -19,98 +19,87 @@ using namespace std;
 Logger::Logger(Database *db) { db_ = db; }
 // Destrutor
 // Libera a memória alocada para 'atual_' se houver um Dado carregado.
-Logger::~Logger()
+Logger::~Logger() = default;
+
+bool PlayerLogger::isHighScorePlayer(const int novo_score) const { return novo_score > getHighScorePlayer(); }
+
+bool PlayerLogger::isHighScoreAll(const int novo_score) const { return novo_score >= getHighScoreAll(); }
+
+int PlayerLogger::getHighScorePlayer() const
 {
-    cout << "Logger destruído." << endl;
-    delete db_;    // Libera a memória do objeto Dado carregado
-    db_ = nullptr; // Garante que o ponteiro não aponte para memória inválida
-}
-bool PlayerLogger::isHighScore(int novo_score)
-{
-    // Pega todos os objetos de jogador do banco de dados
-    const std::vector<objeto> todos_os_jogadores_obj = db_->listar();
-
-    // max recorde
-    const int max_recordes = 10;
-
-    // Se o ranking ainda não está cheio, qualquer pontuação é um recorde.
-    if (todos_os_jogadores_obj.size() < max_recordes)
-        return true;
-
-    // Se o ranking está cheio, precisamos encontrar a pontuação mais baixa nele.
-    int menor_score_no_ranking = -1;
-
-    for (const auto &obj : todos_os_jogadores_obj) {
-        Dado_Jogador jogador_temp(obj);
-
-        // Verificamos se o jogador tem alguma pontuação registrada
-        if (!jogador_temp.pontuacoes().empty()) {
-            // Encontramos a maior pontuação daquele jogador específico
-            int maior_pontuacao_do_jogador =
-              *std::max_element(jogador_temp.pontuacoes().begin(), jogador_temp.pontuacoes().end());
-
-            // Comparamos com o menor score encontrado no ranking até agora
-            if (menor_score_no_ranking == -1 || maior_pontuacao_do_jogador < menor_score_no_ranking)
-                menor_score_no_ranking = maior_pontuacao_do_jogador;
-        }
+    try {
+        return atual_->maior_pontuacao();
     }
-
-    // Se não houver scores para comparar (pouco provável se a lista está cheia), considera um high score.
-    if (menor_score_no_ranking == -1)
-        return true;
-
-    // A nova pontuação é um recorde se for maior que a pontuação mais baixa do ranking.
-    return novo_score > menor_score_no_ranking;
+    catch (DataException &e) {
+        cerr << e.what() << endl;
+        return -1;
+    }
 }
+
+int PlayerLogger::getHighScoreAll() const
+{
+    vector<int> pontuacoes;
+    Dado_Jogador aux;
+
+    for (const auto &jogador : db_->listar()) {
+        aux.carregar(jogador);
+        int high_score;
+        try {
+            high_score = aux.maior_pontuacao();
+        }
+        catch (DataException &_) {
+            high_score = -1;
+        }
+        pontuacoes.emplace_back(high_score);
+    }
+    if (pontuacoes.empty())
+        return -1;
+    return *max_element(pontuacoes.begin(), pontuacoes.end());
+}
+int PlayerLogger::getPartidasDisputadas() const { return atual_->partidas_disputadas(); }
 
 // Função carregar
-// Tenta carregar um objeto Dado do Database usando um ‘ID’.
-bool PlayerLogger::carregar(const string &id)
+void PlayerLogger::carregar(const string &apelido)
 {
-    if (!db_) {
-        cerr << "Logger error: Ponteiro para Database é nulo ao carregar." << endl;
-        return false;
-    }
+    if (!db_)
+        throw DataIOErrorException("Logger error: Ponteiro para Database e nulo ao carregar.");
 
-    const vector<objeto> results = db_->buscar("id", id);
+    const vector<objeto> results = db_->buscar("apelido", apelido);
+    if (atual_)
+        delete atual_;
 
     if (!results.empty()) {
         // Se já houver um objeto carregado, deleta-o para evitar vazamento de memória
-        if (atual_)
-            delete atual_;
+
         // Cria uma instância de Dado_Jogador a partir do primeiro resultado encontrado.
         try {
             atual_ = new Dado_Jogador(results[0]);
-            return true;
+            return;
         }
         catch (const exception &e) {
-            cerr << "Logger error: Falha ao desserializar Dado_Jogador de objeto: " << e.what() << endl;
-            delete atual_; // Limpa o objeto alocado se a construção falhou
-            atual_ = nullptr;
-            return false;
+            cerr << "Logger error: Falha ao desserializar Dado_Jogador de objeto: " << e.what()
+                 << "Criando um novo usuario com esse nome" << endl;
         }
     }
-    atual_ = new Dado_Jogador(id, id);
-    return false;
+    atual_ = new Dado_Jogador(apelido, apelido);
 }
 
 // Função salvar
 // Salva o objeto Dado atualmente carregado no Database.
-bool PlayerLogger::salvar() const
+void PlayerLogger::salvar() const
 {
-    if (!db_) {
-        cerr << "Logger error: Ponteiro para Database é nulo ao salvar." << endl;
-        return false;
-    }
+    if (!db_)
+        throw DataIOErrorException("Logger error: Ponteiro para Database e nulo ao salvar.");
+
     if (!atual_) {
         cerr << "Logger error: Nenhum dado carregado (atual_ é nulo) para salvar." << endl;
-        return false;
+        return;
     }
 
     // Serializa o objeto Dado atual para obter a sua representação 'objeto'
     const objeto obj_to_save = atual_->exportar();
 
-    return db_->atualizar_ou_adicionar(obj_to_save);
+    db_->atualizar_ou_adicionar(obj_to_save);
 }
 PlayerLogger::~PlayerLogger()
 {
@@ -120,16 +109,14 @@ PlayerLogger::~PlayerLogger()
 
 // Função deletar
 // Deleta um objeto do Database por ‘ID’.
-bool Logger::deletar(string id) const
+bool Logger::deletar(string &apelido) const
 {
-    if (!db_) {
-        cerr << "Logger error: Ponteiro para Database é nulo ao deletar." << endl;
-        return false;
-    }
+    if (!db_)
+        throw DataIOErrorException("Logger error: Ponteiro para Database e nulo ao deletar.");
 
     // Cria um 'objeto' temporário contendo apenas o ‘ID’ para a operação de exclusão
     objeto obj_to_delete;
-    obj_to_delete.dados["id"] = id; // Assume "id" é a chave identificadora para exclusão
+    obj_to_delete.dados["apelido"] = apelido; // Assume "id" é a chave identificadora para exclusão
 
     const bool success = db_->excluir(obj_to_delete);
 
@@ -138,20 +125,28 @@ bool Logger::deletar(string id) const
 
 // Retorna uma ‘string’ formatada com todos os dados do objeto carregado.
 // As chaves são listadas em ordem alfabética.
-string Logger::listar_dados(const string &sep_chave_valor, const string &sep_dados, const string &sep_entidade)
+string Logger::listar_dados(const string &sep_chave_valor, const string &sep_dados, const string &sep_entidade) const
 {
     if (!db_)
-        return "Erro: Base de dados nao inicializada.";
-    const std::vector<objeto> results = db_->listar(); // ou db_->buscar(chave, valor);
+        throw DataIOErrorException("Logger error: Ponteiro para Database e nulo ao carregar.");
 
-    std::ostringstream oss;
-    oss << "Dados encontrados:\n";
-    for (const auto &obj : results) {
-        for (const auto &pair : obj.dados) // Agora begin/end deve ser encontrado.
-            oss << ", " << pair.first << ": " << pair.second;
-        oss << "\n";
+    vector<Dado_Jogador> jogadores;
+    for (const objeto &jogador : db_->listar())
+        jogadores.emplace_back(jogador);
+
+    string dados = "";
+
+    for (const Dado_Jogador &j : jogadores) {
+        dados += "Nome" + sep_chave_valor + j.nome() + sep_dados;
+        dados += "Apelido" + sep_chave_valor + j.apelido() + sep_dados;
+        dados += "Partidas Disputadas" + sep_chave_valor + to_string(j.partidas_disputadas()) + sep_dados;
+        dados += "Maior Pontuacao" + sep_chave_valor + to_string(j.maior_pontuacao()) + sep_dados;
+        dados += "Pontuacoes" + sep_chave_valor;
+        for (const int p : j.pontuacoes())
+            dados += to_string(p) + ",";
+        dados += sep_entidade;
     }
-    return oss.str();
+    return dados;
 }
 
 // Construtor
@@ -160,12 +155,6 @@ PlayerLogger::PlayerLogger(Database *db)
 {
     atual_ = new Dado_Jogador();
     cout << "PlayerLogger construído e associado a um Database." << endl;
-}
-
-PlayerLogger::PlayerLogger()
-  : Logger()
-{
-    db_ = new JogadorSQLDatabase();
 }
 
 void PlayerLogger::resetar()
@@ -178,7 +167,7 @@ void PlayerLogger::resetar()
     // Cria um Dado_Jogador no estado padrão.
     atual_ = new Dado_Jogador();
 }
-bool PlayerLogger::salvar(int pontuacao_mais_recente)
+void PlayerLogger::salvar(int pontuacao_mais_recente) const
 {
     atual_->add_pontuacao(pontuacao_mais_recente);
     return salvar();
@@ -188,12 +177,32 @@ bool PlayerLogger::salvar(int pontuacao_mais_recente)
 string PlayerLogger::listar_dados_ordenados(const string &sep_chave_valor, const string &sep_dados,
                                             const string &sep_entidade) const
 {
-    const vector<objeto> results = db_->listar_ordenado("MAIOR PONTUACAO", false);
+    if (!db_)
+        throw DataIOErrorException("Logger error: Ponteiro para Database e nulo ao carregar.");
+
+    vector<Dado_Jogador> jogadores;
+    for (const objeto &jogador : db_->listar())
+        jogadores.emplace_back(jogador);
+
+    std::sort(jogadores.begin(), jogadores.end(), [](const Dado_Jogador &a, const Dado_Jogador &b) {
+        if (a.pontuacoes().empty())
+            return false;
+        if (b.pontuacoes().empty())
+            return true;
+        return a.maior_pontuacao() > b.maior_pontuacao();
+    });
+
     string dados = "";
 
-    for (objeto obj : results) {
-        for (const auto &pair : obj.dados)
-            dados += pair.first + sep_chave_valor + pair.second + sep_dados;
+    for (const Dado_Jogador &j : jogadores) {
+        dados += "Nome" + sep_chave_valor + j.nome() + sep_dados;
+        dados += "Apelido" + sep_chave_valor + j.apelido() + sep_dados;
+        dados += "Partidas Disputadas" + sep_chave_valor + to_string(j.partidas_disputadas()) + sep_dados;
+        dados += "Maior Pontuacao" + sep_chave_valor + (j.pontuacoes().empty() ? " " : to_string(j.maior_pontuacao())) +
+                 sep_dados;
+        dados += "Pontuacoes" + sep_chave_valor;
+        for (const int p : j.pontuacoes())
+            dados += to_string(p) + ",";
         dados += sep_entidade;
     }
     return dados;

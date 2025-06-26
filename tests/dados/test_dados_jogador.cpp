@@ -42,7 +42,7 @@ DOCTEST_TEST_SUITE("Dado_Jogador Tests")
         CHECK(jogador.nome() == "");
         CHECK(jogador.apelido() == "");
         CHECK(jogador.pontuacoes().empty());
-        CHECK(jogador.maior_pontuacao() == -1); // Teste de maior_pontuacao para vetor vazio
+        CHECK_THROWS_AS(jogador.maior_pontuacao(), DataException); // Vetor vazio
         CHECK(jogador.partidas_disputadas() == 0);
     }
 
@@ -128,7 +128,7 @@ DOCTEST_TEST_SUITE("Dado_Jogador Tests")
             CHECK(jogador_empty_scores.nome() == "JogadorVazio");
             CHECK(jogador_empty_scores.apelido() == "JV");
             CHECK(jogador_empty_scores.pontuacoes().empty());
-            CHECK(jogador_empty_scores.maior_pontuacao() == -1);
+            CHECK_THROWS_AS(jogador_empty_scores.maior_pontuacao(), DataException); // Vetor vazio
 
             objeto obj_malformed_scores;
             obj_malformed_scores.dados["nome"] = "Erro";
@@ -268,7 +268,7 @@ DOCTEST_TEST_SUITE("Dado_Jogador Tests")
 
         SUBCASE("maior_pontuacao")
         {
-            CHECK(jogador.maior_pontuacao() == -1); // Vetor vazio
+            CHECK_THROWS_AS(jogador.maior_pontuacao(), DataException); // Vetor vazio
 
             jogador.add_pontuacao(10);
             CHECK(jogador.maior_pontuacao() == 10);
