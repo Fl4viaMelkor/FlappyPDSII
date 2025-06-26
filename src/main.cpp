@@ -6,6 +6,8 @@
 #include <allegro5/allegro_ttf.h>
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/allegro_image.h>
+#include <allegro5/allegro_audio.h>   
+#include <allegro5/allegro_acodec.h> 
 
 
 #include "../include/interface/tela_base.hpp"
@@ -26,12 +28,15 @@ void cleanup();
 ALLEGRO_DISPLAY *display;
 ALLEGRO_EVENT_QUEUE *queue;
 ALLEGRO_TIMER *timer;
+ALLEGRO_AUDIO_STREAM* musica_fundo = nullptr;
 
 int main()
 {
     initialize();
 
 al_set_window_title(display, "Flying Chicken");
+
+
 
 
     //Ponteiro pra tela inicial
@@ -133,12 +138,20 @@ PlayerLogger logger;
 
 void initialize()
 {
+    
     al_init();
     al_install_keyboard();
     al_init_primitives_addon();
     al_init_image_addon();
     al_init_font_addon();
     al_init_ttf_addon();
+    
+    if (!al_install_audio() || !al_init_acodec_addon() || !al_reserve_samples(1)) {
+        std::cerr << "Falha ao inicializar o sistema de audio!" << std::endl;
+    }
+
+
+
 
     display = al_create_display(LARGURA_JANELA, ALTURA_JANELA);
     queue = al_create_event_queue();
@@ -151,7 +164,7 @@ void initialize()
 
 void cleanup()
 {
-
+if(musica_fundo) al_destroy_audio_stream(musica_fundo);
     al_shutdown_image_addon();
     al_shutdown_font_addon();
     al_shutdown_primitives_addon();
@@ -159,5 +172,6 @@ void cleanup()
     al_destroy_event_queue(queue);
     al_destroy_timer(timer);
     al_uninstall_keyboard();
+    al_uninstall_audio();
     al_uninstall_system();
 }

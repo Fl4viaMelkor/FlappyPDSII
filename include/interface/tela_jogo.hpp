@@ -9,6 +9,7 @@
 #include "tela_base.hpp"
 #include <allegro5/allegro5.h>
 #include <allegro5/allegro_font.h>
+#include <allegro5/allegro_audio.h>
 
 // Caso algum item ou coisa seja adicionado na tela de JOGO deve criar um ponteiro para esse objeto no PRIVATE
 
@@ -58,6 +59,8 @@ class TelaJogo : public TelaBase, public RetanguloHitbox {
 
     GameState currentGameState;
     ALLEGRO_FONT *font;
+
+    ALLEGRO_AUDIO_STREAM* musica_jogo;
 
   public:
     TelaJogo();
