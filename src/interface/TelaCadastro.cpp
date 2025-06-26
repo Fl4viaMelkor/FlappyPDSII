@@ -55,8 +55,15 @@ void TelaCadastro::draw()
     float centro_x = largura_tela / 2.0f;
 
     // texto
-    al_draw_text(fonte_titulo, al_map_rgb(255, 215, 0), centro_x, altura_tela * 0.2f, ALLEGRO_ALIGN_CENTER,
-                 "NOVO RECORDE!");
+    if (logger.isHighScoreAll(pontuacao_final))
+        al_draw_text(fonte_titulo, al_map_rgb(255, 215, 0), centro_x, altura_tela * 0.2f, ALLEGRO_ALIGN_CENTER,
+                     "NOVO RECORDE GERAL!");
+    else if (logger.isHighScorePlayer(pontuacao_final))
+        al_draw_text(fonte_titulo, al_map_rgb(255, 215, 0), centro_x, altura_tela * 0.2f, ALLEGRO_ALIGN_CENTER,
+                     "NOVO RECORDE PESSOAL!");
+    else
+        al_draw_text(fonte_titulo, al_map_rgb(255, 215, 0), centro_x, altura_tela * 0.2f, ALLEGRO_ALIGN_CENTER,
+                     "EXCELENTE PARTIDA!");
     al_draw_text(fonte_input, al_map_rgb(255, 255, 255), centro_x, altura_tela * 0.4f, ALLEGRO_ALIGN_CENTER,
                  "Digite seu nome:");
     al_draw_text(fonte_input, al_map_rgb(255, 255, 255), centro_x, altura_tela * 0.5f, ALLEGRO_ALIGN_CENTER,
