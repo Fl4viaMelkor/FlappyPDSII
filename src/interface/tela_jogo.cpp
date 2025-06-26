@@ -59,6 +59,7 @@ TelaJogo::TelaJogo()
     if (musica_jogo) {
         al_attach_audio_stream_to_mixer(musica_jogo, al_get_default_mixer());
         al_set_audio_stream_playmode(musica_jogo, ALLEGRO_PLAYMODE_LOOP);
+        al_set_audio_stream_playing(musica_jogo, true);
     }
     float playerStartX;
     float playerStartY;
@@ -110,6 +111,11 @@ TelaJogo::TelaJogo()
 
 TelaJogo::~TelaJogo()
 {
+
+     if (musica_jogo) {
+        al_detach_audio_stream(musica_jogo);
+        al_destroy_audio_stream(musica_jogo);
+    }
     // Destrutores
     delete player;
 

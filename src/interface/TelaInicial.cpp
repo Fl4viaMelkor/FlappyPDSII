@@ -27,6 +27,7 @@ TelaInicial::TelaInicial(int largura, int altura) :
     if (musica_menu) {
         al_attach_audio_stream_to_mixer(musica_menu, al_get_default_mixer());
         al_set_audio_stream_playmode(musica_menu, ALLEGRO_PLAYMODE_LOOP);
+         al_set_audio_stream_playing(musica_menu, true);
     }
 
 //carregar animação
@@ -68,6 +69,7 @@ TelaInicial::~TelaInicial() {
     if (fonte_opcoes) al_destroy_font(fonte_opcoes);
     if (animacao_spritesheet) al_destroy_bitmap(animacao_spritesheet);
      if (musica_menu) al_destroy_audio_stream(musica_menu); 
+     al_detach_audio_stream(musica_menu);
 }
 
 void TelaInicial::update() {
