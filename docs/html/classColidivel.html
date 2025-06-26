@@ -85,13 +85,15 @@ Diagrama de hierarquia da classe Colidivel:</div>
 <div class="dyncontent">
 <div class="center"><img src="classColidivel__inherit__graph.png" border="0" usemap="#aColidivel_inherit__map" alt="Inheritance graph"/></div>
 <map name="aColidivel_inherit__map" id="aColidivel_inherit__map">
-<area shape="rect" title="Interface para elementos colidíveis no jogo." alt="" coords="44,5,123,31"/>
-<area shape="rect" href="classRetanguloHitbox.html" title="Implementa uma hitbox retangular." alt="" coords="18,79,149,104"/>
-<area shape="poly" title=" " alt="" coords="86,44,86,79,81,79,81,44"/>
-<area shape="rect" href="classPlayer.html" title="Classe que representa o jogador no jogo." alt="" coords="5,152,68,177"/>
-<area shape="poly" title=" " alt="" coords="70,117,46,153,42,150,66,114"/>
-<area shape="rect" href="classTelaJogo.html" title=" " alt="" coords="92,152,168,177"/>
-<area shape="poly" title=" " alt="" coords="101,114,125,150,120,153,96,117"/>
+<area shape="rect" title="Interface para elementos colidíveis no jogo." alt="" coords="76,5,155,31"/>
+<area shape="rect" href="classRetanguloHitbox.html" title="Implementa uma hitbox retangular." alt="" coords="50,79,181,104"/>
+<area shape="poly" title=" " alt="" coords="118,44,118,79,113,79,113,44"/>
+<area shape="rect" href="classCano.html" title="Representa um par de canos (superior e inferior) como obstáculo no jogo." alt="" coords="5,152,60,177"/>
+<area shape="poly" title=" " alt="" coords="93,115,48,154,44,150,90,111"/>
+<area shape="rect" href="classPlayer.html" title="Classe que representa o jogador no jogo." alt="" coords="84,152,147,177"/>
+<area shape="poly" title=" " alt="" coords="118,118,118,152,113,152,113,118"/>
+<area shape="rect" href="classTelaJogo.html" title=" " alt="" coords="171,152,247,177"/>
+<area shape="poly" title=" " alt="" coords="143,110,195,150,192,154,139,114"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
 <table class="memberdecls">
@@ -109,13 +111,13 @@ Membros Públicos</h2></td></tr>
 <tr class="memitem:a5959db60e5547736c11cbd722e10cf8b" id="r_a5959db60e5547736c11cbd722e10cf8b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColidivel.html#a5959db60e5547736c11cbd722e10cf8b">noPerimetro</a> (const <a class="el" href="structcoordenadas.html">coordenadas</a> &amp;p) const =0</td></tr>
 <tr class="memdesc:a5959db60e5547736c11cbd722e10cf8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se um ponto está no perímetro da forma.  <br /></td></tr>
 <tr class="separator:a5959db60e5547736c11cbd722e10cf8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bd5a3950acd160e5d1424bc341a08f4" id="r_a6bd5a3950acd160e5d1424bc341a08f4"><td class="memItemLeft" align="right" valign="top">virtual vector&lt; <a class="el" href="structcoordenadas.html">coordenadas</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColidivel.html#a6bd5a3950acd160e5d1424bc341a08f4">get_pontos</a> () const =0</td></tr>
-<tr class="memdesc:a6bd5a3950acd160e5d1424bc341a08f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna os pontos que definem a forma geométrica.  <br /></td></tr>
-<tr class="separator:a6bd5a3950acd160e5d1424bc341a08f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f3b3cb3ec014502dd0cd1295fe6c80f" id="r_a9f3b3cb3ec014502dd0cd1295fe6c80f"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; <a class="el" href="structcoordenadas.html">coordenadas</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classColidivel.html#a9f3b3cb3ec014502dd0cd1295fe6c80f">get_pontos</a> () const =0</td></tr>
+<tr class="memdesc:a9f3b3cb3ec014502dd0cd1295fe6c80f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna os pontos que definem a forma geométrica da hitbox.  <br /></td></tr>
+<tr class="separator:a9f3b3cb3ec014502dd0cd1295fe6c80f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
 <div class="textblock"><p>Interface para elementos colidíveis no jogo. </p>
-<p>Define a estrutura comum para classes que possuem detecção de colisão. </p>
+<p>Define a estrutura comum para classes que possuem detecção de colisão com pontos. Serve como base para diferentes tipos de hitboxes, como retângulos, polígonos, curvas, etc. </p>
 </div><h2 class="groupheader">Documentação das funções</h2>
 <a id="ade420f4cdfba30e28136181d270afc0f" name="ade420f4cdfba30e28136181d270afc0f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ade420f4cdfba30e28136181d270afc0f">&#9670;&#160;</a></span>colisao()</h2>
@@ -150,12 +152,12 @@ Membros Públicos</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>true se houver colisão com o ponto. </dd></dl>
 
-<p>Implementado por <a class="el" href="classTelaJogo.html#a79b93cc3c9d060409c684eb5f8fe60a6">TelaJogo</a> e <a class="el" href="classPlayer.html#a60a87398ca319f6fa372a0c3add47750">Player</a>.</p>
+<p>Implementado por <a class="el" href="classRetanguloHitbox.html#aeae15cd2d1a8ab960b844485c3cfab00">RetanguloHitbox</a>, <a class="el" href="classTelaJogo.html#a79b93cc3c9d060409c684eb5f8fe60a6">TelaJogo</a>, <a class="el" href="classCano.html#a2b4f2d7949f6952367e0f84bd8fb148a">Cano</a> e <a class="el" href="classPlayer.html#a60a87398ca319f6fa372a0c3add47750">Player</a>.</p>
 
 </div>
 </div>
-<a id="a6bd5a3950acd160e5d1424bc341a08f4" name="a6bd5a3950acd160e5d1424bc341a08f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6bd5a3950acd160e5d1424bc341a08f4">&#9670;&#160;</a></span>get_pontos()</h2>
+<a id="a9f3b3cb3ec014502dd0cd1295fe6c80f" name="a9f3b3cb3ec014502dd0cd1295fe6c80f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f3b3cb3ec014502dd0cd1295fe6c80f">&#9670;&#160;</a></span>get_pontos()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -164,7 +166,7 @@ Membros Públicos</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual vector&lt; <a class="el" href="structcoordenadas.html">coordenadas</a> &gt; Colidivel::get_pontos </td>
+          <td class="memname">virtual std::vector&lt; <a class="el" href="structcoordenadas.html">coordenadas</a> &gt; Colidivel::get_pontos </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -177,7 +179,7 @@ Membros Públicos</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Retorna os pontos que definem a forma geométrica. </p>
+<p>Retorna os pontos que definem a forma geométrica da hitbox. </p>
 <dl class="section return"><dt>Retorna</dt><dd>Vetor de coordenadas da forma. </dd></dl>
 
 <p>Implementado por <a class="el" href="classRetanguloHitbox.html#a681084b16cdbdbde14b355f5ac342572">RetanguloHitbox</a>.</p>
@@ -283,7 +285,7 @@ Membros Públicos</h2></td></tr>
 
 <p>Define o comportamento do objeto ao colidir. </p>
 
-<p>Implementado por <a class="el" href="classTelaJogo.html#ac781076a724e80d17a0657732affb037">TelaJogo</a> e <a class="el" href="classPlayer.html#ab4ac6aa46f8aa40a9cd1926eccae0e6c">Player</a>.</p>
+<p>Implementado por <a class="el" href="classRetanguloHitbox.html#a749d7becd826b1f8a165e79d9aad7fd5">RetanguloHitbox</a>, <a class="el" href="classTelaJogo.html#ac781076a724e80d17a0657732affb037">TelaJogo</a>, <a class="el" href="classCano.html#a9b9da63ab6d9866e52ca5d9cba96a807">Cano</a> e <a class="el" href="classPlayer.html#ab4ac6aa46f8aa40a9cd1926eccae0e6c">Player</a>.</p>
 
 </div>
 </div>

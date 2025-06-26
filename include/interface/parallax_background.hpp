@@ -56,6 +56,10 @@ public:
      */
     void draw();
 
+    int getNumeroDeCamadas() const {
+       return camadas_.size();
+}
+
 private:
     int larguraTela_; ///< Largura da tela.
     int alturaTela_;  ///< Altura da tela.

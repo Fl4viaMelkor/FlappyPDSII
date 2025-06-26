@@ -10,5 +10,6 @@ var searchData=
   ['telahighscores_7',['telahighscores',['../classTelaHighScores.html',1,'TelaHighScores'],['../classTelaHighScores.html#abfaa90a5b3e67d0ac4c2c60d354e313d',1,'TelaHighScores::TelaHighScores()']]],
   ['telainicial_8',['telainicial',['../classTelaInicial.html',1,'TelaInicial'],['../classTelaInicial.html#a0f60d2fc9b15941b6378bd69a3299e5c',1,'TelaInicial::TelaInicial()']]],
   ['telainicial_2ehpp_9',['TelaInicial.hpp',['../TelaInicial_8hpp.html',1,'']]],
-  ['telajogo_10',['TelaJogo',['../classTelaJogo.html',1,'']]]
+  ['telajogo_10',['TelaJogo',['../classTelaJogo.html',1,'']]],
+  ['testes_11',['Testes',['../md_README.html#autotoc_md6',1,'']]]
 ];

@@ -1,0 +1,9 @@
+<map id="Cano" name="Cano">
+<area shape="rect" id="Node000001" title="Representa um par de canos (superior e inferior) como obstáculo no jogo." alt="" coords="75,168,129,193"/>
+<area shape="rect" id="Node000002" href="$classRetanguloHitbox.html" title="Implementa uma hitbox retangular." alt="" coords="37,93,167,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,133,105,168,99,168,99,133"/>
+<area shape="rect" id="Node000003" href="$classColidivel.html" title="Interface para elementos colidíveis no jogo." alt="" coords="5,5,84,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="62,41,96,91,92,94,58,44"/>
+<area shape="rect" id="Node000004" href="$structcoordenadas.html" title="Representa uma posição ou ponto no espaço bidimensional." alt="" coords="108,5,213,31"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="147,44,112,94,108,91,143,41"/>
+</map>

@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['update_0',['update',['../classCamadaBackground.html#a0cddafaee8883a753a83fa23062455e5',1,'CamadaBackground::update()'],['../classParallaxBackground.html#ade29f52b6ff5d8d6b6978aa6cf928aa0',1,'ParallaxBackground::update()'],['../classtela__fimdejogo.html#ab0cd10c65a8bc49122a937e59e33a746',1,'tela_fimdejogo::update()'],['../classTelaCadastro.html#a785b03f9e9641c79669eafb63189d102',1,'TelaCadastro::update()'],['../classTelaHighScores.html#a9e335092534490eb710023fbf33ea912',1,'TelaHighScores::update()'],['../classTelaInicial.html#a17cc7693f053b018e0bb88baa39c42fd',1,'TelaInicial::update()'],['../classPlayer.html#a309e55d4028eee27e2f659ff15a0714b',1,'Player::update()'],['../classSpriteAnimado.html#a9e2f6fe74a9915fd9f750a650c26ff00',1,'SpriteAnimado::update()']]]
+  ['tela_5ffimdejogo_0',['tela_fimdejogo',['../classtela__fimdejogo.html#a762ac879e44ea2a0b76572ea4f591e08',1,'tela_fimdejogo']]],
+  ['telacadastro_1',['TelaCadastro',['../classTelaCadastro.html#ac3acd9b2feed1e2714004e086f1b8ef5',1,'TelaCadastro']]],
+  ['telahighscores_2',['TelaHighScores',['../classTelaHighScores.html#abfaa90a5b3e67d0ac4c2c60d354e313d',1,'TelaHighScores']]],
+  ['telainicial_3',['TelaInicial',['../classTelaInicial.html#a0f60d2fc9b15941b6378bd69a3299e5c',1,'TelaInicial']]]
 ];

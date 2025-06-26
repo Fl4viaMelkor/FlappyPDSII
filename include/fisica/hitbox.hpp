@@ -14,7 +14,8 @@
 /**
  * @brief Interface para elementos colidíveis no jogo.
  *
- * Define a estrutura comum para classes que possuem detecção de colisão.
+ * Define a estrutura comum para classes que possuem detecção de colisão com pontos.
+ * Serve como base para diferentes tipos de hitboxes, como retângulos, polígonos, curvas, etc.
  */
 class Colidivel {
   public:
@@ -47,16 +48,18 @@ class Colidivel {
     virtual bool noPerimetro(const coordenadas &p) const = 0;
 
     /**
-     * @brief Retorna os pontos que definem a forma geométrica.
+     * @brief Retorna os pontos que definem a forma geométrica da hitbox.
      * @return Vetor de coordenadas da forma.
      */
-    virtual vector<coordenadas> get_pontos() const = 0;
+    virtual std::vector<coordenadas> get_pontos() const = 0;
 };
 
 /**
  * @brief Implementa uma hitbox retangular.
  *
- * Baseada em um ponto inferior esquerdo, com altura e base definidas.
+ * A posição do retângulo é definida a partir de seu canto inferior esquerdo,
+ * e ele possui uma largura (base) e altura fixas. Pode ser utilizado para colisões
+ * com obstáculos, personagens ou áreas de interação.
  */
 class RetanguloHitboxAbstract : public Colidivel {
   protected:
@@ -71,50 +74,64 @@ class RetanguloHitboxAbstract : public Colidivel {
      * @param b Largura (base).
      * @param a Altura.
      */
-    RetanguloHitboxAbstract(coordenadas p1, float b, float a)
-      : ponto_inferior_esquerdo(p1)
-      , base(b)
-      , altura(a)
-    {
-    }
+    RetanguloHitbox(coordenadas p1, float b, float a)
+      : ponto_inferior_esquerdo(p1), base(b), altura(a) {}
 
     /**
-     * @brief Retorna a coordenada Y do ponto de referência do objeto.
-     */
-    float getY() const { return ponto_inferior_esquerdo.y; }
-
-    /**
-     * @brief Retorna a coordenada Y do ponto de referência do objeto.
+     * @brief Retorna a coordenada X do ponto de referência da hitbox.
+     * @return Valor da posição X.
      */
     float getX() const { return ponto_inferior_esquerdo.x; }
 
     /**
+     * @brief Retorna a coordenada Y do ponto de referência da hitbox.
+     * @return Valor da posição Y.
+
+     */
+    float getY() const { return ponto_inferior_esquerdo.y; }
+
+    /**
      * @brief Retorna a altura da hitbox.
+     * @return Valor da altura.
      */
     float getAltura() const { return altura; }
 
-    bool noInterior(const coordenadas &p) const override;
-    bool noPerimetro(const coordenadas &p) const override;
-    vector<coordenadas> get_pontos() const override;
-};
-
-class RetanguloHitboxConcrete : public RetanguloHitboxAbstract {
-  public:
-    RetanguloHitboxConcrete(const coordenadas &p1, float b, float a)
-      : RetanguloHitboxAbstract(p1, b, a)
-    {
+    /**
+     * @brief Comportamento padrão ao ocorrer colisão.
+     *
+     * Pode ser sobrescrito em classes derivadas. Aqui, não faz nada por padrão.
+     */
+    void onCollision() override {
+        // comportamento padrão ou vazio
     }
-    void onCollision() override { throw ColisaoException("Aconteceu uma colisao"); }
-    bool colisao(coordenadas p) override { return noInterior(p) || noPerimetro(p); }
-    void update_coordenadas(const coordenadas &p1) { ponto_inferior_esquerdo = p1; }
-    void update_base(const float b) { base = b; }
-    void update_altura(const float a) { altura = a; }
+
+    /**
+     * @brief Verifica se o ponto colide com a hitbox.
+     * @param p Ponto a ser testado.
+     * @return true se estiver no interior ou perímetro.
+     */
+    bool colisao(coordenadas p) override {
+        return noInterior(p) || noPerimetro(p);
+    }
+
+    /**
+     * @brief Verifica se o ponto está dentro da área do retângulo.
+     * @param p Coordenadas a verificar.
+     * @return true se estiver no interior.
+     */
+    bool noInterior(const coordenadas &p) const override;
+
+    /**
+     * @brief Verifica se o ponto está exatamente no contorno do retângulo.
+     * @param p Coordenadas a verificar.
+     * @return true se estiver no perímetro.
+     */
+    bool noPerimetro(const coordenadas &p) const override;
+
+    /**
+     * @brief Retorna os quatro cantos do retângulo.
+     * @return Vetor com as coordenadas dos vértices.
+     */
+    std::vector<coordenadas> get_pontos() const override;
 };
-
-// Comentários futuros para as classes abaixo, se forem implementadas:
-//
-// class PoligonoHitbox: public Hitbox { ... }
-// class CurvaHitbox: public Hitbox { ... }
-// class FiguraHitbox: public Hitbox { ... }
-
 #endif

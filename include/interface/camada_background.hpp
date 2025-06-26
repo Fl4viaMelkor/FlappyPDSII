@@ -60,6 +60,14 @@ public:
      */
     void definirAlturaTela(int altura);
 
+    /**
+    * @brief Retorna a posição X atual da camada.
+     * @return A posição X.
+     */
+    float getPosicaoX() const {
+        return posicaoX_;
+    }
+
 private:
     float velocidade_;      ///< Velocidade de movimento horizontal da camada.
     float posicaoX_;        ///< Posição horizontal atual da camada.

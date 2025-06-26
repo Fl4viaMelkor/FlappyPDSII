@@ -96,6 +96,7 @@ int main()
                 if (jogo_ptr->acabouJogo()) {
                     // Pega a pontuação final da partida
                     int pontuacao = jogo_ptr->pontos;
+                    cout << "Pontuação: " << pontuacao << endl;
                     delete tela_atual;
 
                     tela_atual = new TelaCadastro(pontuacao, logger, LARGURA_JANELA, ALTURA_JANELA);
