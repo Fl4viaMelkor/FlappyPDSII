@@ -6,6 +6,7 @@
 Cano::Cano(float x, float largura, float abertura, float altura_tela,
            ALLEGRO_COLOR cor, float espessura, const std::string& sprite_path)
     : RetanguloHitbox({x, 0}, largura, altura_tela),
+      foiContado(false),
       m_x(x),
       m_largura(largura),
       m_espaco(abertura),
@@ -15,8 +16,8 @@ Cano::Cano(float x, float largura, float abertura, float altura_tela,
       m_color(cor),
       sprite(sprite_path, 1, 52, 320, 1.0f),
       hitboxTopo({0, 0}, 0, 0), // inicia vazio
-      hitboxBaixo({0, 0}, 0, 0), // inicia vazio
-      foiContado(false)
+      hitboxBaixo({0, 0}, 0, 0) // inicia vazio
+
 {
     std::srand(static_cast<unsigned>(time(nullptr)));
     int min_topo = 50;
