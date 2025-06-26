@@ -73,6 +73,9 @@ public:
      */
     float getLargura() const { return m_largura; }
 
+    /// Indica se esse cano já contou ponto para o jogador.
+    bool foiContado;
+
 private:
     /// Posição X do cano.
     float m_x;
@@ -103,9 +106,6 @@ private:
 
     /// Hitbox do cano inferior (normal).
     RetanguloHitbox hitboxBaixo;
-
-    /// Indica se esse cano já contou ponto para o jogador.
-    bool foiContado;
 
     /**
      * @brief Atualiza as posições das hitboxes do cano superior e inferior.

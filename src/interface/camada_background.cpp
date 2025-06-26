@@ -32,12 +32,15 @@ CamadaBackground::CamadaBackground(const string &caminhoTextura,
       alturaTela_(alturaTela),
       textura_(al_load_bitmap(caminhoTextura.c_str()))
 {
-    if (!textura_)
+    if (textura_)
     {
+        larguraTextura_ = al_get_bitmap_width(textura_);
+        alturaTextura_ = al_get_bitmap_height(textura_);
+    }
+    else{
         cerr << "Erro ao carregar bitmap: " << caminhoTextura << endl;
     }
-    larguraTextura_ = al_get_bitmap_width(textura_);
-    alturaTextura_ = al_get_bitmap_height(textura_);
+
 }
 
 /**
