@@ -10,7 +10,7 @@
 // Created By Flávia
 
 Player::Player(const std::string &filename, float x, float y, float speed, float width, float height)
-  : RetanguloHitboxAbstract({ x, y }, width, height)
+  : RetanguloHitbox({ x, y }, width, height)
   , sprite(nullptr)
   , velY(0)
   , speed(speed)
